@@ -1,0 +1,152 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+header {
+  background: #f8f8f8;
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin-left: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+}
+
+.donate-button {
+  background: #555;
+  color: white;
+  padding: 8px 12px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.hero {
+  background: #eee;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 1.8em;
+}
+
+.intro {
+  padding: 30px 20px;
+  background: #fff;
+  text-align: center;
+}
+
+.top-sections {
+  display: flex;
+  gap: 20px;
+  padding: 40px 0;
+}
+
+.card {
+  background: #ccc;
+  padding: 20px;
+  flex: 1;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.latest {
+  padding: 40px 0;
+}
+
+.latest article {
+  background: #eee;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.cta {
+  background: #e0e0e0;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.cta a {
+  display: inline-block;
+  margin-top: 10px;
+  background: #444;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.newsletter {
+  text-align: center;
+  padding: 40px 20px;
+  background: #333;
+  color: white;
+}
+
+.newsletter form {
+  margin-top: 15px;
+}
+
+.newsletter input[type="email"] {
+  padding: 10px;
+  width: 250px;
+  max-width: 80%;
+  border: none;
+  border-radius: 5px;
+}
+
+.newsletter button {
+  padding: 10px 15px;
+  border: none;
+  background: #f1c40f;
+  color: black;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.social {
+  background: #f4f4f4;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.partners {
+  background: #fff;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .top-sections {
+    flex-direction: column;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+}

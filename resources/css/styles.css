@@ -1,8 +1,13 @@
+/* ===================================
+   Base & Global Styles
+=================================== */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   line-height: 1.6;
   color: #333;
+  background-color: #f9f9f9;
+  scroll-behavior: smooth;
 }
 
 .container {
@@ -11,6 +16,9 @@ body {
   margin: auto;
 }
 
+/* ===================================
+   Header & Navigation
+=================================== */
 header {
   background: #f8f8f8;
   padding: 20px 0;
@@ -44,6 +52,9 @@ nav a {
   margin-right: 20px;
 }
 
+/* ===================================
+   Homepage Sections
+=================================== */
 .hero {
   background: #eee;
   padding: 60px 20px;
@@ -140,6 +151,7 @@ nav a {
   text-align: center;
 }
 
+/* Responsive layout tweaks */
 @media (max-width: 768px) {
   .top-sections {
     flex-direction: column;
@@ -148,5 +160,153 @@ nav a {
   nav ul {
     flex-direction: column;
     align-items: center;
+  }
+}
+
+/* ===================================
+   Wildlife Page Styles
+=================================== */
+.main-content {
+  flex: 3;
+  padding-right: 40px;
+}
+
+.sidebar {
+  flex: 1;
+  position: sticky;
+  top: 20px;
+  align-self: flex-start;
+}
+
+.contents-box {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 6px;
+}
+
+.contents-box h3 {
+  margin-top: 0;
+}
+
+.contents-box ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.contents-box li {
+  margin: 8px 0;
+}
+
+.contents-box a {
+  text-decoration: none;
+  color: #0077aa;
+}
+
+.contents-box a:hover {
+  text-decoration: underline;
+}
+
+.accordion-section {
+  margin-bottom: 16px;
+}
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 12px 16px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.accordion:hover,
+.accordion.active {
+  background-color: #ccc;
+}
+
+.panel {
+  background-color: #fff;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-out;
+  padding: 0 16px;
+  border-left: 3px solid #ccc;
+  border-radius: 0 0 4px 4px;
+}
+
+.panel p {
+  padding: 10px 0;
+}
+
+.container.main {
+  display: flex;
+  gap: 40px;
+}
+
+/* Wildlife two-column layout */
+.container.main {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.main-content {
+  flex: 3;
+}
+
+.toc {
+  flex: 1;
+  max-width: 280px;
+}
+
+.contents-box {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 6px;
+  position: sticky;
+  top: 20px;
+}
+
+.contents-box h3 {
+  margin-top: 0;
+}
+
+.contents-box ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.contents-box li {
+  margin: 8px 0;
+}
+
+.contents-box a {
+  text-decoration: none;
+  color: #0077aa;
+}
+
+.contents-box a:hover {
+  text-decoration: underline;
+}
+
+/* Accordion remains unchanged */
+
+@media (max-width: 768px) {
+  .container.main {
+    flex-direction: column;
+  }
+
+  .toc {
+    max-width: 100%;
+    margin-top: 20px;
   }
 }

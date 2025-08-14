@@ -1,18 +1,22 @@
-<!DOCTYPE html>
-<html lang="en-GB">
+<!doctype html>
+<html lang="en-GB" class="no-js">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Donate – Jacob Smith Park</title>
-  <link rel="stylesheet" href="resources/css/styles.css" />
+  <link rel="stylesheet" href="resources/css/styles-a.css">
+  <meta name="description" content="Support Jacob Smith Park with a donation to help preserve wildlife, maintain facilities, and fund conservation projects.">
+  <script>document.documentElement.classList.replace('no-js','js');</script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-  <header>
-    <div class="container">
-      <h1>Jacob Smith Park</h1>
-      <nav aria-label="Main navigation">
-        <ul>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <h1 class="site-title"><a href="index.html">Jacob Smith Park</a></h1>
+      <nav class="site-nav" aria-label="Main navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">☰</button>
+        <ul id="primary-nav" class="nav-list" hidden>
           <li><a href="index.html">Home</a></li>
           <li><a href="visiting.html">Visiting</a></li>
           <li><a href="about.html">About Us</a></li>
@@ -26,63 +30,67 @@
     </div>
   </header>
 
-  <main class="container">
-    <section class="page-header">
-      <h2>Support the Park</h2>
-      <p>Your donation helps protect, maintain, and enhance Jacob Smith Park for future generations.</p>
+  <main id="main">
+    <section class="page-header hero">
+      <div class="container">
+        <h2>Support the Park</h2>
+        <p>Your donation helps protect, maintain, and enhance Jacob Smith Park for future generations of people and wildlife.</p>
+      </div>
     </section>
 
-    <section class="donate-why">
-      <h3>Why Donate?</h3>
-      <p>
-        Jacob Smith Park is a vital green space for people and wildlife in Knaresborough. As a community-supported space, donations are essential to:
-      </p>
+    <section class="container donate-why">
+      <h3>Why Your Support Matters</h3>
+      <p>Jacob Smith Park is a cherished green space at the heart of Knaresborough. With no entrance fees, we rely on the generosity of people like you to keep it thriving. Your donations help us to:</p>
       <ul>
         <li>Preserve and restore wildlife habitats</li>
-        <li>Maintain paths, benches, and facilities</li>
+        <li>Maintain paths, benches, and visitor facilities</li>
         <li>Provide educational signage and events</li>
         <li>Fund volunteer projects and conservation work</li>
       </ul>
-      <p>Even small contributions go a long way in helping us care for this precious space.</p>
+      <p>Even a small gift goes a long way in helping us care for this precious place.</p>
     </section>
 
-    <section class="donate-how">
-      <h3>How to Donate</h3>
-      <p>There are several easy ways to support the park:</p>
-      <ul>
-        <li>
-          <strong>Online Donation:</strong><br>
-          Donate securely via our <a href="https://example.com/donate-form" target="_blank" rel="noopener">online donation page</a>.
-        </li>
-        <li>
-          <strong>Bank Transfer:</strong><br>
-          Account Name: Friends of Jacob Smith Park<br>
-          Sort Code: 12-34-56<br>
-          Account Number: 12345678<br>
-          Reference: Your Name (optional)
-        </li>
-        <li>
-          <strong>In Person:</strong><br>
-          Drop off donations at our next event or use the donation box at the main entrance.
-        </li>
-        <li>
-          <strong>Gift Aid:</strong><br>
-          If you're a UK taxpayer, please tick the Gift Aid box during your donation — it adds 25% at no cost to you.
-        </li>
-      </ul>
+    <section class="container donate-how">
+      <h3>Ways to Donate</h3>
+      <div class="donate-options">
+        <article>
+          <h4>Online</h4>
+          <p>Make a secure donation via our <a href="https://example.com/donate-form" target="_blank" rel="noopener">online donation page</a>.</p>
+        </article>
+        <article>
+          <h4>Bank Transfer</h4>
+          <p>
+            Account Name: Friends of Jacob Smith Park<br>
+            Sort Code: 12-34-56<br>
+            Account Number: 12345678<br>
+            Reference: Your Name (optional)
+          </p>
+        </article>
+        <article>
+          <h4>In Person</h4>
+          <p>Drop off donations at our next event or use the secure donation box by the main entrance.</p>
+        </article>
+        <article>
+          <h4>Gift Aid</h4>
+          <p>If you’re a UK taxpayer, ticking the Gift Aid box means we can claim an extra 25% — at no cost to you.</p>
+        </article>
+      </div>
     </section>
 
-    <section class="cta">
-      <p>Thank you for helping us nurture and protect Jacob Smith Park.</p>
-      <a class="donate-button" href="https://example.com/donate-form" target="_blank" rel="noopener">Donate Now</a>
+    <section class="cta highlight">
+      <div class="container text-center">
+        <p><strong>Thank you</strong> for helping us nurture and protect Jacob Smith Park for everyone to enjoy.</p>
+        <a class="donate-button" href="https://example.com/donate-form" target="_blank" rel="noopener">Donate Now</a>
+      </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2025 Jacob Smith Park. All rights reserved.</p>
+      <p>&copy; <span id="year"></span> Jacob Smith Park. All rights reserved.</p>
     </div>
   </footer>
 
+  <script src="resources/js/main.js" defer></script>
 </body>
 </html>

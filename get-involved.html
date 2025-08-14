@@ -1,97 +1,121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-GB">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Get Involved – Jacob Smith Park</title>
-  <link rel="stylesheet" href="resources/css/styles.css" />
+  <link rel="stylesheet" href="resources/css/styles.css">
 </head>
 <body>
 
-  <header>
-    <div class="container">
-      <h1>Jacob Smith Park</h1>
-      <nav aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="visiting.html">Visiting</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="wildlife.html">Wildlife</a></li>
-          <li><a href="history.html">History</a></li>
-          <li><a href="get-involved.html" aria-current="page">Get Involved</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="donate.html">Donate</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <h1 class="site-title"><a href="index.html">Jacob Smith Park</a></h1>
+    <nav class="site-nav" aria-label="Main navigation">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰</button>
+      <ul id="primary-nav" class="nav-list" hidden>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="visiting.html">Visiting</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="wildlife.html">Wildlife</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="get-involved.html" aria-current="page">Get Involved</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="donate-button" href="donate.html">Donate</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <main class="container">
-    <section class="page-header">
+<main id="main">
+
+  <section class="page-header hero">
+    <div class="container">
       <h2>Get Involved</h2>
-      <p>Join our community, stay informed, and help shape the future of Jacob Smith Park.</p>
-    </section>
-
-    <section class="events">
-      <h3>Upcoming Events</h3>
-      <ul>
-        <li>
-          <strong>Park Clean-Up Day</strong> – Saturday 22 June, 10am<br>
-          <small>Meet at the main gate. All equipment provided.</small>
-        </li>
-        <li>
-          <strong>Evening Bat Walk</strong> – Friday 12 July, 8:30pm<br>
-          <small>Led by local wildlife expert Jenny Clarke. Free to attend.</small>
-        </li>
-      </ul>
-    </section>
-
-    <section class="news">
-      <h3>Latest News</h3>
-      <article>
-        <time datetime="2025-06-01">1 June 2025</time>
-        <p>Our new signage project is underway! You'll soon see improved trail maps and educational panels throughout the park.</p>
-      </article>
-      <article>
-        <time datetime="2025-05-15">15 May 2025</time>
-        <p>Thanks to all who helped during the recent meadow planting day. The pollinators are already enjoying it!</p>
-      </article>
-    </section>
-
-    <section class="projects">
-      <h3>Current Projects</h3>
-      <ul>
-        <li><strong>Butterfly Meadow Restoration:</strong> Aiming to increase biodiversity with native species.</li>
-        <li><strong>Bench Renewal Programme:</strong> Replacing old seating with accessible, eco-friendly designs.</li>
-        <li><strong>Story Trail for Families:</strong> Fundraising ongoing to create an interactive woodland trail.</li>
-      </ul>
-    </section>
-
-    <section class="sightings">
-      <h3>Recent Sightings</h3>
-      <p>We love hearing what you've seen in the park! Here’s what’s been spotted recently:</p>
-      <ul>
-        <li><strong>Red kite</strong> soaring near the west entrance – reported by Alex (16 June)</li>
-        <li><strong>Common spotted orchids</strong> in bloom near the stream – reported by Maya (14 June)</li>
-        <li><strong>Hedgehog tracks</strong> along the woodland path – reported by John (10 June)</li>
-      </ul>
-    </section>
-
-    <section class="notices">
-      <h3>Park Notices</h3>
-      <ul>
-        <li><strong>New Volunteer Day schedule</strong> released – sign up via our <a href="contact.html">contact page</a>.</li>
-        <li><strong>West gate path upgrade</strong> in progress – please follow diversions.</li>
-        <li><strong>Dogs on leads:</strong> Reminder that dogs must be on leads during nesting season (March–August).</li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Jacob Smith Park. All rights reserved.</p>
+      <p>The Friends of Jacob Smith Park are all volunteers dedicated to keeping our park special for everyone — people, plants, and wildlife alike.</p>
     </div>
-  </footer>
+  </section>
 
+  <section class="container intro-text">
+    <p>From maintaining oak benches and planting wildflowers, to pulling invasive balsam and creating wildlife habitats, our work helps ensure Jacob Smith Park remains a haven for nature and a peaceful place for visitors to enjoy. Whether you have a couple of hours to spare or can commit regularly, your time is always appreciated — and it really does make a difference.</p>
+  </section>
+
+  <!-- Image + text blocks -->
+  <section class="container two-col">
+    <div>
+      <img src="resources/images/volunteer-bench-oiling.jpg" alt="Volunteers oiling a wooden bench in the park">
+    </div>
+    <div>
+      <h3>Ongoing Care</h3>
+      <p>We carry out annual oiling of the oak benches, hand pulling balsam in early summer, and general tidying. These regular tasks help preserve the park for everyone to enjoy.</p>
+    </div>
+  </section>
+
+  <section class="container two-col">
+    <div>
+      <img src="resources/images/cubs-planting.jpg" alt="Local cubs helping plant wildflowers in Jacob Smith Park">
+    </div>
+    <div>
+      <h3>One-off Projects</h3>
+      <p>We also take on larger projects such as tree planting, sowing wildflowers, and adding new benches. These projects often involve local community groups, like the Cubs pictured here helping plant in our wildflower project.</p>
+    </div>
+  </section>
+
+  <section class="container two-col">
+    <div>
+      <img src="resources/images/volunteers-hay.jpg" alt="Volunteers raking hay in a meadow">
+    </div>
+    <div>
+      <h3>Seasonal Work</h3>
+      <p>From meadow raking to pond restoration, our seasonal work changes throughout the year, following the needs of the park and its wildlife.</p>
+    </div>
+  </section>
+
+  <!-- Volunteering days -->
+  <section class="container callout">
+    <h3>Regular Volunteering Days</h3>
+    <p>We meet on the first Wednesday of every month between March and October, from 10am to midday. Meet just inside the park gate — no booking required. Wear sturdy footwear and bring gloves if you have them. All tasks are optional, so you can choose what you’d like to get involved in.</p>
+  </section>
+
+  <!-- Current projects -->
+  <section class="container">
+    <h3>Current Projects</h3>
+    <article>
+      <h4>Wildflowers Project</h4>
+      <p>Launched in 2024, this project increases the range of native plants to support pollinators and wildlife. We’re planting species like yellow rattle, garlic mustard, red campion, knapweed, and birds-foot trefoil, alongside native shrubs such as alder buckthorn and spindle.</p>
+    </article>
+    <article>
+      <h4>Boot Scraper</h4>
+      <p>To keep paths and boots cleaner in winter, we’ll be installing a new boot scraper at the main entrance before winter 2025/26.</p>
+    </article>
+    <article>
+      <h4>Balsam Management</h4>
+      <p>Himalayan balsam is invasive and crowds out native species. We’re continuing control efforts with hoeing in spring and hand pulling in summer to prevent seed spread.</p>
+    </article>
+  </section>
+
+  <!-- Recent projects -->
+  <section class="container">
+    <h3>Recent Projects</h3>
+    <ul>
+      <li>Seven new oak benches added.</li>
+      <li>12 new bat, owl and bird boxes installed.</li>
+      <li>Three-year programme to reduce balsam to manageable levels.</li>
+      <li>New information board at the park entrance.</li>
+      <li>Planted over 300 trees and 200 shrubs/plugs.</li>
+      <li>Hosted “Talks in the Park” with local experts.</li>
+      <li>Renovated ponds and replaced broken fencing around veteran trees.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <span id="year"></span> Jacob Smith Park. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="resources/js/main.js" defer></script>
 </body>
 </html>

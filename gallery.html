@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery – Jacob Smith Park</title>
+  <link rel="stylesheet" href="resources/css/styles.css">
+  <style>
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px 20px;
+    }
+
+    .gallery-grid figure {
+      margin: 0;
+      text-align: center;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .gallery-grid figcaption {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Jacob Smith Park</h1>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="visiting.html">Visiting</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="wildlife.html">Wildlife</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+          <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a class="donate-nav" href="donate.html">Donate</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-header">
+      <h2>Park Gallery</h2>
+      <p>A glimpse of the beauty, wildlife, and community spirit of Jacob Smith Park.</p>
+    </section>
+
+    <section class="gallery-grid">
+      <figure>
+        <img src="resources/images/gallery/pathway.jpg" alt="Shaded pathway through the woods">
+        <figcaption>Peaceful woodland trail</figcaption>
+      </figure>
+      <figure>
+        <img src="resources/images/gallery/bluebells.jpg" alt="Bluebells blooming in spring">
+        <figcaption>Spring bluebells</figcaption>
+      </figure>
+      <figure>
+        <img src="resources/images/gallery/birdwatching.jpg" alt="Visitor birdwatching by the meadow">
+        <figcaption>Birdwatching in action</figcaption>
+      </figure>
+      <figure>
+        <img src="resources/images/gallery/meadow.jpg" alt="Wildflower meadow at sunset">
+        <figcaption>Evening light over the meadow</figcaption>
+      </figure>
+      <!-- Add more as needed -->
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Jacob Smith Park. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const images = document.querySelectorAll(".gallery-grid img");
+      images.forEach(img => {
+        img.style.cursor = "pointer";
+        img.addEventListener("click", () => {
+          const src = img.getAttribute("src");
+          const lightbox = document.createElement("div");
+          lightbox.style.position = "fixed";
+          lightbox.style.top = 0;
+          lightbox.style.left = 0;
+          lightbox.style.width = "100vw";
+          lightbox.style.height = "100vh";
+          lightbox.style.background = "rgba(0,0,0,0.8)";
+          lightbox.style.display = "flex";
+          lightbox.style.alignItems = "center";
+          lightbox.style.justifyContent = "center";
+          lightbox.innerHTML = `<img src="${src}" style="max-width: 90%; max-height: 80%; border-radius: 8px;" />`;
+          lightbox.addEventListener("click", () => document.body.removeChild(lightbox));
+          document.body.appendChild(lightbox);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+

@@ -1,18 +1,29 @@
-<!DOCTYPE html>
-<html lang="en-GB">
+<!-- index-option-a.html -->
+<!doctype html>
+<html lang="en-GB" class="no-js">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jacob Smith Park</title>
-  <link rel="stylesheet" href="resources/css/styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Jacob Smith Park — Community Green Space in Knaresborough</title>
+  <meta name="description" content="A tranquil wildlife haven in Knaresborough with rich history. Plan a visit, discover local wildlife, and get involved.">
+  <link rel="stylesheet" href="resources/css/styles-a.css">
+  <meta property="og:title" content="Jacob Smith Park">
+  <meta property="og:description" content="Our precious community green spaces in Knaresborough.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:image" content="resources/img/meadow.jpg">
+  <meta name="theme-color" content="#2f4f4f">
+  <script>document.documentElement.classList.replace('no-js','js');</script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-  <header>
-    <div class="container">
-      <h1>Jacob Smith Park</h1>
-      <nav aria-label="Main navigation">
-        <ul>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <h1 class="site-title"><a href="index-option-a.html">Jacob Smith Park</a></h1>
+      <nav class="site-nav" aria-label="Main navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">☰</button>
+        <ul id="primary-nav" class="nav-list" hidden>
           <li><a href="index.html" aria-current="page">Home</a></li>
           <li><a href="visiting.html">Visiting</a></li>
           <li><a href="about.html">About Us</a></li>
@@ -20,69 +31,127 @@
           <li><a href="history.html">History</a></li>
           <li><a href="get-involved.html">Get Involved</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="donate.html">Donate</a></li>
+          <li class="nav-cta"><a class="donate-button" href="donate.html">Donate</a></li>
         </ul>
       </nav>
-      <a class="donate-button" href="#">Donate</a>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <p>Welcome to</p>
-      <h2>Our precious community green spaces in Knaresborough.</h2>
-    </section>
-
-    <section class="intro">
-      <p>
-        A beautiful and tranquil wildlife haven, of huge value as a recreational space and a site of enormous historical value.
-        <a href="#">Read more</a>.
-      </p>
-    </section>
-
-    <section class="top-sections container">
-      <div class="card">
-        <h3>Planning a visit</h3>
-        <p>How to find us and what to do</p>
-      </div>
-      <div class="card">
-        <h3>Discover</h3>
-        <p>Learn about the unique wildlife and plant life of the park</p>
-      </div>
-      <div class="card">
-        <h3>The history</h3>
-        <p>Discover the amazing donation that made the park possible</p>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <p class="eyebrow">Welcome to</p>
+        <h2 id="hero-title">Our precious community green spaces in Knaresborough.</h2>
       </div>
     </section>
 
-    <section class="latest container">
-      <h2>Latest</h2>
-      <article>
-        <time datetime="2023-03-28">28th March 2023</time>
-        <h3>Help needed</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </article>
+    <section class="intro" aria-labelledby="intro-title">
+      <div class="container">
+        <h2 id="intro-title" class="visually-hidden">About the park</h2>
+        <p>
+          A beautiful and tranquil wildlife haven, of huge value as a recreational space and a site of enormous historical value.
+          <a href="about.html">Read more about the park</a>.
+        </p>
+      </div>
     </section>
 
-    <section class="cta">
-      <p>Could you help maintain, nurture and protect the park?</p>
-      <a href="#" role="button">Get involved</a>
+    <!-- OPTION A: Story + Collage -->
+    <section class="about-park" aria-labelledby="about-park-title">
+      <div class="container about-wrap">
+        <div class="about-text">
+          <h2 id="about-park-title">About Jacob Smith Park</h2>
+          <p><strong>Jacob Smith Park (JSP)</strong> is a 30‑acre green space in Scriven, close to the centre of Knaresborough. It was generously bequeathed to the community by <strong>Winifred Jacob Smith MBE</strong>, following her death in 2003.</p>
+          <p>It was Miss Jacob Smith’s wish that the park should be opened for all generations to enjoy “the freedom and beauty that public parks bring” and she specified a few restrictions to limit the development of the park and keep it a natural space.</p>
+          <p>JSP is a managed wild space with a wide variety of habitats and wildlife to enjoy as you walk around. It is a tranquil space to spend time with friends or to simply relax on a bench and enjoy the peaceful surroundings. There is also an open space where children can enjoy playing ball games, flying a kite or running around.</p>
+          <p class="about-closing">Whatever the reason for your visit, we hope you enjoy this lovely green space as Miss Jacob Smith wished.</p>
+
+          <figure class="about-quote">
+            <blockquote>
+              <p>“the freedom and beauty that public parks bring”</p>
+            </blockquote>
+            <figcaption>— Winifred Jacob Smith MBE</figcaption>
+          </figure>
+        </div>
+
+        <div class="about-collage">
+          <figure>
+            <img src="resources/img/meadow.jpg" alt="Wide meadow with scattered trees at Jacob Smith Park" loading="lazy" width="900" height="700">
+            <figcaption class="visually-hidden">Summer meadow</figcaption>
+          </figure>
+          <figure>
+            <img src="resources/img/avenue-autumn.jpg" alt="Golden leaves along a tree-lined path in autumn" loading="lazy" width="464" height="348">
+            <figcaption class="visually-hidden">Autumn avenue</figcaption>
+          </figure>
+          <figure>
+            <img src="resources/img/path-spring.jpg" alt="Narrow pathway under fresh green leaves in spring" loading="lazy" width="703" height="469">
+            <figcaption class="visually-hidden">Spring path</figcaption>
+          </figure>
+        </div>
+      </div>
     </section>
 
-    <section class="newsletter container">
-      <h2>Stay in touch</h2>
-      <form action="/subscribe" method="post">
-        <input type="email" placeholder="Your email" required />
-        <button type="submit">Sign Up</button>
-      </form>
+    <section class="top-sections">
+      <div class="container cards">
+        <article class="card">
+          <h3>Planning a visit</h3>
+          <p>How to find us and what to do</p>
+          <p><a class="card-link" href="visiting.html">Plan your visit</a></p>
+        </article>
+        <article class="card">
+          <h3>Discover</h3>
+          <p>Learn about the unique wildlife and plant life of the park</p>
+          <p><a class="card-link" href="wildlife.html">Explore wildlife</a></p>
+        </article>
+        <article class="card">
+          <h3>The history</h3>
+          <p>Discover the amazing donation that made the park possible</p>
+          <p><a class="card-link" href="history.html">Read the history</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="latest" aria-labelledby="latest-title">
+      <div class="container">
+        <h2 id="latest-title">Latest</h2>
+        <article class="post">
+          <header class="post-header">
+            <h3 class="post-title">Help needed</h3>
+            <time datetime="2023-03-28" class="post-date">28 March 2023</time>
+          </header>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p><a href="news/help-needed.html" aria-label="Read more: Help needed">Read more</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 id="cta-title">Could you help maintain, nurture and protect the park?</h2>
+        <p><a class="button" href="get-involved.html">Get involved</a></p>
+      </div>
+    </section>
+
+    <section class="newsletter" aria-labelledby="newsletter-title">
+      <div class="container">
+        <h2 id="newsletter-title">Stay in touch</h2>
+        <form id="newsletter-form" action="/subscribe" method="post" novalidate>
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+          </div>
+          <button type="submit" class="button alt">Sign up</button>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2025 Jacob Smith Park. All rights reserved.</p>
+      <p>&copy; <span id="year"></span> Jacob Smith Park. All rights reserved.</p>
     </div>
   </footer>
 
+  <script src="resources/js/main.js" defer></script>
 </body>
 </html>

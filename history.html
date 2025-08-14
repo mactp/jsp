@@ -1,18 +1,23 @@
-<!DOCTYPE html>
-<html lang="en-GB">
+<!doctype html>
+<html lang="en-GB" class="no-js">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>History – Jacob Smith Park</title>
-  <link rel="stylesheet" href="resources/css/styles.css" />
+  <link rel="stylesheet" href="resources/css/styles.css">
+  <meta name="description" content="From ancient landscape to modern community gift: the history of Jacob Smith Park, Scriven, Knaresborough.">
+  <script>document.documentElement.classList.replace('no-js','js');</script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-  <header>
-    <div class="container">
-      <h1>Jacob Smith Park</h1>
-      <nav aria-label="Main navigation">
-        <ul>
+  <!-- Shared header/nav -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <h1 class="site-title"><a href="index.html">Jacob Smith Park</a></h1>
+      <nav class="site-nav" aria-label="Main navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">☰</button>
+        <ul id="primary-nav" class="nav-list" hidden>
           <li><a href="index.html">Home</a></li>
           <li><a href="visiting.html">Visiting</a></li>
           <li><a href="about.html">About Us</a></li>
@@ -20,53 +25,287 @@
           <li><a href="history.html" aria-current="page">History</a></li>
           <li><a href="get-involved.html">Get Involved</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="donate.html">Donate</a></li>
+          <li><a class="donate-button" href="donate.html">Donate</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container">
+  <main id="main" class="container">
+
+    <!-- Hero -->
     <section class="page-header">
       <h2>The History of Jacob Smith Park</h2>
-      <p>Discover the story of this special place — from ancient roots to modern preservation.</p>
+      <p>From ancient landscape and medieval farming to wartime training and a modern-day gift to the community.</p>
     </section>
 
-    <section class="donation">
-      <h3>The Gift of Land</h3>
-      <p>Jacob Smith Park was generously donated to the people of Knaresborough by Winifred Jacob Smith in 2003, in memory of her father, Jacob Smith. She wished to preserve the land as a place of peace, nature and public benefit.</p>
-      <p>The donation came with the condition that the space be maintained for public use and protected from development — a vision that continues to shape the park’s management today.</p>
+    <!-- Archaeology & landscape -->
+    <section class="history-intro">
+      <h3>A Brief History of the Park</h3>
+      <p><em>by Kevin Earl</em></p>
+      <p>A research study has revealed that Jacob Smith Park holds significant local archaeological importance and is a relic of a much older landscape associated with the village of Scriven.</p>
+
+      <div class="history-collage">
+        <figure>
+          <a class="lightbox-trigger" href="resources/images/history/meadow-wide.jpg">
+            <img src="resources/images/history/meadow-wide.jpg" alt="Open meadows and trees looking across the park">
+          </a>
+          <figcaption>Scriven Park landscape today</figcaption>
+        </figure>
+
+        <figure>
+          <a class="lightbox-trigger" href="resources/images/history/ancient-oak.jpg">
+            <img src="resources/images/history/ancient-oak.jpg" alt="Veteran oak with sprawling limbs">
+          </a>
+          <figcaption>Veteran oaks—some possibly 400–500 years old</figcaption>
+        </figure>
+
+        <figure>
+          <a class="lightbox-trigger" href="resources/images/history/old-map.jpg">
+            <img src="resources/images/history/old-map.jpg" alt="Historic map showing Scriven Park and surrounding features">
+          </a>
+          <figcaption>Historic mapping of Scriven &amp; the estate</figcaption>
+        </figure>
+      </div>
+
+      <p>The Claro Community Archaeology Group (Knaresborough) published findings in 2013 in <em>The Chronicles of Scriven</em>. Low Wood at the western edge of the park was planted as part of 18th‑century landscaping by the Slingsby family. Their estate wall still runs along Scriven Road and Scotch George Lane. Scriven Hall, overlooking the park, was demolished in 1954 after a fire.</p>
+
+      <aside class="callout note" role="note">
+        <strong>Archaeology:</strong> Guiseley Hill at the top of the park is a possible Iron Age settlement with bank and ditch earthworks and traces of hut circles. No excavations have taken place; all remains are undisturbed.
+      </aside>
+
+      <div class="history-row">
+        <figure>
+          <a class="lightbox-trigger" href="resources/images/history/iron-age-drawing.jpg">
+            <img src="resources/images/history/iron-age-drawing.jpg" alt="Artist’s impression of an Iron Age settlement with roundhouses">
+          </a>
+          <figcaption>Iron Age settlement (artist’s impression). Credit: <em>Chronicles of Scriven</em>.</figcaption>
+        </figure>
+        <div>
+          <p>Ridge and furrow, evidence of medieval ploughing, can still be seen when the grass is short. A 1629 map shows a farmstead near Scotch George Lane. The ponds may relate to small‑scale iron smelting in the 16th–17th centuries and there is evidence of historic water management in the fields.</p>
+        </div>
+      </div>
     </section>
 
-    <section class="family-history">
-      <h3>The Jacob Smith Family</h3>
-      <p>The Smith family were long-time residents of the area and deeply involved in local affairs. Jacob Smith, a landowner and philanthropist, was known for his quiet generosity and love of nature.</p>
-      <p>Winifred, his daughter, preserved the spirit of her father’s legacy by transforming the family estate into a public sanctuary. Her vision was rooted in the belief that green spaces are essential to community wellbeing.</p>
+    <!-- Timeline: Scriven through time -->
+    <section class="history-timeline" aria-labelledby="timeline-title">
+      <h3 id="timeline-title">Scriven Through Time</h3>
+      <ol class="timeline">
+        <li>
+          <div class="t-dot"></div>
+          <h4>Medieval–Post‑Medieval</h4>
+          <p>Ridge &amp; furrow agriculture; estate development under the Slingsby family.</p>
+        </li>
+        <li>
+          <div class="t-dot"></div>
+          <h4>18th Century</h4>
+          <p>Landscaping of parkland and planting of Low Wood; construction of the estate wall along Scriven Road and Scotch George Lane.</p>
+        </li>
+        <li>
+          <div class="t-dot"></div>
+          <h4>1954</h4>
+          <p>Scriven Hall demolished following fire damage.</p>
+        </li>
+        <li>
+          <div class="t-dot"></div>
+          <h4>Second World War</h4>
+          <p>Park used for training tank crews and infantry while Scriven Hall served as an army camp.</p>
+        </li>
+        <li>
+          <div class="t-dot"></div>
+          <h4>Village Life</h4>
+          <p>The park also hosted the village cricket pitch in the early–mid 20th century.</p>
+        </li>
+        <li>
+          <div class="t-dot"></div>
+          <h4>1955–56</h4>
+          <p>After the estate was sold, sisters Winifred and Dorothy Jacob Smith purchased the 30 acres that later became the park for grazing their Ayrshire cattle.</p>
+        </li>
+        <li>
+          <div class="t-dot"></div>
+          <h4>2003–2008</h4>
+          <p>Winifred Jacob Smith MBE bequeathed the land to the public; Jacob Smith Park opened officially in 2008.</p>
+        </li>
+      </ol>
     </section>
 
-    <section class="historical-events">
-      <h3>Moments in Time</h3>
-      <ul>
-        <li><strong>1800s:</strong> The land forms part of a working estate, used for grazing and orchard cultivation.</li>
-        <li><strong>1940s:</strong> During WWII, local families used parts of the land for allotments.</li>
-        <li><strong>1960s:</strong> The surrounding area sees housing expansion, but the parkland remains untouched.</li>
-        <li><strong>2003:</strong> Official opening of Jacob Smith Park to the public after the donation.</li>
-        <li><strong>2020s:</strong> Ongoing conservation and community-led restoration projects flourish.</li>
-      </ul>
+    <!-- Wartime & local life -->
+    <section class="history-grid">
+      <article>
+        <h3>Training Ground in Wartime</h3>
+        <p>During WWII, Scriven Hall was requisitioned as an army camp and the park was used to train tank crews and infantry.</p>
+        <figure>
+          <a class="lightbox-trigger" href="resources/images/history/tank-track.jpg">
+            <img src="resources/images/history/tank-track.jpg" alt="Close-up of metal tank tracks and wheels">
+          </a>
+          <figcaption>Parkland used for military training in WWII.</figcaption>
+        </figure>
+      </article>
+
+      <article>
+        <h3>A Place for Sport</h3>
+        <p>The park doubled as the village cricket ground. Teams and spectators gathered here for matches and local events.</p>
+        <figure>
+          <a class="lightbox-trigger" href="resources/images/history/cricket-team.jpg">
+            <img src="resources/images/history/cricket-team.jpg" alt="Archive photo of a village cricket team">
+          </a>
+          <figcaption>Cricket on the park—local community and sport.</figcaption>
+        </figure>
+      </article>
     </section>
 
-    <section class="ancient-history">
-      <h3>Ancient Connections</h3>
-      <p>The land that now forms Jacob Smith Park has deeper roots than many realise. Historical records and archaeological surveys suggest that this area may once have formed part of a prehistoric route between river crossings.</p>
-      <p>Flint tools and pottery fragments have been found nearby, and local historians believe the parkland sits on what may once have been common grazing grounds or early field systems dating back to the medieval period or earlier.</p>
-    </section>
+<!-- Family who granted us the freedom of the park -->
+<section class="family-legacy" id="family">
+  <h3>History of the Family Who Granted Us the Freedom of the Park</h3>
+
+  <!-- Gift / quote -->
+  <aside class="quote-panel about-quote" role="note" aria-label="A gift to the community">
+    <p>“For people to enjoy the freedom and the beauty that public parks bring.”</p>
+    <footer>— Winifred Jacob Smith MBE</footer>
+  </aside>
+
+  <!-- Bio card -->
+  <article class="bio-card">
+    <figure class="bio-photo">
+      <a href="resources/images/history/jacob-smith-family.jpg" class="lightbox-trigger">
+        <img src="resources/images/history/jacob-smith-family.jpg" alt="Winifred, Dora and Dorothy Jacob Smith">
+      </a>
+      <figcaption class="muted">Ms Jacob Smith MBE — credit: Yorkshire Farming Museum</figcaption>
+    </figure>
+
+    <div class="bio-copy">
+      <h4>Winifred Jacob Smith MBE</h4>
+      <p>Winifred was born on <strong>4 August 1911</strong> to <strong>Dora</strong> and <strong>Jacob Smith</strong>, a farming family whose roots stretch back to <strong>1710</strong> at Humberton between Knaresborough and Boroughbridge, including farms on the Newby Hall Estate at Givendale and at Burton Grange.</p>
+      <p>Traditionally the first son in each generation was named <em>Jacob</em>. With daughters Winifred and Dorothy, their father wove the name into the family surname so the tradition lived on. Dora was president of the Knaresborough Women’s Institute and, along with her daughters, played a leading role in the farm and community.</p>
+    </div>
+  </article>
+
+  <p>The Jacob Smith family’s story is an important part of Knaresborough’s history. The timeline below highlights milestones in the lives of one of the town’s most respected families.</p>
+
+  <!-- Family timeline -->
+  <ol class="timeline">
+    <li>
+      <div class="t-dot"></div>
+      <h5>18 May 1910</h5>
+      <p>Dorothy Smith is born.</p>
+    </li>
+    <li>
+      <div class="t-dot"></div>
+      <h5>4 August 1911</h5>
+      <p>Winifred Smith is born.</p>
+    </li>
+    <li>
+      <div class="t-dot"></div>
+      <h5>c.1920 (post‑WWI)</h5>
+      <p>The family moves to Knaresborough; Jacob takes over Park Corner Farm, Scriven.</p>
+    </li>
+    <li>
+      <div class="t-dot"></div>
+      <h5>1937</h5>
+      <p>At the WI, Winifred meets Lady Celia Coates—asked to look after the Women’s Land Army should war break out.</p>
+    </li>
+    <li>
+      <div class="t-dot"></div>
+      <h5>1938</h5>
+      <p>Winifred &amp; Dorothy publish a local recipe book to raise funds for the parish church.</p>
+    </li>
+    <li>
+      <div class="t-dot"></div>
+      <h5>Sept 1939–1945</h5>
+      <p>Winifred (age 28) joins the <strong>Women’s Land Army</strong> and becomes organiser for North Yorkshire, later all Yorkshire—keeping detailed diaries and editing the monthly WLA <em>Bulletin</em>.</p>
+    </li>
+    <li>
+      <div class="t-dot"></div>
+      <h5>Dec 1941</h5>
+      <p>Jacob (father) dies aged 74; Winifred &amp; Dorothy run the dairy enterprise at Park Corner Farm with their pedigree Ayrshire herd.</p>
+    </li>
+    <li>
+      <div class="t-dot"></div>
+      <h5>28 Feb 1951</h5>
+      <p>Winifred is awarded the <strong>MBE</strong> for her WLA service at Buckingham Palace.</p>
+    </li>
+    <li>
+      <div class="t-dot"></div>
+      <h5>1965</h5>
+      <p>Winifred &amp; Dorothy purchase <strong>30 acres of Scriven Park</strong> (previously leased) to graze their cattle.</p>
+    </li>
+    <li>
+      <div class="t-dot"></div>
+      <h5>1974–1984</h5>
+      <p>Dora dies aged 100 (1974); Dorothy dies aged 73 (1984).</p>
+    </li>
+    <li>
+      <div class="t-dot"></div>
+      <h5>23 May 2003</h5>
+      <p>Winifred Jacob Smith MBE dies aged 91. Park bequeathed for public enjoyment; major legacy to <strong>Yorkshire Cancer Research</strong>.</p>
+    </li>
+    <li>
+      <div class="t-dot"></div>
+      <h5>January 2008</h5>
+      <p><strong>Jacob Smith Park</strong> (formerly Scriven Park) officially opens to the public.</p>
+    </li>
+    <li>
+      <div class="t-dot"></div>
+      <h5>2010</h5>
+      <p><em>Somerley</em>, the family home, is demolished after falling into disrepair; Somerley Lane now marks the site.</p>
+    </li>
+  </ol>
+
+  <!-- Gallery: WLA & family artifacts (optional images, lightbox-ready) -->
+  <div class="image-grid family-grid">
+    <a class="lightbox-trigger" href="resources/images/history/wla-uniforms.jpg">
+      <img src="resources/images/history/wla-uniforms.jpg" alt="Women’s Land Army uniforms and memorabilia on display">
+    </a>
+    <a class="lightbox-trigger" href="resources/images/history/recipe-book.jpg">
+      <img src="resources/images/history/recipe-book.jpg" alt="Cover of local recipe book published by Winifred and Dorothy">
+    </a>
+    <a class="lightbox-trigger" href="resources/images/history/somerley-house.jpg">
+      <img src="resources/images/history/somerley-house.jpg" alt="The family home, Somerley, Boroughbridge Road">
+    </a>
+  </div>
+
+  <!-- Newspaper clippings -->
+  <section class="archives" aria-labelledby="archives-title">
+    <h4 id="archives-title">Knaresborough Post — Archive Extracts</h4>
+
+    <details class="archive">
+      <summary><time datetime="1940-03-16">16 March 1940</time> — WLA reception by the Queen</summary>
+      <p>Miss Winifred Jacob Smith … selected as one of the Women’s Land Army representatives to attend a reception by the Queen in London. Miss Smith has been acting as secretary for the North Riding branch of the Land Army.</p>
+    </details>
+
+    <details class="archive">
+      <summary><time datetime="1940-06-15">15 June 1940</time> — Wartime cookery lectures</summary>
+      <p>Miss Dorothy Jacob Smith delivers free wartime cookery classes to packed audiences at the WI and the Modern School, demonstrating nourishing dishes without rationed foods.</p>
+    </details>
+
+    <details class="archive">
+      <summary><time datetime="1940-10-12">12 October 1940</time> — School potato‑picking</summary>
+      <p>Pupils assist local farmers with the potato harvest at Scriven and Hopewell House; Mr Jacob Smith praises their efforts.</p>
+    </details>
+
+    <details class="archive">
+      <summary><time datetime="1941-05-10">10 May 1941</time> — Services Club &amp; Canteen</summary>
+      <p>Miss Dorothy Jacob Smith appointed assistant organiser; committee funds support local regiments.</p>
+    </details>
+  </section>
+
+  <p class="muted smallprint">We are indebted to the sources listed at the end of this page for their help in compiling this information.</p>
+</section>
+
   </main>
 
-  <footer>
+  <!-- Lightbox overlay (reuses same CSS/JS as other pages) -->
+  <div id="lightbox-overlay">
+    <button class="close-btn" aria-label="Close image view">✕ Close</button>
+    <img id="lightbox-image" src="" alt="">
+  </div>
+
+  <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2025 Jacob Smith Park. All rights reserved.</p>
+      <p>&copy; <span id="year"></span> Jacob Smith Park. All rights reserved.</p>
     </div>
   </footer>
 
+ <script src="resources/js/main.js" defer></script>
 </body>
 </html>

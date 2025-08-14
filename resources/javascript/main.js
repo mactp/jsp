@@ -1,14 +1,13 @@
-// resources/js/main.js
 document.addEventListener('DOMContentLoaded', () => {
-  /* ------------------------------
+  /* ---------------------------------
    * 1) Footer year
-   * ------------------------------ */
+   * --------------------------------- */
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  /* ------------------------------
+  /* ---------------------------------
    * 2) Accessible nav toggle
-   * ------------------------------ */
+   * --------------------------------- */
   var toggle = document.querySelector('.nav-toggle');
   var menu = document.getElementById('primary-nav');
 
@@ -40,9 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ------------------------------
+  /* ---------------------------------
    * 3) Newsletter quick validation
-   * ------------------------------ */
+   * --------------------------------- */
   var form = document.getElementById('newsletter-form');
   var status = document.getElementById('form-status');
   if (form && status) {
@@ -60,14 +59,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ------------------------------
-   * 4) Unified Lightbox
+  /* ---------------------------------
+   * 4) Universal Lightbox
    *    Works for:
-   *    a) <a class="lightbox-trigger" href="full.jpg"><img …></a>
-   *    b) Any .two-col img (click to open)
-   * ------------------------------ */
+   *     - <a class="lightbox-trigger" href="full.jpg"><img ...></a>
+   *     - Any .two-col img (Get Involved)
+   *     - Any .image-grid a (Wildlife galleries)
+   * --------------------------------- */
 
-  // Reuse overlay if present; otherwise create one.
+  // Build a list of clickable targets
+  var lbTargets = Array.prototype.slice.call(
+    document.querySelectorAll(
+      '.lightbox-trigger, .two-col img, .image-grid a'
+    )
+  );
+
+  if (!lbTargets.length) return; // nothing to do on this page
+
+  // Reuse overlay if present; otherwise create one
   var overlay = document.getElementById('lightbox-overlay');
   var overlayImg = overlay ? overlay.querySelector('img') : null;
   var closeBtn = overlay ? overlay.querySelector('.close-btn') : null;
@@ -83,10 +92,13 @@ document.addEventListener('DOMContentLoaded', () => {
     closeBtn = overlay.querySelector('.close-btn');
   }
 
-  // If key pieces aren’t available, bail without errors.
   if (!overlay || !overlayImg || !closeBtn) return;
 
+  var lastFocus = null;
+
   function openLightbox(src, alt) {
+    if (!src) return;
+    lastFocus = document.activeElement;
     overlayImg.src = src;
     overlayImg.alt = alt || '';
     overlay.style.display = 'flex';
@@ -100,70 +112,40 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.removeAttribute('data-open');
     overlayImg.src = '';
     document.documentElement.style.overflow = '';
+    if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
   }
 
-  closeBtn.addEventListener('click', closeLightbox);
+  // Click handlers (works for links and plain imgs)
+  lbTargets.forEach(function (el) {
+    // Skip if explicitly disabled
+    if (el.hasAttribute('data-no-lightbox')) return;
 
+    el.addEventListener('click', function (e) {
+      var tag = el.tagName.toLowerCase();
+      var src = '';
+      var alt = '';
+
+      if (tag === 'a') {
+        e.preventDefault();
+        var imgIn = el.querySelector('img');
+        src = el.getAttribute('href');
+        alt = (imgIn && imgIn.alt) || el.getAttribute('aria-label') || 'Image';
+      } else if (tag === 'img') {
+        src = el.getAttribute('src');
+        alt = el.getAttribute('alt') || 'Image';
+      }
+      openLightbox(src, alt);
+    });
+  });
+
+  // Close interactions
+  closeBtn.addEventListener('click', closeLightbox);
   overlay.addEventListener('click', function (e) {
     if (e.target === overlay) closeLightbox();
   });
-
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && overlay.getAttribute('data-open') === 'true') {
       closeLightbox();
     }
-  });
-
-  // a) Links with .lightbox-trigger
-  var lbLinks = document.querySelectorAll('.lightbox-trigger');
-  lbLinks.forEach(function (a) {
-    a.addEventListener('click', function (e) {
-      e.preventDefault();
-      var img = a.querySelector('img');
-      var alt = (img && img.alt) || a.getAttribute('aria-label') || 'Image';
-      openLightbox(a.href, alt);
-    });
-  });
-
-  // b) Standalone images in two-col sections
-  var twoColImgs = document.querySelectorAll('.two-col img');
-  twoColImgs.forEach(function (img) {
-    img.addEventListener('click', function () {
-      openLightbox(img.src, img.alt);
-    });
-  });
-});
-
-  const closeLightbox = () => {
-    (overlay as HTMLElement).style.display = 'none';
-    overlay.removeAttribute('data-open');
-    overlayImg!.src = '';
-    document.documentElement.style.overflow = '';
-  };
-
-  closeBtn.addEventListener('click', closeLightbox);
-
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) closeLightbox();
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && overlay.getAttribute('data-open') === 'true') {
-      closeLightbox();
-    }
-  });
-
-  // a) Links with .lightbox-trigger
-  document.querySelectorAll<HTMLAnchorElement>('.lightbox-trigger').forEach((a) => {
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      const img = a.querySelector('img');
-      openLightbox(a.href, img?.alt || a.getAttribute('aria-label') || 'Image');
-    });
-  });
-
-  // b) Standalone images in two-col sections
-  document.querySelectorAll<HTMLImageElement>('.two-col img').forEach((img) => {
-    img.addEventListener('click', () => openLightbox(img.src, img.alt));
   });
 });

@@ -8,82 +8,126 @@
 </head>
 <body>
 
-  <header>
-    <div class="container">
-      <h1>Jacob Smith Park</h1>
-      <nav aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="visiting.html">Visiting</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="wildlife.html" aria-current="page">Wildlife</a></li>
-          <li><a href="history.html">History</a></li>
-          <li><a href="get-involved.html">Get Involved</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="donate.html">Donate</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <h1 class="site-title"><a href="index.html">Jacob Smith Park</a></h1>
+    <nav class="site-nav" aria-label="Main navigation">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">☰</button>
+      <ul id="primary-nav" class="nav-list" hidden>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="visiting.html">Visiting</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="wildlife.html" aria-current="page">Wildlife</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="donate-button" href="donate.html">Donate</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <main class="container">
+  <main class="container wildlife-page">
+
+    <!-- Intro -->
     <section class="page-header">
-      <h2>Wildlife and Plant Life</h2>
-      <p>Jacob Smith Park is home to a rich variety of flora and fauna. Learn more about what lives and grows here, and how we protect it for future generations.</p>
+      <h2>Wildlife at Jacob Smith Park</h2>
+      <p>Stepping through the gate into the park, you will find a peaceful semi-wild area, with a mosaic of habitats, home to a wide range of wildlife.</p>
     </section>
 
-    <section class="wildlife-overview">
-      <h3>What You’ll Find</h3>
-      <ul>
-        <li><strong>Birds:</strong> Spot woodpeckers, owls, sparrowhawks, and seasonal migrants like swallows and warblers.</li>
-        <li><strong>Mammals:</strong> Foxes, badgers, hedgehogs and even deer are occasionally seen.</li>
-        <li><strong>Insects:</strong> Butterflies, dragonflies, and rare species of beetle thrive in our meadows.</li>
-        <li><strong>Wildflowers:</strong> A carpet of bluebells in spring and a vibrant mix of native species in summer.</li>
-        <li><strong>Trees & Shrubs:</strong> Ancient oaks, silver birch, and areas of rewilded woodland support biodiversity.</li>
-      </ul>
+    <!-- Habitats -->
+    <section class="habitats">
+      <h3>Habitats</h3>
+      <p>In its most recent history, the park was grazing land, and the grasslands still remain the dominant habitat. But even within this, there is variety. In the summer, strongly growing tall grasses tower above you, hiding the view of the park. In other areas, barely ankle high, herbs and wildflowers can be found. There are also small areas of mixed deciduous woodland, wildlife ponds, damp meadows and scrub hedging round the perimeter.</p>
+
+      <div class="image-grid">
+        <a href="resources/images/grassland.jpg" class="lightbox-trigger"><img src="resources/images/grassland-thumb.jpg" alt="Summer grasslands"></a>
+        <a href="resources/images/woodland.jpg" class="lightbox-trigger"><img src="resources/images/woodland-thumb.jpg" alt="Mixed deciduous woodland"></a>
+        <a href="resources/images/pond.jpg" class="lightbox-trigger"><img src="resources/images/pond-thumb.jpg" alt="Wildlife pond"></a>
+      </div>
     </section>
 
-    <section class="conservation">
-      <h3>How We Care for the Environment</h3>
-      <p>The Friends of Jacob Smith Park work with local ecologists and volunteers to maintain the delicate balance of nature within the park. Our efforts include:</p>
-      <ul>
-        <li>Seasonal surveys to monitor wildlife populations and plant diversity</li>
-        <li>Habitat restoration, such as pond clearance and wildflower re-seeding</li>
-        <li>Careful path management to reduce human impact on sensitive areas</li>
-        <li>Bird and bat box installation to support nesting and roosting</li>
-        <li>Invasive species removal to protect native ecosystems</li>
-      </ul>
+    <!-- Seasons -->
+    <section class="seasons">
+      <h3>The Park Through the Seasons</h3>
+
+      <article class="season-block winter">
+        <h4>❄️ Winter & New Year</h4>
+        <p>At the start of the year, even with frosty nights, the spring butterflies start to emerge from February, many species laying eggs on the early growth of nettles and garlic mustard. Mole activity becomes apparent as they establish new tunnels in their search for food, and hundreds of molehills appear.</p>
+        <p>The territorial drumming of greater spotted woodpeckers can be heard across the park, while rooks return to their rookery near the entrance to repair their nests. Old oak trees with hollows provide nest sites for nuthatch and tits, and song thrushes sing along the northern boundary.</p>
+      </article>
+
+      <article class="season-block spring">
+        <h4>🌸 Spring</h4>
+        <p>By early April, swallows and house martins arrive from Africa, feeding over grasslands and gathering mud for nests by the pond. By late April, swifts have returned, joining the feeding frenzy.</p>
+        <p>Late spring brings colourful wildflowers: red and white clover for pollinators, seas of buttercups, and masses of common spotted and northern marsh orchids.</p>
+      </article>
+
+      <article class="season-block summer">
+        <h4>☀️ Summer</h4>
+        <p>With warm weather, grassland butterflies appear in huge numbers — around 20 species, nearly half of all UK species. The park is perfect for taking part in The Big Butterfly Count in mid-July.</p>
+        <p>Dragonflies and damselflies patrol grasslands and ponds: emperor dragonflies, common blue damselflies, and broad-bodied chasers are common, with the striking metallic blue demoiselle found near shaded ponds. Foxes are occasionally seen, and early visitors might spot deer grazing.</p>
+      </article>
+
+      <article class="season-block autumn">
+        <h4>🍂 Autumn</h4>
+        <p>Autumn brings ivy flowers and ripening fruit — apples, plums, hips, haws and elderberry — feeding wildlife before winter. Butterflies feed on ivy nectar, squirrels cache nuts, and birds of prey hunt voles and shrews in the cut grasslands.</p>
+      </article>
     </section>
 
-    <section class="visitor-tips">
-      <h3>How You Can Help</h3>
-      <p>Visitors play a vital role in helping us protect our park’s wildlife. Please:</p>
+    <!-- Support for Wildlife -->
+    <section class="support">
+      <h3>How the Friends of JSP Support Wildlife</h3>
       <ul>
-        <li>Keep to marked paths and avoid disturbing nesting areas</li>
-        <li>Don’t pick wildflowers or disturb logs and habitats</li>
-        <li>Observe wildlife quietly and from a distance</li>
-        <li>Dispose of waste responsibly or take it home</li>
+        <li>Small bird, owl and bat boxes for nesting and roosting</li>
+        <li>Great crested newt project with Yorkshire Wildlife Trust (new pond in 2024)</li>
+        <li>Wildflower and shrub planting for pollinators</li>
+        <li>Grassland maintenance and wildflower meadow raking</li>
+        <li>Tree planting to create connecting woodland areas</li>
+        <li>Fencing ponds and trees to protect habitats</li>
       </ul>
-      <p>To get involved with conservation efforts, <a href="get-involved.html">click here</a>.</p>
+
+      <div class="image-grid">
+        <a href="resources/images/bird-box.jpg" class="lightbox-trigger"><img src="resources/images/bird-box-thumb.jpg" alt="Bird box"></a>
+        <a href="resources/images/tree-planting.jpg" class="lightbox-trigger"><img src="resources/images/tree-planting-thumb.jpg" alt="Tree planting"></a>
+        <a href="resources/images/wildflowers.jpg" class="lightbox-trigger"><img src="resources/images/wildflowers-thumb.jpg" alt="Wildflowers in bloom"></a>
+      </div>
     </section>
 
-    <section class="highlight">
-      <h3>Seasonal Highlights</h3>
-      <p>Each season offers something new:</p>
-      <ul>
-        <li><strong>Spring:</strong> Bluebells, birdsong, and frogspawn in ponds</li>
-        <li><strong>Summer:</strong> Butterflies and wildflower meadows</li>
-        <li><strong>Autumn:</strong> Fungi and migrating birds</li>
-        <li><strong>Winter:</strong> Bare tree silhouettes and signs of mammals in the frost</li>
-      </ul>
+    <!-- Ancient Trees -->
+    <section class="ancient-trees">
+      <h3>The Value of Ancient Trees</h3>
+      <p>Jacob Smith Park has 22 trees listed in the Woodland Trust Ancient Tree Inventory — all but one are oak species. Some are believed to be 400–500 years old, potentially planted as part of a deer park. Ancient oaks can support up to 2,300 species, making them a vital habitat for insects, birds, mammals and fungi.</p>
     </section>
+
+    <!-- Watercourses -->
+    <section class="watercourses">
+      <h3>Watercourses & Springs</h3>
+      <p>The park has three ponds, two for wildlife and one seasonal drainage pool. In wet winters, water flows diagonally across the park connecting the ponds. Underground springs can sometimes be heard in the meadow after heavy rain, supporting damp-loving plants like hairy willowherb, cuckoo flower, goat willow, dogwoods and ragged robin.</p>
+    </section>
+
   </main>
+
+  <!-- Lightbox Overlay -->
+  <div id="lightbox-overlay">
+    <button class="close-btn" aria-label="Close image view">✕ Close</button>
+    <img id="lightbox-image" src="" alt="">
+  </div>
 
   <footer>
     <div class="container">
       <p>&copy; 2025 Jacob Smith Park. All rights reserved.</p>
     </div>
   </footer>
+   <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Jacob Smith Park. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="resources/js/main.js" defer></script>
+
+ 
 
 </body>
 </html>

@@ -685,3 +685,15 @@ img { max-width: 100%; height: auto; display: block; }
 .vol-form input[type="email"],
 .vol-form textarea { border:1px solid #d9d9d9; border-radius:6px; padding:10px 12px; background:#fff; font:inherit; width:100%; }
 .hp-field { position:absolute; left:-9999px; width:1px; height:1px; }
+
+@media (max-width: 800px){
+  /* Mobile base = closed */
+  .site-nav .nav-list { display: none; }
+
+  /* When JS toggles aria-expanded to true, show the menu */
+  .site-nav .nav-toggle[aria-expanded="true"] + .nav-list {
+    display: block;
+  }
+}
+
+.site-nav { position: relative; z-index: 100; }

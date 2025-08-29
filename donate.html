@@ -4,13 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Donate – Jacob Smith Park</title>
-  <link rel="stylesheet" href="resources/css/styles-a.css">
   <meta name="description" content="Support Jacob Smith Park with a donation to help preserve wildlife, maintain facilities, and fund conservation projects.">
+  <link rel="stylesheet" href="resources/css/styles.css">
   <script>document.documentElement.classList.replace('no-js','js');</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
+  <!-- Shared header -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <h1 class="site-title"><a href="index.html">Jacob Smith Park</a></h1>
@@ -30,57 +31,103 @@
     </div>
   </header>
 
-  <main id="main">
-    <section class="page-header hero">
-      <div class="container">
-        <h2>Support the Park</h2>
-        <p>Your donation helps protect, maintain, and enhance Jacob Smith Park for future generations of people and wildlife.</p>
-      </div>
-    </section>
+  <!-- Full-width banner (uniform across site) -->
+  <section class="banner banner--home banner--tall">
+    <div class="container">
+      <p class="eyebrow">Friends of Jacob Smith Park</p>
+      <h2>Support the Park</h2>
+      <p>Your gift helps protect habitats, maintain facilities and fund conservation projects.</p>
+    </div>
+  </section>
 
-    <section class="container donate-why">
-      <h3>Why Your Support Matters</h3>
+  <main id="main">
+    <!-- Why donate -->
+    <section class="container donate-why" aria-labelledby="why-title">
+      <h3 id="why-title">Why Your Support Matters</h3>
       <p>Jacob Smith Park is a cherished green space at the heart of Knaresborough. With no entrance fees, we rely on the generosity of people like you to keep it thriving. Your donations help us to:</p>
-      <ul>
+      <ul class="key-list">
         <li>Preserve and restore wildlife habitats</li>
-        <li>Maintain paths, benches, and visitor facilities</li>
+        <li>Maintain paths, benches and visitor facilities</li>
         <li>Provide educational signage and events</li>
         <li>Fund volunteer projects and conservation work</li>
       </ul>
       <p>Even a small gift goes a long way in helping us care for this precious place.</p>
     </section>
 
-    <section class="container donate-how">
-      <h3>Ways to Donate</h3>
-      <div class="donate-options">
-        <article>
-          <h4>Online</h4>
-          <p>Make a secure donation via our <a href="https://example.com/donate-form" target="_blank" rel="noopener">online donation page</a>.</p>
-        </article>
-        <article>
-          <h4>Bank Transfer</h4>
-          <p>
-            Account Name: Friends of Jacob Smith Park<br>
-            Sort Code: 12-34-56<br>
-            Account Number: 12345678<br>
-            Reference: Your Name (optional)
+    <!-- Ways to donate -->
+    <section class="container donate-how" aria-labelledby="how-title">
+      <h3 id="how-title">Ways to Donate</h3>
+
+      <div class="cta-grid donate-options">
+        <article class="cta-card" aria-labelledby="d-online">
+          <h4 id="d-online">Online</h4>
+          <p>Make a secure donation via our
+            <a href="https://example.com/donate-form" target="_blank" rel="noopener">online donation page</a>.
           </p>
+          <p class="smallprint muted">We do not store your card details on this site.</p>
         </article>
-        <article>
-          <h4>In Person</h4>
+
+        <article class="cta-card" aria-labelledby="d-bank">
+          <h4 id="d-bank">Bank transfer</h4>
+          <p>
+            <strong>Account Name:</strong> Friends of Jacob Smith Park<br>
+            <strong>Sort Code:</strong> 12-34-56<br>
+            <strong>Account Number:</strong> 12345678<br>
+            <strong>Reference:</strong> Your Name (optional)
+          </p>
+          <p class="smallprint muted">Please email <a href="mailto:friends@jacobsmithpark.co.uk">friends@jacobsmithpark.co.uk</a> if you’d like a receipt.</p>
+        </article>
+
+        <article class="cta-card" aria-labelledby="d-person">
+          <h4 id="d-person">In person</h4>
           <p>Drop off donations at our next event or use the secure donation box by the main entrance.</p>
         </article>
-        <article>
-          <h4>Gift Aid</h4>
-          <p>If you’re a UK taxpayer, ticking the Gift Aid box means we can claim an extra 25% — at no cost to you.</p>
+
+        <article class="cta-card" aria-labelledby="d-giftaid">
+          <h4 id="d-giftaid">Gift Aid</h4>
+          <p>If you’re a UK taxpayer, ticking Gift Aid lets us claim an extra 25% at no cost to you.</p>
+          <p class="smallprint muted">You can add Gift Aid on the online form or via a paper declaration at events.</p>
         </article>
       </div>
     </section>
 
-    <section class="cta highlight">
-      <div class="container text-center">
-        <p><strong>Thank you</strong> for helping us nurture and protect Jacob Smith Park for everyone to enjoy.</p>
-        <a class="donate-button" href="https://example.com/donate-form" target="_blank" rel="noopener">Donate Now</a>
+    <!-- Suggested tiers (optional – easy to remove) -->
+    <section class="container" aria-labelledby="tiers-title">
+      <h3 id="tiers-title">Suggested Gifts</h3>
+      <div class="event-cards" role="list">
+        <div class="event" role="listitem" aria-label="£10 – Wildflower seed">
+          <div class="date-badge"><span class="mon">£</span><span class="day">10</span></div>
+          <div>
+            <h4>Wildflower seed</h4>
+            <p>Helps sow native species that support pollinators and enrich biodiversity.</p>
+          </div>
+        </div>
+        <div class="event" role="listitem" aria-label="£25 – Tools & materials">
+          <div class="date-badge"><span class="mon">£</span><span class="day">25</span></div>
+          <div>
+            <h4>Tools &amp; materials</h4>
+            <p>Contributes to hand tools, mulch, stakes and habitat improvements.</p>
+          </div>
+        </div>
+        <div class="event" role="listitem" aria-label="£50 – Habitat projects">
+          <div class="date-badge"><span class="mon">£</span><span class="day">50</span></div>
+          <div>
+            <h4>Habitat projects</h4>
+            <p>Supports pond work, nest boxes and tree/shrub planting.</p>
+          </div>
+        </div>
+      </div>
+      <p class="muted smallprint">Or choose any amount that suits you — every gift helps.</p>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta" aria-labelledby="donate-cta-title">
+      <div class="container">
+        <h2 id="donate-cta-title">Thank you for supporting Jacob Smith Park</h2>
+        <p>
+          <a class="button alt" href="https://example.com/donate-form" target="_blank" rel="noopener">Donate now</a>
+          <a class="button" href="get-involved.html">Other ways to help</a>
+        </p>
       </div>
     </section>
   </main>

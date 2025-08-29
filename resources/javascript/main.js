@@ -149,3 +149,63 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+// Sticky header shadow on scroll
+var header = document.querySelector('.site-header');
+if (header){
+  var last = 0;
+  var tick = false;
+  var onScroll = function(){
+    var y = window.scrollY || window.pageYOffset;
+    if ((y > 8) !== (last > 8)) header.classList.toggle('is-scrolled', y > 8);
+    last = y;
+    tick = false;
+  };
+  window.addEventListener('scroll', function(){
+    if (!tick){ tick = true; requestAnimationFrame(onScroll); }
+  }, {passive:true});
+  onScroll();
+}
+
+// --- Scrollspy for local subnav on the History page ---
+document.addEventListener('DOMContentLoaded', () => {
+  const subnav = document.querySelector('.subnav');
+  if (!subnav) return;
+
+  const links = Array.from(subnav.querySelectorAll('.subnav__link'));
+  const targets = links
+    .map(a => document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+
+  // Clear all active states
+  const setActive = (id) => {
+    links.forEach(a => a.setAttribute('aria-current', a.getAttribute('href') === `#${id}` ? 'true' : 'false'));
+  };
+
+  // Use IntersectionObserver to detect current section
+  const observer = new IntersectionObserver((entries) => {
+    // Choose the entry closest to the top
+    const visible = entries
+      .filter(e => e.isIntersecting)
+      .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+
+    if (visible) setActive(visible.target.id);
+  }, {
+    rootMargin: '-35% 0px -55% 0px', // middle-ish of the viewport
+    threshold: 0.01
+  });
+
+  targets.forEach(sec => observer.observe(sec));
+
+  // Smooth scroll for subnav clicks (native in most browsers, but enforce)
+  subnav.addEventListener('click', (e) => {
+    const a = e.target.closest('a.subnav__link');
+    if (!a) return;
+    const target = document.querySelector(a.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setActive(target.id);
+    history.replaceState(null, '', a.getAttribute('href'));
+  });
+});

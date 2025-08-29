@@ -11,7 +11,7 @@
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Same header/nav pattern as Style A -->
+  <!-- Shared header/nav -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <h1 class="site-title"><a href="index.html">Jacob Smith Park</a></h1>
@@ -31,14 +31,16 @@
     </div>
   </header>
 
+  <!-- FULL-WIDTH BANNER (uniform across site) -->
+  <section class="banner banner--home banner--tall">
+    <div class="container">
+      <p class="eyebrow">Friends of Jacob Smith Park</p>
+      <h2 id="visit-title">Planning Your Visit</h2>
+      <p>Whether it’s your first time or your hundredth, here’s everything you need to enjoy your time at Jacob Smith Park.</p>
+    </div>
+  </section>
+
   <main id="main">
-    <!-- Page header -->
-    <section class="page-header hero" aria-labelledby="visit-title">
-      <div class="container">
-        <h2 id="visit-title">Planning Your Visit</h2>
-        <p>Whether it’s your first time or your hundredth, here’s everything you need to enjoy your time at Jacob Smith Park.</p>
-      </div>
-    </section>
 
     <!-- Where are we -->
     <section class="container visit-grid" aria-labelledby="where-title">
@@ -52,14 +54,17 @@
         </address>
 
         <p>
-          <a class="card-link" href="https://w3w.co/milder.suppose.plump" target="_blank" rel="noopener">
+          <a class="card-link"
+             href="https://w3w.co/milder.suppose.plump"
+             target="_blank" rel="noopener"
+             aria-label="Open What3Words location milder suppose plump in a new tab">
             What3Words: milder.suppose.plump
           </a>
         </p>
 
         <ul class="key-notes">
           <li><strong>Parking:</strong> Street parking is very limited on Scriven Road. Police Community Support Officers regularly patrol the area.</li>
-          <li><strong>Nearest toilets:</strong> Conyngham Hall, Knaresborough <span class="nowrap">HG5 9AY</span> — approximately a 20‑minute walk or 5‑minute drive.</li>
+          <li><strong>Nearest toilets:</strong> Conyngham Hall, Knaresborough <span class="nowrap">HG5 9AY</span> — approximately a 20-minute walk or 5-minute drive.</li>
         </ul>
       </div>
 
@@ -67,14 +72,15 @@
       <div class="visit-col">
         <h3 id="map-title">Map</h3>
         <figure class="map-embed">
-          <!-- Simple, no‑key embed. Replace the query if you prefer exact coordinates. -->
           <iframe
             title="Map showing Jacob Smith Park entrance on Scriven Road"
             src="https://www.google.com/maps?q=Scriven%20Road%2C%20Knaresborough%20HG5%209EJ&output=embed"
-            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
             aria-describedby="map-caption"></iframe>
           <figcaption id="map-caption">
-            Location of the park entrance on Scriven Road. <a href="https://www.google.com/maps?q=Scriven%20Road%2C%20Knaresborough%20HG5%209EJ" target="_blank" rel="noopener">Open in Maps</a>
+            Location of the park entrance on Scriven Road.
+            <a href="https://www.google.com/maps?q=Scriven%20Road%2C%20Knaresborough%20HG5%209EJ" target="_blank" rel="noopener">Open in Maps</a>
           </figcaption>
         </figure>
       </div>
@@ -84,14 +90,14 @@
     <section class="container" aria-labelledby="inside-title">
       <h3 id="inside-title">Inside Jacob Smith Park</h3>
       <p>Jacob Smith Park has just one entrance. It is enclosed but there may be gaps in some perimeter fencing, so you should only let dogs off the lead if they are under control, in your sight and will come when called. Please ensure you clean up after your dog and dispose of waste in the bin near the park entrance.</p>
-      <p>The park is a managed wild space with a network of paths criss‑crossing its 30 acres and has a perimeter walk covering approximately three‑quarters of a mile. Some of the paths involve steeper climbs but these can be avoided by using other paths.</p>
+      <p>The park is a managed wild space with a network of paths criss-crossing its 30 acres and has a perimeter walk covering approximately three-quarters of a mile. Some of the paths involve steeper climbs but these can be avoided by using other paths.</p>
       <p>There are seven benches at various points around the park to rest or take in the beautiful views, which extend as far as the White Horse on the North York Moors. There is also a small recreational area near to the entrance for children to run around, play ball games and fly kites.</p>
 
       <aside class="callout note" role="note" aria-label="Seasonal path conditions">
         <strong>Note:</strong> some paths, especially around the entrance, can be very muddy in winter or after heavy rain.
       </aside>
 
-      <!-- Inline SVG illustration placeholder (no external file needed) -->
+      <!-- Inline SVG illustration -->
       <figure class="bench-illustration">
         <figcaption class="visually-hidden">Illustration of visitors relaxing on benches under trees</figcaption>
         <svg viewBox="0 0 640 240" role="img" aria-hidden="true" focusable="false">
@@ -102,21 +108,17 @@
             </linearGradient>
           </defs>
           <rect width="640" height="240" fill="url(#g1)"/>
-          <!-- ground -->
           <rect y="170" width="640" height="70" fill="#b7d3a8"/>
-          <!-- trees -->
           <g fill="#6ea26e">
             <circle cx="70" cy="80" r="40"/><rect x="65" y="110" width="10" height="60" fill="#7c5a3a"/>
             <circle cx="560" cy="70" r="36"/><rect x="555" y="98" width="10" height="72" fill="#7c5a3a"/>
           </g>
-          <!-- bench -->
           <g fill="#7c5a3a">
             <rect x="240" y="150" width="160" height="10"/>
             <rect x="240" y="135" width="160" height="10"/>
             <rect x="240" y="165" width="10" height="20"/>
             <rect x="390" y="165" width="10" height="20"/>
           </g>
-          <!-- people (simple silhouettes) -->
           <g fill="#344e41">
             <circle cx="285" cy="120" r="10"/><rect x="280" y="130" width="10" height="25"/>
             <circle cx="340" cy="120" r="10"/><rect x="335" y="130" width="10" height="25"/>

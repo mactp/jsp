@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Contact – Jacob Smith Park</title>
-  <link rel="stylesheet" href="resources/css/styles.css">
   <meta name="description" content="Contact the Friends of Jacob Smith Park (FoJSP) or North Yorkshire Council for park enquiries, volunteering and maintenance.">
+  <link rel="stylesheet" href="resources/css/styles.css">
   <script>document.documentElement.classList.replace('no-js','js');</script>
 </head>
 <body>
@@ -31,20 +31,21 @@
     </div>
   </header>
 
-  <main id="main">
-    <!-- Hero -->
-    <section class="page-header hero">
-      <div class="container">
-        <h2>Contact Us</h2>
-        <p>We’d love to hear from you — suggestions, volunteering, or joining the committee.</p>
-      </div>
-    </section>
+  <!-- Full-width banner -->
+  <section class="banner banner--home banner--tall">
+    <div class="container">
+      <p class="eyebrow">Friends of Jacob Smith Park</p>
+      <h2>Contact Us</h2>
+      <p>We’d love to hear from you — suggestions, volunteering, or joining the committee.</p>
+    </div>
+  </section>
 
+  <main id="main">
     <!-- Friends of JSP intro -->
     <section class="container">
       <h3>The Friends of Jacob Smith Park (FoJSP)</h3>
       <p>To make suggestions about enhancing the park, enquire about volunteering, or ask about joining the committee, please contact FoJSP using the form below. We look forward to hearing from you.</p>
-      <p class="muted">Email or contact form? We recommend the form for quicker routing and less spam, but you can also email us at
+      <p class="muted">Prefer email? Write to
         <a href="mailto:friends@jacobsmithpark.co.uk">friends@jacobsmithpark.co.uk</a>.
       </p>
     </section>
@@ -53,7 +54,7 @@
     <section class="container contact-form" aria-labelledby="contact-form-title">
       <h3 id="contact-form-title">Send a message to FoJSP</h3>
 
-      <!-- Replace action with your real endpoint (Formspree, server, etc.) -->
+      <!-- Replace action with your real endpoint (Formspree/Nets/your server) -->
       <form id="contact-form" class="vol-form" action="https://formspree.io/f/your-id" method="POST" novalidate>
         <!-- honeypot -->
         <input type="text" name="_hp_name" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp-field" placeholder="Leave this field empty">
@@ -83,6 +84,7 @@
         </div>
 
         <p id="contact-status" class="muted smallprint" aria-live="polite"></p>
+        <p class="smallprint muted" style="margin-top:.5rem">We’ll only use your details to respond to your enquiry. <a href="resources/docs/privacy.pdf">Privacy notice</a>.</p>
       </form>
     </section>
 
@@ -118,7 +120,7 @@
 
   <script src="resources/js/main.js" defer></script>
   <script>
-    // client-side check for the FoJSP form
+    // Lightweight client-side validation/feedback
     (function () {
       var form = document.getElementById('contact-form');
       var status = document.getElementById('contact-status');
@@ -135,21 +137,18 @@
           status.textContent = 'Submission blocked (spam detected).';
           return;
         }
-
         if (!name.value.trim() || !message.value.trim()) {
           e.preventDefault();
           status.textContent = 'Please provide your name and message.';
           status.style.color = '#c07a3f';
           return;
         }
-
         if (email && email.value && !email.checkValidity()) {
           e.preventDefault();
           status.textContent = 'Please provide a valid email address, or leave it blank.';
           status.style.color = '#c07a3f';
           return;
         }
-
         status.textContent = 'Thanks! Sending…';
         status.style.color = 'inherit';
       });

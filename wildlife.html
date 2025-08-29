@@ -27,32 +27,41 @@
   </div>
 </header>
 
-  <main class="container wildlife-page">
+  <!-- FULL-WIDTH BANNER -->
+  <section class="banner banner--home banner--tall">
+    <div class="container">
+      <p class="eyebrow">Friends of Jacob Smith Park</p>
+      <h2>Habitats, species, and seasonal highlights</h2>
+    </div>
+  </section>
 
-    <!-- Intro -->
-    <section class="page-header">
-      <h2>Wildlife at Jacob Smith Park</h2>
-      <p>Stepping through the gate into the park, you will find a peaceful semi-wild area, with a mosaic of habitats, home to a wide range of wildlife.</p>
-    </section>
+<main class="wildlife-page">
+  <div class="container">
 
     <!-- Habitats -->
-    <section class="habitats">
+    <section class="habitats" id="habitats">
       <h3>Habitats</h3>
       <p>In its most recent history, the park was grazing land, and the grasslands still remain the dominant habitat. But even within this, there is variety. In the summer, strongly growing tall grasses tower above you, hiding the view of the park. In other areas, barely ankle high, herbs and wildflowers can be found. There are also small areas of mixed deciduous woodland, wildlife ponds, damp meadows and scrub hedging round the perimeter.</p>
 
       <div class="image-grid">
-        <a href="resources/images/grassland.jpg" class="lightbox-trigger"><img src="resources/images/grassland-thumb.jpg" alt="Summer grasslands"></a>
-        <a href="resources/images/woodland.jpg" class="lightbox-trigger"><img src="resources/images/woodland-thumb.jpg" alt="Mixed deciduous woodland"></a>
-        <a href="resources/images/pond.jpg" class="lightbox-trigger"><img src="resources/images/pond-thumb.jpg" alt="Wildlife pond"></a>
+        <a href="resources/images/grassland.jpg" class="lightbox-trigger">
+          <img src="resources/images/grassland-thumb.jpg" alt="Summer grasslands" loading="lazy" decoding="async" width="600" height="400">
+        </a>
+        <a href="resources/images/woodland.jpg" class="lightbox-trigger">
+          <img src="resources/images/woodland-thumb.jpg" alt="Mixed deciduous woodland" loading="lazy" decoding="async" width="600" height="400">
+        </a>
+        <a href="resources/images/pond.jpg" class="lightbox-trigger">
+          <img src="resources/images/pond-thumb.jpg" alt="Wildlife pond" loading="lazy" decoding="async" width="600" height="400">
+        </a>
       </div>
     </section>
 
     <!-- Seasons -->
-    <section class="seasons">
+    <section class="seasons" id="seasons">
       <h3>The Park Through the Seasons</h3>
 
       <article class="season-block winter">
-        <h4>❄️ Winter & New Year</h4>
+        <h4>❄️ Winter &amp; New Year</h4>
         <p>At the start of the year, even with frosty nights, the spring butterflies start to emerge from February, many species laying eggs on the early growth of nettles and garlic mustard. Mole activity becomes apparent as they establish new tunnels in their search for food, and hundreds of molehills appear.</p>
         <p>The territorial drumming of greater spotted woodpeckers can be heard across the park, while rooks return to their rookery near the entrance to repair their nests. Old oak trees with hollows provide nest sites for nuthatch and tits, and song thrushes sing along the northern boundary.</p>
       </article>
@@ -76,9 +85,9 @@
     </section>
 
     <!-- Support for Wildlife -->
-    <section class="support">
+    <section class="support" id="support">
       <h3>How the Friends of JSP Support Wildlife</h3>
-      <ul>
+      <ul class="key-list">
         <li>Small bird, owl and bat boxes for nesting and roosting</li>
         <li>Great crested newt project with Yorkshire Wildlife Trust (new pond in 2024)</li>
         <li>Wildflower and shrub planting for pollinators</li>
@@ -88,46 +97,45 @@
       </ul>
 
       <div class="image-grid">
-        <a href="resources/images/bird-box.jpg" class="lightbox-trigger"><img src="resources/images/bird-box-thumb.jpg" alt="Bird box"></a>
-        <a href="resources/images/tree-planting.jpg" class="lightbox-trigger"><img src="resources/images/tree-planting-thumb.jpg" alt="Tree planting"></a>
-        <a href="resources/images/wildflowers.jpg" class="lightbox-trigger"><img src="resources/images/wildflowers-thumb.jpg" alt="Wildflowers in bloom"></a>
+        <a href="resources/images/bird-box.jpg" class="lightbox-trigger">
+          <img src="resources/images/bird-box-thumb.jpg" alt="Bird box" loading="lazy" decoding="async" width="600" height="400">
+        </a>
+        <a href="resources/images/tree-planting.jpg" class="lightbox-trigger">
+          <img src="resources/images/tree-planting-thumb.jpg" alt="Tree planting" loading="lazy" decoding="async" width="600" height="400">
+        </a>
+        <a href="resources/images/wildflowers.jpg" class="lightbox-trigger">
+          <img src="resources/images/wildflowers-thumb.jpg" alt="Wildflowers in bloom" loading="lazy" decoding="async" width="600" height="400">
+        </a>
       </div>
     </section>
 
     <!-- Ancient Trees -->
-    <section class="ancient-trees">
+    <section class="ancient-trees" id="ancient-trees">
       <h3>The Value of Ancient Trees</h3>
       <p>Jacob Smith Park has 22 trees listed in the Woodland Trust Ancient Tree Inventory — all but one are oak species. Some are believed to be 400–500 years old, potentially planted as part of a deer park. Ancient oaks can support up to 2,300 species, making them a vital habitat for insects, birds, mammals and fungi.</p>
     </section>
 
     <!-- Watercourses -->
-    <section class="watercourses">
-      <h3>Watercourses & Springs</h3>
+    <section class="watercourses" id="watercourses">
+      <h3>Watercourses &amp; Springs</h3>
       <p>The park has three ponds, two for wildlife and one seasonal drainage pool. In wet winters, water flows diagonally across the park connecting the ponds. Underground springs can sometimes be heard in the meadow after heavy rain, supporting damp-loving plants like hairy willowherb, cuckoo flower, goat willow, dogwoods and ragged robin.</p>
     </section>
 
-  </main>
-
-  <!-- Lightbox Overlay -->
-  <div id="lightbox-overlay">
-    <button class="close-btn" aria-label="Close image view">✕ Close</button>
-    <img id="lightbox-image" src="" alt="">
   </div>
+</main>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Jacob Smith Park. All rights reserved.</p>
-    </div>
-  </footer>
-   <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year"></span> Jacob Smith Park. All rights reserved.</p>
-    </div>
-  </footer>
+<!-- Lightbox Overlay -->
+<div id="lightbox-overlay" aria-hidden="true">
+  <button class="close-btn" aria-label="Close image view">✕ Close</button>
+  <img id="lightbox-image" src="" alt="">
+</div>
 
-  <script src="resources/js/main.js" defer></script>
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <span id="year"></span> Jacob Smith Park. All rights reserved.</p>
+  </div>
+</footer>
 
- 
-
+<script src="resources/js/main.js" defer></script>
 </body>
 </html>

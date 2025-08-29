@@ -18,27 +18,32 @@
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- Shared Header/Nav -->
-  <header class="site-header" role="banner">
-    <div class="container header-inner">
-      <h1 class="site-title"><a href="index.html">Jacob Smith Park</a></h1>
-      <nav class="site-nav" aria-label="Main navigation">
-        <button class="nav-toggle"
-                aria-expanded="false"
-                aria-controls="primary-nav"
-                aria-label="Toggle navigation">☰</button>
-        <ul id="primary-nav" class="nav-list" hidden>
-          <li><a href="index.html" aria-current="page">Home</a></li>
-          <li><a href="visiting.html">Visiting</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="wildlife.html">Wildlife</a></li>
-          <li><a href="history.html">History</a></li>
-          <li><a href="get-involved.html">Get Involved</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a class="donate-button" href="donate.html">Donate</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <h1 class="site-title"><a href="index.html">Jacob Smith Park</a></h1>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <button id="navToggle" class="nav-toggle"
+              aria-expanded="false"
+              aria-controls="primary-nav"
+              aria-label="Open menu">☰</button>
+
+      <ul id="primary-nav" class="nav-list" hidden>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="visiting.html">Visiting</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="wildlife.html">Wildlife</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="donate-button" href="donate.html">Donate</a></li>
+      </ul>
+    </nav>
+
+    <!-- NEW: overlay to close the menu when tapping outside -->
+    <div id="scrim" class="scrim" hidden></div>
+  </div>
+</header>
 
       <!-- FULL-WIDTH BANNER -->
   <section class="banner banner--image banner--default">

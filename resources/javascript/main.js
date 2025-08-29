@@ -5,39 +5,67 @@ document.addEventListener('DOMContentLoaded', () => {
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  /* ---------------------------------
-   * 2) Accessible nav toggle
-   * --------------------------------- */
-  var toggle = document.querySelector('.nav-toggle');
-  var menu = document.getElementById('primary-nav');
+/* ---------------------------------
+ * 2) Accessible nav toggle (with scrim + body lock)
+ * --------------------------------- */
+var toggle = document.getElementById('navToggle');        // use the id from your markup
+var menu   = document.getElementById('primary-nav');
+var scrim  = document.getElementById('scrim');
 
-  if (toggle && menu) {
-    function closeMenu() {
-      toggle.setAttribute('aria-expanded', 'false');
-      menu.hidden = true;
-    }
-    function openMenu() {
-      toggle.setAttribute('aria-expanded', 'true');
-      menu.hidden = false;
-    }
+if (toggle && menu && scrim) {
+  // Ensure starting state is consistent
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.setAttribute('aria-label', 'Open menu');
+  menu.hidden  = true;
+  scrim.hidden = true;
 
-    toggle.addEventListener('click', function () {
-      var expanded = toggle.getAttribute('aria-expanded') === 'true';
-      expanded ? closeMenu() : openMenu();
-    });
+  function openMenu() {
+    document.body.classList.add('nav-open', 'no-scroll'); // CSS handles panel + scroll lock
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Close menu');
+    menu.hidden  = false;
+    scrim.hidden = false;
 
-    // Close on outside click
-    document.addEventListener('click', function (e) {
-      if (!menu.hidden && !menu.contains(e.target) && e.target !== toggle) {
-        closeMenu();
-      }
-    });
-
-    // Close on Escape
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && !menu.hidden) closeMenu();
-    });
+    // Move focus to first link for accessibility
+    var firstLink = menu.querySelector('a');
+    if (firstLink) firstLink.focus({ preventScroll: true });
   }
+
+  function closeMenu() {
+    document.body.classList.remove('nav-open', 'no-scroll');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+    menu.hidden  = true;
+    scrim.hidden = true;
+
+    // Return focus to the toggle
+    toggle.focus({ preventScroll: true });
+  }
+
+  function isOpen() {
+    return document.body.classList.contains('nav-open');
+  }
+
+  // Toggle on button press
+  toggle.addEventListener('click', function () {
+    isOpen() ? closeMenu() : openMenu();
+  }, { passive: true });
+
+  // Tap/click the scrim to close
+  scrim.addEventListener('click', closeMenu);
+
+  // Close when a nav link is activated
+  menu.addEventListener('click', function (e) {
+    var a = e.target.closest('a');
+    if (!a) return;
+    closeMenu();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && isOpen()) closeMenu();
+  });
+}
 
   /* ---------------------------------
    * 3) Newsletter quick validation

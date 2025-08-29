@@ -6,66 +6,78 @@ document.addEventListener('DOMContentLoaded', () => {
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
 /* ---------------------------------
- * 2) Accessible nav toggle (with scrim + body lock)
+ * 2) Accessible nav toggle (resilient)
+ *    - finds button by #navToggle or .nav-toggle
+ *    - creates scrim if missing
  * --------------------------------- */
-var toggle = document.getElementById('navToggle');        // use the id from your markup
-var menu   = document.getElementById('primary-nav');
-var scrim  = document.getElementById('scrim');
+(function () {
+  var body   = document.body;
+  var toggle = document.getElementById('navToggle') || document.querySelector('.nav-toggle');
+  var menu   = document.getElementById('primary-nav');
+  if (!toggle || !menu) return;
 
-if (toggle && menu && scrim) {
-  // Ensure starting state is consistent
+  // Ensure we have a scrim; create one if missing
+  var scrim = document.getElementById('scrim');
+  if (!scrim) {
+    scrim = document.createElement('div');
+    scrim.id = 'scrim';
+    scrim.className = 'scrim';
+    scrim.hidden = true;
+    // place right after the header if possible, else append to body
+    var header = document.querySelector('.site-header');
+    (header && header.parentNode ? header.parentNode.insertBefore(scrim, header.nextSibling) : body.appendChild(scrim));
+  }
+
+  // Initial state
   toggle.setAttribute('aria-expanded', 'false');
   toggle.setAttribute('aria-label', 'Open menu');
   menu.hidden  = true;
   scrim.hidden = true;
 
   function openMenu() {
-    document.body.classList.add('nav-open', 'no-scroll'); // CSS handles panel + scroll lock
+    body.classList.add('nav-open', 'no-scroll');
     toggle.setAttribute('aria-expanded', 'true');
     toggle.setAttribute('aria-label', 'Close menu');
     menu.hidden  = false;
     scrim.hidden = false;
-
-    // Move focus to first link for accessibility
-    var firstLink = menu.querySelector('a');
-    if (firstLink) firstLink.focus({ preventScroll: true });
+    var first = menu.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
+    if (first) first.focus({ preventScroll: true });
   }
 
   function closeMenu() {
-    document.body.classList.remove('nav-open', 'no-scroll');
+    body.classList.remove('nav-open', 'no-scroll');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Open menu');
     menu.hidden  = true;
     scrim.hidden = true;
-
-    // Return focus to the toggle
-    toggle.focus({ preventScroll: true });
+    if (document.activeElement && menu.contains(document.activeElement)) {
+      toggle.focus({ preventScroll: true });
+    }
   }
 
-  function isOpen() {
-    return document.body.classList.contains('nav-open');
-  }
+  function isOpen() { return body.classList.contains('nav-open'); }
 
-  // Toggle on button press
+  // Toggle
   toggle.addEventListener('click', function () {
     isOpen() ? closeMenu() : openMenu();
   }, { passive: true });
 
-  // Tap/click the scrim to close
+  // Scrim closes
   scrim.addEventListener('click', closeMenu);
 
-  // Close when a nav link is activated
+  // Close on any menu link click
   menu.addEventListener('click', function (e) {
-    var a = e.target.closest('a');
-    if (!a) return;
-    closeMenu();
+    if (e.target.closest('a, button')) closeMenu();
   });
 
-  // Close on Escape
+  // ESC closes
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && isOpen()) closeMenu();
   });
-}
+
+  // Debug helper (comment out when done)
+  // console.log('Nav ready:', {toggle, menu, scrim});
+})();
 
   /* ---------------------------------
    * 3) Newsletter quick validation

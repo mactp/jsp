@@ -550,6 +550,17 @@ html.js [hidden] {
   outline-offset: 2px;
 }
 
+/* Desktop nav (always visible) */
+@media (min-width: 901px) {
+  .nav-toggle { display: none; }       /* hide hamburger */
+  .nav-list   { display: flex !important; position: static; transform: none; background: none; box-shadow: none; padding: 0; }
+  .nav-list li { margin-left: 1rem; }
+  .scrim { display: none !important; }
+}
+@media (min-width: 901px) {
+  #primary-nav[hidden] { display: flex !important; } /* force visible on desktop even if 'hidden' is there */
+}
+
 /* Off-canvas nav panel */
 @media (max-width: 900px) {
   .site-nav {
@@ -619,6 +630,152 @@ body.no-scroll {
 }
 
 /* Ensure banner overlays don’t block header clicks */
+.banner::before,
+.banner::after {
+  pointer-events: none;
+}
+
+/* =======================================================
+   Site Header + Navigation (Desktop + Mobile)
+   ======================================================= */
+
+/* Sticky header above hero */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #2f4f4f; /* theme colour */
+  color: #fff;
+}
+
+/* Toggle button (hamburger) */
+.nav-toggle {
+  -webkit-tap-highlight-color: transparent;
+  min-width: 44px;
+  min-height: 44px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+.nav-toggle:focus-visible {
+  outline: 3px solid #9fe7d9;
+  outline-offset: 2px;
+}
+
+/* The scrim overlay (mobile only) */
+.scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .28s ease;
+  z-index: 900; /* sits under nav */
+}
+body.nav-open .scrim {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Prevent background scroll when nav is open */
+body.no-scroll {
+  overflow: hidden;
+  touch-action: none;
+}
+
+/* =======================================================
+   Mobile nav (≤900px)
+   ======================================================= */
+@media (max-width: 900px) {
+  .site-nav {
+    position: relative;
+    z-index: 1001;
+  }
+
+  .nav-list {
+    position: fixed;
+    top: 0; right: 0; bottom: 0;
+    width: min(85vw, 320px);
+    margin: 0;
+    padding: 80px 20px 24px;
+    list-style: none;
+    background: #234543;
+    color: #fff;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform .28s ease;
+    box-shadow: -8px 0 24px rgba(0,0,0,0.35);
+  }
+
+  body.nav-open .nav-list {
+    transform: translateX(0);
+  }
+
+  .nav-list li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-list a {
+    display: block;
+    padding: 14px 8px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+  }
+
+  .nav-list a:hover,
+  .nav-list a:focus-visible {
+    background: rgba(255,255,255,0.08);
+  }
+}
+
+/* =======================================================
+   Desktop nav (≥901px)
+   ======================================================= */
+@media (min-width: 901px) {
+  /* hide the hamburger */
+  .nav-toggle {
+    display: none;
+  }
+
+  /* force nav list visible inline */
+  .nav-list {
+    display: flex !important;
+    position: static;
+    transform: none;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .nav-list li {
+    margin-left: 1rem;
+  }
+
+  .nav-list a {
+    color: inherit;
+    padding: 0;
+  }
+
+  /* ignore scrim on desktop */
+  .scrim {
+    display: none !important;
+  }
+
+  /* even if HTML has hidden attr, show it on desktop */
+  #primary-nav[hidden] {
+    display: flex !important;
+  }
+}
+
+/* =======================================================
+   Safety: hero overlays shouldn’t block header
+   ======================================================= */
 .banner::before,
 .banner::after {
   pointer-events: none;

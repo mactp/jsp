@@ -82,7 +82,7 @@ h1,h2,h3 { line-height:1.25; color:#344e41 }
 /* Ensure banner overlays never block the header */
 .banner::before,.banner::after{pointer-events:none}
 
-/* === Universal banner: same on every page, with legible text over photo === */
+/* === Universal banner: same on every page, legible over photo === */
 :root{
   /* tweak these if needed */
   --hero-h: 560px;          /* desktop/tablet height */
@@ -98,16 +98,11 @@ h1,h2,h3 { line-height:1.25; color:#344e41 }
   place-items: center;
   text-align: center;
 
-  /* photo background */
+  /* gradient + image in ONE background declaration
+     (path is relative to this CSS file: resources/css/ → ../images/…) */
   background:
-    linear-gradient(
-      0deg,
-      rgba(0,0,0,var(--hero-dim)),
-      rgba(0,0,0,var(--hero-dim))
-    ),
-    url("C:/Users/thomp/OneDrive/Projects/JSP/resources/images/banner/jsp-banner.jpg") no-repeat;
-  background-size: cover;
-  background-position: var(--hero-focus-x) var(--hero-focus-y);
+    linear-gradient(0deg, rgba(0,0,0,var(--hero-dim)), rgba(0,0,0,var(--hero-dim))),
+    url("../images/banner/jsp-banner.jpg") center/cover no-repeat;
   background-color: #dbe7c9; /* graceful fallback */
 
   height: var(--hero-h);
@@ -120,8 +115,7 @@ h1,h2,h3 { line-height:1.25; color:#344e41 }
 .banner::after{
   content:"";
   position:absolute; inset:0;
-  background:
-    radial-gradient(80% 60% at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,.18) 100%);
+  background: radial-gradient(80% 60% at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,.18) 100%);
   pointer-events:none;
 }
 
@@ -134,16 +128,18 @@ h1,h2,h3 { line-height:1.25; color:#344e41 }
 .banner h2{
   margin: 0;
   font-size: clamp(1.8rem, 5vw, 2.4rem);
+  color: #fff;                      /* bright white for contrast */
+  text-shadow: 0 2px 12px rgba(0,0,0,.4);
 }
 
 .banner p.eyebrow{
   margin: 0 0 .8rem;
-  color: #f0f5ef;              /* softer than pure white */
+  color: #f0f5ef;                   /* off-white */
   opacity: .95;
   display: inline-block;
   padding: .15rem .5rem;
   border-radius: 999px;
-  background: rgba(0,0,0,.22); /* tiny pill to help fine text pop */
+  background: rgba(0,0,0,.3);       /* small pill to help fine text pop */
   backdrop-filter: saturate(120%) blur(0.5px);
 }
 

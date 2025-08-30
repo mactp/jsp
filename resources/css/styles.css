@@ -45,39 +45,6 @@ h1,h2,h3 { line-height:1.25; color:#344e41 }
   *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important}
 }
 
-/* -------------------- header & navigation -------------------- */
-.site-header{
-  position:sticky; top:0; z-index:1000;
-  height:var(--header-h);
-  background:var(--brand-deep); color:#fff; border-bottom:3px solid var(--brand-3);
-  box-shadow:0 1px 0 rgba(0,0,0,.04);
-}
-.site-header.is-scrolled{box-shadow:0 6px 20px rgba(0,0,0,.12); border-bottom-color:var(--brand-2)}
-.header-inner{height:100%; display:flex; align-items:center; gap:1rem}
-.site-title{margin:0; font-size:1.15rem; font-weight:800}
-.site-title a{color:#fefae0; text-decoration:none}
-
-.site-nav{margin-left:auto; position:relative}
-.nav-toggle{
-  cursor:pointer; user-select:none; -webkit-tap-highlight-color:transparent;
-  display:inline-grid; place-items:center; width:44px; height:44px;
-  border:2px solid rgba(255,255,255,.65); border-radius:10px;
-  background:transparent; color:#fff;
-}
-.nav-list{
-  list-style:none; margin:0; padding:12px 16px;
-  position:absolute; right:0; top:calc(100% + 8px);
-  background:#234543; border-radius:10px; box-shadow:var(--shadow);
-}
-.nav-list[hidden]{display:none}
-.nav-list a{display:block; padding:.5rem 0; color:#fff; text-decoration:none; border-radius:6px; white-space:nowrap}
-.nav-list a:hover,.nav-list a:focus-visible{background:rgba(255,255,255,.08)}
-
-@media (min-width:900px){
-  .nav-toggle{display:none}
-  .nav-list{position:static; display:flex !important; gap:1rem; padding:0; background:none; box-shadow:none}
-  .nav-list a{padding:0}
-}
 
 /* Ensure banner overlays never block the header */
 .banner::before,.banner::after{pointer-events:none}
@@ -345,4 +312,148 @@ h1,h2,h3 { line-height:1.25; color:#344e41 }
 @media (min-width:900px){
   /* ensure desktop nav is visible even if [hidden] lingers */
   #primary-nav, #primary-nav[hidden]{display:flex !important}
+}
+
+/* Toggle button */
+.nav-toggle{
+  appearance: none; border: 0; background: transparent; color: inherit;
+  font-size: 1.25rem; padding: 10px; margin: -10px; border-radius: 8px; cursor: pointer;
+}
+.nav-toggle:focus-visible{ outline: 2px solid #22d3ee; outline-offset: 2px; }
+
+/* Donate button (keep your class) */
+.donate-button{
+  background: #22d3ee; color: #00262b; font-weight: 700; padding: .5rem .75rem; border-radius: 8px;
+}
+
+/* Base nav list styles (shared) */
+.site-nav .nav-list{
+  list-style: none; margin: 0; padding: 0; display: flex; gap: 10px;
+}
+.site-nav .nav-list a{
+  display: block; text-decoration: none; color: inherit; padding: .5rem .6rem; border-radius: 8px;
+}
+.site-nav .nav-list a:hover,
+.site-nav .nav-list a:focus-visible { background: rgba(255,255,255,.08); outline: none; }
+
+/* ===== Mobile (drawer) ===== */
+@media (max-width: 900px){
+  /* Drawer panel */
+  .site-nav .nav-list{
+    position: fixed; inset-block: 0; right: 0; width: min(86vw, 360px);
+    background: #111827;            /* gray-900 */
+    box-shadow: -12px 0 24px rgba(0,0,0,.35);
+    flex-direction: column; gap: 2px; padding: 18px;
+    transform: translateX(100%); transition: transform .22s cubic-bezier(.2,.6,.2,1);
+  }
+  .site-nav.open .nav-list{ transform: translateX(0); }
+
+  /* Show the hamburger on mobile */
+  .nav-toggle{ display: inline-block; }
+}
+
+/* ===== Desktop ===== */
+@media (min-width: 901px){
+  /* Horizontal menu */
+  .site-nav .nav-list{ position: static; transform: none !important; background: transparent; box-shadow: none; }
+  .nav-toggle{ display: none; }
+  /* Ensure menu is visible on desktop regardless of JS state */
+  .site-nav .nav-list[hidden]{ display: flex !important; }
+}
+
+/* ===== Overlay (auto-created by JS) ===== */
+.nav-overlay{
+  position: fixed; inset: 0; background: rgba(0,0,0,.5);
+  opacity: 0; pointer-events: none; transition: opacity .22s cubic-bezier(.2,.6,.2,1);
+  z-index: 45;
+}
+.nav-overlay.show{ opacity: 1; pointer-events: auto; }
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce){
+  .site-nav .nav-list, .nav-overlay { transition: none !important; }
+}
+
+/* === Unified Header & Mobile Drawer (brand palette) === */
+:root{ --header-h:60px; }
+
+.site-header{
+  position: sticky; top: 0; z-index: 1000;
+  height: var(--header-h);
+  background: var(--brand-deep); color:#fff;
+  border-bottom: 3px solid var(--brand-3);
+  box-shadow: 0 1px 0 rgba(0,0,0,.04);
+}
+.site-header.is-scrolled{
+  box-shadow: 0 6px 20px rgba(0,0,0,.12);
+  border-bottom-color: var(--brand-2);
+}
+.header-inner{ height:100%; display:flex; align-items:center; gap:1rem; }
+.site-title{ margin:0; font-size:1.15rem; font-weight:800; }
+.site-title a{ color:#fefae0; text-decoration:none; }
+
+.site-nav{ margin-left:auto; position:relative; }
+.nav-toggle{
+  cursor:pointer; user-select:none; -webkit-tap-highlight-color:transparent;
+  display:inline-grid; place-items:center; width:44px; height:44px;
+  border:2px solid rgba(255,255,255,.65); border-radius:10px;
+  background:transparent; color:#fff;
+}
+
+/* Base link styles shared across views */
+.site-nav .nav-list{
+  list-style:none; margin:0; padding:0;
+  display:flex; gap:1rem;             /* desktop default */
+}
+.site-nav .nav-list a{
+  display:block; padding:.5rem .6rem; color:#fff;
+  text-decoration:none; border-radius:8px; white-space:nowrap;
+}
+.site-nav .nav-list a:hover,
+.site-nav .nav-list a:focus-visible{ background:rgba(255,255,255,.08); outline:none; }
+
+/* Donate button keeps your existing look */
+.donate-button{
+  background: var(--brand-2); color:#fff; font-weight:700;
+  padding:.5rem .75rem; border-radius:8px; text-decoration:none;
+}
+
+/* --- Mobile (drawer) --- */
+@media (max-width: 900px){
+  /* convert list into an off-canvas panel */
+  .site-nav .nav-list{
+    position: fixed; inset-block: 0; right: 0; width: min(86vw, 360px);
+    background: #234543; /* matches your dropdown tone */
+    box-shadow: -12px 0 24px rgba(0,0,0,.35);
+    flex-direction: column; gap: 2px; padding: 18px;
+    transform: translateX(100%); transition: transform .22s cubic-bezier(.2,.6,.2,1);
+    z-index: 1001; /* above overlay */
+  }
+  .site-nav.open .nav-list{ transform: translateX(0); }
+
+  .nav-toggle{ display:inline-grid; }     /* show hamburger */
+  .nav-list[hidden]{ display:block !important; } /* JS toggles [hidden]; keep block so transform works */
+}
+
+/* --- Desktop --- */
+@media (min-width: 901px){
+  .nav-toggle{ display:none; }
+  .site-nav .nav-list{
+    position: static; transform:none !important; background:transparent; box-shadow:none;
+  }
+  /* Always visible on desktop even if [hidden] lingers */
+  .site-nav .nav-list[hidden]{ display:flex !important; }
+}
+
+/* --- Overlay created by JS --- */
+.nav-overlay{
+  position: fixed; inset: 0; background: rgba(0,0,0,.5);
+  opacity: 0; pointer-events: none; transition: opacity .22s cubic-bezier(.2,.6,.2,1);
+  z-index: 1000; /* under drawer, over page */
+}
+.nav-overlay.show{ opacity: 1; pointer-events: auto; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .site-nav .nav-list, .nav-overlay { transition: none !important; }
 }

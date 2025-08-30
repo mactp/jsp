@@ -1,44 +1,125 @@
+// assets/js/main.js
 document.addEventListener('DOMContentLoaded', () => {
-  /* 0) Header nav toggle — matches current HTML */
+  /* 0) Header nav toggle — upgraded (overlay + focus trap + scroll lock) */
   const nav = document.querySelector('.site-nav');
   const toggleBtn = nav?.querySelector('.nav-toggle');
   const navList = nav?.querySelector('#primary-nav');
 
   if (nav && toggleBtn && navList) {
-    const closeMenu = () => {
-      toggleBtn.setAttribute('aria-expanded', 'false');
-      navList.hidden = true;
+    // Create overlay once
+    let overlay = document.querySelector('.nav-overlay');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.className = 'nav-overlay';
+      document.body.appendChild(overlay);
+    }
+
+    const mq = window.matchMedia('(max-width: 900px)');
+    let lastFocus = null;
+
+    const isOpen = () => nav.classList.contains('open');
+
+    const setAria = (open) => {
+      toggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open) {
+        navList.removeAttribute('hidden');
+        navList.setAttribute('aria-modal', 'true');
+      } else {
+        navList.setAttribute('hidden', '');
+        navList.removeAttribute('aria-modal');
+      }
     };
+
+    const getFocusables = (root) =>
+      Array.from(root.querySelectorAll(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )).filter(el => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden'));
+
+    const trapKeydown = (e) => {
+      if (!isOpen()) return;
+      if (e.key === 'Escape') { e.preventDefault(); return closeMenu(); }
+      if (e.key !== 'Tab') return;
+
+      const f = getFocusables(navList);
+      if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    };
+
     const openMenu = () => {
-      toggleBtn.setAttribute('aria-expanded', 'true');
-      navList.hidden = false;
+      if (isOpen()) return;
+      lastFocus = document.activeElement;
+
+      nav.classList.add('open');          // enables drawer animation via CSS
+      overlay.classList.add('show');      // fades in overlay
+      setAria(true);
+
+      // Lock scroll
+      document.documentElement.style.overflow = 'hidden';
+
+      // Focus first menu item
+      const f = getFocusables(navList);
+      (f[0] || toggleBtn).focus();
+
+      // Listeners
+      overlay.addEventListener('click', closeMenu, { once: true });
+      document.addEventListener('keydown', trapKeydown);
     };
 
-    // start closed on mobile
-    closeMenu();
+    const closeMenu = () => {
+      if (!isOpen()) return;
+      nav.classList.remove('open');
+      overlay.classList.remove('show');
+      setAria(false);
 
-    toggleBtn.addEventListener('click', () => {
-      const open = toggleBtn.getAttribute('aria-expanded') === 'true';
-      open ? closeMenu() : openMenu();
-    });
+      // Unlock scroll after overlay transition ends (or immediately if no transition)
+      const onEnd = () => {
+        document.documentElement.style.overflow = '';
+        overlay.removeEventListener('transitionend', onEnd);
+      };
+      overlay.addEventListener('transitionend', onEnd);
+      if (getComputedStyle(overlay).transitionDuration === '0s') onEnd();
 
-    // click outside closes (mobile)
-    document.addEventListener('click', (e) => {
-      const isDesktop = window.matchMedia('(min-width: 900px)').matches;
-      if (!isDesktop && !nav.contains(e.target)) closeMenu();
-    });
+      document.removeEventListener('keydown', trapKeydown);
 
-    // Esc to close
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
-
-    // resize sync (prevents stale state)
-    const mq = window.matchMedia('(min-width: 900px)');
-    const sync = () => {
-      if (mq.matches) { navList.hidden = false; toggleBtn.setAttribute('aria-expanded','false'); }
-      else { navList.hidden = true; }
+      // Restore focus
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
     };
-    mq.addEventListener?.('change', sync);
-    sync();
+
+    // Start closed on mobile; visible on desktop
+    const syncForViewport = () => {
+      if (mq.matches) {         // mobile
+        nav.classList.remove('open');
+        overlay.classList.remove('show');
+        setAria(false);
+        document.documentElement.style.overflow = '';
+        document.removeEventListener('keydown', trapKeydown);
+      } else {                  // desktop
+        nav.classList.remove('open');
+        overlay.classList.remove('show');
+        navList.removeAttribute('hidden'); // always visible on desktop
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        document.documentElement.style.overflow = '';
+        document.removeEventListener('keydown', trapKeydown);
+      }
+    };
+
+    // Toggle button
+    toggleBtn.addEventListener('click', () => (isOpen() ? closeMenu() : openMenu()));
+
+    // Close when a menu link is clicked on mobile
+    navList.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href]');
+      if (link && mq.matches) closeMenu();
+    });
+
+    mq.addEventListener?.('change', syncForViewport);
+    syncForViewport();
   }
 
   /* 1) Footer year */

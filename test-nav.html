@@ -5,45 +5,56 @@
   <title>Nav Test</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-    body { margin:0; font-family:sans-serif; }
+    body { margin:0; font-family:sans-serif; background:#f9f9f9; }
 
-    /* --- Header & button always tappable --- */
-    .site-header{ position:relative; z-index:1000; background:#2f4f4f; color:#fff; }
-    .header-inner{ display:flex; align-items:center; justify-content:space-between; padding:1rem; }
-    .nav-toggle{
+    /* Header basics */
+    .site-header { background:#2f4f4f; color:#fff; position:relative; z-index:1000; }
+    .header-inner { display:flex; align-items:center; justify-content:space-between; padding:1rem; }
+    .site-title a { color:#fff; text-decoration:none; font-weight:bold; }
+
+    /* Hamburger button */
+    .nav-toggle {
       position:relative; z-index:1001;
-      -webkit-tap-highlight-color: transparent;
+      -webkit-tap-highlight-color:transparent;
       touch-action:manipulation;
       min-width:44px; min-height:44px;
       border:2px solid rgba(255,255,255,.6);
-      border-radius:8px; background:transparent; color:#fff; cursor:pointer;
+      border-radius:8px;
+      background:transparent; color:#fff; cursor:pointer;
       font-size:1.25rem;
     }
 
-    /* --- Mobile nav --- */
-    @media (max-width: 768px){
-      .site-nav{ background:#234543; }
-      .nav-list{ list-style:none; margin:0; padding:1rem; }
-      .nav-list a{ display:block; padding:.5rem 0; color:#fff; text-decoration:none; }
+    /* Desktop layout */
+    @media (min-width: 900px){
+      #navToggle { display:none !important; }
+      #primary-nav, #primary-nav[hidden] { display:flex !important; }
+      .site-nav { margin-left:auto; background:transparent; padding:0; }
+      .nav-list {
+        display:flex; gap:1.1rem; margin:0; padding:0; list-style:none;
+      }
+      .nav-list a { color:#fff; text-decoration:none; }
+      .nav-list a:hover, .nav-list a:focus-visible { text-decoration:underline; }
     }
 
-    /* --- Desktop nav --- */
-    @media (min-width: 769px){
-      #navToggle{ display:none !important; }
-      #primary-nav, #primary-nav[hidden]{ display:block !important; }
-      .site-nav{ background:transparent; padding:0; }
-      .nav-list{ display:flex; gap:1rem; margin:0; padding:0; list-style:none; }
-      .nav-list a{ color:#fff; text-decoration:none; }
-      .nav-list a:hover, .nav-list a:focus-visible{ text-decoration:underline; }
+    /* Mobile layout */
+    @media (max-width: 899px){
+      .site-nav { background:#234543; width:100%; }
+      .nav-list {
+        list-style:none; margin:0; padding:1rem; display:block;
+      }
+      .nav-list a {
+        display:block; padding:.5rem 0; color:#fff; text-decoration:none;
+      }
     }
   </style>
 </head>
 <body>
   <header class="site-header" role="banner">
-    <div class="header-inner">
-      <h1 class="site-title"><a href="index.html" style="color:white;text-decoration:none">Jacob Smith Park</a></h1>
+    <div class="container header-inner">
+      <h1 class="site-title"><a href="index.html">Jacob Smith Park</a></h1>
 
       <nav class="site-nav" aria-label="Main navigation">
+        <!-- Hamburger (mobile only) -->
         <button id="navToggle" class="nav-toggle"
                 aria-expanded="false"
                 aria-controls="primary-nav"
@@ -64,24 +75,24 @@
   </header>
 
   <main style="padding:2rem;">
-    <p>This is just a test page for the nav menu.</p>
-    <p>Resize your browser or view on a phone to see the hamburger menu.</p>
+    <p>Resize the browser window or toggle device mode to test the nav.</p>
   </main>
 
   <script>
-  /* Mobile nav toggle (accordion style) */
-  (function(){
-    const btn  = document.getElementById('navToggle');
-    const list = document.getElementById('primary-nav');
-    if(!btn || !list) return;
-    console.log('[nav] ready', btn, list);
-    btn.addEventListener('click', () => {
-      const open = !list.hasAttribute('hidden');
-      list.hidden = open;
-      btn.setAttribute('aria-expanded', String(!open));
-      console.log('[nav]', open ? 'close' : 'open');
-    });
-  })();
+    (function(){
+      const btn  = document.getElementById('navToggle');
+      const list = document.getElementById('primary-nav');
+      if(!btn || !list) return;
+      btn.setAttribute('aria-expanded','false');
+      list.hidden = true;
+
+      btn.addEventListener('click', () => {
+        const open = !list.hasAttribute('hidden');
+        list.hidden = open;
+        btn.setAttribute('aria-expanded', String(!open));
+        console.log("Hamburger clicked. Menu is now:", open ? "closed" : "open");
+      });
+    })();
   </script>
 </body>
 </html>

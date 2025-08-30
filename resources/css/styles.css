@@ -911,3 +911,4 @@ body.no-scroll {
   .nav-list a{ color:inherit; text-decoration:none; padding:0; }
   .nav-list a:hover, .nav-list a:focus-visible{ text-decoration:underline; }
 }
+.header-inner, .site-header .container{ position:relative; z-index:1001; }

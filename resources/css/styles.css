@@ -462,3 +462,18 @@ h1,h2,h3 { line-height:1.25; color:#344e41 }
 .site-header{ z-index: 2000; }            /* header (and its children) above overlay */
 .nav-overlay{ z-index: 1500; }             /* overlay below the drawer */
 .site-nav .nav-list{ z-index: 2500; }      /* the drawer itself on top */
+
+/* === Fix banner centering on mobile === */
+@media (max-width: 700px){
+  /* remove the big side padding from the banner itself on small screens */
+  .banner{ padding-inline: 0; }
+
+  /* override the global .container width inside the banner */
+  .banner .container{
+    width: auto;                 /* cancel 92vw from the global .container */
+    max-width: 60ch;             /* your original content width cap */
+    margin-inline: auto;         /* center the block */
+    padding-inline: clamp(16px, 4vw, 24px); /* small inner padding */
+    justify-self: center;        /* belt-and-braces for the grid parent */
+  }
+}

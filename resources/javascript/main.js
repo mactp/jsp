@@ -266,4 +266,19 @@ if (navToggle && siteNav) {
       navToggle.setAttribute('aria-expanded', 'true');
     }
   });
+
 }
+/* Mobile nav toggle (accordion) */
+(function(){
+  const btn  = document.getElementById('navToggle');
+  const list = document.getElementById('primary-nav');
+  if(!btn || !list) return;
+
+  console.log('[nav] ready', btn, list); // debug
+  btn.addEventListener('click', () => {
+    const open = !list.hasAttribute('hidden');
+    list.hidden = open;                      // toggle the hidden attribute
+    btn.setAttribute('aria-expanded', String(!open));
+    console.log('[nav]', open ? 'close' : 'open');
+  });
+})();

@@ -1,62 +1,46 @@
 /* =======================================================
-   Friends of Jacob Smith Park – Unified Styles (rewritten)
-   Structure: tokens • resets • base • helpers • header/nav • banners • components • pages • utilities • media
-   Notes:
-   - Zero‑JS mobile nav using <details>. On desktop, list is always visible.
-   - Reduced motion friendly. Strong focus states. Stable sticky header.
-   - Classnames preserved where possible to minimise HTML changes.
+   Friends of Jacob Smith Park – Unified Styles (cleaned)
+   Structure: tokens • resets • base • helpers • header/nav • banner • components • pages • utilities • media
 ======================================================= */
 
 /* -------------------- tokens -------------------- */
-:root{
-  /* colors */
+:root {
   --bg:#f4f3ef; --surface:#ffffff; --fg:#2f2f2f; --muted:#5b5b5b;
   --brand:#2f4f4f; --brand-2:#588157; --brand-3:#a3b18a; --accent:#d4a373;
-  --brand-deep:#254545; /* darker brand for contrast on bars */
-
-  /* radii & shadows */
+  --brand-deep:#254545;
   --radius:.5rem; --radius-lg:.75rem; --shadow:0 2px 6px rgba(0,0,0,.08);
-
-  /* layout */
   --gap:20px; --wrap:min(1100px,92vw);
-
-  /* banners */
-  --banner-minh:280px; --banner-minh-sm:200px; --banner-minh-slim:200px; --banner-minh-tall:380px;
   --banner-pad:clamp(48px,6vw,72px);
-
-  /* header */
-  --header-h:60px; /* sticky offset and scroll-margin companion */
+  --header-h:60px;
 }
 
-/* -------------------- resets -------------------- */
-*,*::before,*::after{box-sizing:border-box}
-html{color-scheme:light}
-body{margin:0; font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; line-height:1.6; color:var(--fg); background:var(--bg)}
-img{max-width:100%; height:auto; display:block}
-svg{display:block}
-
-/* Typography conveniences */
-h1,h2,h3{line-height:1.25; color:#344e41}
-
-/* Containers */
-.container{width:var(--wrap); margin-inline:auto; padding-inline:clamp(16px,3vw,24px)}
-
+/* -------------------- resets & base -------------------- */
+*,*::before,*::after { box-sizing:border-box }
+html { color-scheme:light }
+body {
+  margin:0;
+  font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+  line-height:1.6; color:var(--fg); background:var(--bg);
+}
+img { max-width:100%; height:auto; display:block }
+svg { display:block }
+h1,h2,h3 { line-height:1.25; color:#344e41 }
+.container { width:var(--wrap); margin-inline:auto; padding-inline:clamp(16px,3vw,24px) }
 /* Anchor jumps never hide under sticky header */
-[id]{scroll-margin-top:calc(var(--header-h) + 30px)}
+[id] { scroll-margin-top:calc(var(--header-h) + 30px) }
 
-/* Skip link */
+/* -------------------- a11y helpers -------------------- */
 .visually-hidden{position:absolute!important; clip:rect(1px,1px,1px,1px); clip-path:inset(50%); height:1px; width:1px; overflow:hidden; white-space:nowrap}
 .skip-link{position:absolute; top:-40px; left:0; background:var(--brand); color:#fff; padding:.5rem 1rem; border-radius:0 0 .25rem .25rem; text-decoration:none; z-index:1000}
 .skip-link:focus{top:0}
 
 /* Focus states */
-:where(a,button,input,textarea,select,summary)[data-focus="ring"],
 :where(a,button,input,textarea,select,summary):focus-visible{
-  outline:3px solid #ffcf98; /* accent-ish */
+  outline:3px solid #ffcf98;
   outline-offset:2px; border-radius:.2rem;
 }
 
-/* Motion safety */
+/* Reduced motion safety */
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important}
 }
@@ -68,74 +52,116 @@ h1,h2,h3{line-height:1.25; color:#344e41}
   background:var(--brand-deep); color:#fff; border-bottom:3px solid var(--brand-3);
   box-shadow:0 1px 0 rgba(0,0,0,.04);
 }
+.site-header.is-scrolled{box-shadow:0 6px 20px rgba(0,0,0,.12); border-bottom-color:var(--brand-2)}
 .header-inner{height:100%; display:flex; align-items:center; gap:1rem}
 .site-title{margin:0; font-size:1.15rem; font-weight:800}
 .site-title a{color:#fefae0; text-decoration:none}
 
-/* <details> zero‑JS menu */
-.nav{display:inline-block; margin-left:auto}
-.nav-toggle{ /* this is <summary> */
-  list-style:none; cursor:pointer; user-select:none;
-  -webkit-tap-highlight-color:transparent; touch-action:manipulation;
+.site-nav{margin-left:auto; position:relative}
+.nav-toggle{
+  cursor:pointer; user-select:none; -webkit-tap-highlight-color:transparent;
   display:inline-grid; place-items:center; width:44px; height:44px;
-  border:2px solid rgba(255,255,255,.65); border-radius:10px; background:transparent; color:#fff;
+  border:2px solid rgba(255,255,255,.65); border-radius:10px;
+  background:transparent; color:#fff;
 }
-.nav-toggle::-webkit-details-marker{display:none}
-.nav-toggle::marker{content:""}
-.nav-toggle .bars,
-.nav-toggle .bars::before,
-.nav-toggle .bars::after{
-  content:""; display:block; width:22px; height:2.5px; background:#fff; border-radius:2px;
-  position:relative; transition:transform .25s ease, top .25s ease, background .25s ease;
+.nav-list{
+  list-style:none; margin:0; padding:12px 16px;
+  position:absolute; right:0; top:calc(100% + 8px);
+  background:#234543; border-radius:10px; box-shadow:var(--shadow);
 }
-.nav-toggle .bars::before{position:absolute; top:-7px}
-.nav-toggle .bars::after{position:absolute; top:7px}
-
-/* Turn into X when open */
-.nav[open] .bars{background:transparent}
-.nav[open] .bars::before{top:0; transform:rotate(45deg)}
-.nav[open] .bars::after{top:0; transform:rotate(-45deg)}
-
-/* Menu list */
-.nav-list{list-style:none; margin:0; padding:12px 16px; display:none; background:#234543; border-radius:10px; box-shadow:var(--shadow)}
-.nav[open] .nav-list{display:block}
-.nav-list li{margin:0}
+.nav-list[hidden]{display:none}
 .nav-list a{display:block; padding:.5rem 0; color:#fff; text-decoration:none; border-radius:6px; white-space:nowrap}
 .nav-list a:hover,.nav-list a:focus-visible{background:rgba(255,255,255,.08)}
 
-/* Desktop: show inline, hide burger */
 @media (min-width:900px){
-  .nav-toggle{display:none !important}
-  .nav .nav-list{display:flex !important; gap:1rem; margin:0; padding:0; background:none; box-shadow:none}
-  .nav .nav-list a{color:#fff; padding:0}
+  .nav-toggle{display:none}
+  .nav-list{position:static; display:flex !important; gap:1rem; padding:0; background:none; box-shadow:none}
+  .nav-list a{padding:0}
 }
 
 /* Ensure banner overlays never block the header */
 .banner::before,.banner::after{pointer-events:none}
 
-/* -------------------- banners -------------------- */
-.banner{position:relative; background:#dbe7c9; display:grid; place-items:center; text-align:center; min-height:var(--banner-minh); padding-block:var(--banner-pad)}
-.banner h2{margin:0 0 .4rem; font-size:clamp(1.6rem,4vw,2.4rem); color:#233b35}
-.banner p.eyebrow{margin:0 0 .8rem; color:#2f2f2f; opacity:.85}
-
-.banner--image{color:#fff; background-size:cover; background-position:center}
-.banner--image::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.25))}
-.banner--image>.container{position:relative; z-index:1}
-.banner--default{background-image:url("../images/banner/jsp-banner.jpg")}
-
-.banner--slim{min-height:var(--banner-minh-slim)}
-.banner--tall{min-height:var(--banner-minh-tall)}
-
-@media (max-width:640px){
-  .banner{min-height:var(--banner-minh-sm)}
-  .banner--slim{min-height:160px}
-  .banner--tall{min-height:280px}
+/* === Universal banner: same on every page, with legible text over photo === */
+:root{
+  /* tweak these if needed */
+  --hero-h: 560px;          /* desktop/tablet height */
+  --hero-h-sm: 260px;       /* mobile height */
+  --hero-focus-x: 50%;      /* focus point of the image (left/center/right) */
+  --hero-focus-y: 45%;      /* slightly above center keeps horizon visible */
+  --hero-dim: .35;          /* overlay strength (0–1). Try .3–.45 */
 }
 
-.banner--wildlife{background-image:url("../images/banner/wildlife-hero.jpg")}
-.banner--history{background-image:url("../images/banner/history-hero.jpg")}
-.banner--home{background:#dbe7c9; padding-block:clamp(64px,9vw,160px)}
-.banner--home h2{font-size:clamp(1.8rem,5vw,2.6rem); color:#344e41}
+.banner{
+  position: relative;
+  display: grid;
+  place-items: center;
+  text-align: center;
+
+  /* photo background */
+  background:
+    linear-gradient(
+      0deg,
+      rgba(0,0,0,var(--hero-dim)),
+      rgba(0,0,0,var(--hero-dim))
+    ),
+    url("C:/Users/thomp/OneDrive/Projects/JSP/resources/images/banner/jsp-banner.jpg") no-repeat;
+  background-size: cover;
+  background-position: var(--hero-focus-x) var(--hero-focus-y);
+  background-color: #dbe7c9; /* graceful fallback */
+
+  height: var(--hero-h);
+  padding-inline: var(--banner-pad);
+  color: #fff; /* make text white over photo */
+  overflow: hidden; /* hides tiny cropping artifacts on small screens */
+}
+
+/* subtle edge vignettes to help text without “blocking out” the photo */
+.banner::after{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(80% 60% at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,.18) 100%);
+  pointer-events:none;
+}
+
+.banner .container{
+  position: relative; z-index: 1;
+  max-width: 60ch;             /* keeps headings from running too wide */
+  text-shadow: 0 2px 12px rgba(0,0,0,.35); /* just enough for legibility */
+}
+
+.banner h2{
+  margin: 0;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+}
+
+.banner p.eyebrow{
+  margin: 0 0 .8rem;
+  color: #f0f5ef;              /* softer than pure white */
+  opacity: .95;
+  display: inline-block;
+  padding: .15rem .5rem;
+  border-radius: 999px;
+  background: rgba(0,0,0,.22); /* tiny pill to help fine text pop */
+  backdrop-filter: saturate(120%) blur(0.5px);
+}
+
+@media (max-width: 640px){
+  .banner{ height: var(--hero-h-sm); }
+}
+
+.banner h2 {
+  color: #fff; /* bright white */
+  text-shadow: 0 2px 12px rgba(0,0,0,.4); /* subtle shadow for contrast */
+}
+.banner p.eyebrow {
+  color: #f0f5ef; /* off-white */
+  background: rgba(0,0,0,.3); /* keep pill for readability */
+}
+
+/* If you want a background image for a specific page, set inline style on the section:
+   style="background:url('resources/img/banner/wildlife-hero.jpg') center/cover no-repeat;" */
 
 /* -------------------- buttons -------------------- */
 .button,.btn,.donate-button{
@@ -246,10 +272,10 @@ h1,h2,h3{line-height:1.25; color:#344e41}
 .season-block.summer{background:#fff8e1; border-left-color:var(--accent)}
 .season-block.autumn{background:#fbe8d3; border-left-color:#e39457}
 .season-block::after{content:""; position:absolute; right:15px; bottom:15px; width:40px; height:40px; opacity:.06; background-size:contain; background-repeat:no-repeat}
-.season-block.winter::after{background-image:url("../images/icons/snowflake.png")}
-.season-block.spring::after{background-image:url("../images/icons/flower.png")}
-.season-block.summer::after{background-image:url("../images/icons/sun.png")}
-.season-block.autumn::after{background-image:url("../images/icons/leaf.png")}
+.season-block.winter::after{background-image:url("resources/img/icons/snowflake.png")}
+.season-block.spring::after{background-image:url("resources/img/icons/flower.png")}
+.season-block.summer::after{background-image:url("resources/img/icons/sun.png")}
+.season-block.autumn::after{background-image:url("resources/img/icons/leaf.png")}
 @media (max-width:600px){.season-block{padding:15px} .season-block::after{width:28px; height:28px}}
 
 /* -------------------- get involved -------------------- */
@@ -319,8 +345,8 @@ h1,h2,h3{line-height:1.25; color:#344e41}
 .key-list{padding-left:1.1em}
 .key-list li{margin-block:.35rem}
 
-/* -------------------- media query hardening -------------------- */
+/* -------------------- media hardening -------------------- */
 @media (min-width:900px){
-  /* hard override: ensure desktop nav never hides even if attributes linger */
-  #primary-nav, #primary-nav[hidden], .nav .nav-list{display:flex !important; gap:1rem; margin:0; padding:0; list-style:none; background:none; box-shadow:none}
+  /* ensure desktop nav is visible even if [hidden] lingers */
+  #primary-nav, #primary-nav[hidden]{display:flex !important}
 }

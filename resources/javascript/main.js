@@ -1,13 +1,51 @@
 document.addEventListener('DOMContentLoaded', () => {
-  /* ---------------------------------
-   * 1) Footer year
-   * --------------------------------- */
+  /* 0) Header nav toggle — matches current HTML */
+  const nav = document.querySelector('.site-nav');
+  const toggleBtn = nav?.querySelector('.nav-toggle');
+  const navList = nav?.querySelector('#primary-nav');
+
+  if (nav && toggleBtn && navList) {
+    const closeMenu = () => {
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      navList.hidden = true;
+    };
+    const openMenu = () => {
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      navList.hidden = false;
+    };
+
+    // start closed on mobile
+    closeMenu();
+
+    toggleBtn.addEventListener('click', () => {
+      const open = toggleBtn.getAttribute('aria-expanded') === 'true';
+      open ? closeMenu() : openMenu();
+    });
+
+    // click outside closes (mobile)
+    document.addEventListener('click', (e) => {
+      const isDesktop = window.matchMedia('(min-width: 900px)').matches;
+      if (!isDesktop && !nav.contains(e.target)) closeMenu();
+    });
+
+    // Esc to close
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+
+    // resize sync (prevents stale state)
+    const mq = window.matchMedia('(min-width: 900px)');
+    const sync = () => {
+      if (mq.matches) { navList.hidden = false; toggleBtn.setAttribute('aria-expanded','false'); }
+      else { navList.hidden = true; }
+    };
+    mq.addEventListener?.('change', sync);
+    sync();
+  }
+
+  /* 1) Footer year */
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  /* ---------------------------------
-   * 2) Newsletter quick validation
-   * --------------------------------- */
+  /* 2) Newsletter quick validation */
   const form = document.getElementById('newsletter-form');
   const status = document.getElementById('form-status');
   if (form && status) {
@@ -17,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         status.textContent = 'Please enter a valid email address.';
         status.style.color = '#ffd9b0';
-        if (email) email.focus();
+        email?.focus();
       } else {
         status.textContent = 'Thanks! Submitting…';
         status.style.color = '#fff';
@@ -25,9 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---------------------------------
-   * 3) Universal Lightbox
-   * --------------------------------- */
+  /* 3) Universal Lightbox */
   const lbTargets = Array.from(
     document.querySelectorAll('.lightbox-trigger, .two-col img, .image-grid a')
   );
@@ -67,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.removeAttribute('data-open');
         overlayImg.src = '';
         document.documentElement.style.overflow = '';
-        if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+        lastFocus?.focus?.();
       }
 
       lbTargets.forEach(function (el) {
@@ -90,20 +126,14 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       closeBtn.addEventListener('click', closeLightbox);
-      overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) closeLightbox();
-      });
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) closeLightbox(); });
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && overlay.getAttribute('data-open') === 'true') {
-          closeLightbox();
-        }
+        if (e.key === 'Escape' && overlay.getAttribute('data-open') === 'true') closeLightbox();
       });
     }
   }
 
-  /* ---------------------------------
-   * 4) Scrollspy (History page)
-   * --------------------------------- */
+  /* 4) Scrollspy (History page) */
   const subnav = document.querySelector('.subnav');
   if (subnav) {
     const links = Array.from(subnav.querySelectorAll('.subnav__link'));
@@ -122,10 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .filter(e => e.isIntersecting)
         .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
       if (visible) setActive(visible.target.id);
-    }, {
-      rootMargin: '-35% 0px -55% 0px',
-      threshold: 0.01
-    });
+    }, { rootMargin: '-35% 0px -55% 0px', threshold: 0.01 });
 
     targets.forEach(sec => observer.observe(sec));
 
@@ -142,9 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-/* ---------------------------------
- * 5) Sticky header shadow on scroll
- * --------------------------------- */
+/* 5) Sticky header shadow on scroll */
 (function(){
   const header = document.querySelector('.site-header');
   if (!header) return;

@@ -249,3 +249,21 @@ document.addEventListener('DOMContentLoaded', () => {
     history.replaceState(null, '', a.getAttribute('href'));
   });
 });
+/* ---------------------------------
+ * Mobile nav toggle (accordion style)
+ * --------------------------------- */
+const navToggle = document.getElementById('navToggle');
+const siteNav = document.getElementById('siteNav');
+
+if (navToggle && siteNav) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = !siteNav.hasAttribute('hidden');
+    if (isOpen) {
+      siteNav.hidden = true;
+      navToggle.setAttribute('aria-expanded', 'false');
+    } else {
+      siteNav.hidden = false;
+      navToggle.setAttribute('aria-expanded', 'true');
+    }
+  });
+}

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Nav Test</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body { margin:0; font-family:sans-serif; }
+
+    /* --- Header & button always tappable --- */
+    .site-header{ position:relative; z-index:1000; background:#2f4f4f; color:#fff; }
+    .header-inner{ display:flex; align-items:center; justify-content:space-between; padding:1rem; }
+    .nav-toggle{
+      position:relative; z-index:1001;
+      -webkit-tap-highlight-color: transparent;
+      touch-action:manipulation;
+      min-width:44px; min-height:44px;
+      border:2px solid rgba(255,255,255,.6);
+      border-radius:8px; background:transparent; color:#fff; cursor:pointer;
+      font-size:1.25rem;
+    }
+
+    /* --- Mobile nav --- */
+    @media (max-width: 768px){
+      .site-nav{ background:#234543; }
+      .nav-list{ list-style:none; margin:0; padding:1rem; }
+      .nav-list a{ display:block; padding:.5rem 0; color:#fff; text-decoration:none; }
+    }
+
+    /* --- Desktop nav --- */
+    @media (min-width: 769px){
+      #navToggle{ display:none !important; }
+      #primary-nav, #primary-nav[hidden]{ display:block !important; }
+      .site-nav{ background:transparent; padding:0; }
+      .nav-list{ display:flex; gap:1rem; margin:0; padding:0; list-style:none; }
+      .nav-list a{ color:#fff; text-decoration:none; }
+      .nav-list a:hover, .nav-list a:focus-visible{ text-decoration:underline; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <h1 class="site-title"><a href="index.html" style="color:white;text-decoration:none">Jacob Smith Park</a></h1>
+
+      <nav class="site-nav" aria-label="Main navigation">
+        <button id="navToggle" class="nav-toggle"
+                aria-expanded="false"
+                aria-controls="primary-nav"
+                aria-label="Open menu">☰</button>
+
+        <ul id="primary-nav" class="nav-list" hidden>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Visiting</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Wildlife</a></li>
+          <li><a href="#">History</a></li>
+          <li><a href="#">Get Involved</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a class="donate-button" href="#">Donate</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main style="padding:2rem;">
+    <p>This is just a test page for the nav menu.</p>
+    <p>Resize your browser or view on a phone to see the hamburger menu.</p>
+  </main>
+
+  <script>
+  /* Mobile nav toggle (accordion style) */
+  (function(){
+    const btn  = document.getElementById('navToggle');
+    const list = document.getElementById('primary-nav');
+    if(!btn || !list) return;
+    console.log('[nav] ready', btn, list);
+    btn.addEventListener('click', () => {
+      const open = !list.hasAttribute('hidden');
+      list.hidden = open;
+      btn.setAttribute('aria-expanded', String(!open));
+      console.log('[nav]', open ? 'close' : 'open');
+    });
+  })();
+  </script>
+</body>
+</html>

@@ -21,7 +21,7 @@
   --hero-h-sm: 380px;     /* mobile banner height */
   --hero-dim: .38;        /* overlay strength */
   --hero-focus-x: 50%;
-  --hero-focus-y: 50%;
+  --hero-focus-y: 45%;    /* nicer focal point for landscape */
 }
 
 /* -------------------- resets & base -------------------- */
@@ -144,9 +144,10 @@ h1,h2,h3 { line-height:1.25; color:#344e41; }
   overflow: hidden;
   background-color: #dbe7c9;
 
+  /* paths are relative to resources/css/ → ../images/... */
   background-image:
     linear-gradient(0deg, rgba(0,0,0,var(--hero-dim)), rgba(0,0,0,var(--hero-dim))),
-    url("/resources/images/index/index_banner.jpg");
+    url("../images/index/index_banner.jpg"); /* ✅ no leading slash */
   background-position: var(--hero-focus-x) var(--hero-focus-y);
   background-size: cover;
   background-repeat: no-repeat;
@@ -171,6 +172,23 @@ h1,h2,h3 { line-height:1.25; color:#344e41; }
     width:auto; max-width:60ch; margin-inline:auto;
     padding-inline: clamp(16px, 4vw, 24px); justify-self:center;
   }
+}
+
+/* Page-specific hero variants (optional) */
+.page-hero--visiting{
+  background-image:
+    linear-gradient(0deg, rgba(0,0,0,.35), rgba(0,0,0,.35)),
+    url("../images/visiting/visiting_banner.jpg");
+}
+.page-hero--about{
+  background-image:
+    linear-gradient(0deg, rgba(0,0,0,.35), rgba(0,0,0,.35)),
+    url("../images/about%20us/about_us_banner.jpeg");
+}
+.page-hero--wildlife{
+  background-image:
+    linear-gradient(0deg, rgba(0,0,0,.35), rgba(0,0,0,.35)),
+    url("../images/wildlife/wildlife_banner.jpg");
 }
 
 /* -------------------- buttons -------------------- */
@@ -305,12 +323,9 @@ h1,h2,h3 { line-height:1.25; color:#344e41; }
 .vol-form{ background:#fff; border:1px solid #eaeaea; border-radius:10px; padding:16px; box-shadow:var(--shadow); }
 .vol-form .form-row{ margin-bottom:12px; display:grid; gap:6px; }
 .vol-form label,.vol-form legend{ font-weight:600; }
-.vol-form input[type="text"],.vol-form input[type="email"],.vol-form textarea{ border:1px solid #d9d9d9; border-radius:6px; padding:10px 12px; font:inherit; width:100%; background:#fff}
-.vol-form fieldset{ border:0; padding:0; }
-.vol-form fieldset label{ display:inline-flex; align-items:center; gap:8px; margin-right:14px; }
-.vol-form .agree label{ font-weight:400; }
-.vol-form .form-actions{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
-.hp-field{ position:absolute; left:-9999px; width:1px; height:1px; }
+.vol-form input[type="text"],.vol-form input[type="email"],.vol-form textarea{
+  border:1px solid #d9d9d9; border-radius:6px; padding:10px 12px; font:inherit; width:100%; background:#fff;
+} /* ✅ fixed missing semicolon */
 
 /* -------------------- two-column alternating rows -------------------- */
 .two-col{ display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(20px,4vw,36px); align-items:center; margin-block:2.5rem; }
@@ -374,7 +389,6 @@ h1,h2,h3 { line-height:1.25; color:#344e41; }
   align-items: center;   /* ✅ truly centers the map horizontally */
   text-align: center;
 }
-
 .park-map img {
   width: 100%;
   max-width: 720px;      /* controls image width */
@@ -383,7 +397,6 @@ h1,h2,h3 { line-height:1.25; color:#344e41; }
   display: block;
   margin-inline: auto;   /* ✅ ensures image itself centers inside container */
 }
-
 .park-map figcaption {
   margin-top: .6rem;
   font-size: .9rem;
@@ -400,7 +413,6 @@ h1,h2,h3 { line-height:1.25; color:#344e41; }
   box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
   font-size: 0.975rem;
 }
-
 .site-footer a{
   color:#ffd9b0;
   text-decoration: none;
@@ -410,7 +422,6 @@ h1,h2,h3 { line-height:1.25; color:#344e41; }
   text-decoration: underline;
   outline: none;
 }
-
 /* grid layout for the three columns */
 .footer-grid{
   display:grid;
@@ -418,7 +429,6 @@ h1,h2,h3 { line-height:1.25; color:#344e41; }
   gap: clamp(16px, 3vw, 32px);
   padding-block: clamp(20px, 4vw, 36px);
 }
-
 .footer-col{ min-width: 0; }
 .footer-title{
   margin: .15rem 0 .5rem;
@@ -427,13 +437,11 @@ h1,h2,h3 { line-height:1.25; color:#344e41; }
   color:#fffbe9;
   letter-spacing: .2px;
 }
-
 .footer-blurb{
   margin: 0;
   color:#dfeae8;
   max-width: 48ch;
 }
-
 /* lists: remove bullets + reset spacing */
 .site-footer .footer-links{
   list-style: none;
@@ -441,7 +449,6 @@ h1,h2,h3 { line-height:1.25; color:#344e41; }
   padding: 0;
 }
 .site-footer .footer-links li{ margin: .35rem 0; }
-
 /* call-to-action button inside footer */
 .site-footer .button{
   background:#22d3ee;
@@ -453,7 +460,6 @@ h1,h2,h3 { line-height:1.25; color:#344e41; }
 }
 .site-footer .button:hover,
 .site-footer .button:focus-visible{ filter: none; transform: translateY(-1px); }
-
 /* legal bar */
 .legal-bar{
   background:#1f3a38;
@@ -468,7 +474,6 @@ h1,h2,h3 { line-height:1.25; color:#344e41; }
   color:#cfe3df;
 }
 .legal-inner p{ margin: 0; }
-
 .legal-links{
   list-style: none;
   display:flex;
@@ -478,14 +483,13 @@ h1,h2,h3 { line-height:1.25; color:#344e41; }
 }
 .legal-links a{ color:#eaf1f0; }
 .legal-links a:hover{ text-decoration: underline; }
-
 /* responsive footer */
 @media (max-width: 900px){
   .footer-grid{ grid-template-columns: 1fr; }
   .legal-inner{ flex-direction: column; align-items: flex-start; }
 }
 
-/* Newsletter section polish (optional, if you keep it above the footer) */
+/* Newsletter section polish (optional) */
 .newsletter{
   background:#2f4f4f;
   color:#fff;
@@ -546,12 +550,9 @@ h1,h2,h3 { line-height:1.25; color:#344e41; }
 
 /* === Magazine-style article with interspersed images === */
 .about-article .container{
-  /* create a new block formatting context so floats are contained */
-  overflow: auto;
+  overflow: auto; /* contain floats */
   padding-block: clamp(22px, 5vw, 38px);
 }
-
-/* float images that text wraps around on desktop */
 .pull{
   width: clamp(220px, 30vw, 360px);
   margin: .35rem .35rem 1rem;
@@ -560,18 +561,12 @@ h1,h2,h3 { line-height:1.25; color:#344e41; }
   box-shadow: 0 6px 24px rgba(0,0,0,.10);
 }
 .pull img{ width:100%; height:auto; display:block; }
-
-/* directional floats + nice text flow */
 .pull-right{ float:right; margin-left: clamp(14px, 2vw, 22px); }
 .pull-left{  float:left;  margin-right: clamp(14px, 2vw, 22px); }
-
-/* give paragraphs comfortable measure + rhythm */
 .about-article p{
   max-width: 65ch;
   margin: 0 0 .95rem;
 }
-
-/* Mobile: disable floats; show images full-width between paragraphs */
 @media (max-width: 800px){
   .pull, .pull-right, .pull-left{
     float: none;
@@ -590,7 +585,6 @@ h1,h2,h3 { line-height:1.25; color:#344e41; }
   margin-block: clamp(32px, 8vw, 80px);
   flex-wrap: nowrap;
 }
-
 .inset-block .pull-img {
   flex: 1 1 45%;
   max-width: 520px;
@@ -599,11 +593,7 @@ h1,h2,h3 { line-height:1.25; color:#344e41; }
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
-
-.inset-block .pull-img:hover img {
-  transform: scale(1.03);
-}
-
+.inset-block .pull-img:hover img { transform: scale(1.03); }
 .inset-block .pull-img img {
   display: block;
   width: 100%;
@@ -612,7 +602,6 @@ h1,h2,h3 { line-height:1.25; color:#344e41; }
   object-fit: cover;
   transition: transform 0.3s ease;
 }
-
 .inset-block .inset-text {
   flex: 1 1 50%;
   background: #faf9f7;
@@ -621,38 +610,22 @@ h1,h2,h3 { line-height:1.25; color:#344e41; }
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
   line-height: 1.65;
 }
-
-/* Alternate layout for every .alt section */
-.inset-block.alt {
-  flex-direction: row-reverse;
-}
-
-/* Optional: slight offset for visual flow */
-.inset-block:not(.alt) .pull-img {
-  transform: translateY(20px);
-}
-.inset-block.alt .pull-img {
-  transform: translateY(-20px);
-}
-
-/* 🧩 Mobile: stack vertically */
+/* Alternate */
+.inset-block.alt { flex-direction: row-reverse; }
+.inset-block:not(.alt) .pull-img { transform: translateY(20px); }
+.inset-block.alt .pull-img { transform: translateY(-20px); }
 @media (max-width: 850px) {
-  .inset-block,
-  .inset-block.alt {
+  .inset-block, .inset-block.alt {
     flex-direction: column;
     align-items: stretch;
   }
-
   .inset-block .pull-img,
   .inset-block.alt .pull-img {
     transform: none;
     max-width: 100%;
   }
-
   .inset-block .inset-text {
-    background: none;
-    box-shadow: none;
-    padding: 0;
+    background: none; box-shadow: none; padding: 0;
   }
 }
 

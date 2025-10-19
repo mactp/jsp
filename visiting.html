@@ -1,25 +1,22 @@
 <!doctype html>
-<html lang="en-GB" class="no-js">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>Visiting – Jacob Smith Park</title>
-  <meta name="description" content="How to find Jacob Smith Park in Scriven, Knaresborough: entrance location, parking, facilities, and what to expect inside the park.">
+  <title>Visiting — Jacob Smith Park</title>
   <link rel="stylesheet" href="resources/css/styles.css">
-  
-     <!-- keep your little no-js → js helper -->
   <script>document.documentElement.classList.replace('no-js','js');</script>
-
-  <!-- ✅ Add your main JavaScript file here -->
   <script src="resources/javascript/main.js" defer></script>
 </head>
-<body>
+
+<body class="visiting-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Shared header/nav -->
+  <!-- Header (unchanged) -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <h1 class="site-title"><a href="index.html">Jacob Smith Park</a></h1>
+
       <nav class="site-nav" aria-label="Main navigation">
         <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">☰</button>
         <ul id="primary-nav" class="nav-list" hidden>
@@ -30,143 +27,202 @@
           <li><a href="history.html">History</a></li>
           <li><a href="get-involved.html">Get Involved</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li class="nav-cta"><a class="donate-button" href="donate.html">Donate</a></li>
+          <li><a class="donate-button" href="donate.html">Donate</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- FULL-WIDTH BANNER (uniform across site) -->
- <section class="banner" style="background:url('resources/img/banner/visiting-hero.jpg') center/cover no-repeat;">
+  <!-- Hero/banner (optional – uses visiting-page banner dimming in CSS) -->
+<section class="banner" style="background-image:
+  linear-gradient(0deg, rgba(0,0,0,var(--hero-dim)), rgba(0,0,0,var(--hero-dim))),
+  url('resources/images/visiting/visiting_banner.jpg');">
+  <div class="container">
+    <p class="eyebrow">Plan your visit</p>
+    <h2>Peaceful park, open meadows and wildlife on your doorstep.</h2>
+  </div>
+</section>
+
+  <!-- Optional page-lead line -->
+  <section class="page-lead">
     <div class="container">
-      <p class="eyebrow">Friends of Jacob Smith Park</p>
-      <h2 id="visit-title">Planning Your Visit</h2>
-      <p>Whether it’s your first time or your hundredth, here’s everything you need to enjoy your time at Jacob Smith Park.</p>
+      <span class="lead-eyebrow">Visiting</span>
+      <p class="lead-line">
+        Planning your visit - whether it’s your first time or your hundredth, here’s everything you need to enjoy your time at Jacob Smith Park
+      </p>
     </div>
   </section>
 
+  <!-- What to Enjoy Section -->
+<section class="about-park" aria-labelledby="enjoy-title">
+  <div class="container">
+    <h2 id="enjoy-title">What to Enjoy in Jacob Smith Park</h2>
+    <p>
+      <strong>JSP</strong> is a precious green space close to the centre of Knaresborough.
+      It’s a great spot for walking, getting closer to nature, enjoying the views,
+      spending time with friends or just relaxing and watching the world go by.
+    </p>
+
+    <h3>Inside JSP</h3>
+    <p>
+      The park is a managed wild space with a network of paths criss-crossing its 30 acres
+      and has a perimeter walk covering approximately three quarters of a mile.
+      Some of the paths involve steeper climbs but these can be avoided by using other paths.
+    </p>
+
+    <figure class="park-map">
+      <img
+        src="resources/images/visiting/map_with_benches.png"
+        alt="Map of Jacob Smith Park showing paths and benches">
+      <figcaption>Paths and seating locations within Jacob Smith Park.</figcaption>
+    </figure>
+  </div>
+</section>
+
   <main id="main">
-
-    <!-- Where are we -->
-    <section class="container visit-grid" aria-labelledby="where-title">
-      <div class="visit-col">
-        <h3 id="where-title">Where are we?</h3>
-
-        <address class="address">
-          <strong>Entrance:</strong><br>
-          Scriven Road, Scriven, Knaresborough <span class="nowrap">HG5 9EJ</span><br>
-          <small>(at the junction with Park Grove)</small>
-        </address>
-
-        <p>
-          <a class="card-link"
-             href="https://w3w.co/milder.suppose.plump"
-             target="_blank" rel="noopener"
-             aria-label="Open What3Words location milder suppose plump in a new tab">
-            What3Words: milder.suppose.plump
-          </a>
-        </p>
-
-        <ul class="key-notes">
-          <li><strong>Parking:</strong> Street parking is very limited on Scriven Road. Police Community Support Officers regularly patrol the area.</li>
-          <li><strong>Nearest toilets:</strong> Conyngham Hall, Knaresborough <span class="nowrap">HG5 9AY</span> — approximately a 20-minute walk or 5-minute drive.</li>
-        </ul>
-      </div>
-
-      <!-- Map -->
-      <div class="visit-col">
-        <h3 id="map-title">Map</h3>
-        <figure class="map-embed">
-          <iframe
-            title="Map showing Jacob Smith Park entrance on Scriven Road"
-            src="https://www.google.com/maps?q=Scriven%20Road%2C%20Knaresborough%20HG5%209EJ&output=embed"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            aria-describedby="map-caption"></iframe>
-          <figcaption id="map-caption">
-            Location of the park entrance on Scriven Road.
-            <a href="https://www.google.com/maps?q=Scriven%20Road%2C%20Knaresborough%20HG5%209EJ" target="_blank" rel="noopener">Open in Maps</a>
-          </figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- Inside the Park -->
-    <section class="container" aria-labelledby="inside-title">
-      <h3 id="inside-title">Inside Jacob Smith Park</h3>
-      <p>Jacob Smith Park has just one entrance. It is enclosed but there may be gaps in some perimeter fencing, so you should only let dogs off the lead if they are under control, in your sight and will come when called. Please ensure you clean up after your dog and dispose of waste in the bin near the park entrance.</p>
-      <p>The park is a managed wild space with a network of paths criss-crossing its 30 acres and has a perimeter walk covering approximately three-quarters of a mile. Some of the paths involve steeper climbs but these can be avoided by using other paths.</p>
-      <p>There are seven benches at various points around the park to rest or take in the beautiful views, which extend as far as the White Horse on the North York Moors. There is also a small recreational area near to the entrance for children to run around, play ball games and fly kites.</p>
-
-      <aside class="callout note" role="note" aria-label="Seasonal path conditions">
-        <strong>Note:</strong> some paths, especially around the entrance, can be very muddy in winter or after heavy rain.
-      </aside>
-
-      <!-- Inline SVG illustration -->
-      <figure class="bench-illustration">
-        <figcaption class="visually-hidden">Illustration of visitors relaxing on benches under trees</figcaption>
-        <svg viewBox="0 0 640 240" role="img" aria-hidden="true" focusable="false">
-          <defs>
-            <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0" stop-color="#dbe7c9"/>
-              <stop offset="1" stop-color="#f4f3ef"/>
-            </linearGradient>
-          </defs>
-          <rect width="640" height="240" fill="url(#g1)"/>
-          <rect y="170" width="640" height="70" fill="#b7d3a8"/>
-          <g fill="#6ea26e">
-            <circle cx="70" cy="80" r="40"/><rect x="65" y="110" width="10" height="60" fill="#7c5a3a"/>
-            <circle cx="560" cy="70" r="36"/><rect x="555" y="98" width="10" height="72" fill="#7c5a3a"/>
-          </g>
-          <g fill="#7c5a3a">
-            <rect x="240" y="150" width="160" height="10"/>
-            <rect x="240" y="135" width="160" height="10"/>
-            <rect x="240" y="165" width="10" height="20"/>
-            <rect x="390" y="165" width="10" height="20"/>
-          </g>
-          <g fill="#344e41">
-            <circle cx="285" cy="120" r="10"/><rect x="280" y="130" width="10" height="25"/>
-            <circle cx="340" cy="120" r="10"/><rect x="335" y="130" width="10" height="25"/>
-            <circle cx="370" cy="118" r="8"/><rect x="366" y="126" width="8" height="22"/>
-          </g>
-        </svg>
-      </figure>
-    </section>
-
-    <!-- What to enjoy -->
-    <section class="container enjoy" aria-labelledby="enjoy-title">
-      <h3 id="enjoy-title">What to Enjoy</h3>
-      <ul>
-        <li><strong>Nature Trails:</strong> Discover winding paths through woodland and wildflower meadows.</li>
-        <li><strong>Wildlife Watching:</strong> Visit our <a href="wildlife.html">Wildlife page</a> to learn what to look for.</li>
-        <li><strong>Picnic Spots:</strong> Enjoy peaceful moments with friends or family.</li>
-        <li><strong>History Walks:</strong> Learn more about our fascinating past on the <a href="history.html">History page</a>.</li>
-        <li><strong>Community Events:</strong> Check out what’s on or <a href="get-involved.html">get involved</a> yourself.</li>
-      </ul>
-    </section>
-
-    <!-- Wildlife teaser -->
-    <section class="container latest" aria-labelledby="wildlife-title">
-      <h3 id="wildlife-title"><a class="card-link" href="wildlife.html">Wildlife</a></h3>
-      <p>There is a range of habitats throughout the park, including woods, meadow and grasslands, wetlands and veteran trees. These habitats support a rich and diverse variety of wildlife.</p>
-      <p>Children are encouraged to explore the park with a guided nature trail; this has a beautifully illustrated guide with notes to help children discover an exciting new world.</p>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta" aria-labelledby="cta-title">
+    <section aria-labelledby="plan-title">
       <div class="container">
-        <h2 id="cta-title">Support the Park</h2>
-        <p><a class="button" href="get-involved.html">Get involved</a> or <a class="button alt" href="donate.html">Make a donation</a></p>
+        <!-- ✅ Only one grid wrapper -->
+        <div class="visit-grid">
+          <!-- LEFT COLUMN -->
+          <div>
+            <h2 id="plan-title" class="visually-hidden">Getting here</h2>
+
+            <!-- Travel cards -->
+            <ul class="travel-cards" aria-label="Getting here">
+              <li class="travel">
+                <div class="travel__icon" aria-hidden="true">🚗</div>
+                <div>
+                  <h3 class="travel__title">By car</h3>
+                  <p>
+                    Set your sat-nav to
+                    <strong>“Jacob Smith Park, Scriven, Knaresborough”</strong>.
+                    Use considerate street parking nearby (please respect residents and do not block access).
+                  </p>
+                  <p><a class="button" href="https://maps.google.com/?q=Jacob+Smith+Park+Scriven" target="_blank" rel="noopener">Open in Maps</a></p>
+                </div>
+              </li>
+
+              <li class="travel">
+                <div class="travel__icon" aria-hidden="true">🚌</div>
+                <div>
+                  <h3 class="travel__title">By bus</h3>
+                  <p>
+                    Local services run into Knaresborough; alight for <strong>Scriven</strong> and walk a short distance to the park.
+                    Check current timetables with your operator.
+                  </p>
+                </div>
+              </li>
+
+              <li class="travel">
+                <div class="travel__icon" aria-hidden="true">🚶</div>
+                <div>
+                  <h3 class="travel__title">On foot &amp; cycle</h3>
+                  <p>
+                    The park is accessible from surrounding streets in Scriven.
+                    Please dismount and walk bikes within the park to protect paths and wildlife.
+                  </p>
+                </div>
+              </li>
+
+              <li class="travel">
+  <div class="travel__icon" aria-hidden="true">🚻</div>
+  <div>
+    <h3 class="travel__title">Nearest facilities</h3>
+    <p>
+      The nearest toilet facilities are at <strong>Conyngham Hall</strong>,
+      approximately a 20-minute walk or 5-minute drive.
+    </p>
+    <p>
+      <strong>Conyngham Hall, Knaresborough HG5 9AY</strong>
+    </p>
+  </div>
+</li>
+            </ul>
+
+            <!-- Address card -->
+            <section class="address" aria-labelledby="addr-title">
+              <h3 id="addr-title">Address</h3>
+              <p style="margin:0">
+                Jacob Smith Park<br>
+                Scriven, Knaresborough<br>
+                North Yorkshire<br>
+                Postcode: HG5 (area)
+              </p>
+            </section>
+
+            <!-- Key notes -->
+            <section class="address" aria-labelledby="notes-title" style="margin-top:12px">
+              <h3 id="notes-title">Key notes</h3>
+              <ul class="key-notes">
+                <li>Nature-first space — please keep to paths and take litter home.</li>
+                <li>Dogs welcome — please be considerate around wildlife and other visitors.</li>
+                <li>Surfaces are a mix of grass and compacted paths.</li>
+                <li>Open access during daylight hours.</li>
+              </ul>
+            </section>
+          </div>
+
+          <!-- RIGHT COLUMN (Map) -->
+          <div>
+            <figure class="map-embed">
+              <iframe
+                title="Map: Jacob Smith Park, Scriven"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=Jacob+Smith+Park+Scriven&output=embed">
+              </iframe>
+              <figcaption>Approximate location for Jacob Smith Park in Scriven, Knaresborough.</figcaption>
+            </figure>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year"></span> Jacob Smith Park. All rights reserved.</p>
+  <!-- Footer (unchanged; uses your site-wide footer styles) -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <section class="footer-col">
+        <h3 class="footer-title">Jacob Smith Park</h3>
+        <p class="footer-blurb">
+          A community green space in Scriven, Knaresborough—looked after with care for people, wildlife and heritage.
+        </p>
+      </section>
+
+      <nav class="footer-col" aria-label="Quick links">
+        <h3 class="footer-title">Quick links</h3>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="visiting.html" aria-current="page">Planning a Visit</a></li>
+          <li><a href="wildlife.html">Wildlife</a></li>
+          <li><a href="history.html">History</a></li>
+        </ul>
+      </nav>
+
+      <section class="footer-col" aria-label="Contact">
+        <h3 class="footer-title">Contact</h3>
+        <ul class="footer-links">
+          <li><a href="mailto:info@example.org">info@example.org</a></li>
+          <li>Knaresborough, North Yorkshire</li>
+        </ul>
+        <p><a class="button" href="newsletter.html">Sign me up</a></p>
+      </section>
+    </div>
+
+    <div class="legal-bar">
+      <div class="container legal-inner">
+        <p>&copy; <span id="year"></span> Jacob Smith Park</p>
+        <ul class="legal-links">
+          <li><a href="whats-on.html">What’s on</a></li>
+          <li><a href="volunteer.html">Volunteer</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
     </div>
   </footer>
-
-  <script src="resources/js/main.js" defer></script>
 </body>
 </html>

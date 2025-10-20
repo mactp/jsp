@@ -138,7 +138,7 @@ h1,h2,h3 { line-height:1.25; color:#344e41; }
   text-align: center;
   color: #fff;
 
-  min-height: 320px;
+  min-height: 800px;
   height: var(--hero-h);
   padding-inline: clamp(16px, 5vw, 40px);
   overflow: hidden;

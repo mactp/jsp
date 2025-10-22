@@ -310,7 +310,7 @@ img{max-width:100%;height:auto;display:block}
 }
 
 /* Example page-specific backgrounds (keep these) */
-.banner--wildlife { background-image: url("../images/banner/wildlife-hero.jpg"); }
+.banner--wildlife { background-image: url("../images/banner/wildlife-hero.JPG"); }
 .banner--history  { background-image: url("../images/banner/history-hero.jpg"); }
 /* .banner--home could stay as the solid green fallback */
 

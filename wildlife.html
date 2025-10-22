@@ -1,233 +1,149 @@
-<!doctype html>
-<html lang="en" class="no-js">
+<!DOCTYPE html>
+<html lang="en-GB">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>Wildlife — Jacob Smith Park</title>
-  <meta name="description" content="Habitats, seasonal highlights and conservation work at Jacob Smith Park.">
-  <link rel="stylesheet" href="resources/css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wildlife – Jacob Smith Park</title>
+  <link rel="stylesheet" href="resources/css/styles.css" />
+
+  <!-- keep your little no-js → js helper -->
   <script>document.documentElement.classList.replace('no-js','js');</script>
+
+  <!-- ✅ Add your main JavaScript file here -->
   <script src="resources/javascript/main.js" defer></script>
 </head>
-<body class="wildlife-page">
-  <a class="skip-link" href="#main">Skip to main content</a>
+<body>
 
-  <!-- Header -->
-  <header class="site-header" role="banner">
-    <div class="container header-inner">
-      <h1 class="site-title"><a href="index.html">Jacob Smith Park</a></h1>
-      <nav class="site-nav" aria-label="Main navigation">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">☰</button>
-        <ul id="primary-nav" class="nav-list" hidden>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="visiting.html">Visiting</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="wildlife.html" aria-current="page">Wildlife</a></li>
-          <li><a href="history.html">History</a></li>
-          <li><a href="get-involved.html">Get Involved</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a class="donate-button" href="donate.html">Donate</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <h1 class="site-title"><a href="index.html">Jacob Smith Park</a></h1>
+    <nav class="site-nav" aria-label="Main navigation">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">☰</button>
+      <ul id="primary-nav" class="nav-list" hidden>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="visiting.html">Visiting</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="wildlife.html" aria-current="page">Wildlife</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="donate-button" href="donate.html">Donate</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <!-- Banner (new image) -->
-  <section class="banner"
-    style="background-image:
-      linear-gradient(0deg, rgba(0,0,0,var(--hero-dim)), rgba(0,0,0,var(--hero-dim))),
-      url('/resources/images/wildlife/wildlife_banner.jpg');">
-    <div class="container">
-      <p class="eyebrow">Discover</p>
-      <h2>Wildlife of Jacob Smith Park</h2>
-    </div>
-  </section>
+  <!-- FULL-WIDTH BANNER (uniform across site) -->
+<section class="banner page-hero page-hero--wildlife">
+  <div class="container">
+    <p class="eyebrow">Friends of Jacob Smith Park</p>
+    <h2>Wildlife</h2>
+    <p>Habitats, species, and seasonal highlights</p>
+  </div>
+</section>
 
-  <!-- Lead band -->
-  <section class="page-lead">
-    <div class="container">
-      <span class="lead-eyebrow">Habitats & seasons</span>
-      <p class="lead-line">Stepping through the gate you’ll find a peaceful semi-wild mosaic of grassland, woodland, hedgerow and ponds—home to a wide range of wildlife.</p>
-      <p class="lead-sub">Explore an overview of habitats, what to spot by season, and how volunteers help nature thrive here.</p>
-    </div>
-  </section>
 
-  <!-- Subnav pills -->
-  <nav class="subnav subnav--sticky" aria-label="Wildlife sections">
-    <div class="subnav__inner container">
-      <a class="subnav__link" href="#overview" aria-current="true">Overview</a>
-      <a class="subnav__link" href="#seasons">The park through the seasons</a>
-      <a class="subnav__link" href="#support">How FoJSP supports wildlife</a>
-      <a class="subnav__link" href="#ancient-trees">Value of ancient trees</a>
-      <a class="subnav__link" href="#watercourses">Watercourses & springs</a>
-      <a class="subnav__link" href="#gallery">Gallery</a>
-    </div>
-  </nav>
+<main class="wildlife-page">
+  <div class="container">
 
-  <main id="main">
-    <!-- Overview: two-column with future image space -->
-    <section id="overview" class="container two-col">
-      <div>
-        <h2>Overview</h2>
-        <p>In its most recent history the park was grazing land, and the grasslands still dominate. Even within that there’s variety: in summer, tall, strongly-growing grasses can hide the views; in other areas, short turf reveals herbs and wildflowers. The park also includes small areas of mixed deciduous woodland, wildlife ponds, damp meadows and scrub hedging around the perimeter.</p>
-        <div class="callout" role="note" aria-label="Tip">
-          <strong>Tip:</strong> slow down and scan edges—where habitats meet is where much of the action happens.
-        </div>
+    <!-- Habitats -->
+    <section class="habitats" id="habitats">
+      <h3>Habitats</h3>
+      <p>In its most recent history, the park was grazing land, and the grasslands still remain the dominant habitat. But even within this, there is variety. In the summer, strongly growing tall grasses tower above you, hiding the view of the park. In other areas, barely ankle high, herbs and wildflowers can be found. There are also small areas of mixed deciduous woodland, wildlife ponds, damp meadows and scrub hedging round the perimeter.</p>
+
+      <div class="image-grid">
+        <a href="resources/images/grassland.jpg" class="lightbox-trigger">
+          <img src="resources/images/grassland-thumb.jpg" alt="Summer grasslands" loading="lazy" decoding="async" width="600" height="400">
+        </a>
+        <a href="resources/images/woodland.jpg" class="lightbox-trigger">
+          <img src="resources/images/woodland-thumb.jpg" alt="Mixed deciduous woodland" loading="lazy" decoding="async" width="600" height="400">
+        </a>
+        <a href="resources/images/pond.jpg" class="lightbox-trigger">
+          <img src="resources/images/pond-thumb.jpg" alt="Wildlife pond" loading="lazy" decoding="async" width="600" height="400">
+        </a>
       </div>
-      <figure>
-        <!-- swap this later for a real habitat shot if you like -->
-        <img src="resources/images/wildlife/overview_meadow.jpg" alt="Mosaic of meadow, trees and hedgerow" loading="lazy">
-      </figure>
     </section>
 
-    <!-- Seasons: your detailed copy split across season blocks -->
-    <section id="seasons" class="container">
-      <h2>The park through the seasons</h2>
+    <!-- Seasons -->
+    <section class="seasons" id="seasons">
+      <h3>The Park Through the Seasons</h3>
 
       <article class="season-block winter">
-        <h4>Winter / new year</h4>
-        <p>At the start of the year, even with frosty nights, some spring butterflies begin to emerge; many species lay eggs on early growth of nettles and garlic mustard. Mole activity becomes obvious as new tunnels are dug and hundreds of molehills appear. Greater spotted woodpeckers drum territorially on dead limbs high in veteran oaks. Rooks return from nearby woods to their rookery near the entrance, noisily repairing winter damage. Many birds breed in the park: old oaks provide hollows for nuthatch and tits, sparrows bustle in hedges, and a song thrush often sings along the northern boundary.</p>
+        <h4>❄️ Winter &amp; New Year</h4>
+        <p>At the start of the year, even with frosty nights, the spring butterflies start to emerge from February, many species laying eggs on the early growth of nettles and garlic mustard. Mole activity becomes apparent as they establish new tunnels in their search for food, and hundreds of molehills appear.</p>
+        <p>The territorial drumming of greater spotted woodpeckers can be heard across the park, while rooks return to their rookery near the entrance to repair their nests. Old oak trees with hollows provide nest sites for nuthatch and tits, and song thrushes sing along the northern boundary.</p>
       </article>
 
       <article class="season-block spring">
-        <h4>Spring</h4>
-        <p>By early April swallows and house martins arrive from Africa and feed over the grasslands on abundant insects. Stand by the wildlife pond to see them swoop for mud to build nests. By the end of April, swifts join the frenzy. Late spring brings a burst of colour: red and white clover fuel bees and butterflies; buttercups turn meadows yellow; common spotted and northern marsh orchids emerge in number.</p>
+        <h4>🌸 Spring</h4>
+        <p>By early April, swallows and house martins arrive from Africa, feeding over grasslands and gathering mud for nests by the pond. By late April, swifts have returned, joining the feeding frenzy.</p>
+        <p>Late spring brings colourful wildflowers: red and white clover for pollinators, seas of buttercups, and masses of common spotted and northern marsh orchids.</p>
       </article>
 
       <article class="season-block summer">
-        <h4>Summer</h4>
-        <p>With warmth and growth, grassland butterflies appear in huge numbers, nectaring on thistles, bramble, knapweed and ragwort and laying eggs on specific grasses. Around 20 butterfly species have been recorded (almost half the UK total), making mid-July perfect for joining the Big Butterfly Count.</p>
-        <p>Dragonflies emerge too. Emperor dragonflies patrol like tiny helicopters; common blue damselflies hunt among grasses; metallic blue banded demoiselles dance by the ponds; broad-bodied chasers with powder-blue males chase over open water. Foxes are occasionally seen, and early visitors sometimes spot deer grazing.</p>
+        <h4>☀️ Summer</h4>
+        <p>With warm weather, grassland butterflies appear in huge numbers — around 20 species, nearly half of all UK species. The park is perfect for taking part in The Big Butterfly Count in mid-July.</p>
+        <p>Dragonflies and damselflies patrol grasslands and ponds: emperor dragonflies, common blue damselflies, and broad-bodied chasers are common, with the striking metallic blue demoiselle found near shaded ponds. Foxes are occasionally seen, and early visitors might spot deer grazing.</p>
       </article>
 
       <article class="season-block autumn">
-        <h4>Autumn</h4>
-        <p>Ivy comes into flower and fruit ripens across the park—apples, plums, hips, haws and elderberry feed wildlife stocking up for winter. Late butterflies top up on ivy nectar and fallen fruit. Squirrels cache nuts in the woods. After the grass cut in October the long views reopen; tussocky areas shelter voles and shrews, attracting kestrel, red kite and buzzard—especially when the park is quiet.</p>
+        <h4>🍂 Autumn</h4>
+        <p>Autumn brings ivy flowers and ripening fruit — apples, plums, hips, haws and elderberry — feeding wildlife before winter. Butterflies feed on ivy nectar, squirrels cache nuts, and birds of prey hunt voles and shrews in the cut grasslands.</p>
       </article>
     </section>
 
-    <!-- Support for wildlife -->
-    <section id="support" class="container">
-      <h2>How the FoJSP supports wildlife</h2>
+    <!-- Support for Wildlife -->
+    <section class="support" id="support">
+      <h3>How the Friends of JSP Support Wildlife</h3>
       <ul class="key-list">
-        <li>Installed small bird, owl and bat boxes to provide additional nesting and roosting sites.</li>
-        <li>Great crested newt project with Yorkshire Wildlife Trust (2024: new pond dug and the existing pond cleared).</li>
-        <li>Planting wildflowers and flowering shrubs to extend nectar and food plants for pollinators.</li>
-        <li>Maintaining grasslands and raking the wildflower meadow so meadow flowers keep flourishing.</li>
-        <li>Planted an area of mixed trees (Nov 2023) to develop into a connecting area of woodland.</li>
-        <li>Fenced ponds to prevent disturbance and protect aquatic invertebrates (including from flea-treatment residues on dogs).</li>
-        <li>Fenced veteran trees to prevent root compaction from footfall.</li>
+        <li>Small bird, owl and bat boxes for nesting and roosting</li>
+        <li>Great crested newt project with Yorkshire Wildlife Trust (new pond in 2024)</li>
+        <li>Wildflower and shrub planting for pollinators</li>
+        <li>Grassland maintenance and wildflower meadow raking</li>
+        <li>Tree planting to create connecting woodland areas</li>
+        <li>Fencing ponds and trees to protect habitats</li>
       </ul>
-      <div class="callout" role="note" aria-label="Join in">
-        Interested in helping? See <a href="get-involved.html">Get Involved</a>.
+
+      <div class="image-grid">
+        <a href="resources/images/bird-box.jpg" class="lightbox-trigger">
+          <img src="resources/images/bird-box-thumb.jpg" alt="Bird box" loading="lazy" decoding="async" width="600" height="400">
+        </a>
+        <a href="resources/images/tree-planting.jpg" class="lightbox-trigger">
+          <img src="resources/images/tree-planting-thumb.jpg" alt="Tree planting" loading="lazy" decoding="async" width="600" height="400">
+        </a>
+        <a href="resources/images/wildflowers.jpg" class="lightbox-trigger">
+          <img src="resources/images/wildflowers-thumb.jpg" alt="Wildflowers in bloom" loading="lazy" decoding="async" width="600" height="400">
+        </a>
       </div>
     </section>
 
-    <!-- Ancient trees (nice stat callout + image/text inset) -->
-    <section id="ancient-trees" class="container">
-      <h2>Value of ancient trees</h2>
-      <div class="inset-block">
-        <figure class="pull-img">
-          <img src="resources/images/wildlife/ancient_oak.jpg" alt="Veteran oak with wide, gnarled branches" loading="lazy">
-        </figure>
-        <div class="inset-text">
-          <p>The Woodland Trust’s Ancient Tree Inventory maps the oldest and most important trees in the UK. JSP has <strong>22 trees listed</strong> &mdash; including two classed as <em>Ancient</em>: the fallen oak in the centre and an ancient ash by the gate whose trunk now forms an archway.</p>
-          <p>Some trees may be 400–500 years old—possibly planted as part of a historic deer park. Ancient trees can support up to <strong>2,300 wildlife species</strong>, providing habitat for insects, birds, mammals and fungi.</p>
-        </div>
-      </div>
+    <!-- Ancient Trees -->
+    <section class="ancient-trees" id="ancient-trees">
+      <h3>The Value of Ancient Trees</h3>
+      <p>Jacob Smith Park has 22 trees listed in the Woodland Trust Ancient Tree Inventory — all but one are oak species. Some are believed to be 400–500 years old, potentially planted as part of a deer park. Ancient oaks can support up to 2,300 species, making them a vital habitat for insects, birds, mammals and fungi.</p>
     </section>
 
     <!-- Watercourses -->
-    <section id="watercourses" class="container">
-      <h2>Watercourses & springs</h2>
-      <div class="inset-block alt">
-        <figure class="pull-img">
-          <img src="resources/images/wildlife/pond.jpg" alt="Wildlife pond fringed with vegetation" loading="lazy">
-        </figure>
-        <div class="inset-text">
-          <p>Jacob Smith Park has three ponds—two wildlife ponds and a seasonal drainage pool. In very wet winters the ponds connect as water flows diagonally across the grass from south to north. Underground springs can sometimes be heard “hissing” in the meadow after heavy rain and may bubble up along the paths.</p>
-          <p>The damp character of parts of the park shapes what grows—look for hairy willowherb, cuckoo flower, goat willow, dogwoods and ragged robin.</p>
-        </div>
-      </div>
+    <section class="watercourses" id="watercourses">
+      <h3>Watercourses &amp; Springs</h3>
+      <p>The park has three ponds, two for wildlife and one seasonal drainage pool. In wet winters, water flows diagonally across the park connecting the ponds. Underground springs can sometimes be heard in the meadow after heavy rain, supporting damp-loving plants like hairy willowherb, cuckoo flower, goat willow, dogwoods and ragged robin.</p>
     </section>
 
-    <!-- Gallery (ready for your updated wildlife images) -->
-    <section id="gallery" class="container">
-      <h2>Gallery</h2>
-      <div class="image-grid">
-        <!-- Replace these with your updated wildlife images when ready -->
-        <img src="resources/images/wildlife/gallery_01.jpg" alt="Banded demoiselle resting on a reed" loading="lazy">
-        <img src="resources/images/wildlife/gallery_02.jpg" alt="Kestrel hovering over the meadow" loading="lazy">
-        <img src="resources/images/wildlife/gallery_03.jpg" alt="Northern marsh orchids in damp grassland" loading="lazy">
-        <img src="resources/images/wildlife/gallery_04.jpg" alt="Song thrush singing from hedgerow" loading="lazy">
-        <img src="resources/images/wildlife/gallery_05.jpg" alt="Fungi around a veteran tree" loading="lazy">
-        <img src="resources/images/wildlife/gallery_06.jpg" alt="Emperor dragonfly on patrol" loading="lazy">
-      </div>
-      <p class="smallprint">Have a sighting or photo to share? Email <a href="mailto:friends@jacobsmithpark.co.uk">friends@jacobsmithpark.co.uk</a>.</p>
-    </section>
-  </main>
-
-  <!-- Lightbox overlay (uses your existing styles) -->
-  <div id="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Image preview">
-    <button class="close-btn" type="button" aria-label="Close">Close ✕</button>
-    <img alt="">
   </div>
+</main>
 
-  <!-- Footer -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container footer-grid">
-      <section class="footer-col">
-        <h3 class="footer-title">Jacob Smith Park</h3>
-        <p class="footer-blurb">A community green space in Scriven, Knaresborough—looked after with care for people, wildlife and heritage.</p>
-      </section>
-      <nav class="footer-col" aria-label="Quick links">
-        <h3 class="footer-title">Quick links</h3>
-        <ul class="footer-links">
-          <li><a href="visiting.html">Planning a Visit</a></li>
-          <li><a href="get-involved.html">Get Involved</a></li>
-          <li><a href="donate.html">Donate</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <section class="footer-col" aria-label="Stay in touch">
-        <h3 class="footer-title">Stay in touch</h3>
-        <p><a class="button" href="newsletter.html">Sign me up</a></p>
-      </section>
-    </div>
-    <div class="legal-bar">
-      <div class="container legal-inner">
-        <p>&copy; <span id="year"></span> Jacob Smith Park</p>
-        <ul class="legal-links">
-          <li><a href="whats-on.html">What’s on</a></li>
-          <li><a href="volunteer.html">Volunteer</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
+<!-- Lightbox Overlay -->
+<div id="lightbox-overlay" aria-hidden="true">
+  <button class="close-btn" aria-label="Close image view">✕ Close</button>
+  <img id="lightbox-image" src="" alt="">
+</div>
 
-  <!-- Tiny lightbox script -->
-  <script>
-  (function(){
-    const grid = document.querySelector('.image-grid');
-    const overlay = document.getElementById('lightbox-overlay');
-    if(!grid || !overlay) return;
-    const img = overlay.querySelector('img');
-    const close = overlay.querySelector('.close-btn');
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <span id="year"></span> Jacob Smith Park. All rights reserved.</p>
+  </div>
+</footer>
 
-    grid.addEventListener('click', e => {
-      const target = e.target.closest('img');
-      if(!target) return;
-      img.src = target.src;
-      img.alt = target.alt || '';
-      overlay.style.display = 'flex';
-      close.focus();
-    });
-    function hide(){ overlay.style.display = 'none'; img.src = ''; }
-    close.addEventListener('click', hide);
-    overlay.addEventListener('click', e => { if(e.target === overlay) hide(); });
-    document.addEventListener('keydown', e => { if(e.key === 'Escape') hide(); });
-  })();
-  </script>
+<script src="resources/js/main.js" defer></script>
 </body>
 </html>

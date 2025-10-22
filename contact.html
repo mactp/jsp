@@ -3,19 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>Contact – Jacob Smith Park</title>
-  <meta name="description" content="Contact the Friends of Jacob Smith Park (FoJSP) or North Yorkshire Council for park enquiries, volunteering and maintenance.">
+  <title>Contact Us – Jacob Smith Park</title>
+  <meta name="description" content="Contact the Friends of Jacob Smith Park or North Yorkshire Council.">
   <link rel="stylesheet" href="resources/css/styles.css">
-    <!-- keep your little no-js → js helper -->
-  <script>document.documentElement.classList.replace('no-js','js');</script>
 
-  <!-- ✅ Add your main JavaScript file here -->
+  <script>document.documentElement.classList.replace('no-js','js');</script>
   <script src="resources/javascript/main.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Shared header -->
+  <!-- Header / Nav -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <h1 class="site-title"><a href="index.html">Jacob Smith Park</a></h1>
@@ -35,167 +33,199 @@
     </div>
   </header>
 
-  <!-- Full-width banner -->
-  <section class="banner" style="background:url('resources/img/banner/contact-hero.jpg') center/cover no-repeat;">
+<!-- Banner (Contact page) -->
+<section class="banner page-hero--contact">
+  <div class="container">
+    <p class="eyebrow">Friends of Jacob Smith Park</p>
+    <h2>Contact Us</h2>
+  </div>
+</section>
+
+  <!-- Page lead -->
+  <section class="page-lead" aria-labelledby="lead">
     <div class="container">
-      <p class="eyebrow">Friends of Jacob Smith Park</p>
-      <h2>Contact Us</h2>
-      <p>We’d love to hear from you — suggestions, volunteering, or joining the committee.</p>
+      <span class="lead-eyebrow">The Friends of Jacob Smith Park</span>
+      <h2 id="lead" class="lead-line">To make suggestions about enhancing the park, enquire about volunteering or joining the committee, please contact FoJSP using one of the options below.</h2>
+      <p class="lead-sub">We look forward to hearing from you.</p>
     </div>
   </section>
 
-  <main id="main">
-    <!-- Friends of JSP intro -->
-    <section class="container">
-      <h3>The Friends of Jacob Smith Park (FoJSP)</h3>
-      <p>To make suggestions about enhancing the park, enquire about volunteering, or ask about joining the committee, please contact FoJSP using the form below. We look forward to hearing from you.</p>
-      <p class="muted">Prefer email? Write to
-        <a href="mailto:friends@jacobsmithpark.co.uk">friends@jacobsmithpark.co.uk</a>.
-      </p>
-    </section>
+  <main id="main" class="container" style="padding-block:clamp(22px,5vw,40px)">
 
-    <!-- FoJSP form -->
-    <section class="container contact-form" aria-labelledby="contact-form-title">
-      <h3 id="contact-form-title">Send a message to FoJSP</h3>
+    <!-- Two options side-by-side -->
+    <section class="contact-detail-grid" aria-labelledby="compare-title">
+      <!-- OPTION A: Quick Email (mailto) -->
+      <div>
+        <h3 id="compare-title">Option A — Quick email</h3>
+        <p class="muted smallprint">Opens your email app. Good for simple messages. Your address is used from your email app.</p>
 
-      <!-- Replace action with your real endpoint (Formspree/Nets/your server) -->
-      <form id="contact-form" class="vol-form" action="https://formspree.io/f/your-id" method="POST" novalidate>
-        <!-- honeypot -->
-        <input type="text" name="_hp_name" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp-field" placeholder="Leave this field empty">
+        <form class="vol-form" id="mailto-form">
+          <div class="form-row">
+            <label for="m-name">Name <span aria-hidden="true">*</span></label>
+            <input id="m-name" name="name" type="text" required>
+          </div>
 
-        <div class="form-row">
-          <label for="c-name">Name <span aria-hidden="true">*</span></label>
-          <input id="c-name" name="name" type="text" required placeholder="Your name" autocomplete="name">
-        </div>
+          <div class="form-row">
+            <label for="m-message">Message <span aria-hidden="true">*</span></label>
+            <textarea id="m-message" name="message" rows="7" required></textarea>
+          </div>
 
-        <div class="form-row">
-          <label for="c-email">Email <small class="muted">(optional but helpful)</small></label>
-          <input id="c-email" name="email" type="email" placeholder="you@example.com" autocomplete="email">
-        </div>
+          <div class="form-actions">
+            <button class="button" type="submit">Send message</button>
+            <span id="mailto-status" role="status" aria-live="polite" class="form-status"></span>
+          </div>
+        </form>
 
-        <div class="form-row">
-          <label for="c-message">Message <span aria-hidden="true">*</span></label>
-          <textarea id="c-message" name="message" rows="6" required placeholder="How can we help?"></textarea>
-        </div>
-
-        <div class="form-row agree">
-          <label><input type="checkbox" name="consent" required> I’m happy for you to contact me about this enquiry.</label>
-        </div>
-
-        <div class="form-actions">
-          <button class="button" type="submit">Send Message</button>
-          <a class="button alt" href="mailto:friends@jacobsmithpark.co.uk?subject=Enquiry%20from%20website">Email instead</a>
-        </div>
-
-        <p id="contact-status" class="muted smallprint" aria-live="polite"></p>
-        <p class="smallprint muted" style="margin-top:.5rem">We’ll only use your details to respond to your enquiry. <a href="resources/docs/privacy.pdf">Privacy notice</a>.</p>
-      </form>
-    </section>
-
-    <!-- NYC block -->
-    <section class="container">
-      <h3>North Yorkshire Council</h3>
-      <p>For trees, bin emptying and other maintenance queries, please contact North Yorkshire Council (NYC) who manage the park.</p>
-      <p>
-        <a class="button" href="https://www.northyorks.gov.uk/contact-us" target="_blank" rel="noopener">Contact NYC</a>
-      </p>
-
-      <div class="contact-detail-grid">
-        <div>
-          <h4>Phone</h4>
-          <p><strong>General / emergencies:</strong> <a href="tel:03001312131">0300 131 2 131</a></p>
-          <p class="muted">
-            Lines are open: Mon–Tue 9:00–17:00; Wed 9:30–17:00; Thu 9:00–17:00; Fri 9:00–16:30.
-          </p>
-        </div>
-        <aside class="callout note" role="note">
-          <h4>Report antisocial behaviour</h4>
-          <p>Please report to the police on <strong><a href="tel:101">101</a></strong>, or <strong><a href="tel:999">999</a></strong> in an emergency.</p>
-        </aside>
+        <script>
+          (function () {
+            const f = document.getElementById('mailto-form');
+            const s = document.getElementById('mailto-status');
+            f.addEventListener('submit', (e) => {
+              e.preventDefault();
+              if (!f.reportValidity()) return;
+              const name = encodeURIComponent(f.name.value);
+              const msg  = encodeURIComponent(f.message.value);
+              const subject = encodeURIComponent('Message for Friends of Jacob Smith Park');
+              const body = encodeURIComponent(`Name: ${decodeURIComponent(name)}\n\n${decodeURIComponent(msg)}`);
+              window.location.href = `mailto:friends@jacobsmithpark.co.uk?subject=${subject}&body=${body}`;
+              s.textContent = 'Opening your email app…';
+            });
+          }());
+        </script>
       </div>
+
+      <!-- OPTION B: Web Contact Form (Formspree-ready) -->
+      <aside>
+        <h3>Option B — Contact form</h3>
+        <p class="muted smallprint">Submits from the website. Best if you don’t use a local mail app. Replace the endpoint below to make it live.</p>
+
+        <!-- Replace action URL with your Formspree endpoint, e.g. https://formspree.io/f/abcdwxyz -->
+        <form class="vol-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST" id="jsp-contact" novalidate>
+          <div class="hp-field">
+            <label>Leave this field empty</label>
+            <input type="text" name="website">
+          </div>
+
+          <div class="form-row">
+            <label for="c-name">Name <span aria-hidden="true">*</span></label>
+            <input id="c-name" name="name" type="text" required>
+          </div>
+
+          <div class="form-row">
+            <label for="c-email">Email <span aria-hidden="true">*</span></label>
+            <input id="c-email" name="email" type="email" autocomplete="email" required>
+          </div>
+
+          <div class="form-row">
+            <label for="c-message">Message <span aria-hidden="true">*</span></label>
+            <textarea id="c-message" name="message" rows="7" required></textarea>
+          </div>
+
+          <fieldset class="agree">
+            <label>
+              <input type="checkbox" name="consent" required>
+              I’m happy for FoJSP to use my details to reply to this message.
+            </label>
+          </fieldset>
+
+          <input type="hidden" name="source" value="jsp-contact-form">
+          <div class="form-actions">
+            <button class="button" type="submit">Send message</button>
+            <span id="form-status" role="status" aria-live="polite" class="form-status"></span>
+          </div>
+        </form>
+
+        <script>
+          (function () {
+            const form = document.getElementById('jsp-contact');
+            const status = document.getElementById('form-status');
+
+            form.addEventListener('submit', async (e) => {
+              // honeypot
+              if (form.querySelector('input[name="website"]').value.trim() !== '') { e.preventDefault(); return; }
+              if (!form.reportValidity()) return;
+
+              // If endpoint not set, fall back to mailto so the button still works in demos
+              if (form.action.includes('REPLACE_WITH_YOUR_FORM_ID')) {
+                e.preventDefault();
+                const subject = encodeURIComponent('Website contact form');
+                const body = encodeURIComponent(
+                  `Name: ${form.name.value}\nEmail: ${form.email.value}\n\n${form.message.value}`
+                );
+                window.location.href = `mailto:friends@jacobsmithpark.co.uk?subject=${subject}&body=${body}`;
+                return;
+              }
+
+              e.preventDefault();
+              status.textContent = 'Sending…';
+              try {
+                const res = await fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) });
+                if (res.ok) { form.reset(); status.textContent = 'Thanks—your message has been sent!'; }
+                else { status.textContent = 'Sorry, there was a problem sending your message. Please email us directly.'; }
+              } catch { status.textContent = 'Network error—please try again or email us directly.'; }
+            });
+          }());
+        </script>
+      </aside>
     </section>
+
+    <!-- Council contact + emergencies -->
+    <section class="callout" aria-labelledby="nyc-title" style="margin-top:clamp(20px,4vw,32px)">
+      <h3 id="nyc-title" style="margin-top:0">North Yorkshire Council</h3>
+      <p>To raise concerns about trees, bin emptying and other maintenance queries please contact North Yorkshire Council (NYC) who own and manage the park. Please use their online contact service:</p>
+      <p><a class="button" target="_blank" rel="noopener" href="https://www.northyorks.gov.uk/contact-us">Contact us | North Yorkshire Council</a></p>
+      <p><strong>For emergencies, please call 0300 131 2 131</strong></p>
+      <p class="smallprint muted">Lines are open Monday &amp; Tuesday 9am–5pm; Wednesday 9.30am–5pm; Thursday 9am–5pm; Friday 9am–4.30pm.</p>
+      <p><strong>Report antisocial behaviour:</strong> call the police on <strong>101</strong> (or <strong>999</strong> in an emergency).</p>
+    </section>
+
   </main>
 
-<footer class="site-footer" role="contentinfo">
-  <div class="container footer-grid">
-    <section class="footer-col">
-      <h3 class="footer-title">Jacob Smith Park</h3>
-      <p class="footer-blurb">
-        A community green space in Scriven, Knaresborough—looked after with care for people,
-        wildlife and heritage.
-      </p>
-    </section>
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <section class="footer-col">
+        <h3 class="footer-title">Jacob Smith Park</h3>
+        <p class="footer-blurb">A community green space in Scriven, Knaresborough—looked after with care for people, wildlife and heritage.</p>
+      </section>
 
-    <nav class="footer-col" aria-label="Quick links">
-      <h3 class="footer-title">Quick links</h3>
-      <ul class="footer-links">
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="get-involved.html">Get Involved</a></li>
-        <li><a href="donate.html">Donate</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="visiting.html">Planning a Visit</a></li>
-        <li><a href="wildlife.html">Wildlife</a></li>
-        <li><a href="history.html">History</a></li>
-      </ul>
-    </nav>
+      <nav class="footer-col" aria-label="Quick links">
+        <h3 class="footer-title">Quick links</h3>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+          <li><a href="visiting.html">Planning a Visit</a></li>
+          <li><a href="wildlife.html">Wildlife</a></li>
+          <li><a href="history.html">History</a></li>
+        </ul>
+      </nav>
 
-    <section class="footer-col" aria-label="Contact">
-      <h3 class="footer-title">Contact</h3>
-      <ul class="footer-links">
-        <li><a href="mailto:info@example.org">info@example.org</a></li>
-        <li>Knaresborough, North Yorkshire</li>
-      </ul>
-      <p><a class="button" href="newsletter.html">Sign me up</a></p>
-    </section>
-  </div>
-
-  <div class="legal-bar">
-    <div class="container legal-inner">
-      <p>&copy; <span id="year"></span> Jacob Smith Park</p>
-      <ul class="legal-links">
-        <li><a href="whats-on.html">What’s on</a></li>
-        <li><a href="volunteer.html">Volunteer</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+      <section class="footer-col" aria-label="Contact">
+        <h3 class="footer-title">Contact</h3>
+        <ul class="footer-links">
+          <li><a href="mailto:friends@jacobsmithpark.co.uk">friends@jacobsmithpark.co.uk</a></li>
+          <li>Knaresborough, North Yorkshire</li>
+        </ul>
+        <p><a class="button" href="newsletter.html">Sign me up</a></p>
+      </section>
     </div>
-  </div>
-</footer>
 
-  <script src="resources/js/main.js" defer></script>
+    <div class="legal-bar">
+      <div class="container legal-inner">
+        <p>&copy; <span id="year"></span> Jacob Smith Park</p>
+        <ul class="legal-links">
+          <li><a href="whats-on.html">What’s on</a></li>
+          <li><a href="volunteer.html">Volunteer</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
   <script>
-    // Lightweight client-side validation/feedback
-    (function () {
-      var form = document.getElementById('contact-form');
-      var status = document.getElementById('contact-status');
-      if (!form || !status) return;
-
-      form.addEventListener('submit', function (e) {
-        var name = document.getElementById('c-name');
-        var message = document.getElementById('c-message');
-        var email = document.getElementById('c-email');
-        var honeypot = form.querySelector('.hp-field');
-
-        if (honeypot && honeypot.value) {
-          e.preventDefault();
-          status.textContent = 'Submission blocked (spam detected).';
-          return;
-        }
-        if (!name.value.trim() || !message.value.trim()) {
-          e.preventDefault();
-          status.textContent = 'Please provide your name and message.';
-          status.style.color = '#c07a3f';
-          return;
-        }
-        if (email && email.value && !email.checkValidity()) {
-          e.preventDefault();
-          status.textContent = 'Please provide a valid email address, or leave it blank.';
-          status.style.color = '#c07a3f';
-          return;
-        }
-        status.textContent = 'Thanks! Sending…';
-        status.style.color = 'inherit';
-      });
-    })();
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>

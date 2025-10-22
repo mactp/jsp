@@ -3,20 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>Jacob Smith Family History – Jacob Smith Park</title>
+  <title>Jacob Smith Family – History</title>
+  <meta name="description" content="The Jacob Smith family who granted the community the freedom of Jacob Smith Park. Timeline, archive notes and sources.">
   <link rel="stylesheet" href="resources/css/styles.css">
-  <meta name="description" content="The story of the Jacob Smith family and Winifred Jacob Smith MBE, whose bequest gifted the park to the community.">
-  
-     <!-- keep your little no-js → js helper -->
-  <script>document.documentElement.classList.replace('no-js','js');</script>
 
-  <!-- ✅ Add your main JavaScript file here -->
+  <script>document.documentElement.classList.replace('no-js','js');</script>
   <script src="resources/javascript/main.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Shared header/nav -->
+  <!-- Header / Nav -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <h1 class="site-title"><a href="index.html">Jacob Smith Park</a></h1>
@@ -36,172 +33,100 @@
     </div>
   </header>
 
-  <!-- Full-width banner (uniform across site) -->
-  <section class="banner banner--image banner--history banner--tall">
+  <!-- Banner (reuse your sitewide hero) -->
+  <section class="banner" style="background-image:
+      linear-gradient(0deg, rgba(0,0,0,var(--hero-dim)), rgba(0,0,0,var(--hero-dim))),
+      url('resources/img/banner/history-hero.jpg');">
     <div class="container">
       <p class="eyebrow">Friends of Jacob Smith Park</p>
-      <h2>Jacob Smith Family History</h2>
+      <h2>Jacob Smith Family</h2>
     </div>
   </section>
 
-  <!-- Subnav -->
-<nav class="subnav subnav--sticky" aria-label="History sections">
-  <div class="container subnav__inner">
-    <a class="subnav__link" href="history.html">Overview</a>
-    <a class="subnav__link" href="history-park.html">Park history</a>
-    <a class="subnav__link" href="history-family.html" aria-current="page">Jacob Smith family</a>
-    <a class="subnav__link" href="history-facts.html">Articles &amp; Facts</a>
-  </div>
-</nav>
+  <!-- History sub-nav -->
+  <nav class="subnav subnav--sticky" aria-label="History sections">
+    <div class="container subnav__inner">
+      <a class="subnav__link" href="history.html">Park history</a>
+      <a class="subnav__link" href="history-family.html" aria-current="page">Jacob Smith Family History</a>
+    </div>
+  </nav>
 
-  <main id="main" class="container">
+  <main id="main" class="container about-article">
 
-    <!-- Intro / gift -->
-    <section class="family-legacy">
-      <h3>History of the Family Who Granted Us the Freedom of the Park</h3>
-
-      <p>Throughout every season, Jacob Smith Park offers its treasures for us to share and enjoy. We will be forever grateful as a community to <strong>Winifred Jacob Smith MBE</strong> for her wonderful bequest which, in her own words, is:</p>
-
-      <aside class="quote-panel about-quote" role="note" aria-label="A gift to the community">
-        <blockquote>
-          <p>“For people to enjoy the freedom and the beauty that public parks bring.”</p>
-        </blockquote>
-        <footer>— Winifred Jacob Smith MBE</footer>
-      </aside>
+    <!-- Page lead -->
+    <section class="page-lead" aria-labelledby="lead-title">
+      <div class="container">
+        <span class="lead-eyebrow">The Jacob Smith Family</span>
+        <h2 id="lead-title" class="lead-line">History of the family who granted us the freedom of the park</h2>
+      </div>
     </section>
 
-    <!-- Bio card -->
-    <section class="bio-card">
-      <figure class="bio-photo">
-        <a href="resources/images/history/jacob-smith-family.jpg" class="lightbox-trigger">
-          <img src="resources/images/history/jacob-smith-family.jpg" alt="Winifred, Dora and Dorothy Jacob Smith" loading="lazy" width="640" height="420">
-        </a>
-        <figcaption class="muted">Ms Jacob Smith MBE — credit: Yorkshire Farming Museum</figcaption>
+    <!-- Family intro with photo (floats on desktop, stacks on mobile) -->
+    <section aria-labelledby="family-intro">
+      <h3 id="family-intro" class="visually-hidden">Family introduction</h3>
+
+      <figure class="pull-right" style="max-width:380px">
+        <!-- 🖼️ Place the photo at this path (or update the src to your final path) -->
+        <img src="resources/images/family/winifred-dora-dorothy.jpg"
+             alt="Jacob Smith family: Winifred, mother Dora and sister Dorothy">
+        <figcaption><em>Jacob Smith family: Winifred, mother Dora and sister Dorothy</em></figcaption>
       </figure>
 
-      <div class="bio-copy">
-        <h4>Winifred Jacob Smith MBE</h4>
-        <p><strong>Winifred</strong> was born on <strong>4 August 1911</strong> to <strong>Dora</strong> and <strong>Jacob Smith</strong>, a farming family whose roots stretch back to <strong>1710</strong> at Humberton between Knaresborough and Boroughbridge, including farms on the Newby Hall Estate at Givendale and at Burton Grange.</p>
-        <p>Traditionally, the first son in each generation was named <em>Jacob</em>. With daughters Winifred and Dorothy (born 18 May 1910), their father adopted the name into the family surname so the tradition could live on. Dora, president of the Knaresborough Women’s Institute (WI), and both daughters were practical, community-minded women who played leading roles in the farm and local life.</p>
-      </div>
+      <p><strong>Winifred Jacob Smith MBE</strong> entered the world on August 4, 1911, the daughter of Dora and Jacob Smith. Jacob was a farmer, descended from generations who had farmed since 1710 at Humberton between Knaresborough and Boroughbridge. This included the Newby Hall Estate at Givendale, and at Burton Grange, Humberton.</p>
+
+      <p>It was traditional for the first son of each succeeding generation of the Smith family to be given the name <em>Jacob</em>. However, the last of the line were daughters (Winifred’s sister Dorothy was born the year before her) so their father adopted the name <em>Jacob</em> in their surname so the tradition could live on.</p>
+
+      <p>As well as playing an active role in the family’s very successful farming business, including being qualified in butter and cheese making, Dora Smith was president of the Knaresborough Women’s Institute (WI). Both her daughters took a very active role. All three were strong, practical-minded women who held their close-knit family very dear.</p>
+
+      <p class="smallprint muted">Ms Jacob Smith MBE — credit: Yorkshire Farming Museum</p>
     </section>
 
-    <section>
-      <h3>Service, Community &amp; Legacy</h3>
-      <p>Educated at St Margaret’s School (Scarborough) and later at Yorkshire Ladies’ College (Leeds), Winifred became a cornerstone of the <strong>Women’s Land Army (WLA)</strong> during the Second World War. She prioritised the welfare of land girls across North Yorkshire and later the whole of Yorkshire, keeping detailed diaries and editing the monthly WLA <em>Bulletin</em>. In recognition of her service, she was awarded the <strong>MBE on 28 February 1951</strong> by King George VI.</p>
-      <p>Winifred and her sister Dorothy also managed the family dairy business at Park Corner Farm, Scriven, with a pedigree Ayrshire herd, following the death of their father in December 1941. In <strong>1965</strong> the sisters purchased the <strong>30 acres of Scriven Park</strong> they had previously leased, which later became <strong>Jacob Smith Park</strong>.</p>
-    </section>
+    <hr class="section-anchor" aria-hidden="true" style="border:0;height:1px;background:#eceae6;margin:24px 0 12px">
 
     <!-- Timeline -->
-    <section aria-labelledby="family-timeline">
-      <h3 id="family-timeline">Jacob Smith Family — Timeline</h3>
-      <ol class="timeline">
-        <li>
-          <div class="t-dot"></div>
-          <h5>18 May 1910</h5>
-          <p>Dorothy Smith is born.</p>
-        </li>
-        <li>
-          <div class="t-dot"></div>
-          <h5>4 August 1911</h5>
-          <p>Winifred Smith is born.</p>
-        </li>
-        <li>
-          <div class="t-dot"></div>
-          <h5>c.1920 (post-WWI)</h5>
-          <p>The family moves to Knaresborough; Jacob takes over Park Corner Farm, Scriven.</p>
-        </li>
-        <li>
-          <div class="t-dot"></div>
-          <h5>1937</h5>
-          <p>At the WI, Winifred meets Lady Celia Coates, who asks her to “look after the Women’s Land Army if war should break out”.</p>
-        </li>
-        <li>
-          <div class="t-dot"></div>
-          <h5>1938</h5>
-          <p>Winifred &amp; Dorothy publish a book of local recipes to raise funds for the parish church.</p>
-        </li>
-        <li>
-          <div class="t-dot"></div>
-          <h5>Sept 1939 – 1945</h5>
-          <p>Winifred joins the <strong>WLA</strong> and becomes organiser for North Yorkshire, later all Yorkshire — keeping unique diaries and editing the WLA <em>Bulletin</em>.</p>
-        </li>
-        <li>
-          <div class="t-dot"></div>
-          <h5>Dec 1941</h5>
-          <p>Jacob (father) dies aged 74; Winifred &amp; Dorothy run the dairy enterprise with their Ayrshire herd.</p>
-        </li>
-        <li>
-          <div class="t-dot"></div>
-          <h5>28 Feb 1951</h5>
-          <p>Winifred is awarded the <strong>MBE</strong> at Buckingham Palace.</p>
-        </li>
-        <li>
-          <div class="t-dot"></div>
-          <h5>1965</h5>
-          <p>Winifred &amp; Dorothy purchase <strong>30 acres of Scriven Park</strong> (previously leased) for grazing.</p>
-        </li>
-        <li>
-          <div class="t-dot"></div>
-          <h5>2 May 1974</h5>
-          <p>Dora Smith dies, aged 100.</p>
-        </li>
-        <li>
-          <div class="t-dot"></div>
-          <h5>26 April 1984</h5>
-          <p>Dorothy Jacob Smith dies, aged 73.</p>
-        </li>
-        <li>
-          <div class="t-dot"></div>
-          <h5>23 May 2003</h5>
-          <p>Winifred Jacob Smith MBE dies, aged 91. Wartime memorabilia donated to Yorkshire Farming Museum; major legacy to <strong>Yorkshire Cancer Research</strong>. Park bequeathed for public enjoyment.</p>
-        </li>
-        <li>
-          <div class="t-dot"></div>
-          <h5>January 2008</h5>
-          <p><strong>Jacob Smith Park</strong> officially opens to the public.</p>
-        </li>
-        <li>
-          <div class="t-dot"></div>
-          <h5>2010</h5>
-          <p><em>Somerley</em>, the family home, is demolished after falling into disrepair. Somerley Lane now marks the site.</p>
-        </li>
-      </ol>
+    <section aria-labelledby="timeline-title">
+      <h3 id="timeline-title">Jacob Smith family — history timeline</h3>
+
+      <ul class="timeline">
+        <li><h4>18 May 1910</h4><p>Dorothy Smith is born.</p></li>
+        <li><h4>4 August 1911</h4><p>Winifred Smith is born.</p></li>
+        <li><h4>c.1920 (after WWI)</h4><p>Jacob Smith and family move to Knaresborough; he takes over Park Corner Farm, Scriven.</p></li>
+        <li><h4>1937</h4><p>At the WI, Winifred socialises with Lady Celia Coates, who asks Winifred to “look after the Women’s Land Army if war should break out”.</p></li>
+        <li><h4>1938</h4><p>Winifred and Dorothy publish a book of local recipes to raise funds for the parish church, supported by local business advertising.</p></li>
+        <li><h4>September 1939</h4><p>War breaks out; Winifred (28) joins the <strong>Women’s Land Army (WLA)</strong> on the 14th; Dorothy also joins. Winifred is soon selected to attend a royal reception hosted by the Queen.</p></li>
+        <li><h4>1939–1945</h4><p>Winifred serves as organiser of the WLA in North Yorkshire, prioritising the welfare of land girls across hostels and farm billets (around 80). She keeps unique diaries and works from the family home, <strong>Somerley</strong>, with two typists.</p></li>
+        <li><h4>Dec 1941</h4><p>Jacob Smith dies aged 74. Winifred and Dorothy inherit the family home and run the dairy enterprise at Park Corner Farm, including a herd of award-winning pedigree Ayrshire cattle.</p></li>
+        <li><h4>1945–1950</h4><p>Winifred is appointed organiser of the WLA for all of Yorkshire; she edits the monthly WLA bulletin circulated to hostels and clubs.</p></li>
+        <li><h4>28 Feb 1951</h4><p>Winifred is awarded the <strong>MBE</strong> for her WLA work and receives the honour from King George VI at Buckingham Palace, accompanied by Dorothy and Dora.</p></li>
+        <li><h4>1965</h4><p>Winifred and Dorothy purchase the 30 acres of farmland, <strong>Scriven Park</strong>, adjacent to Park Corner Farm, which they had previously leased from the Slingsbys, to graze their Ayrshire cattle.</p></li>
+        <li><h4>2 May 1974</h4><p>Dora Smith dies, aged 100.</p></li>
+        <li><h4>26 April 1984</h4><p>Dorothy Jacob Smith dies, aged 73.</p></li>
+        <li><h4>23 May 2003</h4><p>Winifred Jacob Smith MBE dies, aged 91. She is buried with her sister and parents at All Saints’ Church, Kirby Hill. WLA memorabilia from Somerley is donated to Yorkshire Farming Museum for permanent display.</p></li>
+        <li><h4>Legacy</h4><p>Scriven Park is bequeathed to Harrogate Borough Council for public enjoyment. Winifred’s main legacy benefits <strong>Yorkshire Cancer Research</strong> (c. £10m since her death).</p></li>
+        <li><h4>Jan 2008</h4><p><strong>Jacob Smith Park</strong> officially opens to the public.</p></li>
+        <li><h4>2010</h4><p>The family’s home, <strong>Somerley</strong>, is demolished after falling into disrepair; a housing estate now occupies the site (Somerley Lane).</p></li>
+      </ul>
     </section>
 
-    <!-- Family images (optional) -->
-    <section class="family-grid">
-      <h3>Family &amp; WLA Gallery</h3>
-      <div class="image-grid">
-        <a class="lightbox-trigger" href="resources/images/history/wla-uniforms.jpg">
-          <img src="resources/images/history/wla-uniforms.jpg" alt="Women’s Land Army uniforms and memorabilia on display" loading="lazy" width="600" height="400">
-        </a>
-        <a class="lightbox-trigger" href="resources/images/history/recipe-book.jpg">
-          <img src="resources/images/history/recipe-book.jpg" alt="Cover of local recipe book published by Winifred and Dorothy" loading="lazy" width="600" height="400">
-        </a>
-        <a class="lightbox-trigger" href="resources/images/history/somerley-house.jpg">
-          <img src="resources/images/history/somerley-house.jpg" alt="The family home, Somerley, Boroughbridge Road" loading="lazy" width="600" height="400">
-        </a>
-      </div>
-    </section>
+    <hr class="section-anchor" aria-hidden="true" style="border:0;height:1px;background:#eceae6;margin:10px 0 4px">
 
     <!-- Archive clippings -->
-    <section class="archives" aria-labelledby="archives-title">
-      <h3 id="archives-title">Knaresborough Post — Archive Extracts</h3>
+    <section class="archives" aria-labelledby="clippings">
+      <h3 id="clippings">Knaresborough Post archive extracts</h3>
 
       <details class="archive">
         <summary><time datetime="1940-03-16">16 March 1940</time> — WLA reception by the Queen</summary>
-        <p>Miss Winifred Jacob Smith … selected as one of the Women’s Land Army representatives to attend a reception by the Queen in London. Miss Smith has been acting as secretary for the North Riding branch of the Land Army.</p>
+        <p>Miss Winifred Jacob Smith, younger daughter of Mr and Mrs Jacob Smith, Somerley, was selected as one of the Women’s Land Army representatives to attend a reception by the Queen in London.</p>
       </details>
 
       <details class="archive">
         <summary><time datetime="1940-06-15">15 June 1940</time> — Wartime cookery lectures</summary>
-        <p>Miss Dorothy Jacob Smith delivers free wartime cookery classes to packed audiences at the WI and the Modern School, demonstrating nourishing dishes without rationed foods.</p>
+        <p>Miss Dorothy Jacob Smith gives free wartime cookery classes at Scriven WI and the Modern School; over a hundred local housewives attend.</p>
       </details>
 
       <details class="archive">
         <summary><time datetime="1940-10-12">12 October 1940</time> — School potato-picking</summary>
-        <p>Pupils assist local farmers with the potato harvest at Scriven and Hopewell House; Mr Jacob Smith praises their efforts.</p>
+        <p>Pupils of the Modern School help local farmers with the potato harvest. Mr Jacob Smith praises their efforts.</p>
       </details>
 
       <details class="archive">
@@ -210,63 +135,73 @@
       </details>
     </section>
 
-    <p class="muted smallprint">
-      We are indebted to sources including “Yorkshire Women at War: Story of The Women’s Land Army Hostels” (Marion Jefferies, Pen &amp; Sword Books Ltd), Boroughbridge &amp; District Historical Society, Harrogate Herald and Knaresborough Post archives.
-    </p>
+    <!-- Sources -->
+    <section aria-labelledby="sources">
+      <h3 id="sources">Sources</h3>
+      <ul class="key-list">
+        <li><em>Yorkshire Women at War: Story of the Women’s Land Army Hostels</em> — Marion Jefferies, Pen &amp; Sword Books Ltd</li>
+        <li>Boroughbridge &amp; District Historical Society</li>
+        <li>Harrogate Herald</li>
+        <li>Knaresborough Post archives</li>
+      </ul>
+    </section>
+
+    <!-- Back link to Park history -->
+    <section class="cta" aria-labelledby="back-to-park">
+      <div class="container">
+        <h3 id="back-to-park">Read the park’s history</h3>
+        <p><a class="button" href="history.html">A brief history of the park</a></p>
+      </div>
+    </section>
 
   </main>
 
-  <!-- Lightbox overlay (re-uses your global CSS/JS) -->
-  <div id="lightbox-overlay" aria-hidden="true">
-    <button class="close-btn" aria-label="Close image view">✕ Close</button>
-    <img id="lightbox-image" src="" alt="">
-  </div>
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <section class="footer-col">
+        <h3 class="footer-title">Jacob Smith Park</h3>
+        <p class="footer-blurb">A community green space in Scriven, Knaresborough—looked after with care for people, wildlife and heritage.</p>
+      </section>
 
-<footer class="site-footer" role="contentinfo">
-  <div class="container footer-grid">
-    <section class="footer-col">
-      <h3 class="footer-title">Jacob Smith Park</h3>
-      <p class="footer-blurb">
-        A community green space in Scriven, Knaresborough—looked after with care for people,
-        wildlife and heritage.
-      </p>
-    </section>
+      <nav class="footer-col" aria-label="Quick links">
+        <h3 class="footer-title">Quick links</h3>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="visiting.html">Planning a Visit</a></li>
+          <li><a href="wildlife.html">Wildlife</a></li>
+          <li><a href="history.html">Park History</a></li>
+        </ul>
+      </nav>
 
-    <nav class="footer-col" aria-label="Quick links">
-      <h3 class="footer-title">Quick links</h3>
-      <ul class="footer-links">
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="get-involved.html">Get Involved</a></li>
-        <li><a href="donate.html">Donate</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="visiting.html">Planning a Visit</a></li>
-        <li><a href="wildlife.html">Wildlife</a></li>
-        <li><a href="history.html">History</a></li>
-      </ul>
-    </nav>
-
-    <section class="footer-col" aria-label="Contact">
-      <h3 class="footer-title">Contact</h3>
-      <ul class="footer-links">
-        <li><a href="mailto:info@example.org">info@example.org</a></li>
-        <li>Knaresborough, North Yorkshire</li>
-      </ul>
-      <p><a class="button" href="newsletter.html">Sign me up</a></p>
-    </section>
-  </div>
-
-  <div class="legal-bar">
-    <div class="container legal-inner">
-      <p>&copy; <span id="year"></span> Jacob Smith Park</p>
-      <ul class="legal-links">
-        <li><a href="whats-on.html">What’s on</a></li>
-        <li><a href="volunteer.html">Volunteer</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+      <section class="footer-col" aria-label="Contact">
+        <h3 class="footer-title">Contact</h3>
+        <ul class="footer-links">
+          <li><a href="mailto:friends@jacobsmithpark.co.uk">friends@jacobsmithpark.co.uk</a></li>
+          <li>Knaresborough, North Yorkshire</li>
+        </ul>
+        <p><a class="button" href="newsletter.html">Sign me up</a></p>
+      </section>
     </div>
-  </div>
-</footer>
 
-  <script src="resources/js/main.js" defer></script>
+    <div class="legal-bar">
+      <div class="container legal-inner">
+        <p>&copy; <span id="year"></span> Jacob Smith Park</p>
+        <ul class="legal-links">
+          <li><a href="whats-on.html">What’s on</a></li>
+          <li><a href="volunteer.html">Volunteer</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // simple year fill
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

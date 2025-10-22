@@ -4,19 +4,56 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Donate – Jacob Smith Park</title>
-  <meta name="description" content="Support Jacob Smith Park with a donation to help preserve wildlife, maintain facilities, and fund conservation projects.">
+  <meta name="description" content="Support the Friends of Jacob Smith Park and help keep the park beautiful for all.">
   <link rel="stylesheet" href="resources/css/styles.css">
-
-     <!-- keep your little no-js → js helper -->
   <script>document.documentElement.classList.replace('no-js','js');</script>
-
-  <!-- ✅ Add your main JavaScript file here -->
   <script src="resources/javascript/main.js" defer></script>
+
+  <!-- Page-scoped polish -->
+  <style>
+    .donate-wrap{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: clamp(22px, 4vw, 40px);
+      align-items:start;
+      padding-block: clamp(22px, 5vw, 48px);
+    }
+    .donate-prose p{ margin:0 0 1rem; }
+    .donate-prose .key-list{ margin: .25rem 0 1rem; }
+    .donate-aside{
+      position: sticky; top: calc(var(--header-h) + 14px);
+      background:#fff; border:1px solid #e8e8e8; border-radius:12px;
+      box-shadow: var(--shadow); padding:16px;
+    }
+    .donate-aside h3{ margin:.25rem 0 .5rem; }
+    .bank-list{ list-style:none; margin:.4rem 0 0; padding:0; }
+    .bank-list li{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding:8px 0; border-top:1px solid #f1f1f1; }
+    .bank-list li:first-child{ border-top:0; }
+    .copy-chip{
+      appearance:none; border:1px solid #dcdcdc; background:#f7f7f7;
+      padding:.3rem .55rem; border-radius:8px; font:inherit; cursor:pointer;
+    }
+    .copy-chip:hover,.copy-chip:focus-visible{ background:#eef6f4; border-color:#cfe7df; outline:none; }
+    .amounts{ display:flex; flex-wrap:wrap; gap:8px; margin:.35rem 0 .15rem; }
+    .amount-btn{
+      appearance:none; border:1px solid #cfe7df; background:#eff7f4; color:#143b34;
+      padding:.35rem .6rem; border-radius:999px; cursor:pointer; font-weight:700;
+    }
+    .amount-btn:hover,.amount-btn:focus-visible{ background:#e6f3ee; outline:none; }
+    .micro{ color:var(--muted); font-size:.9rem; margin:.2rem 0 0; }
+    .note{ background:#fffbe9; border:1px solid #f2e8c3; border-radius:8px; padding:10px 12px; }
+    .donate-aside .button{ width:100%; justify-content:center; }
+    @media (max-width: 900px){
+      .donate-wrap{ grid-template-columns:1fr; }
+      .donate-aside{ position: static; }
+    }
+  </style>
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Shared header -->
+  <!-- Header -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <h1 class="site-title"><a href="index.html">Jacob Smith Park</a></h1>
@@ -30,158 +67,162 @@
           <li><a href="history.html">History</a></li>
           <li><a href="get-involved.html">Get Involved</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="donate.html" aria-current="page">Donate</a></li>
+          <li><a class="donate-button" href="donate.html" aria-current="page">Donate</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Full-width banner (uniform across site) -->
-  <section class="banner" style="background:url('resources/img/banner/donate-hero.jpg') center/cover no-repeat;">
+  <!-- Banner -->
+  <section class="banner" style="
+    background-image:
+      linear-gradient(0deg, rgba(0,0,0,var(--hero-dim)), rgba(0,0,0,var(--hero-dim))),
+      url('resources/images/donate/bench_board_banner.jpg');
+    background-position: 50% 50%;
+  ">
     <div class="container">
       <p class="eyebrow">Friends of Jacob Smith Park</p>
-      <h2>Support the Park</h2>
-      <p>Your gift helps protect habitats, maintain facilities and fund conservation projects.</p>
+      <h2>Donate to help fund our work and keep Jacob Smith Park beautiful…</h2>
     </div>
   </section>
 
-  <main id="main">
-    <!-- Why donate -->
-    <section class="container donate-why" aria-labelledby="why-title">
-      <h3 id="why-title">Why Your Support Matters</h3>
-      <p>Jacob Smith Park is a cherished green space at the heart of Knaresborough. With no entrance fees, we rely on the generosity of people like you to keep it thriving. Your donations help us to:</p>
-      <ul class="key-list">
-        <li>Preserve and restore wildlife habitats</li>
-        <li>Maintain paths, benches and visitor facilities</li>
-        <li>Provide educational signage and events</li>
-        <li>Fund volunteer projects and conservation work</li>
-      </ul>
-      <p>Even a small gift goes a long way in helping us care for this precious place.</p>
-    </section>
+  <main id="main" class="container">
+    <div class="donate-wrap">
+      <!-- Left: your prose (exact wording) -->
+      <section class="donate-prose" aria-labelledby="donate-title">
+        <h2 id="donate-title" style="margin-top:.2rem">Donate to help fund our work and keep Jacob Smith Park beautiful…</h2>
 
-    <!-- Ways to donate -->
-    <section class="container donate-how" aria-labelledby="how-title">
-      <h3 id="how-title">Ways to Donate</h3>
+        <p>North Yorkshire Council cover the costs of maintaining the park but enhancements are mainly organised and funded by the Friends of JSP (FoJSP).</p>
 
-      <div class="cta-grid donate-options">
-        <article class="cta-card" aria-labelledby="d-online">
-          <h4 id="d-online">Online</h4>
-          <p>Make a secure donation via our
-            <a href="https://example.com/donate-form" target="_blank" rel="noopener">online donation page</a>.
-          </p>
-          <p class="smallprint muted">We do not store your card details on this site.</p>
-        </article>
+        <p>We aim to achieve the best possible results on a very tight budget. All the committee and volunteers give their time for free, and we have achieved some amazing results (see <a href="get-involved.html">Get involved</a> for examples of some of our recent projects).</p>
 
-        <article class="cta-card" aria-labelledby="d-bank">
-          <h4 id="d-bank">Bank transfer</h4>
-          <p>
-            <strong>Account Name:</strong> Friends of Jacob Smith Park<br>
-            <strong>Sort Code:</strong> 12-34-56<br>
-            <strong>Account Number:</strong> 12345678<br>
-            <strong>Reference:</strong> Your Name (optional)
-          </p>
-          <p class="smallprint muted">Please email <a href="mailto:friends@jacobsmithpark.co.uk">friends@jacobsmithpark.co.uk</a> if you’d like a receipt.</p>
-        </article>
+        <p>We need your help to fund future enhancement projects. We also need your support to meet our ongoing running costs e.g.</p>
 
-        <article class="cta-card" aria-labelledby="d-person">
-          <h4 id="d-person">In person</h4>
-          <p>Drop off donations at our next event or use the secure donation box by the main entrance.</p>
-        </article>
+        <ul class="key-list">
+          <li>Public liability insurance, without which we could not run volunteering events.</li>
+          <li>Website hosting.</li>
+        </ul>
 
-        <article class="cta-card" aria-labelledby="d-giftaid">
-          <h4 id="d-giftaid">Gift Aid</h4>
-          <p>If you’re a UK taxpayer, ticking Gift Aid lets us claim an extra 25% at no cost to you.</p>
-          <p class="smallprint muted">You can add Gift Aid on the online form or via a paper declaration at events.</p>
-        </article>
-      </div>
-    </section>
+        <p>If you love the park and want to help us make it even better, please donate.  We’d love you to set up a monthly standing order; regular payments of £1, £3 or £5 a month would really help us. If you prefer, you could make a one-off donation for whatever you like.</p>
 
-    <!-- Suggested tiers (optional – easy to remove) -->
-    <section class="container" aria-labelledby="tiers-title">
-      <h3 id="tiers-title">Suggested Gifts</h3>
-      <div class="event-cards" role="list">
-        <div class="event" role="listitem" aria-label="£10 – Wildflower seed">
-          <div class="date-badge"><span class="mon">£</span><span class="day">10</span></div>
-          <div>
-            <h4>Wildflower seed</h4>
-            <p>Helps sow native species that support pollinators and enrich biodiversity.</p>
+        <p>Whichever option you choose, our account details are:</p>
+
+        <div class="note" role="note">Tip: you can copy any line on the right with one click.</div>
+
+        <p style="margin-top:1rem;">Thank you to all our supporters who help us make Jacob Smith Park even more special.</p>
+      </section>
+
+      <!-- Right: sticky giving card -->
+      <aside class="donate-aside" aria-labelledby="ways-title">
+        <h3 id="ways-title">Ways to give</h3>
+
+        <div>
+          <p class="micro">Set up a monthly standing order (popular amounts):</p>
+          <div class="amounts">
+            <button class="amount-btn" data-amt="£1 / month" type="button">£1 / month</button>
+            <button class="amount-btn" data-amt="£3 / month" type="button">£3 / month</button>
+            <button class="amount-btn" data-amt="£5 / month" type="button">£5 / month</button>
           </div>
+          <p class="micro">Choose any amount that suits you.</p>
         </div>
-        <div class="event" role="listitem" aria-label="£25 – Tools & materials">
-          <div class="date-badge"><span class="mon">£</span><span class="day">25</span></div>
-          <div>
-            <h4>Tools &amp; materials</h4>
-            <p>Contributes to hand tools, mulch, stakes and habitat improvements.</p>
-          </div>
-        </div>
-        <div class="event" role="listitem" aria-label="£50 – Habitat projects">
-          <div class="date-badge"><span class="mon">£</span><span class="day">50</span></div>
-          <div>
-            <h4>Habitat projects</h4>
-            <p>Supports pond work, nest boxes and tree/shrub planting.</p>
-          </div>
-        </div>
-      </div>
-      <p class="muted smallprint">Or choose any amount that suits you — every gift helps.</p>
-    </section>
 
-    <!-- Final CTA -->
-    <section class="cta" aria-labelledby="donate-cta-title">
-      <div class="container">
-        <h2 id="donate-cta-title">Thank you for supporting Jacob Smith Park</h2>
-        <p>
-          <a class="button alt" href="https://example.com/donate-form" target="_blank" rel="noopener">Donate now</a>
-          <a class="button" href="get-involved.html">Other ways to help</a>
+        <hr style="border:0;border-top:1px solid #eee; margin:12px 0;">
+
+        <h4 style="margin:.2rem 0 .4rem;">Bank details</h4>
+        <ul class="bank-list">
+          <li>
+            <span><strong>Bank</strong>: Cooperative Bank</span>
+            <button class="copy-chip" data-copy="Cooperative Bank" type="button">Copy</button>
+          </li>
+          <li>
+            <span><strong>Account name</strong>: Friends of Jacob Smith Park</span>
+            <button class="copy-chip" data-copy="Friends of Jacob Smith Park" type="button">Copy</button>
+          </li>
+          <li>
+            <span><strong>Account number</strong>: <code>65364707</code></span>
+            <button class="copy-chip" data-copy="65364707" type="button">Copy</button>
+          </li>
+          <li>
+            <span><strong>Sort code</strong>: <code>08-92-99</code></span>
+            <button class="copy-chip" data-copy="08-92-99" type="button">Copy</button>
+          </li>
+        </ul>
+
+        <p class="micro" style="margin-top:.8rem;">Standing order reference suggestion: <em>JSP donation</em> (or anything you’ll recognise).</p>
+
+        <p style="margin:.9rem 0 0;">
+          <a class="button" href="contact.html">Questions? Contact us</a>
         </p>
-      </div>
-    </section>
+      </aside>
+    </div>
   </main>
 
-<footer class="site-footer" role="contentinfo">
-  <div class="container footer-grid">
-    <section class="footer-col">
-      <h3 class="footer-title">Jacob Smith Park</h3>
-      <p class="footer-blurb">
-        A community green space in Scriven, Knaresborough—looked after with care for people,
-        wildlife and heritage.
-      </p>
-    </section>
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <section class="footer-col">
+        <h3 class="footer-title">Jacob Smith Park</h3>
+        <p class="footer-blurb">A community green space in Scriven, Knaresborough—looked after with care for people, wildlife and heritage.</p>
+      </section>
 
-    <nav class="footer-col" aria-label="Quick links">
-      <h3 class="footer-title">Quick links</h3>
-      <ul class="footer-links">
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="get-involved.html">Get Involved</a></li>
-        <li><a href="donate.html">Donate</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="visiting.html">Planning a Visit</a></li>
-        <li><a href="wildlife.html">Wildlife</a></li>
-        <li><a href="history.html">History</a></li>
-      </ul>
-    </nav>
+      <nav class="footer-col" aria-label="Quick links">
+        <h3 class="footer-title">Quick links</h3>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+          <li><a href="donate.html" aria-current="page">Donate</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="visiting.html">Planning a Visit</a></li>
+          <li><a href="wildlife.html">Wildlife</a></li>
+          <li><a href="history.html">History</a></li>
+        </ul>
+      </nav>
 
-    <section class="footer-col" aria-label="Contact">
-      <h3 class="footer-title">Contact</h3>
-      <ul class="footer-links">
-        <li><a href="mailto:info@example.org">info@example.org</a></li>
-        <li>Knaresborough, North Yorkshire</li>
-      </ul>
-      <p><a class="button" href="newsletter.html">Sign me up</a></p>
-    </section>
-  </div>
-
-  <div class="legal-bar">
-    <div class="container legal-inner">
-      <p>&copy; <span id="year"></span> Jacob Smith Park</p>
-      <ul class="legal-links">
-        <li><a href="whats-on.html">What’s on</a></li>
-        <li><a href="volunteer.html">Volunteer</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+      <section class="footer-col" aria-label="Contact">
+        <h3 class="footer-title">Contact</h3>
+        <ul class="footer-links">
+          <li><a href="mailto:friends@jacobsmithpark.co.uk">friends@jacobsmithpark.co.uk</a></li>
+          <li>Knaresborough, North Yorkshire</li>
+        </ul>
+        <p><a class="button" href="newsletter.html">Sign me up</a></p>
+      </section>
     </div>
-  </div>
-</footer>
 
-  <script src="resources/js/main.js" defer></script>
+    <div class="legal-bar">
+      <div class="container legal-inner">
+        <p>&copy; <span id="year"></span> Jacob Smith Park</p>
+        <ul class="legal-links">
+          <li><a href="whats-on.html">What’s on</a></li>
+          <li><a href="volunteer.html">Volunteer</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Tiny JS for copy & amount chips -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function flash(btn){
+      const orig = btn.textContent;
+      btn.textContent = 'Copied!';
+      setTimeout(()=> btn.textContent = orig, 1200);
+    }
+
+    document.querySelectorAll('.copy-chip').forEach(b=>{
+      b.addEventListener('click', async ()=>{
+        try { await navigator.clipboard.writeText(b.dataset.copy); flash(b); } catch(e){}
+      });
+    });
+
+    document.querySelectorAll('.amount-btn').forEach(b=>{
+      b.addEventListener('click', ()=>{
+        // Just a helpful copy of the label (you can change this behaviour later)
+        navigator.clipboard.writeText(b.dataset.amt + ' — set up as a standing order');
+        flash(b);
+      });
+    });
+  </script>
 </body>
 </html>

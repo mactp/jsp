@@ -1,34 +1,17 @@
-// assets/js/main.js
+// main.js
 document.addEventListener('DOMContentLoaded', () => {
-  /* 0) Header nav toggle — upgraded (overlay + focus trap + scroll lock) */
-  const nav = document.querySelector('.site-nav');
-  const toggleBtn = nav?.querySelector('.nav-toggle');
-  const navList = nav?.querySelector('#primary-nav');
 
-  if (nav && toggleBtn && navList) {
-    // Create overlay once
-    let overlay = document.querySelector('.nav-overlay');
-    if (!overlay) {
-      overlay = document.createElement('div');
-      overlay.className = 'nav-overlay';
-      document.body.appendChild(overlay);
-    }
+  /* 0) Mobile nav toggle — matches body.nav-open / .scrim in styles.css */
+  const toggleBtn = document.querySelector('.nav-toggle');
+  const navList   = document.getElementById('primary-nav');
+  const scrim     = document.querySelector('.scrim');
+  const body      = document.body;
+  const mq        = window.matchMedia('(max-width: 900px)');
 
-    const mq = window.matchMedia('(max-width: 900px)');
+  if (toggleBtn && navList) {
     let lastFocus = null;
 
-    const isOpen = () => nav.classList.contains('open');
-
-    const setAria = (open) => {
-      toggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      if (open) {
-        navList.removeAttribute('hidden');
-        navList.setAttribute('aria-modal', 'true');
-      } else {
-        navList.setAttribute('hidden', '');
-        navList.removeAttribute('aria-modal');
-      }
-    };
+    const isOpen = () => body.classList.contains('nav-open');
 
     const getFocusables = (root) =>
       Array.from(root.querySelectorAll(
@@ -39,11 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!isOpen()) return;
       if (e.key === 'Escape') { e.preventDefault(); return closeMenu(); }
       if (e.key !== 'Tab') return;
-
       const f = getFocusables(navList);
       if (!f.length) return;
       const first = f[0], last = f[f.length - 1];
-
       if (e.shiftKey && document.activeElement === first) {
         e.preventDefault(); last.focus();
       } else if (!e.shiftKey && document.activeElement === last) {
@@ -54,83 +35,57 @@ document.addEventListener('DOMContentLoaded', () => {
     const openMenu = () => {
       if (isOpen()) return;
       lastFocus = document.activeElement;
-
-      nav.classList.add('open');          // enables drawer animation via CSS
-      overlay.classList.add('show');      // fades in overlay
-      setAria(true);
-
-      // Lock scroll
-      document.documentElement.style.overflow = 'hidden';
-
-      // Focus first menu item
+      body.classList.add('nav-open', 'no-scroll');
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      navList.removeAttribute('hidden');
+      document.addEventListener('keydown', trapKeydown);
       const f = getFocusables(navList);
       (f[0] || toggleBtn).focus();
-
-      // Listeners
-      overlay.addEventListener('click', closeMenu, { once: true });
-      document.addEventListener('keydown', trapKeydown);
     };
 
     const closeMenu = () => {
       if (!isOpen()) return;
-      nav.classList.remove('open');
-      overlay.classList.remove('show');
-      setAria(false);
-
-      // Unlock scroll after overlay transition ends (or immediately if no transition)
-      const onEnd = () => {
-        document.documentElement.style.overflow = '';
-        overlay.removeEventListener('transitionend', onEnd);
-      };
-      overlay.addEventListener('transitionend', onEnd);
-      if (getComputedStyle(overlay).transitionDuration === '0s') onEnd();
-
+      body.classList.remove('nav-open', 'no-scroll');
+      toggleBtn.setAttribute('aria-expanded', 'false');
       document.removeEventListener('keydown', trapKeydown);
-
-      // Restore focus
       if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
     };
 
-    // Start closed on mobile; visible on desktop
-    const syncForViewport = () => {
-      if (mq.matches) {         // mobile
-        nav.classList.remove('open');
-        overlay.classList.remove('show');
-        setAria(false);
-        document.documentElement.style.overflow = '';
-        document.removeEventListener('keydown', trapKeydown);
-      } else {                  // desktop
-        nav.classList.remove('open');
-        overlay.classList.remove('show');
-        navList.removeAttribute('hidden'); // always visible on desktop
+    // Sync on resize — keep nav visible on desktop, hidden on mobile
+    const syncViewport = () => {
+      if (!mq.matches) {
+        // Desktop: always show nav, clear any mobile state
+        body.classList.remove('nav-open', 'no-scroll');
+        navList.removeAttribute('hidden');
         toggleBtn.setAttribute('aria-expanded', 'false');
-        document.documentElement.style.overflow = '';
         document.removeEventListener('keydown', trapKeydown);
+      } else {
+        // Mobile: hide nav unless open
+        if (!isOpen()) navList.setAttribute('hidden', '');
       }
     };
 
-    // Toggle button
-    toggleBtn.addEventListener('click', () => (isOpen() ? closeMenu() : openMenu()));
+    toggleBtn.addEventListener('click', () => isOpen() ? closeMenu() : openMenu());
 
-    // Close when a menu link is clicked on mobile
+    // Close on scrim click
+    if (scrim) scrim.addEventListener('click', closeMenu);
+
+    // Close when a nav link is tapped on mobile
     navList.addEventListener('click', (e) => {
-      const link = e.target.closest('a[href]');
-      if (link && mq.matches) closeMenu();
+      if (e.target.closest('a[href]') && mq.matches) closeMenu();
     });
 
-    mq.addEventListener?.('change', syncForViewport);
-    syncForViewport();
+    mq.addEventListener('change', syncViewport);
+    syncViewport();
   }
 
   /* 1) Dropdown nav toggle for mobile */
-  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-  dropdownToggles.forEach(toggle => {
-    toggle.addEventListener('click', function(e) {
+  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', function (e) {
       if (window.innerWidth < 900) {
         e.preventDefault();
-        const parent = this.closest('.has-dropdown');
-        const menu = parent.querySelector('.dropdown-menu');
-        menu.style.display = (menu.style.display === 'none') ? 'block' : 'none';
+        const menu = this.closest('.has-dropdown')?.querySelector('.dropdown-menu');
+        if (menu) menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
       }
     });
   });
@@ -146,8 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (lbTargets.length) {
     let overlay = document.getElementById('lightbox-overlay');
-    let overlayImg = overlay ? overlay.querySelector('img') : null;
-    let closeBtn = overlay ? overlay.querySelector('.close-btn') : null;
+    let overlayImg = overlay?.querySelector('img');
+    let closeBtn = overlay?.querySelector('.close-btn');
 
     if (!overlay) {
       overlay = document.createElement('div');
@@ -182,17 +137,16 @@ document.addEventListener('DOMContentLoaded', () => {
         lastFocus?.focus?.();
       }
 
-      lbTargets.forEach(function (el) {
+      lbTargets.forEach(el => {
         if (el.hasAttribute('data-no-lightbox')) return;
-        el.addEventListener('click', function (e) {
+        el.addEventListener('click', (e) => {
           const tag = el.tagName.toLowerCase();
-          let src = '';
-          let alt = '';
+          let src = '', alt = '';
           if (tag === 'a') {
             e.preventDefault();
             const imgIn = el.querySelector('img');
             src = el.getAttribute('href');
-            alt = (imgIn && imgIn.alt) || el.getAttribute('aria-label') || 'Image';
+            alt = imgIn?.alt || el.getAttribute('aria-label') || 'Image';
           } else if (tag === 'img') {
             src = el.getAttribute('src');
             alt = el.getAttribute('alt') || 'Image';
@@ -209,10 +163,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /* 4) Scrollspy (History page) */
+  /* 4) Scrollspy (History page subnav) */
   const subnav = document.querySelector('.subnav');
   if (subnav) {
-    const links = Array.from(subnav.querySelectorAll('.subnav__link'));
+    const links   = Array.from(subnav.querySelectorAll('.subnav__link'));
     const targets = links
       .map(a => document.querySelector(a.getAttribute('href')))
       .filter(Boolean);
@@ -244,61 +198,92 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* 5) Contact page action buttons */
+  /* 5) Contact page reason tabs */
+  document.querySelectorAll('.reason-tab').forEach(tab => {
+    tab.addEventListener('click', function () {
+      document.querySelectorAll('.reason-tab').forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+      const label = this.dataset.label;
+      const formTitle = document.getElementById('form-title');
+      const enquiryType = document.getElementById('enquiry-type');
+      if (formTitle) formTitle.textContent = label;
+      if (enquiryType) enquiryType.value = label;
+    });
+  });
+
+  /* 5b) Legacy contact action buttons (older contact page version) */
   const actionButtons = document.querySelectorAll('.action-btn');
   if (actionButtons.length) {
-    const formTitle = document.getElementById('form-title');
-    const messageLabel = document.getElementById('message-label');
-    const messageTextarea = document.getElementById('message');
-    const enquiryTypeInput = document.getElementById('enquiry-type');
+    const formTitle      = document.getElementById('form-title');
+    const messageLabel   = document.getElementById('message-label');
+    const messageArea    = document.getElementById('message');
+    const enquiryType    = document.getElementById('enquiry-type');
 
     actionButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        const action = this.getAttribute('data-action');
-
-        actionButtons.forEach(btn => btn.classList.remove('active'));
+      button.addEventListener('click', function () {
+        actionButtons.forEach(b => b.classList.remove('active'));
         this.classList.add('active');
-
+        const action = this.getAttribute('data-action');
         if (action === 'keep-informed') {
-          formTitle.textContent = 'Keep me informed';
-          messageLabel.innerHTML = 'Tell us what you\'d like to hear about <span aria-hidden="true">*</span>';
-          messageTextarea.placeholder = 'E.g., volunteer events, biannual meetings, park updates\u2026';
-          enquiryTypeInput.value = 'Keep me informed';
+          if (formTitle) formTitle.textContent = 'Keep me informed';
+          if (messageLabel) messageLabel.innerHTML = 'Tell us what you\'d like to hear about <span aria-hidden="true">*</span>';
+          if (messageArea) messageArea.placeholder = 'E.g., volunteer events, biannual meetings, park updates…';
+          if (enquiryType) enquiryType.value = 'Keep me informed';
         } else if (action === 'get-involved') {
-          formTitle.textContent = 'Get involved';
-          messageLabel.innerHTML = 'What would you like to get involved in? <span aria-hidden="true">*</span>';
-          messageTextarea.placeholder = 'Tell us about your interests, skills, or what you\'d like to help with\u2026';
-          enquiryTypeInput.value = 'Get involved';
+          if (formTitle) formTitle.textContent = 'Get involved';
+          if (messageLabel) messageLabel.innerHTML = 'What would you like to get involved in? <span aria-hidden="true">*</span>';
+          if (messageArea) messageArea.placeholder = 'Tell us about your interests or what you\'d like to help with…';
+          if (enquiryType) enquiryType.value = 'Get involved';
         } else {
-          formTitle.textContent = 'Get in touch';
-          messageLabel.innerHTML = 'Message <span aria-hidden="true">*</span>';
-          messageTextarea.placeholder = '';
-          enquiryTypeInput.value = 'General enquiry';
+          if (formTitle) formTitle.textContent = 'Get in touch';
+          if (messageLabel) messageLabel.innerHTML = 'Message <span aria-hidden="true">*</span>';
+          if (messageArea) messageArea.placeholder = '';
+          if (enquiryType) enquiryType.value = 'General enquiry';
         }
-
-        document.querySelector('.contact-form-section').scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-
-        setTimeout(() => { document.getElementById('name').focus(); }, 500);
+        document.querySelector('.contact-form-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => document.getElementById('name')?.focus(), 500);
       });
     });
   }
+
+  /* 6) Contact form AJAX (Formspree) */
+  const contactForm = document.getElementById('contact-form');
+  const formStatus  = document.getElementById('form-status');
+  if (contactForm && formStatus) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      try {
+        const res = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          formStatus.textContent = 'Message sent — thank you!';
+          contactForm.reset();
+        } else {
+          formStatus.textContent = 'Something went wrong. Please try emailing us directly.';
+        }
+      } catch {
+        formStatus.textContent = 'Could not send. Please try emailing us directly.';
+      }
+    });
+  }
+
 });
 
-/* 6) Sticky header shadow on scroll */
-(function(){
+/* 7) Sticky header shadow on scroll */
+(function () {
   const header = document.querySelector('.site-header');
   if (!header) return;
   let last = 0, tick = false;
-  function onScroll(){
+  function onScroll() {
     const y = window.scrollY || window.pageYOffset;
     if ((y > 8) !== (last > 8)) header.classList.toggle('is-scrolled', y > 8);
     last = y; tick = false;
   }
-  window.addEventListener('scroll', function(){
-    if (!tick){ tick = true; requestAnimationFrame(onScroll); }
-  }, {passive:true});
+  window.addEventListener('scroll', () => {
+    if (!tick) { tick = true; requestAnimationFrame(onScroll); }
+  }, { passive: true });
   onScroll();
 })();

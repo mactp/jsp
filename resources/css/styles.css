@@ -2142,3 +2142,152 @@ main.container section > .key-list {
 .container .cta-buttons {
   max-width: none;
 }
+/* ============================================
+   VISITING PAGE - MAP FIX & IMPROVEMENTS
+   ============================================ */
+
+/* Info cards grid (Getting Here section) */
+.visit-info {
+  padding: 60px 0;
+  background-color: #fafaf8;
+}
+
+.visit-info .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.visit-info h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #2c5f4f;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+@media (min-width: 768px) {
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .info-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.info-card {
+  background: white;
+  padding: 32px 24px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.info-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.info-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  color: #2c5f4f;
+}
+
+.info-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  color: #666;
+}
+
+.what3words {
+  font-size: 0.875rem;
+  margin-top: 8px;
+}
+
+.what3words a {
+  color: #2c5f4f;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.what3words a:hover {
+  text-decoration: underline;
+}
+
+/* Map section - PROPERLY SIZED */
+.map-section {
+  padding: 60px 0;
+  background: white;
+}
+
+.map-section .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.map-section h2 {
+  text-align: center;
+  margin-bottom: 32px;
+  color: #2c5f4f;
+}
+
+/* Map wrapper - 40% aspect ratio instead of 56.25% */
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 40%;        /* This controls the height - MUCH smaller now */
+  height: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.map-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Mobile - slightly taller aspect ratio */
+@media (max-width: 767px) {
+  .map-wrapper {
+    padding-bottom: 75%;      /* Taller on mobile */
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Image caption styling */
+.image-caption {
+  font-size: 0.875rem;
+  color: #777;
+  font-style: italic;
+  text-align: center;
+  margin-top: 12px;
+}

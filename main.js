@@ -5,82 +5,79 @@ document.addEventListener('DOMContentLoaded', () => {
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-/* ---------------------------------
- * 2) Accessible nav toggle (resilient)
- *    - finds button by #navToggle or .nav-toggle
- *    - creates scrim if missing
- * --------------------------------- */
-(function () {
-  var body   = document.body;
-  var toggle = document.getElementById('navToggle') || document.querySelector('.nav-toggle');
-  var menu   = document.getElementById('primary-nav');
-  if (!toggle || !menu) return;
+  /* ---------------------------------
+   * 2) Accessible nav toggle (resilient)
+   *    - finds button by #navToggle or .nav-toggle
+   *    - creates scrim if missing
+   * --------------------------------- */
+  (function () {
+    var body   = document.body;
+    var toggle = document.getElementById('navToggle') || document.querySelector('.nav-toggle');
+    var menu   = document.getElementById('primary-nav');
+    if (!toggle || !menu) return;
 
-  // Ensure we have a scrim; create one if missing
-  var scrim = document.getElementById('scrim');
-  if (!scrim) {
-    scrim = document.createElement('div');
-    scrim.id = 'scrim';
-    scrim.className = 'scrim';
-    scrim.hidden = true;
-    // place right after the header if possible, else append to body
-    var header = document.querySelector('.site-header');
-    (header && header.parentNode ? header.parentNode.insertBefore(scrim, header.nextSibling) : body.appendChild(scrim));
-  }
+    // Ensure we have a scrim; create one if missing
+    var scrim = document.getElementById('scrim');
+    if (!scrim) {
+      scrim = document.createElement('div');
+      scrim.id = 'scrim';
+      scrim.className = 'scrim';
+      scrim.hidden = true;
+      // place right after the header if possible, else append to body
+      var header = document.querySelector('.site-header');
+      (header && header.parentNode ? header.parentNode.insertBefore(scrim, header.nextSibling) : body.appendChild(scrim));
+    }
 
-  // Initial state
-  toggle.setAttribute('aria-expanded', 'false');
-  toggle.setAttribute('aria-label', 'Open menu');
-  menu.hidden  = true;
-  scrim.hidden = true;
-
-  function openMenu() {
-    body.classList.add('nav-open', 'no-scroll');
-    toggle.setAttribute('aria-expanded', 'true');
-    toggle.setAttribute('aria-label', 'Close menu');
-    menu.hidden  = false;
-    scrim.hidden = false;
-    var first = menu.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
-    if (first) first.focus({ preventScroll: true });
-  }
-
-  function closeMenu() {
-    body.classList.remove('nav-open', 'no-scroll');
+    // Initial state
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Open menu');
     menu.hidden  = true;
     scrim.hidden = true;
-    if (document.activeElement && menu.contains(document.activeElement)) {
-      toggle.focus({ preventScroll: true });
+
+    function openMenu() {
+      body.classList.add('nav-open', 'no-scroll');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Close menu');
+      menu.hidden  = false;
+      scrim.hidden = false;
+      var first = menu.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
+      if (first) first.focus({ preventScroll: true });
     }
-  }
 
-  function isOpen() { return body.classList.contains('nav-open'); }
+    function closeMenu() {
+      body.classList.remove('nav-open', 'no-scroll');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open menu');
+      menu.hidden  = true;
+      scrim.hidden = true;
+      if (document.activeElement && menu.contains(document.activeElement)) {
+        toggle.focus({ preventScroll: true });
+      }
+    }
 
-  // Toggle
-  toggle.addEventListener('click', function () {
-    isOpen() ? closeMenu() : openMenu();
-  }, { passive: true });
+    function isOpen() { return body.classList.contains('nav-open'); }
 
-  // Scrim closes
-  scrim.addEventListener('click', closeMenu);
+    // Toggle
+    toggle.addEventListener('click', function () {
+      isOpen() ? closeMenu() : openMenu();
+    }, { passive: true });
 
-  // Close on any menu link click
-  menu.addEventListener('click', function (e) {
-    if (e.target.closest('a, button')) closeMenu();
-  });
+    // Scrim closes
+    scrim.addEventListener('click', closeMenu);
 
-  // ESC closes
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && isOpen()) closeMenu();
-  });
+    // Close on any menu link click
+    menu.addEventListener('click', function (e) {
+      if (e.target.closest('a, button')) closeMenu();
+    });
 
-  // Debug helper (comment out when done)
-  // console.log('Nav ready:', {toggle, menu, scrim});
-})();
+    // ESC closes
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isOpen()) closeMenu();
+    });
+  })();
 
   /* ---------------------------------
-   * 3) Newsletter quick validation
+   * 4) Newsletter quick validation
    * --------------------------------- */
   var form = document.getElementById('newsletter-form');
   var status = document.getElementById('form-status');
@@ -100,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---------------------------------
-   * 4) Universal Lightbox
+   * 5) Universal Lightbox
    *    Works for:
    *     - <a class="lightbox-trigger" href="full.jpg"><img ...></a>
    *     - Any .two-col img (Get Involved)

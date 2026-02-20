@@ -5,25 +5,47 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>About Us — Friends of Jacob Smith Park</title>
   <meta name="description" content="Learn about the Friends of Jacob Smith Park — who we are, what we do, and how we care for this beautiful green space." />
-  <link rel="stylesheet" href="resources/css/styles.css" />
+
+  <!-- Google Fonts: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="resources/css/styles.css">
   <script>document.documentElement.classList.replace('no-js','js');</script>
   <script src="resources/javascript/main.js" defer></script>
 </head>
-<body class="about-page">
+
+<body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <h1 class="site-title"><a href="index.html">Jacob Smith Park</a></h1>
+      <a href="index.html" class="nav-logo-link" aria-label="Jacob Smith Park – Home">
+        <img
+          src="resources/images/logo-placeholder.png"
+          alt="Friends of Jacob Smith Park"
+          class="nav-logo"
+        />
+      </a>
+
       <nav class="site-nav" aria-label="Main navigation">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰</button>
+        <button class="nav-toggle"
+                aria-expanded="false"
+                aria-controls="primary-nav"
+                aria-label="Toggle navigation">☰</button>
+
         <ul id="primary-nav" class="nav-list" hidden>
           <li><a href="index.html">Home</a></li>
           <li><a href="visiting.html">Visiting</a></li>
           <li><a href="about.html" aria-current="page">About Us</a></li>
           <li><a href="wildlife.html">Wildlife</a></li>
-          <li><a href="history.html">History</a></li>
+          <li class="has-dropdown">
+            <a href="park-history.html" class="dropdown-toggle">History</a>
+            <ul class="dropdown-menu">
+              <li><a href="park-history.html">Park History</a></li>
+              <li><a href="jacob-smith-family.html">Jacob Smith Family</a></li>
+            </ul>
+          </li>
           <li><a href="get-involved.html">Get Involved</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a class="donate-button" href="donate.html">Donate</a></li>
@@ -32,140 +54,320 @@
     </div>
   </header>
 
-  <!-- Banner -->
-<section class="banner" style="
-  background-image:
-    linear-gradient(0deg, rgba(0,0,0,var(--hero-dim)), rgba(0,0,0,var(--hero-dim))),
-    url('resources/images/about_us/about_us_banner.jpeg');
-  background-position: 50% 50%;
-  background-size: cover;
-">
-  <div class="container">
-    <h2>About Us</h2>
-  </div>
-</section>
-
-  <!-- Optional page-lead line -->
-  <section class="page-lead">
+  <section class="banner banner--image">
+    <img src="resources/images/banners/banner-about.jpeg" alt="About Jacob Smith Park" class="banner-image">
     <div class="container">
-      <span class="lead-eyebrow">About Us</span>
-      <p class="lead-line">
-   The Friends of Jacob Smith Park are passionate about enhancing and protecting this precious green space for future generations 
+      <h2>About Us</h2>
+    </div>
+  </section>
+
+  <section class="page-intro">
+    <div class="intro-content">
+      <p class="intro-text">
+        Placeholder intro text for the About Us page. Client will provide final copy.
       </p>
     </div>
   </section>
+<main id="main">
 
-  <main id="main">
+<!-- Stats banner -->
+<section class="about-stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-number">2008</span>
+        <span class="stat-label">Founded</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">300+</span>
+        <span class="stat-label">Trees Planted</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">7</span>
+        <span class="stat-label">Oak Benches</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">30</span>
+        <span class="stat-label">Acres Protected</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <main id="main" class="container" style="padding-block:clamp(32px,6vw,64px);">
-  <section>
-    <h3>Who are the Friends of Jacob Smith Park?</h3>
-    <p>The Friends of Jacob Smith Park (FoJSP) are a Community Interest Group which was formed in 2008, shortly after JSP opened to the public.</p>
+<!-- Who we are -->
+<section class="container" style="padding-block:clamp(32px,6vw,64px);">
+  <h3>Who are the Friends of Jacob Smith Park?</h3>
+  <p>The Friends of Jacob Smith Park (FoJSP) are a Community Interest Group which was formed in 2008, shortly after JSP opened to the public.</p>
+  <p>FoJSP is run by a committee who provide the link between the community and North Yorkshire Council (NYC). See our <a href="#recent-projects">recent projects</a>.</p>
+  <p>The committee are all volunteers and are generously supported by a wider network of enthusiastic volunteers from the local community who support work and projects in the park.</p>
+  <p>FoJSP work closely with NYC, which now owns the park and is responsible for its upkeep, e.g. cutting grass, maintaining the perimeter wall and managing the trees.</p>
 
-    <p>We are passionate about enhancing the habitat to increase the biodiversity in the park and also to make improvements to help make your visit a more enjoyable one. See our recent projects (LINK TO SECTION LATER ON THIS PAGE)</p>
+  <!-- What does FoJSP do? — icon list -->
+  <h3>What does FoJSP do?</h3>
+  <div class="responsibilities-list">
+    <div class="responsibility-item">
+      <span class="resp-icon">&#x1F465;</span>
+      <p>Represent the interests of the local community and park users in relation to the park</p>
+    </div>
+    <div class="responsibility-item">
+      <span class="resp-icon">&#x1F91D;</span>
+      <p>Agree priorities with NYC and help to deliver the yearly plan for the park</p>
+    </div>
+    <div class="responsibility-item">
+      <span class="resp-icon">&#x1F4B0;</span>
+      <p>Fundraising for agreed improvements to the park outside the council's responsibility</p>
+    </div>
+    <div class="responsibility-item">
+      <span class="resp-icon">&#x1F528;</span>
+      <p>Arrange volunteering events to carry out agreed enhancements</p>
+    </div>
+    <div class="responsibility-item">
+      <span class="resp-icon">&#x1F4E2;</span>
+      <p>Hold public meetings twice a year to share progress and gather views on upcoming priorities</p>
+    </div>
+  </div>
 
-    <p>FoJSP is run by a committee who provide the link between the community and North Yorkshire Council (NYC).</p>
+  <!-- Key documents -->
+  <h3>Key Documents</h3>
+  <div class="documents-grid">
+    <a href="documents/fojsp-public-meeting-minutes.pdf" target="_blank" class="doc-card">
+      <span class="doc-icon">&#x1F4C4;</span>
+      <span class="doc-name">Public Meeting Minutes</span>
+      <span class="doc-action">Download PDF &rarr;</span>
+    </a>
+    <a href="documents/fojsp-agm-minutes.pdf" target="_blank" class="doc-card">
+      <span class="doc-icon">&#x1F4C4;</span>
+      <span class="doc-name">AGM Minutes</span>
+      <span class="doc-action">Download PDF &rarr;</span>
+    </a>
+    <a href="documents/jsp-management-plan.pdf" target="_blank" class="doc-card">
+      <span class="doc-icon">&#x1F4CB;</span>
+      <span class="doc-name">Management Plan</span>
+      <span class="doc-action">Download PDF &rarr;</span>
+    </a>
+    <a href="documents/fojsp-constitution.pdf" target="_blank" class="doc-card">
+      <span class="doc-icon">&#x1F4DC;</span>
+      <span class="doc-name">FoJSP Constitution</span>
+      <span class="doc-action">Download PDF &rarr;</span>
+    </a>
+  </div>
 
-    <p>The committee are all volunteers and are generously supported by a wider network of enthusiastic volunteers from the local community who support work and projects in the park.</p>
+  <!-- Recent projects — expandable cards -->
+  <h3 id="recent-projects">Recent Projects</h3>
+  <div class="projects-list">
+    <details class="project-detail">
+      <summary class="project-summary">
+        <span class="project-icon">&#x1FA91;</span>
+        <span class="project-title">Benches</span>
+      </summary>
+      <div class="project-content">
+        <p>Raised funds and managed the purchase and installation of seven new oak benches to provide spots to rest during a walk or just enjoy the park environment.</p>
+      </div>
+    </details>
 
-    <p>FoJSP work closely with NYC, which now owns the park and is responsible for its upkeep, e.g. cutting grass, maintaining the perimeter wall and managing the trees.</p>
+    <details class="project-detail">
+      <summary class="project-summary">
+        <span class="project-icon">&#x1F987;</span>
+        <span class="project-title">Bat &amp; bird boxes</span>
+      </summary>
+      <div class="project-content">
+        <p>Installed a variety of bat and bird boxes to encourage a range of species to nest in the park, including owls, robins, nuthatches, bats and many more.</p>
+      </div>
+    </details>
 
-    <h3>What does FoJSP do?</h3>
-    <ul class="key-list">
-      <li>Represent the interests of the local community and park users in relation to the park</li>
-      <li>Agree priorities with NYC and help to deliver the yearly plan for the park</li>
-      <li>Fundraising for agreed improvements to the park outside the council’s responsibility</li>
-      <li>Arrange volunteering events to carry out agreed enhancements</li>
-      <li>Hold public meetings twice a year to share progress and gather views on upcoming priorities – see links:
-        <ul>
-          <li>Minutes of the last FoJSP public meeting (LINK TO DOC)</li>
-          <li>Minutes of the last FoJSP AGM (LINK TO DOC)</li>
-          <li>JSP Management Plan (LINK TO DOC)</li>
-          <li>FoJSP constitution (LINK TO DOC)</li>
-        </ul>
-      </li>
-    </ul>
+    <details class="project-detail">
+      <summary class="project-summary">
+        <span class="project-icon">&#x1F338;</span>
+        <span class="project-title">Himalayan balsam control</span>
+      </summary>
+      <div class="project-content">
+        <p>Succeeded over three years to reduce Himalayan balsam to a manageable level. Himalayan balsam is an invasive plant species that was spreading through the park and crowding out native plants.</p>
+      </div>
+    </details>
 
-    <h3>Recent projects</h3>
-    <ul class="key-list">
-      <li>Benches - raised funds and managed the purchase and installation of seven new oak benches to provide spots to rest during a walk or just enjoy the park environment</li>
-      <li>Bat & bird boxes - installed a variety of bat and bird boxes to encourage a range of species to nest in the park, including owls, robins, nuthatches, bats and many more</li>
-      <li>Himalayan balsam control - succeeded over three years to reduce Himalayan balsam to a manageable level. Himalayan balsam is an invasive plant species that was spreading through the park and crowding out native plants</li>
-      <li>Information board - installed an information board near the park entrance. The board explains the history of the park and provides a brief summary of the habitats and wildlife it contains</li>
-      <li>Trees - planted over 300 trees to create extra woodland habitat</li>
-      <li>Wildflowers - cleared dozens of areas around the park and planted hundreds of native wildflowers to increase biodiversity and support a range of insects and other wildlife</li>
-      <li>Shrubs – planted over 200 shrubs to provide cover for wildlife, nectar when they flower, leaves to feed insect larvae, fruit for birds and good autumn colour for the overall look of the park</li>
-      <li>Talks – arranged a variety of talks from experts on topics relevant to the park including:
+    <details class="project-detail">
+      <summary class="project-summary">
+        <span class="project-icon">&#x2139;&#xFE0F;</span>
+        <span class="project-title">Information board</span>
+      </summary>
+      <div class="project-content">
+        <p>Installed an information board near the park entrance. The board explains the history of the park and provides a brief summary of the habitats and wildlife it contains.</p>
+      </div>
+    </details>
+
+    <details class="project-detail">
+      <summary class="project-summary">
+        <span class="project-icon">&#x1F333;</span>
+        <span class="project-title">Trees</span>
+      </summary>
+      <div class="project-content">
+        <p>Planted over 300 trees to create extra woodland habitat.</p>
+      </div>
+    </details>
+
+    <details class="project-detail">
+      <summary class="project-summary">
+        <span class="project-icon">&#x1F33C;</span>
+        <span class="project-title">Wildflowers</span>
+      </summary>
+      <div class="project-content">
+        <p>Cleared dozens of areas around the park and planted hundreds of native wildflowers to increase biodiversity and support a range of insects and other wildlife.</p>
+      </div>
+    </details>
+
+    <details class="project-detail">
+      <summary class="project-summary">
+        <span class="project-icon">&#x1F33F;</span>
+        <span class="project-title">Shrubs</span>
+      </summary>
+      <div class="project-content">
+        <p>Planted over 200 shrubs to provide cover for wildlife, nectar when they flower, leaves to feed insect larvae, fruit for birds and good autumn colour for the overall look of the park.</p>
+      </div>
+    </details>
+
+    <details class="project-detail">
+      <summary class="project-summary">
+        <span class="project-icon">&#x1F4AC;</span>
+        <span class="project-title">Talks</span>
+      </summary>
+      <div class="project-content">
+        <p>Arranged a variety of talks from experts on topics relevant to the park including:</p>
         <ul>
           <li>Wildflower meadows and their management</li>
           <li>Honey bees, bee keeping and their role in pollination</li>
-          <li>The physical and psychological benefits of being in parks & wild spaces</li>
+          <li>The physical and psychological benefits of being in parks &amp; wild spaces</li>
           <li>Bumble bees and their role in pollination</li>
-          <li>Dog trust – tips on owning and training dogs and how to prepare for bonfire night</li>
-          <li>Astronomy – an overview of what can be seen in the night sky and a closer look at selected stars and planets</li>
+          <li>Dog trust &ndash; tips on owning and training dogs and how to prepare for bonfire night</li>
+          <li>Astronomy &ndash; an overview of what can be seen in the night sky and a closer look at selected stars and planets</li>
         </ul>
-      </li>
-      <li>Ponds – worked with North Yorkshire Council who commissioned Yorkshire Wildlife Trust to renovate two wildlife ponds which had dried out, aiming to provide habitat for great crested newts and other wildlife</li>
-      <li>Fences – supported North Yorkshire Council who managed the replacement of broken fences around veteran trees, to protect the trees’ root systems and help preserve them</li>
-    </ul>
+      </div>
+    </details>
 
-    <h3>FoJSP committee</h3>
-    <p>The FoJSP Committee is a relaxed and friendly group which meets a few times a year to agree priorities and manage the enhancements to the park.</p>
+    <details class="project-detail">
+      <summary class="project-summary">
+        <span class="project-icon">&#x1F4A7;</span>
+        <span class="project-title">Ponds</span>
+      </summary>
+      <div class="project-content">
+        <p>Worked with North Yorkshire Council who commissioned Yorkshire Wildlife Trust to renovate two wildlife ponds which had dried out, aiming to provide habitat for great crested newts and other wildlife.</p>
+      </div>
+    </details>
 
-    <ul class="key-list">
-      <li><strong>Chair:</strong> Phil Millward</li>
-      <li><strong>Secretary:</strong> Karen Millward</li>
-      <li><strong>Treasurer:</strong> Carole Dobson</li>
-      <li><strong>Committee members:</strong>
-        <ul>
-          <li>Julia Hatch</li>
-          <li>Shirelle Hawkins (NYC)</li>
-          <li>Hilary Hopkinson</li>
-          <li>Chris Pyle</li>
-          <li>Peter Ross</li>
-        </ul>
-      </li>
-    </ul>
+    <details class="project-detail">
+      <summary class="project-summary">
+        <span class="project-icon">&#x1F6A7;</span>
+        <span class="project-title">Fences</span>
+      </summary>
+      <div class="project-content">
+        <p>Supported North Yorkshire Council who managed the replacement of broken fences around veteran trees, to protect the trees' root systems and help preserve them.</p>
+      </div>
+    </details>
+  </div>
 
-    <h3>How you can help?</h3>
-    <p>If you are interested in volunteering to help our work please go to <a href="get-involved.html">Get involved</a> (LINK TO PAGE)</p>
-    <p>If you’re interested in finding out more about the committee or joining, please <a href="mailto:friends@jacobsmithpark.co.uk">contact us</a> (EMAIL OR CONTACT FORM LINK?)</p>
-    <p>If you’d like to support our work financially, please go to <a href="donate.html">Donate</a> (LINK TO PAGE)</p>
-  </section>
+  <!-- Committee — card grid with initials -->
+  <h3>FoJSP Committee</h3>
+  <p>The FoJSP Committee is a relaxed and friendly group which meets a few times a year to agree priorities and manage the enhancements to the park.</p>
+  <div class="committee-grid">
+    <div class="committee-card">
+      <div class="committee-photo">PM</div>
+      <h4>Phil Millward</h4>
+      <p class="role">Chair</p>
+    </div>
+    <div class="committee-card">
+      <div class="committee-photo">KM</div>
+      <h4>Karen Millward</h4>
+      <p class="role">Secretary</p>
+    </div>
+    <div class="committee-card">
+      <div class="committee-photo">CD</div>
+      <h4>Carole Dobson</h4>
+      <p class="role">Treasurer</p>
+    </div>
+    <div class="committee-card">
+      <h4>Committee Members</h4>
+      <ul class="member-list">
+        <li>Julia Hatch</li>
+        <li>Shirelle Hawkins (NYC)</li>
+        <li>Hilary Hopkinson</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- How you can help -->
+  <h3>How you can help</h3>
+  <p>If you are interested in volunteering to help our work please go to <a href="get-involved.html">Get involved</a>.</p>
+  <p>If you're interested in finding out more about the committee or joining, please <a href="contact.html">contact us</a>.</p>
+  <p>If you'd like to support our work financially, please go to <a href="donate.html">Donate</a>.</p>
+</section>
+
 </main>
-  </main>
 
   <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <section class="footer-col">
-        <h3 class="footer-title">Jacob Smith Park</h3>
-        <p class="footer-blurb">A community green space in Scriven, Knaresborough—looked after with care for people, wildlife and heritage.</p>
-      </section>
-      <nav class="footer-col" aria-label="Quick links">
-        <h3 class="footer-title">Quick links</h3>
-        <ul class="footer-links">
-          <li><a href="visiting.html">Planning a Visit</a></li>
-          <li><a href="wildlife.html">Wildlife</a></li>
-          <li><a href="history.html">History</a></li>
-          <li><a href="get-involved.html">Get Involved</a></li>
-          <li><a href="donate.html">Donate</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <section class="footer-col" aria-label="Contact">
-        <h3 class="footer-title">Contact</h3>
-        <ul class="footer-links">
-          <li><a href="mailto:friends@jacobsmithpark.co.uk">friends@jacobsmithpark.co.uk</a></li>
-          <li>Knaresborough, North Yorkshire</li>
-        </ul>
-      </section>
-    </div>
-    <div class="legal-bar">
-      <div class="container legal-inner">
-        <p>&copy; <span id="year"></span> Jacob Smith Park</p>
+  <!-- Call-to-action buttons (above main footer) -->
+<section class="footer-cta" aria-label="Quick actions">
+  <div class="container">
+    <div class="cta-grid">
+
+      <div class="cta-card">
+        <h3 class="cta-title">Donate</h3>
+        <p class="cta-description">Help keep our park beautiful and support improvements</p>
+        <a href="donate.html" class="cta-button">Donate</a>
       </div>
+
+      <div class="cta-card">
+        <h3 class="cta-title">Get Involved</h3>
+        <p class="cta-description">Volunteer, join a work party, or help at an event</p>
+        <a href="get-involved.html" class="cta-button">Get Involved</a>
+      </div>
+
+      <div class="cta-card">
+        <h3 class="cta-title">Keep me informed</h3>
+        <p class="cta-description">Receive updates about what is happening in the park, volunteer events &amp; biannual meeting dates</p>
+        <a href="contact.html" class="cta-button">Keep me informed</a>
+      </div>
+
     </div>
-  </footer>
+  </div>
+</section>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-grid">
+    <section class="footer-col">
+      <h3 class="footer-title">Friends of Jacob Smith Park</h3>
+    </section>
+
+    <nav class="footer-col" aria-label="Quick links">
+      <h3 class="footer-title">Quick links</h3>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="visiting.html">Visiting</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="wildlife.html">Wildlife</a></li>
+        <li class="has-dropdown">
+            <a href="park-history.html" class="dropdown-toggle">History</a>
+            <ul class="dropdown-menu">
+              <li><a href="park-history.html">Park History</a></li>
+              <li><a href="jacob-smith-family.html">Jacob Smith Family</a></li>
+            </ul>
+          </li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+      </ul>
+    </nav>
+
+    <section class="footer-col" aria-label="Contact">
+      <h3 class="footer-title">Contact</h3>
+      <ul class="footer-links">
+        <li><a href="mailto:contact@friendsofjsp.org.uk">contact@friendsofjsp.org.uk</a></li>
+      </ul>
+      <p><a class="button" href="contact.html">Keep me informed</a></p>
+    </section>
+  </div>
+
+  <div class="legal-bar">
+    <div class="container legal-inner">
+      <p>&copy; <span id="year"></span> Friends of Jacob Smith Park</p>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

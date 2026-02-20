@@ -122,7 +122,20 @@ document.addEventListener('DOMContentLoaded', () => {
     syncForViewport();
   }
 
-  /* 1) Footer year */
+  /* 1) Dropdown nav toggle for mobile */
+  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+  dropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      if (window.innerWidth < 900) {
+        e.preventDefault();
+        const parent = this.closest('.has-dropdown');
+        const menu = parent.querySelector('.dropdown-menu');
+        menu.style.display = (menu.style.display === 'none') ? 'block' : 'none';
+      }
+    });
+  });
+
+  /* 2) Footer year */
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
@@ -246,6 +259,48 @@ document.addEventListener('DOMContentLoaded', () => {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       setActive(target.id);
       history.replaceState(null, '', a.getAttribute('href'));
+    });
+  }
+
+  /* 5) Contact page action buttons */
+  const actionButtons = document.querySelectorAll('.action-btn');
+  if (actionButtons.length) {
+    const formTitle = document.getElementById('form-title');
+    const messageLabel = document.getElementById('message-label');
+    const messageTextarea = document.getElementById('message');
+    const enquiryTypeInput = document.getElementById('enquiry-type');
+
+    actionButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const action = this.getAttribute('data-action');
+
+        actionButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+
+        if (action === 'keep-informed') {
+          formTitle.textContent = 'Keep me informed';
+          messageLabel.innerHTML = 'Tell us what you\'d like to hear about <span aria-hidden="true">*</span>';
+          messageTextarea.placeholder = 'E.g., volunteer events, biannual meetings, park updates\u2026';
+          enquiryTypeInput.value = 'Keep me informed';
+        } else if (action === 'get-involved') {
+          formTitle.textContent = 'Get involved';
+          messageLabel.innerHTML = 'What would you like to get involved in? <span aria-hidden="true">*</span>';
+          messageTextarea.placeholder = 'Tell us about your interests, skills, or what you\'d like to help with\u2026';
+          enquiryTypeInput.value = 'Get involved';
+        } else {
+          formTitle.textContent = 'Get in touch';
+          messageLabel.innerHTML = 'Message <span aria-hidden="true">*</span>';
+          messageTextarea.placeholder = '';
+          enquiryTypeInput.value = 'General enquiry';
+        }
+
+        document.querySelector('.contact-form-section').scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+
+        setTimeout(() => { document.getElementById('name').focus(); }, 500);
+      });
     });
   }
 });

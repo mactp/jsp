@@ -7,7 +7,11 @@
   <meta name="description" content="A tranquil wildlife haven in Knaresborough with rich history. Plan a visit, discover local wildlife, and get involved.">
 
   <!-- CSS (cache-busted once to ensure new banner rules load) -->
-<link rel="stylesheet" href="resources/css/styles.css?v=5">
+  <!-- Google Fonts: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="resources/css/styles.css?v=5">
 
   <!-- Social preview -->
   <meta property="og:title" content="Jacob Smith Park">
@@ -34,7 +38,13 @@
 
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <h1 class="site-title"><a href="index.html">Jacob Smith Park</a></h1>
+      <a href="index.html" class="nav-logo-link" aria-label="Jacob Smith Park – Home">
+        <img
+          src="resources/images/logo-placeholder.png"
+          alt="Friends of Jacob Smith Park"
+          class="nav-logo"
+        />
+      </a>
 
       <nav class="site-nav" aria-label="Main navigation">
         <button class="nav-toggle"
@@ -47,7 +57,13 @@
           <li><a href="visiting.html">Visiting</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="wildlife.html">Wildlife</a></li>
-          <li><a href="history.html">History</a></li>
+          <li class="has-dropdown">
+            <a href="park-history.html" class="dropdown-toggle">History</a>
+            <ul class="dropdown-menu">
+              <li><a href="park-history.html">Park History</a></li>
+              <li><a href="jacob-smith-family.html">Jacob Smith Family</a></li>
+            </ul>
+          </li>
           <li><a href="get-involved.html">Get Involved</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a class="donate-button" href="donate.html">Donate</a></li>
@@ -57,151 +73,135 @@
   </header>
 
 <!-- Full-width Banner -->
-<section class="banner">
+<section class="banner banner--image">
+  <img src="resources/images/banners/banner-home.jpg" alt="Jacob Smith Park" class="banner-image">
   <div class="container">
     <h2>Home</h2>
   </div>
 </section>
 
   <main id="main">
-   <!-- HERO LEAD + TAGLINE -->
-<section class="page-lead">
-  <div class="container">
-    <p class="lead-eyebrow">Friends of Jacob Smith Park</p>
-    <h2 class="lead-line">
-    Placeholder
-    </h2>
-    <p class="lead-sub">
-      <a href="about.html">Read more about the park</a>
+   <!-- Cream strip intro -->
+  <section class="page-intro">
+  <div class="intro-content">
+    <p class="intro-text">
+      The Friends of Jacob Smith Park are dedicated to the protection, conservation, and enhancement of this historic parkland.
     </p>
   </div>
 </section>
 
-<!-- ABOUT ARTICLE with interspersed images -->
-<section class="about-park" aria-labelledby="about-park-title">
+<!-- Section 1: Text LEFT, Image RIGHT -->
+<section class="content-section alt-layout">
   <div class="container">
-    <h2 id="about-park-title">About Jacob Smith Park</h2>
-
-    <div class="inset-block">
-      <div class="inset-text">
+    <div class="alt-grid">
+      <div class="alt-text">
         <p><strong>Jacob Smith Park (JSP)</strong> is a 30-acre green space in Scriven, close to the centre of Knaresborough. It is a managed wild space with a wide variety of habitats and wildlife to enjoy as you walk around.</p>
         <p>It is a tranquil space to spend time with friends or to simply relax on a bench and enjoy the peaceful surroundings. There is also an open space where children can enjoy playing football, flying a kite or just running around.</p>
       </div>
-      <figure class="pull-img">
+      <div class="alt-image">
         <img src="resources/images/index/JSP_summer.JPG" alt="Summer scene at Jacob Smith Park">
-      </figure>
-    </div>
-
-    <div class="inset-block alt">
-      <figure class="pull-img">
-        <img src="resources/images/index/JSP_autumn.JPG" alt="Autumn gold across the parkland fence line">
-      </figure>
-      <div class="inset-text">
-        <p>JSP was generously bequeathed to Harrogate Borough Council by Winifred Jacob Smith MBE, following her death in 2003. It was Miss Jacob Smith’s wish that the park should be opened to the community for all generations to enjoy “the freedom and beauty that public parks bring”.</p>
-        <p>The Friends of Jacob Smith Park (FoJSP) are a local community group providing the link between the community and the council.  We are committed to encouraging all ages to value and enjoy their park whilst sharing it with respect for one another and nature.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="inset-block">
-      <div class="inset-text">
+<!-- Section 2: Image LEFT, Text RIGHT (reversed) -->
+<section class="content-section alt-layout alt-reverse">
+  <div class="container">
+    <div class="alt-grid">
+      <div class="alt-image">
+        <img src="resources/images/index/JSP_autumn.JPG" alt="Autumn gold across the parkland fence line">
+      </div>
+      <div class="alt-text">
+        <p>JSP was generously bequeathed to Harrogate Borough Council by Winifred Jacob Smith MBE, following her death in 2003. It was Miss Jacob Smith's wish that the park should be opened to the community for all generations to enjoy:</p>
+        <p class="heritage-quote">"the freedom and beauty that public parks bring"</p>
+        <p>The Friends of Jacob Smith Park (FoJSP) are a local community group providing the link between the community and the council. We are committed to encouraging all ages to value and enjoy their park whilst sharing it with respect for one another and nature.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 3: Text LEFT, Image RIGHT -->
+<section class="content-section alt-layout">
+  <div class="container">
+    <div class="alt-grid">
+      <div class="alt-text">
         <p>We are passionate about enhancing biodiversity and bringing people together to enjoy this special recreational green space, important wildlife habitat and historical landscape.</p>
         <p>Whatever the reason for your visit, we hope you enjoy this lovely green space as Miss Jacob Smith wished.</p>
       </div>
-      <figure class="pull-img">
+      <div class="alt-image">
         <img src="resources/images/index/JSP_winter.JPG" alt="Winter oak covered in snow at Jacob Smith Park">
-      </figure>
-    </div>
-  </div>
-</section>
-</section>
-
-<section class="quick-actions" aria-labelledby="qa-title">
-  <div class="container">
-    <h2 id="qa-title" class="visually-hidden">Quick actions</h2>
-
-    <div class="cta-grid">
-      <article class="cta-card">
-        <h3>About Us</h3>
-        <p>Who we are, our aims, and how the park came to be.</p>
-        <p><a class="button" href="about.html">Learn more</a></p>
-      </article>
-
-      <article class="cta-card">
-        <h3>Get Involved</h3>
-        <p>Volunteer, join a work party, or help at an event.</p>
-        <p><a class="button" href="get-involved.html">See how</a></p>
-      </article>
-
-      <article class="cta-card">
-        <h3>Donate</h3>
-        <p>Support maintenance and biodiversity projects in JSP.</p>
-        <p><a class="donate-button" href="donate.html">Donate</a></p>
-      </article>
-
-      <article class="cta-card">
-        <h3>Contact Us</h3>
-        <p>Questions, ideas, or feedback—we’d love to hear from you.</p>
-        <p><a class="button" href="contact.html">Get in touch</a></p>
-      </article>
-    </div>
-  </div>
-</section>
-
-    <section class="latest" aria-labelledby="latest-title">
-      <div class="container">
-        <h2 id="latest-title">Latest</h2>
-        <article class="post">
-          <header class="post-header">
-            <h3 class="post-title">Help needed</h3>
-            <time datetime="2023-03-28" class="post-date">28 March 2023</time>
-          </header>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <p><a href="news/help-needed.html" aria-label="Read more: Help needed">Read more</a></p>
-        </article>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
+<!-- Call-to-action buttons -->
+<section class="footer-cta" aria-label="Quick actions">
+  <div class="container">
+    <div class="cta-grid">
+
+      <!-- Button 1: Donate -->
+      <div class="cta-card">
+        <h3 class="cta-title">Donate</h3>
+        <p class="cta-description">Help keep our park beautiful and support improvements</p>
+        <a href="donate.html" class="cta-button">Donate</a>
+      </div>
+
+      <!-- Button 2: Get Involved -->
+      <div class="cta-card">
+        <h3 class="cta-title">Get Involved</h3>
+        <p class="cta-description">Volunteer, join a work party, or help at an event</p>
+        <a href="get-involved.html" class="cta-button">Get Involved</a>
+      </div>
+
+      <!-- Button 3: Keep me informed -->
+      <div class="cta-card">
+        <h3 class="cta-title">Keep me informed</h3>
+        <p class="cta-description">Receive updates about what is happening in the park, volunteer events &amp; biannual meeting dates</p>
+        <a href="contact.html" class="cta-button">Keep me informed</a>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-grid">
     <section class="footer-col">
-      <h3 class="footer-title">Jacob Smith Park</h3>
-      <p class="footer-blurb">
-        A community green space in Scriven, Knaresborough—looked after with care for people,
-        wildlife and heritage.
-      </p>
+      <h3 class="footer-title">Friends of Jacob Smith Park</h3>
     </section>
 
     <nav class="footer-col" aria-label="Quick links">
       <h3 class="footer-title">Quick links</h3>
       <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="visiting.html">Visiting</a></li>
         <li><a href="about.html">About Us</a></li>
-        <li><a href="get-involved.html">Get Involved</a></li>
-        <li><a href="donate.html">Donate</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="visiting.html">Planning a Visit</a></li>
         <li><a href="wildlife.html">Wildlife</a></li>
-        <li><a href="history.html">History</a></li>
+        <li class="has-dropdown">
+            <a href="park-history.html" class="dropdown-toggle">History</a>
+            <ul class="dropdown-menu">
+              <li><a href="park-history.html">Park History</a></li>
+              <li><a href="jacob-smith-family.html">Jacob Smith Family</a></li>
+            </ul>
+          </li>
+        <li><a href="get-involved.html">Get Involved</a></li>
       </ul>
     </nav>
 
     <section class="footer-col" aria-label="Contact">
       <h3 class="footer-title">Contact</h3>
       <ul class="footer-links">
-        <li><a href="mailto:info@example.org">info@example.org</a></li>
-        <li>Knaresborough, North Yorkshire</li>
+        <li><a href="mailto:contact@friendsofjsp.org.uk">contact@friendsofjsp.org.uk</a></li>
       </ul>
-      <p><a class="button" href="newsletter.html">Sign me up</a></p>
+      <p><a class="button" href="contact.html">Keep me informed</a></p>
     </section>
   </div>
 
   <div class="legal-bar">
     <div class="container legal-inner">
-      <p>&copy; <span id="year"></span> Jacob Smith Park</p>
-      <ul class="legal-links">
-        <li><a href="whats-on.html">What’s on</a></li>
-        <li><a href="volunteer.html">Volunteer</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+      <p>&copy; <span id="year"></span> Friends of Jacob Smith Park</p>
     </div>
   </div>
 </footer>

@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wildlife – Jacob Smith Park</title>
-  <link rel="stylesheet" href="resources/css/styles.css" />
+  <!-- Google Fonts: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resources/css/styles.css" />
 
   <!-- keep your little no-js → js helper -->
   <script>document.documentElement.classList.replace('no-js','js');</script>
@@ -16,7 +20,13 @@
 
 <header class="site-header" role="banner">
   <div class="container header-inner">
-    <h1 class="site-title"><a href="index.html">Jacob Smith Park</a></h1>
+    <a href="index.html" class="nav-logo-link" aria-label="Jacob Smith Park – Home">
+      <img
+        src="resources/images/logo-placeholder.png"
+        alt="Friends of Jacob Smith Park"
+        class="nav-logo"
+      />
+    </a>
     <nav class="site-nav" aria-label="Main navigation">
       <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">☰</button>
       <ul id="primary-nav" class="nav-list" hidden>
@@ -24,7 +34,13 @@
         <li><a href="visiting.html">Visiting</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="wildlife.html" aria-current="page">Wildlife</a></li>
-        <li><a href="history.html">History</a></li>
+        <li class="has-dropdown">
+            <a href="park-history.html" class="dropdown-toggle">History</a>
+            <ul class="dropdown-menu">
+              <li><a href="park-history.html">Park History</a></li>
+              <li><a href="jacob-smith-family.html">Jacob Smith Family</a></li>
+            </ul>
+          </li>
         <li><a href="get-involved.html">Get Involved</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a class="donate-button" href="donate.html">Donate</a></li>
@@ -34,11 +50,21 @@
 </header>
 
   <!-- FULL-WIDTH BANNER (uniform across site) -->
-<section class="banner page-hero page-hero--wildlife">
+<section class="banner banner--image">
+  <img src="resources/images/banners/banner-wildlife.jpg" alt="Wildlife at Jacob Smith Park" class="banner-image">
   <div class="container">
     <h2>Wildlife</h2>
   </div>
 </section>
+
+  <section class="page-intro">
+  <div class="intro-content">
+    <p class="intro-text">
+      Placeholder intro text for the Wildlife page. Client will provide final copy.
+    </p>
+  </div>
+</section>
+
 
 
 <main class="wildlife-page">
@@ -84,42 +110,77 @@
     <p>The Woodland Trust Ancient Tree Inventory maps the oldest and most important trees in the UK. JSP has 22 trees listed! The oldest two trees are classed as “Ancient”, one being the fallen oak in the centre of the park, and the other an ancient Ash near the gate, its trunk now forming an archway. Some of the trees are believed to be 400–500 years old. These trees might have been originally planted as part of a deer park, but now, according to the Woodland Trust, have the potential to support up to 2,300 wildlife species, so are of huge value to the wildlife in the park, including insects, birds, mammals and fungi.</p>
 
     <h3>Watercourses and springs</h3>
-    <p>Jacob Smith Park has three ponds, two wildlife ponds and a seasonal drainage pool. In very wet winters, the three ponds connect with water flowing diagonally across the grass from south to north. There are also underground springs which can be heard hissing in the meadow after heavy rain and sometimes bubble up in places along the paths. The damp nature of areas of the park influences what grows, providing habitat for damp-loving plants such as hairy willowherb, cuckoo flower, goat willow, dogwoods and ragged robin.</p>
+    <p>Jacob Smith Park has three ponds; two wildlife ponds and a seasonal drainage pool. In very wet winters, the three ponds connect with water flowing diagonally across the grass from south to north. There are also underground springs which can be heard hissing in the meadow after heavy rain and sometimes bubble up in places along the paths. The damp nature of areas of the park influences what grows, providing habitat for damp-loving plants such as hairy willowherb, cuckoo flower, goat willow, dogwoods and ragged robin.</p>
   </section>
 </main>
 
   <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <section class="footer-col">
-        <h3 class="footer-title">Jacob Smith Park</h3>
-        <p class="footer-blurb">A community green space in Scriven, Knaresborough—looked after with care for people, wildlife and heritage.</p>
-      </section>
-      <nav class="footer-col" aria-label="Quick links">
-        <h3 class="footer-title">Quick links</h3>
-        <ul class="footer-links">
-          <li><a href="visiting.html">Planning a Visit</a></li>
-          <li><a href="wildlife.html">Wildlife</a></li>
-          <li><a href="history.html">History</a></li>
-          <li><a href="get-involved.html">Get Involved</a></li>
-          <li><a href="donate.html">Donate</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <section class="footer-col" aria-label="Contact">
-        <h3 class="footer-title">Contact</h3>
-        <ul class="footer-links">
-          <li><a href="mailto:friends@jacobsmithpark.co.uk">friends@jacobsmithpark.co.uk</a></li>
-          <li>Knaresborough, North Yorkshire</li>
-        </ul>
-      </section>
-    </div>
-    <div class="legal-bar">
-      <div class="container legal-inner">
-        <p>&copy; <span id="year"></span> Jacob Smith Park</p>
+  <!-- Call-to-action buttons (above main footer) -->
+<section class="footer-cta" aria-label="Quick actions">
+  <div class="container">
+    <div class="cta-grid">
+
+      <div class="cta-card">
+        <h3 class="cta-title">Donate</h3>
+        <p class="cta-description">Help keep our park beautiful and support improvements</p>
+        <a href="donate.html" class="cta-button">Donate</a>
       </div>
+
+      <div class="cta-card">
+        <h3 class="cta-title">Get Involved</h3>
+        <p class="cta-description">Volunteer, join a work party, or help at an event</p>
+        <a href="get-involved.html" class="cta-button">Get Involved</a>
+      </div>
+
+      <div class="cta-card">
+        <h3 class="cta-title">Keep me informed</h3>
+        <p class="cta-description">Receive updates about what is happening in the park, volunteer events &amp; biannual meeting dates</p>
+        <a href="contact.html" class="cta-button">Keep me informed</a>
+      </div>
+
     </div>
-  </footer>
+  </div>
+</section>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-grid">
+    <section class="footer-col">
+      <h3 class="footer-title">Friends of Jacob Smith Park</h3>
+    </section>
+
+    <nav class="footer-col" aria-label="Quick links">
+      <h3 class="footer-title">Quick links</h3>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="visiting.html">Visiting</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="wildlife.html">Wildlife</a></li>
+        <li class="has-dropdown">
+            <a href="park-history.html" class="dropdown-toggle">History</a>
+            <ul class="dropdown-menu">
+              <li><a href="park-history.html">Park History</a></li>
+              <li><a href="jacob-smith-family.html">Jacob Smith Family</a></li>
+            </ul>
+          </li>
+        <li><a href="get-involved.html">Get Involved</a></li>
+      </ul>
+    </nav>
+
+    <section class="footer-col" aria-label="Contact">
+      <h3 class="footer-title">Contact</h3>
+      <ul class="footer-links">
+        <li><a href="mailto:contact@friendsofjsp.org.uk">contact@friendsofjsp.org.uk</a></li>
+      </ul>
+      <p><a class="button" href="contact.html">Keep me informed</a></p>
+    </section>
+  </div>
+
+  <div class="legal-bar">
+    <div class="container legal-inner">
+      <p>&copy; <span id="year"></span> Friends of Jacob Smith Park</p>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
 

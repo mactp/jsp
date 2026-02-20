@@ -1,62 +1,281 @@
 <!doctype html>
-<html lang="en-GB" class="no-js">
+<html lang="en" class="no-js">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>Donate – Jacob Smith Park</title>
-  <meta name="description" content="Support the Friends of Jacob Smith Park and help keep the park beautiful for all.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donate — Friends of Jacob Smith Park</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="resources/css/styles.css">
-  <script>document.documentElement.classList.replace('no-js','js');</script>
-  <script src="resources/javascript/main.js" defer></script>
 
-  <!-- Page-scoped polish -->
   <style>
-    .donate-wrap{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: clamp(22px, 4vw, 40px);
-      align-items:start;
-      padding-block: clamp(22px, 5vw, 48px);
+    /* ── Banner fix ── */
+    .banner-container {
+      width: 100%;
+      overflow: hidden;
+      height: 75vh;
+      min-height: 400px;
+      max-height: 650px;
+      position: relative;
     }
-    .donate-prose p{ margin:0 0 1rem; }
-    .donate-prose .key-list{ margin: .25rem 0 1rem; }
-    .donate-aside{
-      position: sticky; top: calc(var(--header-h) + 14px);
-      background:#fff; border:1px solid #e8e8e8; border-radius:12px;
-      box-shadow: var(--shadow); padding:16px;
+    .banner-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
     }
-    .donate-aside h3{ margin:.25rem 0 .5rem; }
-    .bank-list{ list-style:none; margin:.4rem 0 0; padding:0; }
-    .bank-list li{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding:8px 0; border-top:1px solid #f1f1f1; }
-    .bank-list li:first-child{ border-top:0; }
-    .copy-chip{
-      appearance:none; border:1px solid #dcdcdc; background:#f7f7f7;
-      padding:.3rem .55rem; border-radius:8px; font:inherit; cursor:pointer;
+
+    /* ── Donate intro section ── */
+    .donate-intro {
+      padding: clamp(40px, 5vw, 60px) 0;
+      background: #fff;
     }
-    .copy-chip:hover,.copy-chip:focus-visible{ background:#eef6f4; border-color:#cfe7df; outline:none; }
-    .amounts{ display:flex; flex-wrap:wrap; gap:8px; margin:.35rem 0 .15rem; }
-    .amount-btn{
-      appearance:none; border:1px solid #cfe7df; background:#eff7f4; color:#143b34;
-      padding:.35rem .6rem; border-radius:999px; cursor:pointer; font-weight:700;
+    .donate-intro h2 {
+      color: var(--brand-dark);
+      margin-bottom: 1rem;
     }
-    .amount-btn:hover,.amount-btn:focus-visible{ background:#e6f3ee; outline:none; }
-    .micro{ color:var(--muted); font-size:.9rem; margin:.2rem 0 0; }
-    .note{ background:#fffbe9; border:1px solid #f2e8c3; border-radius:8px; padding:10px 12px; }
-    .donate-aside .button{ width:100%; justify-content:center; }
-    @media (max-width: 900px){
-      .donate-wrap{ grid-template-columns:1fr; }
-      .donate-aside{ position: static; }
+    .donate-intro p,
+    .donate-intro ul { max-width: 720px; }
+
+    /* ── Ways to give — 3-column card grid ── */
+    .ways-to-give {
+      padding: clamp(40px, 5vw, 60px) 0;
+      background: #fafaf8;
+    }
+
+    /* ── Ways to give — 3-column card grid ── */
+    .ways-to-give {
+      padding: clamp(40px, 5vw, 60px) clamp(32px, 6vw, 80px);
+      background: #fafaf8;
+    }
+    .ways-to-give h2 {
+      color: var(--brand-dark);
+      margin-bottom: 40px;
+    }
+    .give-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    @media (min-width: 768px) {
+      .give-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .give-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 36px 28px 32px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+      border-top: 4px solid var(--brand);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .give-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(0,0,0,.11);
+    }
+    .give-card:nth-child(2) { border-top-color: var(--brand-2); }
+    .give-card:nth-child(3) { border-top-color: var(--accent); }
+
+    .give-icon {
+      font-size: 2.75rem;
+      line-height: 1;
+    }
+    .give-card h3 {
+      color: var(--brand-dark);
+      font-size: 1.35rem;
+      margin: 0;
+    }
+    .give-card p {
+      font-size: 0.975rem;
+      line-height: 1.65;
+      color: var(--muted);
+      margin: 0;
+      flex-grow: 1;
+    }
+    .give-card .amounts {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .amount-btn {
+      background: white;
+      border: 2px solid var(--brand);
+      color: var(--brand);
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .amount-btn:hover,
+    .amount-btn.active {
+      background: var(--brand);
+      color: #fff;
+    }
+    .custom-amount {
+      margin-top: 12px;
+      display: none;
+    }
+    .custom-amount label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--brand);
+      margin-bottom: 6px;
+    }
+    .custom-amount input {
+      padding: 10px 14px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      width: 160px;
+    }
+    .custom-amount input:focus {
+      outline: none;
+      border-color: var(--brand);
+    }
+
+    .give-anchor-btn {
+      display: inline-block;
+      background: var(--brand);
+      color: #fff;
+      padding: 13px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-top: 4px;
+      transition: background 0.2s ease, transform 0.2s ease;
+      align-self: flex-start;
+    }
+    .give-anchor-btn:hover {
+      background: var(--brand-dark);
+      transform: scale(1.04);
+      text-decoration: none;
+    }
+    .give-card:nth-child(2) .give-anchor-btn { background: var(--brand-2); }
+    .give-card:nth-child(2) .give-anchor-btn:hover { background: var(--brand-2-dark); }
+    .give-card:nth-child(3) .give-anchor-btn { background: var(--brand); }
+
+    /* ── Bank details ── */
+    .bank-details {
+      background: linear-gradient(135deg, #2c5f4f, #3d7a66);
+      color: white;
+      padding: clamp(48px, 6vw, 72px) 5%;
+      margin: 0;
+    }
+    .bank-details-inner {
+      max-width: 680px;
+    }
+    .bank-details h2 {
+      color: white;
+      margin-bottom: 8px;
+    }
+    .bank-details > .bank-details-inner > p {
+      opacity: 0.9;
+      margin-bottom: 32px;
+      font-size: 1.05rem;
+    }
+    .bank-table {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .bank-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      gap: 16px;
+    }
+    .bank-row:last-child { border-bottom: none; }
+    .bank-label {
+      font-weight: 500;
+      opacity: 0.85;
+      font-size: 0.95rem;
+    }
+    .bank-value {
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-align: right;
+    }
+    .bank-note {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      margin-bottom: 32px;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      border-left: 3px solid rgba(255,255,255,0.4);
+    }
+    .paypal-donate {
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    .paypal-donate p {
+      margin-bottom: 16px;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    .paypal-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      color: var(--brand-dark);
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+    }
+    .paypal-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(255,255,255,0.25);
+      text-decoration: none;
+    }
+
+    /* ── Thank you strip ── */
+    .thank-you {
+      background: var(--cream);
+      text-align: center;
+      padding: 48px 5%;
+    }
+    .thank-you p {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--brand-dark);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 600px) {
+      .bank-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+      .bank-value { text-align: left; }
     }
   </style>
 </head>
-
 <body>
-  <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <h1 class="site-title"><a href="index.html">Jacob Smith Park</a></h1>
+      <a href="index.html" class="nav-logo-link" aria-label="Jacob Smith Park – Home">
+        <img src="resources/images/logo-placeholder.png" alt="Friends of Jacob Smith Park" class="nav-logo" />
+      </a>
       <nav class="site-nav" aria-label="Main navigation">
         <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">☰</button>
         <ul id="primary-nav" class="nav-list" hidden>
@@ -64,7 +283,13 @@
           <li><a href="visiting.html">Visiting</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="wildlife.html">Wildlife</a></li>
-          <li><a href="history.html">History</a></li>
+          <li class="has-dropdown">
+            <a href="park-history.html" class="dropdown-toggle">History</a>
+            <ul class="dropdown-menu">
+              <li><a href="park-history.html">Park History</a></li>
+              <li><a href="jacob-smith-family.html">Jacob Smith Family</a></li>
+            </ul>
+          </li>
           <li><a href="get-involved.html">Get Involved</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a class="donate-button" href="donate.html" aria-current="page">Donate</a></li>
@@ -73,155 +298,201 @@
     </div>
   </header>
 
-  <!-- Banner -->
-  <section class="banner" style="
-    background-image:
-      linear-gradient(0deg, rgba(0,0,0,var(--hero-dim)), rgba(0,0,0,var(--hero-dim))),
-      url('resources/images/donate/bench_board_banner.jpg');
-    background-position: 50% 50%;
-  ">
+  <!-- Full-width banner -->
+  <div class="banner-container">
+    <img src="resources/images/banners/banner-donate.jpg" alt="Support Jacob Smith Park">
+  </div>
+
+  <!-- Cream intro strip -->
+  <section class="page-intro">
     <div class="container">
-      <h2>Donate</h2>
+      <p class="intro-text">
+        Your donations help us maintain and enhance Jacob Smith Park for everyone to enjoy.
+      </p>
     </div>
   </section>
 
-  <main id="main" class="container">
-    <div class="donate-wrap">
-      <!-- Left: your prose (exact wording) -->
-      <section class="donate-prose" aria-labelledby="donate-title">
-        <h2 id="donate-title" style="margin-top:.2rem">Donate to help fund our work and keep Jacob Smith Park beautiful…</h2>
+  <!-- Intro copy -->
+  <section class="donate-intro">
+    <div class="container">
+      <h2>Help us keep Jacob Smith Park beautiful</h2>
+      <p>North Yorkshire Council cover the costs of maintaining the park, but enhancements are mainly organised and funded by the Friends of JSP (FoJSP).</p>
+      <p>We aim to achieve the best possible results on a very tight budget. All the committee and volunteers give their time for free, and we have achieved some amazing results — see <a href="get-involved.html">Get Involved</a> for examples of our recent projects.</p>
+      <p>We need your help to fund future enhancement projects and meet our ongoing running costs, including:</p>
+      <ul class="key-list">
+        <li>Public liability insurance, without which we could not run volunteering events</li>
+        <li>Website hosting</li>
+      </ul>
+      <p>If you love the park and want to help us make it even better, please donate.</p>
+    </div>
+  </section>
 
-        <p>North Yorkshire Council cover the costs of maintaining the park but enhancements are mainly organised and funded by the Friends of JSP (FoJSP).</p>
+  <!-- Ways to give — 3 cards -->
+  <section class="ways-to-give" id="ways-to-give">
+    <div class="container">
+      <h2>Ways to give</h2>
+      <div class="give-grid">
 
-        <p>We aim to achieve the best possible results on a very tight budget. All the committee and volunteers give their time for free, and we have achieved some amazing results (see <a href="get-involved.html">Get involved</a> for examples of some of our recent projects).</p>
-
-        <p>We need your help to fund future enhancement projects. We also need your support to meet our ongoing running costs e.g.</p>
-
-        <ul class="key-list">
-          <li>Public liability insurance, without which we could not run volunteering events.</li>
-          <li>Website hosting.</li>
-        </ul>
-
-        <p>If you love the park and want to help us make it even better, please donate.  We’d love you to set up a monthly standing order; regular payments of £1, £3 or £5 a month would really help us. If you prefer, you could make a one-off donation for whatever you like.</p>
-
-        <p>Whichever option you choose, our account details are:</p>
-
-        <div class="note" role="note">Tip: you can copy any line on the right with one click.</div>
-
-        <p style="margin-top:1rem;">Thank you to all our supporters who help us make Jacob Smith Park even more special.</p>
-      </section>
-
-      <!-- Right: sticky giving card -->
-      <aside class="donate-aside" aria-labelledby="ways-title">
-        <h3 id="ways-title">Ways to give</h3>
-
-        <div>
-          <p class="micro">Set up a monthly standing order (popular amounts):</p>
-          <div class="amounts">
-            <button class="amount-btn" data-amt="£1 / month" type="button">£1 / month</button>
-            <button class="amount-btn" data-amt="£3 / month" type="button">£3 / month</button>
-            <button class="amount-btn" data-amt="£5 / month" type="button">£5 / month</button>
-          </div>
-          <p class="micro">Choose any amount that suits you.</p>
+        <!-- Card 1: Regular giving -->
+        <div class="give-card">
+          <span class="give-icon">🔄</span>
+          <h3>Regular giving</h3>
+          <p>The most impactful way to support us. A monthly or annual standing order — even just £3 or £5 a month — helps us plan ahead and keep the park improving year-round.</p>
+          <p style="font-size:0.9rem; color: var(--muted);">Suggested amounts: £3, £5 or £10/month — or whatever you can manage.</p>
+          <a href="#bank-details" class="give-anchor-btn">See bank details ↓</a>
         </div>
 
-        <hr style="border:0;border-top:1px solid #eee; margin:12px 0;">
+        <!-- Card 2: One-off donation -->
+        <div class="give-card">
+          <span class="give-icon">💚</span>
+          <h3>One-off donation</h3>
+          <p>Make a single gift of any amount — every contribution goes directly towards the park. Choose a quick amount or enter your own.</p>
+          <div class="amounts">
+            <button class="amount-btn" data-amount="3">£3</button>
+            <button class="amount-btn" data-amount="5">£5</button>
+            <button class="amount-btn" data-amount="10">£10</button>
+            <button class="amount-btn" data-amount="other">Other</button>
+          </div>
+          <div class="custom-amount" id="custom-amount">
+            <label for="amount-input">Enter amount (£):</label>
+            <input type="number" id="amount-input" min="1" placeholder="e.g. 20">
+          </div>
+          <a href="#bank-details" class="give-anchor-btn">See bank details ↓</a>
+        </div>
 
-        <h4 style="margin:.2rem 0 .4rem;">Bank details</h4>
-        <ul class="bank-list">
-          <li>
-            <span><strong>Bank</strong>: Cooperative Bank</span>
-            <button class="copy-chip" data-copy="Cooperative Bank" type="button">Copy</button>
-          </li>
-          <li>
-            <span><strong>Account name</strong>: Friends of Jacob Smith Park</span>
-            <button class="copy-chip" data-copy="Friends of Jacob Smith Park" type="button">Copy</button>
-          </li>
-          <li>
-            <span><strong>Account number</strong>: <code>65364707</code></span>
-            <button class="copy-chip" data-copy="65364707" type="button">Copy</button>
-          </li>
-          <li>
-            <span><strong>Sort code</strong>: <code>08-92-99</code></span>
-            <button class="copy-chip" data-copy="08-92-99" type="button">Copy</button>
-          </li>
-        </ul>
+        <!-- Card 3: Bank / PayPal -->
+        <div class="give-card">
+          <span class="give-icon">🏦</span>
+          <h3>Bank transfer or PayPal</h3>
+          <p>Send your donation directly from your bank using our account details, or give quickly and securely via PayPal. Both options are available below.</p>
+          <a href="#bank-details" class="give-anchor-btn">See bank details ↓</a>
+        </div>
 
-        <p class="micro" style="margin-top:.8rem;">Standing order reference suggestion: <em>JSP donation</em> (or anything you’ll recognise).</p>
+      </div><!-- end give-grid -->
+    </div><!-- end container -->
+  </section><!-- end ways-to-give -->
+  <section class="bank-details" id="bank-details">
+    <div class="bank-details-inner">
+      <h2>Bank details</h2>
+      <p>Send your payment directly from your bank using the details below, or donate via PayPal.</p>
 
-        <p style="margin:.9rem 0 0;">
-          <a class="button" href="contact.html">Questions? Contact us</a>
-        </p>
-      </aside>
+      <div class="bank-table">
+        <div class="bank-row">
+          <span class="bank-label">Bank</span>
+          <span class="bank-value">Cooperative Bank</span>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label">Account name</span>
+          <span class="bank-value">Friends of Jacob Smith Park</span>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label">Account number</span>
+          <span class="bank-value">XXXXXXXX</span>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label">Sort code</span>
+          <span class="bank-value">XX-XX-XX</span>
+        </div>
+      </div>
+
+      <p class="bank-note"><strong>Standing order reference suggestion:</strong> JSP donation — or anything you'll recognise.</p>
+
+      <div class="paypal-donate">
+        <p><strong>Or donate via PayPal:</strong></p>
+        <a href="https://www.paypal.com/donate/?hosted_button_id=YOUR_PAYPAL_BUTTON_ID" target="_blank" class="paypal-button">
+          <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_100x26.png" alt="PayPal" style="height: 20px;">
+          Donate with PayPal
+        </a>
+      </div>
     </div>
-  </main>
+  </section>
 
-  <!-- Footer -->
+  <!-- Thank you -->
+  <section class="thank-you">
+    <p>Thank you to all our supporters who help us make Jacob Smith Park even more special.</p>
+  </section>
+
+  <!-- Footer CTA -->
+  <section class="footer-cta" aria-label="Quick actions">
+    <div class="container">
+      <div class="cta-grid">
+        <div class="cta-card">
+          <h3 class="cta-title">Get Involved</h3>
+          <p class="cta-description">Volunteer, join a work party, or help at an event</p>
+          <a href="get-involved.html" class="cta-button">Get Involved</a>
+        </div>
+        <div class="cta-card">
+          <h3 class="cta-title">Keep me informed</h3>
+          <p class="cta-description">Receive updates about what is happening in the park, volunteer events &amp; biannual meeting dates</p>
+          <a href="contact.html" class="cta-button">Keep me informed</a>
+        </div>
+        <div class="cta-card">
+          <h3 class="cta-title">Contact Us</h3>
+          <p class="cta-description">Questions, ideas, or feedback — we'd love to hear from you</p>
+          <a href="contact.html" class="cta-button">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main footer -->
   <footer class="site-footer" role="contentinfo">
     <div class="container footer-grid">
       <section class="footer-col">
-        <h3 class="footer-title">Jacob Smith Park</h3>
-        <p class="footer-blurb">A community green space in Scriven, Knaresborough—looked after with care for people, wildlife and heritage.</p>
+        <h3 class="footer-title">Friends of Jacob Smith Park</h3>
       </section>
-
       <nav class="footer-col" aria-label="Quick links">
         <h3 class="footer-title">Quick links</h3>
         <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="visiting.html">Visiting</a></li>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="get-involved.html">Get Involved</a></li>
-          <li><a href="donate.html" aria-current="page">Donate</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="visiting.html">Planning a Visit</a></li>
           <li><a href="wildlife.html">Wildlife</a></li>
-          <li><a href="history.html">History</a></li>
+          <li><a href="park-history.html">History</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
         </ul>
       </nav>
-
       <section class="footer-col" aria-label="Contact">
         <h3 class="footer-title">Contact</h3>
         <ul class="footer-links">
-          <li><a href="mailto:friends@jacobsmithpark.co.uk">friends@jacobsmithpark.co.uk</a></li>
-          <li>Knaresborough, North Yorkshire</li>
+          <li><a href="mailto:contact@friendsofjsp.org.uk">contact@friendsofjsp.org.uk</a></li>
         </ul>
-        <p><a class="button" href="newsletter.html">Sign me up</a></p>
+        <p><a class="button" href="contact.html">Keep me informed</a></p>
       </section>
     </div>
-
     <div class="legal-bar">
       <div class="container legal-inner">
-        <p>&copy; <span id="year"></span> Jacob Smith Park</p>
-        <ul class="legal-links">
-          <li><a href="whats-on.html">What’s on</a></li>
-          <li><a href="volunteer.html">Volunteer</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+        <p>&copy; <span id="year"></span> Friends of Jacob Smith Park</p>
       </div>
     </div>
   </footer>
 
-  <!-- Tiny JS for copy & amount chips -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    function flash(btn){
-      const orig = btn.textContent;
-      btn.textContent = 'Copied!';
-      setTimeout(()=> btn.textContent = orig, 1200);
-    }
-
-    document.querySelectorAll('.copy-chip').forEach(b=>{
-      b.addEventListener('click', async ()=>{
-        try { await navigator.clipboard.writeText(b.dataset.copy); flash(b); } catch(e){}
+    // Amount button toggle
+    document.querySelectorAll('.amount-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const custom = document.getElementById('custom-amount');
+        if (this.dataset.amount === 'other') {
+          custom.style.display = 'block';
+          document.getElementById('amount-input').focus();
+        } else {
+          custom.style.display = 'none';
+        }
       });
     });
 
-    document.querySelectorAll('.amount-btn').forEach(b=>{
-      b.addEventListener('click', ()=>{
-        // Just a helpful copy of the label (you can change this behaviour later)
-        navigator.clipboard.writeText(b.dataset.amt + ' — set up as a standing order');
-        flash(b);
+    // Smooth scroll for anchor buttons
+    document.querySelectorAll('a[href="#bank-details"]').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.getElementById('bank-details').scrollIntoView({ behavior: 'smooth' });
       });
     });
   </script>
+  <script src="resources/javascript/main.js"></script>
 </body>
 </html>

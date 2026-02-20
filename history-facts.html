@@ -4,7 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Articles & Facts – Jacob Smith Park</title>
-  <link rel="stylesheet" href="resources/css/styles.css">
+  <!-- Google Fonts: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resources/css/styles.css">
   <meta name="description" content="Curated articles, quick facts, and archive snippets about Jacob Smith Park and the Jacob Smith family.">
   
     <!-- keep your little no-js → js helper -->
@@ -19,7 +23,13 @@
   <!-- Shared header/nav -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <h1 class="site-title"><a href="index.html">Jacob Smith Park</a></h1>
+      <a href="index.html" class="nav-logo-link" aria-label="Jacob Smith Park – Home">
+        <img
+          src="resources/images/logo-placeholder.png"
+          alt="Friends of Jacob Smith Park"
+          class="nav-logo"
+        />
+      </a>
       <nav class="site-nav" aria-label="Main navigation">
         <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">☰</button>
         <ul id="primary-nav" class="nav-list" hidden>
@@ -206,47 +216,63 @@
     <img id="lightbox-image" src="" alt="">
   </div>
 
+<!-- Call-to-action buttons (above main footer) -->
+<section class="footer-cta" aria-label="Quick actions">
+  <div class="container">
+    <div class="cta-grid">
+
+      <div class="cta-card">
+        <h3 class="cta-title">Donate</h3>
+        <p class="cta-description">Help keep our park beautiful and support improvements</p>
+        <a href="donate.html" class="cta-button">Donate</a>
+      </div>
+
+      <div class="cta-card">
+        <h3 class="cta-title">Get Involved</h3>
+        <p class="cta-description">Volunteer, join a work party, or help at an event</p>
+        <a href="get-involved.html" class="cta-button">Get Involved</a>
+      </div>
+
+      <div class="cta-card">
+        <h3 class="cta-title">Keep me informed</h3>
+        <p class="cta-description">Receive updates about what is happening in the park, volunteer events &amp; biannual meeting dates</p>
+        <a href="contact.html" class="cta-button">Keep me informed</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-grid">
     <section class="footer-col">
-      <h3 class="footer-title">Jacob Smith Park</h3>
-      <p class="footer-blurb">
-        A community green space in Scriven, Knaresborough—looked after with care for people,
-        wildlife and heritage.
-      </p>
+      <h3 class="footer-title">Friends of Jacob Smith Park</h3>
     </section>
 
     <nav class="footer-col" aria-label="Quick links">
       <h3 class="footer-title">Quick links</h3>
       <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="visiting.html">Visiting</a></li>
         <li><a href="about.html">About Us</a></li>
-        <li><a href="get-involved.html">Get Involved</a></li>
-        <li><a href="donate.html">Donate</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="visiting.html">Planning a Visit</a></li>
         <li><a href="wildlife.html">Wildlife</a></li>
         <li><a href="history.html">History</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
       </ul>
     </nav>
 
     <section class="footer-col" aria-label="Contact">
       <h3 class="footer-title">Contact</h3>
       <ul class="footer-links">
-        <li><a href="mailto:info@example.org">info@example.org</a></li>
-        <li>Knaresborough, North Yorkshire</li>
+        <li><a href="mailto:contact@friendsofjsp.org.uk">contact@friendsofjsp.org.uk</a></li>
       </ul>
-      <p><a class="button" href="newsletter.html">Sign me up</a></p>
+      <p><a class="button" href="contact.html">Keep me informed</a></p>
     </section>
   </div>
 
   <div class="legal-bar">
     <div class="container legal-inner">
-      <p>&copy; <span id="year"></span> Jacob Smith Park</p>
-      <ul class="legal-links">
-        <li><a href="whats-on.html">What’s on</a></li>
-        <li><a href="volunteer.html">Volunteer</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+      <p>&copy; <span id="year"></span> Friends of Jacob Smith Park</p>
     </div>
   </div>
 </footer>

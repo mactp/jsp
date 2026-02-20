@@ -139,24 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  /* 2) Newsletter quick validation */
-  const form = document.getElementById('newsletter-form');
-  const status = document.getElementById('form-status');
-  if (form && status) {
-    form.addEventListener('submit', function (e) {
-      const email = form.querySelector('#email');
-      if (!email || !email.checkValidity()) {
-        e.preventDefault();
-        status.textContent = 'Please enter a valid email address.';
-        status.style.color = '#ffd9b0';
-        email?.focus();
-      } else {
-        status.textContent = 'Thanks! Submitting…';
-        status.style.color = '#fff';
-      }
-    });
-  }
-
   /* 3) Universal Lightbox */
   const lbTargets = Array.from(
     document.querySelectorAll('.lightbox-trigger, .two-col img, .image-grid a')
@@ -305,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-/* 5) Sticky header shadow on scroll */
+/* 6) Sticky header shadow on scroll */
 (function(){
   const header = document.querySelector('.site-header');
   if (!header) return;

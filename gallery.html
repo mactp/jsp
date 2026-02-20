@@ -1,47 +1,60 @@
-<!DOCTYPE html>
-<html lang="en-GB">
+<!doctype html>
+<html lang="en-GB" class="no-js">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery – Jacob Smith Park</title>
-  <!-- Google Fonts: Montserrat -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Gallery — Jacob Smith Park</title>
+  <meta name="description" content="Photos of Jacob Smith Park — wildlife, wildflowers, and community life throughout the seasons.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="resources/css/styles.css">
+  <link rel="stylesheet" href="resources/css/styles.css">
+  <script>document.documentElement.classList.replace('no-js','js');</script>
+  <script src="resources/javascript/main.js" defer></script>
+
   <style>
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      padding: 40px 20px;
+      padding-block: clamp(32px, 5vw, 56px);
     }
-
     .gallery-grid figure {
       margin: 0;
       text-align: center;
+      overflow: hidden;
+      border-radius: 8px;
     }
-
     .gallery-grid img {
       width: 100%;
-      height: auto;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: block;
     }
-
+    .gallery-grid img:hover { transform: scale(1.03); box-shadow: 0 6px 20px rgba(0,0,0,.18); }
     .gallery-grid figcaption {
       margin-top: 8px;
-      font-size: 0.9rem;
-      color: #444;
+      font-size: 0.875rem;
+      color: var(--muted);
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="container">
-      <h1>Jacob Smith Park</h1>
-      <nav aria-label="Main navigation">
-        <ul>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="nav-logo-link" aria-label="Jacob Smith Park – Home">
+        <img src="resources/images/logo-placeholder.png" alt="Friends of Jacob Smith Park" class="nav-logo" />
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">☰</button>
+        <ul id="primary-nav" class="nav-list" hidden>
           <li><a href="index.html">Home</a></li>
           <li><a href="visiting.html">Visiting</a></li>
           <li><a href="about.html">About Us</a></li>
@@ -54,132 +67,100 @@
             </ul>
           </li>
           <li><a href="get-involved.html">Get Involved</a></li>
-          <li><a href="gallery.html" aria-current="page">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a class="donate-nav" href="donate.html">Donate</a></li>
+          <li><a class="donate-button" href="donate.html">Donate</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <section class="page-header">
-      <h2>Park Gallery</h2>
-      <p>A glimpse of the beauty, wildlife, and community spirit of Jacob Smith Park.</p>
-    </section>
+  <section class="banner banner--image">
+    <img src="resources/images/banners/banner-gallery.jpg" alt="Jacob Smith Park gallery" class="banner-image">
+    <div class="container">
+      <h2>Gallery</h2>
+    </div>
+  </section>
 
-    <section class="gallery-grid">
+  <section class="page-intro">
+    <div class="intro-content">
+      <p class="intro-text">A glimpse of the beauty, wildlife, and community spirit of Jacob Smith Park.</p>
+    </div>
+  </section>
+
+  <main id="main" class="container">
+    <section class="gallery-grid" aria-label="Park photos">
       <figure>
-        <img src="resources/images/gallery/pathway.jpg" alt="Shaded pathway through the woods">
+        <img src="resources/images/gallery/pathway.jpg" alt="Shaded pathway through the woods" class="lightbox-trigger">
         <figcaption>Peaceful woodland trail</figcaption>
       </figure>
       <figure>
-        <img src="resources/images/gallery/bluebells.jpg" alt="Bluebells blooming in spring">
+        <img src="resources/images/gallery/bluebells.jpg" alt="Bluebells blooming in spring" class="lightbox-trigger">
         <figcaption>Spring bluebells</figcaption>
       </figure>
       <figure>
-        <img src="resources/images/gallery/birdwatching.jpg" alt="Visitor birdwatching by the meadow">
+        <img src="resources/images/gallery/birdwatching.jpg" alt="Visitor birdwatching by the meadow" class="lightbox-trigger">
         <figcaption>Birdwatching in action</figcaption>
       </figure>
       <figure>
-        <img src="resources/images/gallery/meadow.jpg" alt="Wildflower meadow at sunset">
+        <img src="resources/images/gallery/meadow.jpg" alt="Wildflower meadow at sunset" class="lightbox-trigger">
         <figcaption>Evening light over the meadow</figcaption>
       </figure>
       <!-- Add more as needed -->
     </section>
   </main>
 
-<!-- Call-to-action buttons (above main footer) -->
-<section class="footer-cta" aria-label="Quick actions">
-  <div class="container">
-    <div class="cta-grid">
-
-      <div class="cta-card">
-        <h3 class="cta-title">Donate</h3>
-        <p class="cta-description">Help keep our park beautiful and support improvements</p>
-        <a href="donate.html" class="cta-button">Donate</a>
+  <section class="footer-cta" aria-label="Quick actions">
+    <div class="container">
+      <div class="cta-grid">
+        <div class="cta-card">
+          <h3 class="cta-title">Donate</h3>
+          <p class="cta-description">Help keep our park beautiful and support improvements</p>
+          <a href="donate.html" class="cta-button">Donate</a>
+        </div>
+        <div class="cta-card">
+          <h3 class="cta-title">Get Involved</h3>
+          <p class="cta-description">Volunteer, join a work party, or help at an event</p>
+          <a href="get-involved.html" class="cta-button">Get Involved</a>
+        </div>
+        <div class="cta-card">
+          <h3 class="cta-title">Keep me informed</h3>
+          <p class="cta-description">Receive updates about what is happening in the park, volunteer events &amp; biannual meeting dates</p>
+          <a href="contact.html" class="cta-button">Keep me informed</a>
+        </div>
       </div>
-
-      <div class="cta-card">
-        <h3 class="cta-title">Get Involved</h3>
-        <p class="cta-description">Volunteer, join a work party, or help at an event</p>
-        <a href="get-involved.html" class="cta-button">Get Involved</a>
-      </div>
-
-      <div class="cta-card">
-        <h3 class="cta-title">Keep me informed</h3>
-        <p class="cta-description">Receive updates about what is happening in the park, volunteer events &amp; biannual meeting dates</p>
-        <a href="contact.html" class="cta-button">Keep me informed</a>
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
-<footer class="site-footer" role="contentinfo">
-  <div class="container footer-grid">
-    <section class="footer-col">
-      <h3 class="footer-title">Friends of Jacob Smith Park</h3>
-    </section>
-
-    <nav class="footer-col" aria-label="Quick links">
-      <h3 class="footer-title">Quick links</h3>
-      <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="visiting.html">Visiting</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="wildlife.html">Wildlife</a></li>
-        <li class="has-dropdown">
-            <a href="park-history.html" class="dropdown-toggle">History</a>
-            <ul class="dropdown-menu">
-              <li><a href="park-history.html">Park History</a></li>
-              <li><a href="jacob-smith-family.html">Jacob Smith Family</a></li>
-            </ul>
-          </li>
-        <li><a href="get-involved.html">Get Involved</a></li>
-      </ul>
-    </nav>
-
-    <section class="footer-col" aria-label="Contact">
-      <h3 class="footer-title">Contact</h3>
-      <ul class="footer-links">
-        <li><a href="mailto:contact@friendsofjsp.org.uk">contact@friendsofjsp.org.uk</a></li>
-      </ul>
-      <p><a class="button" href="contact.html">Keep me informed</a></p>
-    </section>
-  </div>
-
-  <div class="legal-bar">
-    <div class="container legal-inner">
-      <p>&copy; <span id="year"></span> Friends of Jacob Smith Park</p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <section class="footer-col">
+        <h3 class="footer-title">Friends of Jacob Smith Park</h3>
+      </section>
+      <nav class="footer-col" aria-label="Quick links">
+        <h3 class="footer-title">Quick links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="visiting.html">Visiting</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="wildlife.html">Wildlife</a></li>
+          <li><a href="park-history.html">History</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+        </ul>
+      </nav>
+      <section class="footer-col" aria-label="Contact">
+        <h3 class="footer-title">Contact</h3>
+        <ul class="footer-links">
+          <li><a href="mailto:contact@friendsofjsp.org.uk">contact@friendsofjsp.org.uk</a></li>
+        </ul>
+        <p><a class="button" href="contact.html">Keep me informed</a></p>
+      </section>
     </div>
-  </div>
-</footer>
+    <div class="legal-bar">
+      <div class="container legal-inner">
+        <p>&copy; <span id="year"></span> Friends of Jacob Smith Park</p>
+      </div>
+    </div>
+  </footer>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const images = document.querySelectorAll(".gallery-grid img");
-      images.forEach(img => {
-        img.style.cursor = "pointer";
-        img.addEventListener("click", () => {
-          const src = img.getAttribute("src");
-          const lightbox = document.createElement("div");
-          lightbox.style.position = "fixed";
-          lightbox.style.top = 0;
-          lightbox.style.left = 0;
-          lightbox.style.width = "100vw";
-          lightbox.style.height = "100vh";
-          lightbox.style.background = "rgba(0,0,0,0.8)";
-          lightbox.style.display = "flex";
-          lightbox.style.alignItems = "center";
-          lightbox.style.justifyContent = "center";
-          lightbox.innerHTML = `<img src="${src}" style="max-width: 90%; max-height: 80%; border-radius: 8px;" />`;
-          lightbox.addEventListener("click", () => document.body.removeChild(lightbox));
-          document.body.appendChild(lightbox);
-        });
-      });
-    });
-  </script>
 </body>
 </html>
-

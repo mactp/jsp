@@ -10,6 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="resources/css/styles.css">
+  <script>document.documentElement.classList.replace('no-js','js');</script>
+  <script src="resources/javascript/main.js" defer></script>
 
   <style>
     /* ── Banner fix ── */
@@ -270,6 +272,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
   <header class="site-header" role="banner">
     <div class="container header-inner">
@@ -468,8 +471,6 @@
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
     // Amount button toggle
     document.querySelectorAll('.amount-btn').forEach(btn => {
       btn.addEventListener('click', function () {
@@ -493,6 +494,5 @@
       });
     });
   </script>
-  <script src="resources/javascript/main.js"></script>
 </body>
 </html>

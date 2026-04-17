@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en-GB" class="no-js">
 <head>
+  <meta name="robots" content="noindex, nofollow">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Contact Us – Friends of Jacob Smith Park</title>
@@ -196,18 +197,18 @@
         <ul id="primary-nav" class="nav-list" hidden>
           <li><a href="index.html">Home</a></li>
           <li><a href="visiting.html">Visiting</a></li>
-          <li><a href="about.html">About Us</a></li>
+          <li><a href="about.html">About us</a></li>
           <li><a href="wildlife.html">Wildlife</a></li>
           <li class="has-dropdown">
             <a href="park-history.html" class="dropdown-toggle">History</a>
             <ul class="dropdown-menu">
-              <li><a href="park-history.html">Park History</a></li>
-              <li><a href="jacob-smith-family.html">Jacob Smith Family</a></li>
+              <li><a href="park-history.html">Park history</a></li>
+              <li><a href="jacob-smith-family.html">Jacob Smith family</a></li>
             </ul>
           </li>
-          <li><a href="get-involved.html">Get Involved</a></li>
+          <li><a href="get-involved.html">Get involved</a></li>
           <li><a href="contact.html" aria-current="page">Contact</a></li>
-          <li><a class="donate-button" href="donate.html">Donate</a></li>
+          <li><a href="donate.html">Donate</a></li>
         </ul>
       </nav>
     </div>
@@ -216,7 +217,7 @@
   <section class="banner banner--image">
     <img src="resources/images/banners/banner-contact.jpg" alt="Contact us" class="banner-image">
     <div class="container">
-      <h2>Contact Us</h2>
+      <h2>Contact us</h2>
     </div>
   </section>
 
@@ -228,84 +229,52 @@
 
   <main id="main">
 
-    <!-- Reason selector -->
-    <section class="contact-reasons">
-      <div class="container">
-        <h2>How can we help?</h2>
-        <p>Choose what best describes your reason for getting in touch:</p>
-        <div class="reason-tabs">
-          <button class="reason-tab active" data-label="Keep me informed">Keep me informed</button>
-          <button class="reason-tab" data-label="Get involved">Get involved</button>
-          <button class="reason-tab" data-label="General enquiry">General enquiry</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Form + sidebar -->
+    <!-- Form -->
     <section class="contact-main">
       <div class="container">
-        <div class="contact-grid">
+        <div class="contact-form-wrap">
+          <h2 id="form-title">Get in touch</h2>
+          <p>Or email us directly at <a href="mailto:contact@friendsofjsp.org.uk">contact@friendsofjsp.org.uk</a></p>
 
-          <!-- Form -->
-          <div class="contact-form-wrap">
-            <h2 id="form-title">Keep me informed</h2>
-            <p>Or email us directly at <a href="mailto:contact@friendsofjsp.org.uk">contact@friendsofjsp.org.uk</a></p>
-
-            <form class="contact-form" id="contact-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST">
-              <div class="hp-field" aria-hidden="true">
-                <input type="text" name="website" tabindex="-1" autocomplete="off">
-              </div>
-              <input type="hidden" name="enquiry_type" id="enquiry-type" value="Keep me informed">
-
-              <div class="form-field">
-                <label for="name">Name <span aria-hidden="true">*</span></label>
-                <input id="name" name="name" type="text" autocomplete="name" required>
-              </div>
-
-              <div class="form-field">
-                <label for="email">Email <span aria-hidden="true">*</span></label>
-                <input id="email" name="email" type="email" autocomplete="email" required>
-              </div>
-
-              <div class="form-field">
-                <label for="message">Message <span aria-hidden="true">*</span></label>
-                <textarea id="message" name="message" rows="6" required></textarea>
-              </div>
-
-              <label class="consent-row">
-                <input type="checkbox" name="consent" required>
-                I'm happy for FoJSP to use my details to reply to this message.
-              </label>
-
-              <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-                <button class="submit-btn" type="submit">Send message</button>
-                <span id="form-status" role="status" aria-live="polite" class="form-status"></span>
-              </div>
-            </form>
-          </div>
-
-          <!-- Sidebar -->
-          <div class="contact-sidebar">
-
-            <div class="contact-info-card">
-              <h3>Email us directly</h3>
-              <p>You're also welcome to email us directly — we aim to respond within a few days.</p>
-              <p><a href="mailto:contact@friendsofjsp.org.uk">contact@friendsofjsp.org.uk</a></p>
+          <form class="contact-form" id="contact-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST">
+            <div class="hp-field" aria-hidden="true">
+              <input type="text" name="website" tabindex="-1" autocomplete="off">
             </div>
 
-            <div class="contact-info-card">
-              <h3>North Yorkshire Council</h3>
-              <p>For concerns about trees, bin emptying, or other maintenance queries, please contact North Yorkshire Council directly — they own and manage the park.</p>
-              <a href="https://www.northyorks.gov.uk/contact-us" target="_blank" rel="noopener" class="card-btn">Contact North Yorkshire Council</a>
-              <div class="emergency-block">
-                <p><strong>Emergencies:</strong> call NYC on <strong>0300 131 2 131</strong></p>
-                <p>Mon &amp; Tue 9am–5pm · Wed 9.30am–5pm · Thu 9am–5pm · Fri 9am–4.30pm</p>
-                <p><strong>Antisocial behaviour:</strong> call police on <strong>101</strong> (or <strong>999</strong> in an emergency)</p>
-              </div>
+            <div class="form-field">
+              <label for="name">Name <span aria-hidden="true">*</span></label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
             </div>
 
+            <div class="form-field">
+              <label for="email">Email <span aria-hidden="true">*</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+
+            <div class="form-field">
+              <label for="message">Message <span aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+
+            <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+              <button class="submit-btn" type="submit">Send message</button>
+              <span id="form-status" role="status" aria-live="polite" class="form-status"></span>
+            </div>
+          </form>
+        </div>
+
+        <!-- North Yorkshire Council info -->
+        <div class="contact-info-card" style="margin-top: 48px; max-width: 680px;">
+          <h3>North Yorkshire Council</h3>
+          <p>For concerns about trees, bin emptying, or other maintenance queries relating to the park, please contact North Yorkshire Council directly — they own and manage the park.</p>
+          <a href="https://www.northyorks.gov.uk/parks-and-outdoors/parks-and-open-spaces" target="_blank" rel="noopener" class="card-btn">Contact North Yorkshire Council — parks &amp; woodlands</a>
+          <div class="emergency-block">
+            <p><strong>Emergencies:</strong> call NYC on <strong>0300 131 2 131</strong></p>
+            <p>Mon &amp; Tue 9am–5pm · Wed 9.30am–5pm · Thu 9am–5pm · Fri 9am–4.30pm</p>
+            <p><strong>Antisocial behaviour:</strong> call police on <strong>101</strong> (or <strong>999</strong> in an emergency)</p>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -321,14 +290,14 @@
           <a href="donate.html" class="cta-button">Donate</a>
         </div>
         <div class="cta-card">
-          <h3 class="cta-title">Get Involved</h3>
+          <h3 class="cta-title">Get involved</h3>
           <p class="cta-description">Volunteer, join a work party, or help at an event</p>
-          <a href="get-involved.html" class="cta-button">Get Involved</a>
+          <a href="get-involved.html" class="cta-button">Get involved</a>
         </div>
         <div class="cta-card">
-          <h3 class="cta-title">Keep me informed</h3>
+          <h3 class="cta-title">Add me to the mailing list</h3>
           <p class="cta-description">Receive updates about what is happening in the park, volunteer events &amp; biannual meeting dates</p>
-          <a href="contact.html" class="cta-button">Keep me informed</a>
+          <a href="contact.html" class="cta-button">Add me to the mailing list</a>
         </div>
       </div>
     </div>
@@ -345,10 +314,12 @@
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="visiting.html">Visiting</a></li>
-          <li><a href="about.html">About Us</a></li>
+          <li><a href="about.html">About us</a></li>
           <li><a href="wildlife.html">Wildlife</a></li>
           <li><a href="park-history.html">History</a></li>
-          <li><a href="get-involved.html">Get Involved</a></li>
+          <li><a href="get-involved.html">Get involved</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="donate.html">Donate</a></li>
         </ul>
       </nav>
       <section class="footer-col" aria-label="Contact">
@@ -356,7 +327,7 @@
         <ul class="footer-links">
           <li><a href="mailto:contact@friendsofjsp.org.uk">contact@friendsofjsp.org.uk</a></li>
         </ul>
-        <p><a class="button" href="contact.html">Keep me informed</a></p>
+        <p><a class="button" href="contact.html">Add me to the mailing list</a></p>
       </section>
     </div>
     <div class="legal-bar">
@@ -368,41 +339,6 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Reason tab switching — updates heading and hidden field
-    document.querySelectorAll('.reason-tab').forEach(tab => {
-      tab.addEventListener('click', function () {
-        document.querySelectorAll('.reason-tab').forEach(t => t.classList.remove('active'));
-        this.classList.add('active');
-        const label = this.dataset.label;
-        document.getElementById('form-title').textContent = label;
-        document.getElementById('enquiry-type').value = label;
-      });
-    });
-
-    // Formspree AJAX submission
-    const form = document.getElementById('contact-form');
-    const status = document.getElementById('form-status');
-
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-      const data = new FormData(form);
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        });
-        if (res.ok) {
-          status.textContent = 'Message sent — thank you!';
-          form.reset();
-        } else {
-          status.textContent = 'Something went wrong. Please try emailing us directly.';
-        }
-      } catch {
-        status.textContent = 'Could not send. Please try emailing us directly.';
-      }
-    });
   </script>
   <div class="scrim" aria-hidden="true"></div>
 </body>

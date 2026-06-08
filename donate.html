@@ -14,6 +14,9 @@
   <script>document.documentElement.classList.replace('no-js','js');</script>
   <script src="resources/javascript/main.js" defer></script>
 
+  <!-- PayPal hosted buttons SDK (Part 1) -->
+  <script src="https://www.paypal.com/sdk/js?client-id=BAAJvgh8OL2GYJUcnAKjpBQ8IOydmYRPCJPSy3sbcHZ4uZO20EmdveRhRwecqTgoXmDUe0MJ9uxM7gGYcs&components=hosted-buttons&disable-funding=venmo&currency=GBP"></script>
+
   <style>
     /* ── Banner fix ── */
     .banner-container {
@@ -272,7 +275,7 @@
     }
   </style>
 </head>
-<body>
+<body class="center-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <header class="site-header" role="banner">
@@ -288,7 +291,7 @@
           <li><a href="about.html">About us</a></li>
           <li><a href="wildlife.html">Wildlife</a></li>
           <li class="has-dropdown">
-            <a href="park-history.html" class="dropdown-toggle">History</a>
+            <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">History</a>
             <ul class="dropdown-menu">
               <li><a href="park-history.html">Park history</a></li>
               <li><a href="jacob-smith-family.html">Jacob Smith family</a></li>
@@ -311,19 +314,21 @@
   <section class="page-intro">
     <div class="container">
       <p class="intro-text">
-        Your donations help us maintain and enhance Jacob Smith Park for everyone to enjoy.
+        If you enjoy visiting JSP please donate to help us improve the park and keep it beautiful
       </p>
     </div>
   </section>
 
+  <main id="main">
+
   <!-- Intro copy -->
-  <section class="donate-intro" style="text-align: center;">
+  <section class="donate-intro">
     <div class="container">
       <h2>Help us keep Jacob Smith Park beautiful</h2>
       <p>North Yorkshire Council cover the costs of maintaining the park, but enhancements are mainly organised and funded by the Friends of JSP (FoJSP).</p>
       <p>We aim to achieve the best possible results on a very tight budget. All the committee and volunteers give their time for free, and we have achieved some amazing results — see <a href="get-involved.html">Get involved</a> for examples of our recent projects.</p>
       <p>We need your help to fund future enhancement projects and meet our ongoing running costs, including public liability insurance (without which we could not run volunteering events) and website hosting.</p>
-      <p>If you love the park and want to help us make it even better, please donate.</p>
+      <p>If you enjoy visiting JSP, please help us maintain and improve it for your future visits. Please donate as much as you are able; we'd love you to set up a monthly standing order. Regular payments of £3, £5 or £10 a month would really help us. Or if you prefer, set up an annual standing order or make a one-off donation for whatever you like.</p>
     </div>
   </section>
 
@@ -332,8 +337,7 @@
     <div class="container">
       <h2>Ways to give</h2>
 
-      <div class="give-grid" style="grid-template-columns: 1fr;">
-        <div style="display: grid; gap: 28px; grid-template-columns: 1fr;">
+      <div class="give-grid two-up">
 
           <!-- Bank transfer -->
           <div class="give-card">
@@ -348,10 +352,9 @@
             <span class="give-icon">💳</span>
             <h3>PayPal</h3>
             <p>Give quickly and securely via PayPal. Any amount — whether it's £3, £5, £10 or more — goes directly towards the park.</p>
-            <a href="https://www.paypal.com/donate/?hosted_button_id=YOUR_PAYPAL_BUTTON_ID" target="_blank" class="give-anchor-btn">Donate via PayPal</a>
+            <a href="#paypal" class="give-anchor-btn">Donate via PayPal ↓</a>
           </div>
 
-        </div>
       </div>
     </div>
   </section>
@@ -360,26 +363,43 @@
       <h2>Bank details</h2>
       <p>Send your payment directly from your bank using the details below, or donate via PayPal.</p>
 
-      <div class="bank-table">
-        <div class="bank-row">
-          <span class="bank-label">Bank</span>
-          <span class="bank-value">Cooperative Bank</span>
-        </div>
-        <div class="bank-row">
-          <span class="bank-label">Account name</span>
-          <span class="bank-value">Friends of Jacob Smith Park</span>
-        </div>
-        <div class="bank-row">
-          <span class="bank-label">Account number</span>
-          <span class="bank-value">XXXXXXXX</span>
-        </div>
-        <div class="bank-row">
-          <span class="bank-label">Sort code</span>
-          <span class="bank-value">XX-XX-XX</span>
-        </div>
-      </div>
+      <div class="bank-paypal-grid">
 
-      <p class="bank-note"><strong>Standing order reference suggestion:</strong> JSP donation — or anything you'll recognise.</p>
+        <!-- Bank transfer column -->
+        <div class="bank-col">
+          <div class="bank-table">
+            <div class="bank-row">
+              <span class="bank-label">Bank</span>
+              <span class="bank-value">Cooperative Bank</span>
+            </div>
+            <div class="bank-row">
+              <span class="bank-label">Account name</span>
+              <span class="bank-value">Friends of Jacob Smith Park</span>
+            </div>
+            <div class="bank-row">
+              <span class="bank-label">Account number</span>
+              <span class="bank-value">65364707</span>
+            </div>
+            <div class="bank-row">
+              <span class="bank-label">Sort code</span>
+              <span class="bank-value">08-92-99</span>
+            </div>
+          </div>
+          <p class="bank-note"><strong>Standing order reference suggestion:</strong> JSP donation — or anything you'll recognise.</p>
+        </div>
+
+        <!-- PayPal column -->
+        <div class="paypal-col" id="paypal">
+          <p>Prefer to give online? Donate quickly and securely via PayPal:</p>
+          <div id="paypal-container-NY4UD4KRDNF7U"></div>
+          <script>
+            paypal.HostedButtons({
+              hostedButtonId: "NY4UD4KRDNF7U",
+            }).render("#paypal-container-NY4UD4KRDNF7U");
+          </script>
+        </div>
+
+      </div>
 
     </div>
   </section>
@@ -389,19 +409,26 @@
     <p>Thank you to all our supporters who help us make Jacob Smith Park even more special.</p>
   </section>
 
+  </main>
+
   <!-- Footer CTA -->
   <section class="footer-cta" aria-label="Quick actions">
     <div class="container">
       <div class="cta-grid">
         <div class="cta-card">
+          <h3 class="cta-title">Donate</h3>
+          <p class="cta-description">Support the park with a bank transfer or PayPal donation</p>
+          <a href="#bank-details" class="cta-button">Donate</a>
+        </div>
+        <div class="cta-card">
           <h3 class="cta-title">Get involved</h3>
           <p class="cta-description">Volunteer, join a work party, or help at an event</p>
-          <a href="get-involved.html" class="cta-button">Get involved</a>
+          <a href="contact.html#contact-form" class="cta-button">Get involved</a>
         </div>
         <div class="cta-card">
           <h3 class="cta-title">Add me to the mailing list</h3>
           <p class="cta-description">Receive updates about what is happening in the park, volunteer events &amp; biannual meeting dates</p>
-          <a href="contact.html" class="cta-button">Add me to the mailing list</a>
+          <a href="contact.html#contact-form" class="cta-button">Add me to the mailing list</a>
         </div>
       </div>
     </div>
@@ -432,7 +459,7 @@
         <ul class="footer-links">
           <li><a href="mailto:contact@friendsofjsp.org.uk">contact@friendsofjsp.org.uk</a></li>
         </ul>
-        <p><a class="button" href="contact.html">Add me to the mailing list</a></p>
+        <p><a class="button" href="contact.html#contact-form">Add me to the mailing list</a></p>
       </section>
     </div>
     <div class="legal-bar">

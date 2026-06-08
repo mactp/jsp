@@ -79,14 +79,20 @@ document.addEventListener('DOMContentLoaded', () => {
     syncViewport();
   }
 
-  /* 1) Dropdown nav toggle for mobile */
+  /* 1) Dropdown nav toggle.
+        History is a parent-only item: clicking it must NOT navigate anywhere —
+        the user has to pick Park history or Jacob Smith family from the submenu. */
   document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
     toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      const menu = this.closest('.has-dropdown')?.querySelector('.dropdown-menu');
       if (window.innerWidth < 900) {
-        e.preventDefault();
-        const menu = this.closest('.has-dropdown')?.querySelector('.dropdown-menu');
-        if (menu) menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        // Mobile: tap toggles the submenu open/closed
+        const open = menu && menu.style.display === 'block';
+        if (menu) menu.style.display = open ? 'none' : 'block';
+        this.setAttribute('aria-expanded', open ? 'false' : 'true');
       }
+      // Desktop: hover / keyboard focus reveals the submenu via CSS (:hover, :focus-within)
     });
   });
 

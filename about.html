@@ -16,7 +16,7 @@
 
 </head>
 
-<body>
+<body class="center-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <header class="site-header" role="banner">
@@ -32,7 +32,7 @@
           <li><a href="about.html" aria-current="page">About us</a></li>
           <li><a href="wildlife.html">Wildlife</a></li>
           <li class="has-dropdown">
-            <a href="park-history.html" class="dropdown-toggle">History</a>
+            <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">History</a>
             <ul class="dropdown-menu">
               <li><a href="park-history.html">Park history</a></li>
               <li><a href="jacob-smith-family.html">Jacob Smith family</a></li>
@@ -51,6 +51,15 @@
     <img src="resources/images/banners/banner-about.jpeg" alt="About Jacob Smith Park" class="banner-image">
     <div class="container">
       <h2>About us</h2>
+    </div>
+  </section>
+
+  <!-- Cream strip -->
+  <section class="page-intro">
+    <div class="intro-content">
+      <p class="intro-text">
+        The Friends of Jacob Smith Park are passionate about enhancing and protecting this precious green space for future generations
+      </p>
     </div>
   </section>
 
@@ -86,6 +95,18 @@
       <div class="container">
         <h2>Recent projects</h2>
         <p>A selection of the projects we've delivered in the park over the years.</p>
+
+        <div class="photo-row">
+          <figure>
+            <img src="resources/images/oak-benches.jpg" alt="One of the new oak benches installed across Jacob Smith Park">
+          </figure>
+          <figure>
+            <img src="resources/images/bird-box.jpg" alt="A bird box installed in the park to encourage nesting birds">
+          </figure>
+          <figure>
+            <img src="resources/images/volunteer-bench-oiling.jpg" alt="A volunteer oiling one of the park's oak benches">
+          </figure>
+        </div>
 
         <div class="projects-grid">
 
@@ -177,28 +198,28 @@
       <div class="container">
         <h2>Key documents</h2>
         <div class="documents-grid">
-          <a href="documents/fojsp-public-meeting-minutes.pdf" target="_blank" class="doc-card">
+          <a href="resources/docs/FoJSP_public_meeting_minutes.pdf" target="_blank" class="doc-card">
             <span class="doc-icon-clean">
               <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </span>
             <span class="doc-name">Public meeting minutes</span>
             <span class="doc-action">Download PDF →</span>
           </a>
-          <a href="documents/fojsp-agm-minutes.pdf" target="_blank" class="doc-card">
+          <a href="resources/docs/FoJSP_AGM_minutes.pdf" target="_blank" class="doc-card">
             <span class="doc-icon-clean">
               <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </span>
             <span class="doc-name">AGM minutes</span>
             <span class="doc-action">Download PDF →</span>
           </a>
-          <a href="documents/jsp-management-plan.pdf" target="_blank" class="doc-card">
+          <a href="resources/docs/JSP_management_plan.pdf" target="_blank" class="doc-card">
             <span class="doc-icon-clean">
               <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </span>
             <span class="doc-name">Management plan</span>
             <span class="doc-action">Download PDF →</span>
           </a>
-          <a href="documents/fojsp-constitution.pdf" target="_blank" class="doc-card">
+          <a href="resources/docs/FoJSP_constitution.pdf" target="_blank" class="doc-card">
             <span class="doc-icon-clean">
               <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </span>
@@ -223,12 +244,12 @@
         <div class="cta-card">
           <h3 class="cta-title">Get involved</h3>
           <p class="cta-description">Volunteer, join a work party, or help at an event</p>
-          <a href="get-involved.html" class="cta-button">Get involved</a>
+          <a href="contact.html#contact-form" class="cta-button">Get involved</a>
         </div>
         <div class="cta-card">
           <h3 class="cta-title">Add me to the mailing list</h3>
           <p class="cta-description">Receive updates about what is happening in the park, volunteer events &amp; biannual meeting dates</p>
-          <a href="contact.html" class="cta-button">Add me to the mailing list</a>
+          <a href="contact.html#contact-form" class="cta-button">Add me to the mailing list</a>
         </div>
       </div>
     </div>
@@ -258,7 +279,7 @@
         <ul class="footer-links">
           <li><a href="mailto:contact@friendsofjsp.org.uk">contact@friendsofjsp.org.uk</a></li>
         </ul>
-        <p><a class="button" href="contact.html">Add me to the mailing list</a></p>
+        <p><a class="button" href="contact.html#contact-form">Add me to the mailing list</a></p>
       </section>
     </div>
     <div class="legal-bar">

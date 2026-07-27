@@ -6,12 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Visiting — Jacob Smith Park</title>
 
-  <!-- Google Fonts: Montserrat -->
+  <!-- Google Fonts: Nunito -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="resources/css/styles.css">
+  <link rel="stylesheet" href="resources/css/styles.css?v=15">
+  <link rel="icon" type="image/svg+xml" href="resources/images/favicon.svg">
   <script>document.documentElement.classList.replace('no-js','js');</script>
   <script src="resources/javascript/main.js" defer></script>
 </head>
@@ -22,7 +23,7 @@
     <div class="container header-inner">
       <a href="index.html" class="nav-logo-link" aria-label="Jacob Smith Park – Home">
         <img
-          src="resources/images/logo-placeholder.png"
+          src="resources/images/logo-white.svg"
           alt="Friends of Jacob Smith Park"
           class="nav-logo"
         />
@@ -55,10 +56,10 @@
   </header>
 
   <!-- Banner -->
-  <section class="banner banner--image">
+  <section class="banner banner--image banner--plain">
     <img src="resources/images/banners/banner-visiting.jpg" alt="Visiting Jacob Smith Park" class="banner-image">
     <div class="container">
-      <h2>Visiting</h2>
+      <h2 class="visually-hidden">Visiting</h2>
     </div>
   </section>
 
@@ -96,12 +97,11 @@
     </section>
 
     <!-- Benches photo (alternating) -->
-    <!-- TODO: Karen to source final "people sat on benches" photo. Using oak-benches.jpg as interim placeholder. -->
     <section class="content-section alt-layout alt-reverse">
       <div class="container">
         <div class="alt-grid">
           <div class="alt-image">
-            <img src="resources/images/oak-benches.jpg" alt="Benches at Jacob Smith Park with far-reaching views across the countryside">
+            <img src="resources/images/visiting/jsp-bench-jun26.jpg" alt="Three visitors sitting on an oak bench enjoying the far-reaching views across Jacob Smith Park">
           </div>
           <div class="alt-text">
             <p>Find a bench, take a moment, and enjoy the far-reaching views — on a clear day you can see all the way to the White Horse on the North York Moors.</p>
@@ -111,21 +111,35 @@
     </section>
 
     <!-- Wildlife -->
-    <section class="content-section center-block">
+    <section class="content-section alt-layout">
       <div class="container">
-        <h2><a href="wildlife.html">Wildlife</a></h2>
-        <p>There is a range of habitats throughout the park, including woods, meadow and grasslands, wetlands and veteran trees. These habitats support a rich and diverse variety of wildlife.</p>
-        <p>Children are encouraged to explore the park with a guided nature trail; this has a beautifully illustrated guide with notes to help children discover an exciting new world.</p>
-        <p>You can download the guide at <a href="https://www.northyorks.gov.uk/sites/default/files/2023-03/Jacob_Smith_Park_nature_trail.pdf" target="_blank" rel="noopener">Jacob Smith Park nature trail</a>.</p>
+        <div class="alt-grid">
+          <div class="alt-text">
+            <h2><a href="wildlife.html">Wildlife</a></h2>
+            <p>There is a range of habitats throughout the park, including woods, meadow and grasslands, wetlands and veteran trees. These habitats support a rich and diverse variety of wildlife.</p>
+            <p>Children are encouraged to explore the park with a guided nature trail; this has a beautifully illustrated guide with notes to help children discover an exciting new world.</p>
+            <p>You can download the guide at <a href="https://www.northyorks.gov.uk/sites/default/files/2023-03/Jacob_Smith_Park_nature_trail.pdf" target="_blank" rel="noopener">Jacob Smith Park nature trail</a>.</p>
+          </div>
+          <div class="alt-image">
+            <img src="resources/images/visiting/butterfly-thistle.jpg" alt="A small tortoiseshell butterfly feeding on a thistle flower at Jacob Smith Park">
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Code of conduct -->
-    <section class="content-section center-block">
+    <section class="content-section alt-layout alt-reverse">
       <div class="container">
-        <h2>Code of conduct</h2>
-        <p>We want to ensure that everyone enjoys JSP while respecting each other and the park's natural environment. <a href="resources/docs/JSP_code_of_conduct.pdf" target="_blank" rel="noopener">Click here</a> for some guidelines we'd like you to follow when you visit JSP.</p>
-        <p>Barbecues, open fires, cycling and horses are prohibited by North Yorkshire Council.</p>
+        <div class="alt-grid">
+          <div class="alt-image">
+            <img src="resources/images/visiting/woodland-path-dog.jpg" alt="A visitor walking a dog on a lead along a shaded woodland path in Jacob Smith Park">
+          </div>
+          <div class="alt-text">
+            <h2>Code of conduct</h2>
+            <p>We want to ensure that everyone enjoys JSP while respecting each other and the park's natural environment. <a href="resources/docs/JSP_code_of_conduct.pdf" target="_blank" rel="noopener">Click here</a> for some guidelines we'd like you to follow when you visit JSP.</p>
+            <p>Barbecues, open fires, cycling and horses are prohibited by North Yorkshire Council.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -190,13 +204,13 @@
         <div class="cta-card">
           <h3 class="cta-title">Get involved</h3>
           <p class="cta-description">Volunteer, join a work party, or help at an event</p>
-          <a href="contact.html#contact-form" class="cta-button">Get involved</a>
+          <a href="contact.html#form-title" class="cta-button">Get involved</a>
         </div>
 
         <div class="cta-card">
           <h3 class="cta-title">Add me to the mailing list</h3>
           <p class="cta-description">Receive updates about what is happening in the park, volunteer events &amp; biannual meeting dates</p>
-          <a href="contact.html#contact-form" class="cta-button">Add me to the mailing list</a>
+          <a href="contact.html#form-title" class="cta-button">Add me to the mailing list</a>
         </div>
 
       </div>
@@ -231,7 +245,7 @@
         <ul class="footer-links">
           <li><a href="mailto:contact@friendsofjsp.org.uk">contact@friendsofjsp.org.uk</a></li>
         </ul>
-        <p><a class="button" href="contact.html#contact-form">Add me to the mailing list</a></p>
+        <p><a class="button" href="contact.html#form-title">Add me to the mailing list</a></p>
       </section>
 
     </div>

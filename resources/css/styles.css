@@ -5,21 +5,21 @@
 
 /* -------------------- tokens -------------------- */
 :root {
-  /* base colours */
-  --bg: #f4f3ef;
-  --fg: #2f2f2f;
-  --muted: #5b5b5b;
-  --brand: #2f4f4f;
-  --brand-2: #588157;
-  --brand-3: #a3b18a;
-  --brand-dark: #344e41;      /* dark green — most headings */
-  --brand-darker: #233b35;    /* darkest green — banner headings */
-  --brand-deep: #234543;      /* near-black teal — footer & mobile nav */
-  --brand-2-dark: #476946;    /* hover state for brand-2 buttons */
-  --accent: #d4a373;
-  --cream: #fefae0;           /* warm off-white — nav text, CTA bg */
+  /* base colours — FoJSP brand palette (Northwave Design) */
+  --bg: #faf7ee;              /* warm cream-tinted page background */
+  --fg: #33291f;              /* warm dark brown — body text */
+  --muted: #6b5d4f;
+  --brand: #818027;           /* MAY GREEN — nav ribbon, links, primary buttons */
+  --brand-2: #cac15b;         /* SUMMER GREEN — secondary accents */
+  --brand-3: #cac15b;         /* SUMMER GREEN — light accent lines / borders */
+  --brand-dark: #502e20;      /* BARK BROWN — headings */
+  --brand-darker: #502e20;    /* BARK BROWN — banner headings */
+  --brand-deep: #502e20;      /* BARK BROWN — footer & mobile nav */
+  --brand-2-dark: #6a6921;    /* darker may green — button hover */
+  --accent: #cac15b;          /* SUMMER GREEN — accent */
+  --cream: #f8e5b6;           /* CREAM — nav text, CTA bg, soft strips */
   --surface: #fff;
-  --surface-green: #dbe7c9;   /* light green — hero / banner bg */
+  --surface-green: #efe9bb;   /* pale summer-green tint — hero / banner bg */
 
   /* layout */
   --radius: .5rem;
@@ -41,7 +41,7 @@
 html { color-scheme: light; }
 body {
   margin: 0;
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 18px;
   line-height: 1.6;
   color: var(--fg);
@@ -207,9 +207,9 @@ a { font-weight: 500; }
   margin: 0;
   align-items: center;
 }
-.nav-list a { text-decoration: none; color: var(--cream); font-size: 17px; font-weight: 500; }
+.nav-list a { text-decoration: none; color: #fff; font-size: 17px; font-weight: 600; }
 .nav-list a:hover,
-.nav-list a:focus { color: #ffd9b0; }
+.nav-list a:focus { color: #ffffff; }
 
 /* -------------------- nav (mobile ≤900px) -------------------- */
 @media (max-width: 900px) {
@@ -276,10 +276,10 @@ a { font-weight: 500; }
   }
 
   .nav-list li { margin-left: 1rem; }
-  .nav-list a { color: var(--cream); padding: 0; }
+  .nav-list a { color: #fff; padding: 0; }
   .nav-list a[aria-current="page"] {
-    color: #ffd9b0 !important;
-    border-bottom: 3px solid #ffd9b0 !important;
+    color: #ffffff !important;
+    border-bottom: 3px solid #ffffff !important;
     font-weight: 700 !important;
     padding-bottom: 4px !important;
   }
@@ -365,6 +365,9 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   position: relative;
   z-index: 2;
 }
+
+/* clean photo banner — no dark scrim, heading hidden but kept for a11y/SEO */
+.banner--plain::after { content: none; }
 
 /* page-specific background images */
 .banner--wildlife { background-image: url("../images/banner/wildlife-hero.JPG"); }
@@ -479,18 +482,18 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 .newsletter input[type="email"] { padding: 10px; width: min(320px, 80vw); border: none; border-radius: 6px; }
 
 .site-footer {
-  background-color: #1e3d33;
+  background-color: #502e20;
   color: #fff;
-  padding: 50px 5% 20px;
-  font-size: 16px;
+  padding: 32px 5% 14px;
+  font-size: 14px;
 }
-.site-footer h3 { font-size: 1.5rem; font-weight: 600; }
-.site-footer a { color: #ffd9b0; }
+.site-footer h3 { font-size: 1.15rem; font-weight: 600; }
+.site-footer a { color: #ffffff; }
 
 .footer-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 40px;
+  gap: 22px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -498,20 +501,20 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 @media (min-width: 768px) {
   .footer-grid {
     grid-template-columns: 2fr 1fr 1fr;
-    gap: 32px;
+    gap: 24px;
   }
 }
 
 .footer-title {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   color: #fff;
 }
 
 .footer-blurb {
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.82rem;
+  line-height: 1.5;
   color: #d4d4d4;
 }
 
@@ -521,12 +524,12 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   margin: 0;
 }
 
-.footer-links li { margin-bottom: 8px; }
+.footer-links li { margin-bottom: 5px; }
 
 .footer-links a {
   color: #d4d4d4;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 0.82rem;
   transition: color 0.2s ease;
 }
 
@@ -538,8 +541,8 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 
 .legal-bar {
   border-top: 1px solid rgba(255,255,255,.2);
-  margin-top: 40px;
-  padding-top: 20px;
+  margin-top: 22px;
+  padding-top: 12px;
 }
 
 .legal-inner {
@@ -610,7 +613,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   display: block;
   width: 80px;
   height: 3px;
-  background: linear-gradient(90deg, var(--brand), #5a8f7b);
+  background: linear-gradient(90deg, var(--brand), #a4a23f);
   margin: 40px auto 0;
   border-radius: 2px;
 }
@@ -628,7 +631,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 
 /* Stats banner */
 .about-stats {
-  background: linear-gradient(135deg, var(--brand), #3d7a66);
+  background: linear-gradient(135deg, var(--brand), #a4a23f);
   color: #fff;
   padding: 60px 0;
 }
@@ -837,7 +840,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   height: 120px;
   margin: 0 auto 16px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--brand), #5a8f7b);
+  background: linear-gradient(135deg, var(--brand), #a4a23f);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1273,7 +1276,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   display: block;
   width: 80px;
   height: 3px;
-  background: linear-gradient(90deg, var(--brand), #5a8f7b);
+  background: linear-gradient(90deg, var(--brand), #a4a23f);
   margin: 40px auto 0;
   border-radius: 2px;
 }
@@ -1360,35 +1363,45 @@ body.no-scroll { overflow: hidden; touch-action: none; }
    ============================================ */
 
 .footer-cta {
-  background-color: var(--cream);
-  padding: 60px 5%;
-  margin-top: 60px;
+  background-color: var(--cream);                /* cream sky blends above the scene */
+  background-image: url("../images/website-bg.svg");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: contain;                       /* full treeline, uncropped, anchored bottom */
+  min-height: 46vh;
+  display: flex;
+  align-items: center;
+  padding: 48px 5% 40px;
+  margin-top: 0;
 }
 
 .footer-cta .cta-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 32px;
-  max-width: 1200px;
+  gap: 20px;
+  max-width: 940px;
   margin: 0 auto;
 }
 
 @media (min-width: 768px) {
   .footer-cta .cta-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 18px;
   }
 }
 
 .footer-cta .cta-card {
-  background: var(--surface);
-  border-radius: 24px;
-  padding: 32px 24px;
+  background: rgba(255, 255, 255, 0.82);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 16px;
+  padding: 22px 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  box-shadow: var(--shadow);
+  gap: 12px;
+  box-shadow: 0 8px 24px rgba(80, 46, 32, 0.18);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -1398,15 +1411,15 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 }
 
 .footer-cta .cta-title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
   margin: 0;
   color: var(--brand-dark);
 }
 
 .footer-cta .cta-description {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 0.9rem;
+  line-height: 1.45;
   color: var(--muted);
   margin: 0;
   flex-grow: 1;
@@ -1416,9 +1429,9 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   display: inline-block;
   background-color: var(--brand);
   color: #fff;
-  padding: 14px 32px;
+  padding: 11px 24px;
   border-radius: 50px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
   text-decoration: none;
   transition: background-color 0.2s ease, transform 0.2s ease;
@@ -1624,7 +1637,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
    ============================================ */
 
 .get-involved-cta {
-  background: linear-gradient(135deg, var(--brand), #3d7a66);
+  background: linear-gradient(135deg, var(--brand), #a4a23f);
   color: white;
   padding: 50px 5%;
   margin: 60px 0;
@@ -1739,7 +1752,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 
 .action-btn.active {
   border-color: var(--brand);
-  background: linear-gradient(135deg, var(--brand), #3d7a66);
+  background: linear-gradient(135deg, var(--brand), #a4a23f);
   color: white;
 }
 
@@ -1781,11 +1794,11 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   padding: 32px;
   border-radius: 12px;
   margin-bottom: 24px;
-  border-left: 4px solid #2c5f4f;
+  border-left: 4px solid #818027;
 }
 
 .donate-card h3 {
-  color: #2c5f4f;
+  color: #818027;
   font-size: 1.5rem;
   margin-bottom: 16px;
 }
@@ -1805,25 +1818,25 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 
 .amount-btn {
   background: white;
-  border: 2px solid #2c5f4f;
-  color: #2c5f4f;
+  border: 2px solid #818027;
+  color: #818027;
   padding: 14px 28px;
   border-radius: 50px;
   font-size: 1.125rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 .amount-btn:hover {
-  background: #2c5f4f;
+  background: #818027;
   color: white;
   transform: scale(1.05);
 }
 
 .amount-btn.active {
-  background: #2c5f4f;
+  background: #818027;
   color: white;
 }
 
@@ -1839,7 +1852,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   display: block;
   margin-bottom: 8px;
   font-weight: 500;
-  color: #2c5f4f;
+  color: #818027;
 }
 
 .custom-amount input {
@@ -1849,17 +1862,17 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   font-size: 1.125rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 .custom-amount input:focus {
   outline: none;
-  border-color: #2c5f4f;
+  border-color: #818027;
 }
 
 /* Bank details section */
 .bank-details {
-  background: linear-gradient(135deg, #2c5f4f, #3d7a66);
+  background: linear-gradient(135deg, #818027, #a4a23f);
   color: white;
   padding: 50px 5%;
   margin: 60px 0;
@@ -1930,7 +1943,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   align-items: center;
   justify-content: center;
   background: white;
-  color: #2c5f4f;
+  color: #818027;
   padding: 14px 32px;
   border-radius: 50px;
   text-decoration: none;
@@ -1955,7 +1968,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 .thank-you p {
   font-size: 1.25rem;
   font-style: italic;
-  color: #2c5f4f;
+  color: #818027;
   margin: 0;
 }
 
@@ -1968,12 +1981,12 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 .donate-cta h3 {
   font-size: 1.75rem;
   margin-bottom: 24px;
-  color: #2c5f4f;
+  color: #818027;
 }
 
 .donate-cta .button {
   display: inline-block;
-  background: #2c5f4f;
+  background: #818027;
   color: white;
   padding: 14px 32px;
   border-radius: 50px;
@@ -1983,7 +1996,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 }
 
 .donate-cta .button:hover {
-  background: #234a3d;
+  background: #6a6921;
   transform: scale(1.05);
 }
 
@@ -2094,7 +2107,7 @@ main.container section > .key-list {
 .visit-info h2 {
   text-align: center;
   margin-bottom: 40px;
-  color: #2c5f4f;
+  color: #818027;
 }
 
 .info-grid {
@@ -2123,7 +2136,7 @@ main.container section > .key-list {
 }
 
 .what3words a {
-  color: #2c5f4f;
+  color: #818027;
   text-decoration: none;
   font-weight: 500;
 }
@@ -2147,7 +2160,7 @@ main.container section > .key-list {
 .map-section h2 {
   text-align: center;
   margin-bottom: 32px;
-  color: #2c5f4f;
+  color: #818027;
 }
 
 /* Map wrapper - 40% aspect ratio instead of 56.25% */
@@ -2269,7 +2282,7 @@ main.container section > .key-list {
 
 /* About page stats banner */
 .about-stats {
-  background: linear-gradient(135deg, var(--brand), #3d7a66);
+  background: linear-gradient(135deg, var(--brand), #a4a23f);
   color: #fff;
   padding: clamp(48px, 6vw, 72px) 0;
 }
@@ -2561,15 +2574,48 @@ main.container section > .key-list {
   color: var(--brand-dark);
   text-decoration: none;
 }
-.content-section h2 a:hover { text-decoration: underline; }
+.content-section h2 a:hov
 
-/* Visiting "Getting here": 2 info cards sit as a centred pair, not stranded in a 4-col grid */
-.visit-info .info-grid {
-  grid-template-columns: repeat(2, 1fr);
-  max-width: 760px;
-  margin-left: auto;
-  margin-right: auto;
+/* ============================================
+   JUL 26 FEEDBACK ROUND (Phil)
+   ============================================ */
+
+/* Contact page: links land at the "Get in touch" heading, clear of sticky header */
+#form-title { scroll-margin-top: 110px; }
+
+/* About: "What do Friends of JSP do?" photo + copy split */
+.what-we-do-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
 }
-@media (max-width: 600px) {
-  .visit-info .info-grid { grid-template-columns: 1fr; }
+@media (min-width: 900px) {
+  .what-we-do-grid { grid-template-columns: 5fr 7fr; gap: 48px; }
+}
+.what-photo { margin: 0; }
+.what-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+.what-we-do-grid .responsibilities-clean { grid-template-columns: 1fr; }
+
+/* Family album: natural (uncropped) photo shapes in a masonry-style layout */
+.photo-row--natural {
+  display: block;
+  columns: 1;
+  column-gap: 20px;
+}
+@media (min-width: 600px) { .photo-row--natural { columns: 2; } }
+@media (min-width: 1000px) { .photo-row--natural { columns: 3; } }
+.photo-row--natural figure {
+  break-inside: avoid;
+  margin: 0 0 20px;
+}
+.photo-row--natural img {
+  aspect-ratio: auto;
+  height: auto;
+  object-fit: contain;
 }

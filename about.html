@@ -9,8 +9,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="resources/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="resources/css/styles.css?v=15">
+  <link rel="icon" type="image/svg+xml" href="resources/images/favicon.svg">
   <script>document.documentElement.classList.replace('no-js','js');</script>
   <script src="resources/javascript/main.js" defer></script>
 
@@ -22,7 +23,7 @@
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a href="index.html" class="nav-logo-link" aria-label="Jacob Smith Park – Home">
-        <img src="resources/images/logo-placeholder.png" alt="Friends of Jacob Smith Park" class="nav-logo" />
+        <img src="resources/images/logo-white.svg" alt="Friends of Jacob Smith Park" class="nav-logo" />
       </a>
       <nav class="site-nav" aria-label="Main navigation">
         <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">☰</button>
@@ -47,10 +48,10 @@
   </header>
 
   <!-- Banner -->
-  <section class="banner banner--image">
+  <section class="banner banner--image banner--plain">
     <img src="resources/images/banners/banner-about.jpeg" alt="About Jacob Smith Park" class="banner-image">
     <div class="container">
-      <h2>About us</h2>
+      <h2 class="visually-hidden">About us</h2>
     </div>
   </section>
 
@@ -69,6 +70,11 @@
     <section class="what-we-do">
       <div class="container">
         <h2>What do Friends of JSP do?</h2>
+        <div class="what-we-do-grid">
+          <figure class="what-photo">
+            <img src="resources/images/about_us/chipping-crew.jpg" alt="Volunteers with rakes and a wheelbarrow after spreading wood chippings in Jacob Smith Park">
+          </figure>
+          <div class="what-copy">
         <p>The Friends of Jacob Smith Park (FoJSP) are a community interest group formed in 2008, shortly after JSP opened to the public. We are run by a volunteer committee who provide the link between the local community and North Yorkshire Council (NYC), which owns and maintains the park.</p>
         <div class="responsibilities-clean">
           <div class="resp-item">
@@ -85,6 +91,8 @@
           </div>
           <div class="resp-item">
             <p>Hold public meetings twice a year to share progress and gather views on upcoming priorities</p>
+          </div>
+        </div>
           </div>
         </div>
       </div>
@@ -244,12 +252,12 @@
         <div class="cta-card">
           <h3 class="cta-title">Get involved</h3>
           <p class="cta-description">Volunteer, join a work party, or help at an event</p>
-          <a href="contact.html#contact-form" class="cta-button">Get involved</a>
+          <a href="contact.html#form-title" class="cta-button">Get involved</a>
         </div>
         <div class="cta-card">
           <h3 class="cta-title">Add me to the mailing list</h3>
           <p class="cta-description">Receive updates about what is happening in the park, volunteer events &amp; biannual meeting dates</p>
-          <a href="contact.html#contact-form" class="cta-button">Add me to the mailing list</a>
+          <a href="contact.html#form-title" class="cta-button">Add me to the mailing list</a>
         </div>
       </div>
     </div>
@@ -279,7 +287,7 @@
         <ul class="footer-links">
           <li><a href="mailto:contact@friendsofjsp.org.uk">contact@friendsofjsp.org.uk</a></li>
         </ul>
-        <p><a class="button" href="contact.html#contact-form">Add me to the mailing list</a></p>
+        <p><a class="button" href="contact.html#form-title">Add me to the mailing list</a></p>
       </section>
     </div>
     <div class="legal-bar">

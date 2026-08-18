@@ -50,7 +50,7 @@ body {
 }
 img { max-width: 100%; height: auto; display: block; }
 .container { width: var(--wrap); max-width: 1400px; margin-left: auto; margin-right: auto; padding-inline: var(--wrap-pad); }
-[id] { scroll-margin-top: 90px; } /* sticky-header safe anchor offset */
+[id] { scroll-margin-top: 150px; } /* sticky-header safe anchor offset */
 
 /* respect [hidden] when JS is active */
 html.js [hidden] { display: none !important; }
@@ -590,7 +590,8 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 .info-icon {
   font-size: 2.5rem;
   display: block;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+  text-align: left;   /* line the icon up with the heading and text below it */
 }
 
 .info-card h3 {
@@ -1235,7 +1236,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   border-color: var(--brand);
   box-shadow: 0 6px 16px rgba(0,0,0,.12);
 }
-.section-anchor { scroll-margin-top: 120px; }
+.section-anchor { scroll-margin-top: 150px; }
 .page-header { margin-block: 18px 10px; }
 
 /* -------------------- utilities -------------------- */
@@ -1329,16 +1330,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   box-shadow: 0 8px 24px rgba(0,0,0,.15);
 }
 
-/* Drop cap on first section's opening paragraph */
-.alt-layout:first-of-type .alt-text p:first-child::first-letter {
-  font-size: 3.5rem;
-  font-weight: 600;
-  float: left;
-  line-height: 1;
-  margin-right: 8px;
-  margin-top: 4px;
-  color: var(--brand);
-}
+/* Drop cap removed Aug 2026 — client asked for consistent body text across the site */
 
 /* Heritage quote styling */
 .heritage-quote {
@@ -1367,62 +1359,35 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   background-image: url("../images/website-bg.svg");
   background-repeat: no-repeat;
   background-position: center bottom;
-  background-size: contain;                       /* full treeline, uncropped, anchored bottom */
-  min-height: 46vh;
-  display: flex;
-  align-items: center;
-  padding: 48px 5% 40px;
-  margin-top: 0;
+  background-size: 100% auto;                     /* illustration spans the full page width */
+  /* bottom padding = the illustration's own height (1920 x 451.63 = 23.52%)
+     so the buttons always sit clear of the treeline and the logo */
+  padding: 48px 5% calc(17% + 28px);
+  text-align: center;
 }
 
 .footer-cta .cta-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-  max-width: 940px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 16px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-@media (min-width: 768px) {
-  .footer-cta .cta-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-  }
-}
-
-.footer-cta .cta-card {
-  background: rgba(255, 255, 255, 0.82);
-  -webkit-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  border-radius: 16px;
-  padding: 22px 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  box-shadow: 0 8px 24px rgba(80, 46, 32, 0.18);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.footer-cta .cta-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgba(0,0,0,.12);
-}
-
-.footer-cta .cta-title {
-  font-size: 1.2rem;
+/* Plain pill buttons — no card, no strapline (client feedback, Aug 2026) */
+.footer-cta .cta-button {
+  flex: 0 0 280px;
+  max-width: 100%;
+  padding: 15px 24px;
+  font-size: 1rem;
   font-weight: 600;
-  margin: 0;
-  color: var(--brand-dark);
+  box-shadow: 0 4px 14px rgba(80, 46, 32, 0.18);
 }
 
-.footer-cta .cta-description {
-  font-size: 0.9rem;
-  line-height: 1.45;
-  color: var(--muted);
-  margin: 0;
-  flex-grow: 1;
+@media (max-width: 600px) {
+  .footer-cta .cta-button { flex: 1 1 100%; }
 }
 
 .cta-button {
@@ -1778,7 +1743,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 
 .action-btn.active p { color: rgba(255,255,255,.9); }
 
-.contact-form-section { scroll-margin-top: 100px; }
+.contact-form-section { scroll-margin-top: 170px; }
 /* ============================================
    DONATE PAGE STYLING
    Updated per client feedback
@@ -2125,8 +2090,27 @@ main.container section > .key-list {
 }
 
 @media (min-width: 1024px) {
+  /* Two cards only — let them share the full width rather than sitting in a
+     4-column grid with dead space on the right (client feedback, Aug 2026) */
   .info-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+/* Address and what3words side by side inside the Location card */
+.location-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: start;
+  text-align: left;
+}
+
+@media (min-width: 600px) {
+  .location-split {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
   }
 }
 
@@ -2581,7 +2565,7 @@ main.container section > .key-list {
    ============================================ */
 
 /* Contact page: links land at the "Get in touch" heading, clear of sticky header */
-#form-title { scroll-margin-top: 110px; }
+#form-title { scroll-margin-top: 170px; } /* clears the sticky header with room to spare */
 
 /* About: "What do Friends of JSP do?" photo + copy split */
 .what-we-do-grid {
@@ -2618,4 +2602,23 @@ main.container section > .key-list {
   aspect-ratio: auto;
   height: auto;
   object-fit: contain;
+}
+
+
+/* ============================================
+   JACOB SMITH FAMILY PAGE
+   Archive photos are a mix of portrait and landscape — cap the height so a
+   tall scan doesn't stretch its block out of proportion (client feedback, Aug 2026)
+   ============================================ */
+.family-page .alt-image img {
+  max-height: 460px;
+  width: auto;
+  max-width: 100%;
+  display: block;
+  margin-inline: auto;
+}
+
+.family-page .alt-image .image-caption {
+  max-width: 460px;
+  margin-inline: auto;
 }

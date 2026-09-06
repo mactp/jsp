@@ -4,14 +4,24 @@
   <meta name="robots" content="noindex, nofollow">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>Contact Us – Friends of Jacob Smith Park</title>
+  <title>Contact | Friends of Jacob Smith Park</title>
   <meta name="description" content="Contact the Friends of Jacob Smith Park or North Yorkshire Council.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="resources/css/styles.css?v=17">
+  <link rel="stylesheet" href="resources/css/styles.css?v=19">
   <link rel="icon" type="image/svg+xml" href="resources/images/favicon.svg">
+  <!-- Social preview -->
+  <meta property="og:site_name" content="Friends of Jacob Smith Park">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:url" content="https://friendsofjsp.org.uk/contact.html">
+  <meta property="og:title" content="Contact | Friends of Jacob Smith Park">
+  <meta property="og:description" content="Contact the Friends of Jacob Smith Park or North Yorkshire Council.">
+  <meta property="og:image" content="https://friendsofjsp.org.uk/resources/images/banners/banner-contact.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#818027">
   <script>document.documentElement.classList.replace('no-js','js');</script>
   <script src="resources/javascript/main.js" defer></script>
 
@@ -95,6 +105,11 @@
       border-color: var(--brand);
       background: #fff;
     }
+    .form-field input:focus-visible,
+    .form-field textarea:focus-visible {
+      outline: 3px solid var(--brand-2);
+      outline-offset: 2px;
+    }
     .form-field textarea { resize: vertical; min-height: 140px; }
 
     .consent-row {
@@ -130,7 +145,10 @@
     }
     .submit-btn:hover { background: var(--brand-dark); transform: scale(1.03); }
 
-    .form-status { font-size: 0.9rem; color: var(--brand-2); font-weight: 500; }
+    .form-status { font-size: 0.95rem; color: var(--brand); font-weight: 600; }
+    .form-status.is-success { color: var(--brand); }
+    .form-status.is-error { color: #a33a2a; }
+    .submit-btn[disabled] { opacity: .65; cursor: progress; transform: none; }
 
     /* ── Sidebar ── */
     .contact-sidebar { display: flex; flex-direction: column; gap: 20px; }

@@ -258,6 +258,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm && formStatus) {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      const btn = contactForm.querySelector('.submit-btn');
+      const btnLabel = btn ? btn.textContent : '';
+      formStatus.classList.remove('is-success', 'is-error');
+      formStatus.textContent = 'Sending\u2026';
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending\u2026'; }
       try {
         const res = await fetch(contactForm.action, {
           method: 'POST',
@@ -265,13 +270,18 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: { 'Accept': 'application/json' }
         });
         if (res.ok) {
-          formStatus.textContent = 'Message sent — thank you!';
+          formStatus.classList.add('is-success');
+          formStatus.textContent = 'Thank you, your message has been sent. We\u2019ll be in touch soon.';
           contactForm.reset();
         } else {
-          formStatus.textContent = 'Something went wrong. Please try emailing us directly.';
+          formStatus.classList.add('is-error');
+          formStatus.textContent = 'Sorry, something went wrong. Please email us at contact@friendsofjsp.org.uk instead.';
         }
       } catch {
-        formStatus.textContent = 'Could not send. Please try emailing us directly.';
+        formStatus.classList.add('is-error');
+        formStatus.textContent = 'Sorry, we could not send that. Please email us at contact@friendsofjsp.org.uk instead.';
+      } finally {
+        if (btn) { btn.disabled = false; btn.textContent = btnLabel; }
       }
     });
   }

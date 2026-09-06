@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navList   = document.getElementById('primary-nav');
   const scrim     = document.querySelector('.scrim');
   const body      = document.body;
-  const mq        = window.matchMedia('(max-width: 900px)');
+  const mq        = window.matchMedia('(max-width: 1100px)');
 
   if (toggleBtn && navList) {
     let lastFocus = null;
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggle.addEventListener('click', function (e) {
       e.preventDefault();
       const menu = this.closest('.has-dropdown')?.querySelector('.dropdown-menu');
-      if (window.innerWidth < 900) {
+      if (window.innerWidth < 1100) {
         // Mobile: tap toggles the submenu open/closed
         const open = menu && menu.style.display === 'block';
         if (menu) menu.style.display = open ? 'none' : 'block';

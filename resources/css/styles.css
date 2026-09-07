@@ -174,11 +174,13 @@ a { font-weight: 500; }
   display: block;
 }
 
-/* Ian's tree + logotype lock-up (Aug 2026): hangs from the top edge of the page
-   on desktop; mobile reverts to the two-colour type-only logotype. */
+/* Ian's tree + logotype lock-up (v3, Sep 2026): bleeds a few px off the top of
+   the page and sits fully inside the header bar (no hang over the banner).
+   Ian's spec: height 120px, top 31px, header padding-bottom 28px.
+   Mobile reverts to the two-colour type-only logotype. */
 :root {
-  --logo-tree-h: 140px;   /* rendered height of the lock-up */
-  --logo-tree-top: 28px;  /* header padding above the logo link (12 + 16) */
+  --logo-tree-h: 120px;   /* rendered height of the lock-up */
+  --logo-tree-top: 31px;  /* pulls the tile up past the header top (12 + 16 = 28px above the link) */
 }
 .nav-logo--tree { display: none; }
 @media (min-width: 1101px) {
@@ -186,8 +188,9 @@ a { font-weight: 500; }
   .nav-logo-link {
     position: relative;
     height: 60px;
-    width: calc(var(--logo-tree-h) * 648.61 / 230.31);
+    width: calc(var(--logo-tree-h) * 633.79 / 222.6);
   }
+  .site-header { padding-bottom: 28px; }
   .nav-logo--tree {
     display: block;
     position: absolute;

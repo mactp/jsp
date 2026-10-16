@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="resources/css/styles.css?v=20">
+  <link rel="stylesheet" href="resources/css/styles.css?v=21">
   <link rel="icon" type="image/svg+xml" href="resources/images/favicon.svg">
   <!-- Social preview -->
   <meta property="og:site_name" content="Friends of Jacob Smith Park">
@@ -62,13 +62,15 @@
       padding: clamp(36px, 5vw, 56px) 0 clamp(48px, 6vw, 80px);
       background: #fff;
     }
+    /* Form left, North Yorkshire Council box right; stacked below 900px */
     .contact-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: clamp(40px, 6vw, 80px);
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 32px;
       align-items: start;
     }
-    @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-grid > .contact-form-wrap { max-width: none; margin: 0; }
+    @media (max-width: 899px) { .contact-grid { grid-template-columns: minmax(0, 1fr); } }
 
     /* ── Form ── */
     .contact-form-wrap h2 {
@@ -197,6 +199,7 @@
       line-height: 1.55;
     }
     .emergency-block strong { color: var(--fg); }
+    .contact-info-card .emergency-block p { margin-left: 0; margin-right: 0; }
 
     /* hp */
     .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
@@ -251,7 +254,7 @@
 
   <section class="page-intro">
     <div class="container">
-      <p class="intro-text">If you have a question or suggestion, we'd love to hear from you</p>
+      <p class="intro-text">If you have a question or suggestion<br class="intro-break"> we'd love to hear from you</p>
     </div>
   </section>
 
@@ -260,48 +263,50 @@
     <!-- Form -->
     <section class="contact-main">
       <div class="container">
-        <div class="contact-form-wrap">
-          <h2 id="form-title">Get in touch</h2>
-          <p>Or email us directly at <a href="mailto:contact@friendsofjsp.org.uk">contact@friendsofjsp.org.uk</a></p>
+        <div class="contact-grid">
+          <div class="contact-form-wrap">
+            <h2 id="form-title">Contact Friends of JSP</h2>
+            <p>Use this form to register your interest in volunteering, ask to be added to the mailing list or ask a question. Or you can email us direct at <a href="mailto:contact@friendsofjsp.org.uk">contact@friendsofjsp.org.uk</a></p>
 
-          <form class="contact-form" id="contact-form" action="https://formspree.io/f/mbglrdnq" method="POST">
-            <div class="hp-field" aria-hidden="true">
-              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+            <form class="contact-form" id="contact-form" action="https://formspree.io/f/mbglrdnq" method="POST">
+              <div class="hp-field" aria-hidden="true">
+                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+              </div>
+
+              <input type="hidden" name="_subject" value="Website enquiry via friendsofjsp.org.uk">
+
+              <div class="form-field">
+                <label for="name">Name <span aria-hidden="true">*</span></label>
+                <input id="name" name="Name" type="text" autocomplete="name" required>
+              </div>
+
+              <div class="form-field">
+                <label for="email">Email <span aria-hidden="true">*</span></label>
+                <input id="email" name="Email" type="email" autocomplete="email" required>
+              </div>
+
+              <div class="form-field">
+                <label for="message">Message <span aria-hidden="true">*</span></label>
+                <textarea id="message" name="Message" rows="6" required></textarea>
+              </div>
+
+              <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                <button class="submit-btn" type="submit">Send message</button>
+                <span id="form-status" role="status" aria-live="polite" class="form-status"></span>
+              </div>
+            </form>
+          </div>
+
+          <!-- North Yorkshire Council info -->
+          <div class="contact-info-card">
+            <h3>Contact North Yorkshire Council</h3>
+            <p>For concerns about trees, grass cutting, bin emptying, or other maintenance queries relating to the park, please contact North Yorkshire Council directly — they own and manage the park.</p>
+            <a href="https://www.northyorks.gov.uk/contact/parks-and-woodlands-harrogate?p=2544&amp;h=Environment%20and%20neighbourhoods%7C%7CParks%20and%20woodlands" target="_blank" rel="noopener" class="card-btn">Contact North Yorkshire Council — parks &amp; woodlands</a>
+            <div class="emergency-block">
+              <p><strong>Emergencies:</strong> call NYC on <strong>0300 131 2 131</strong></p>
+              <p>Mon &amp; Tue 9am–5pm · Wed 9.30am–5pm · Thu 9am–5pm · Fri 9am–4.30pm</p>
+              <p><strong>Antisocial behaviour:</strong> call police on <strong>101</strong> (or <strong>999</strong> in an emergency)</p>
             </div>
-
-            <input type="hidden" name="_subject" value="Website enquiry via friendsofjsp.org.uk">
-
-            <div class="form-field">
-              <label for="name">Name <span aria-hidden="true">*</span></label>
-              <input id="name" name="Name" type="text" autocomplete="name" required>
-            </div>
-
-            <div class="form-field">
-              <label for="email">Email <span aria-hidden="true">*</span></label>
-              <input id="email" name="Email" type="email" autocomplete="email" required>
-            </div>
-
-            <div class="form-field">
-              <label for="message">Message <span aria-hidden="true">*</span></label>
-              <textarea id="message" name="Message" rows="6" required></textarea>
-            </div>
-
-            <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-              <button class="submit-btn" type="submit">Send message</button>
-              <span id="form-status" role="status" aria-live="polite" class="form-status"></span>
-            </div>
-          </form>
-        </div>
-
-        <!-- North Yorkshire Council info -->
-        <div class="contact-info-card center-block" style="margin-top: 48px; max-width: 680px;">
-          <h3>North Yorkshire Council</h3>
-          <p>For concerns about trees, bin emptying, or other maintenance queries relating to the park, please contact North Yorkshire Council directly — they own and manage the park.</p>
-          <a href="https://www.northyorks.gov.uk/contact/parks-and-woodlands-harrogate?p=2544&amp;h=Environment%20and%20neighbourhoods%7C%7CParks%20and%20woodlands" target="_blank" rel="noopener" class="card-btn">Contact North Yorkshire Council — parks &amp; woodlands</a>
-          <div class="emergency-block">
-            <p><strong>Emergencies:</strong> call NYC on <strong>0300 131 2 131</strong></p>
-            <p>Mon &amp; Tue 9am–5pm · Wed 9.30am–5pm · Thu 9am–5pm · Fri 9am–4.30pm</p>
-            <p><strong>Antisocial behaviour:</strong> call police on <strong>101</strong> (or <strong>999</strong> in an emergency)</p>
           </div>
         </div>
 
@@ -315,7 +320,7 @@
   <div class="container">
     <div class="cta-grid">
       <a href="donate.html" class="cta-button">Donate</a>
-      <a href="contact.html#form-title" class="cta-button">Get involved</a>
+      <a href="get-involved.html" class="cta-button">Get involved</a>
       <a href="contact.html#form-title" class="cta-button">Add me to the mailing list</a>
     </div>
   </div>

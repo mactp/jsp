@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;700;800&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="resources/css/styles.css?v=20">
+  <link rel="stylesheet" href="resources/css/styles.css?v=21">
   <link rel="icon" type="image/svg+xml" href="resources/images/favicon.svg">
   <!-- Social preview -->
   <meta property="og:site_name" content="Friends of Jacob Smith Park">
@@ -25,9 +25,6 @@
   <meta name="theme-color" content="#818027">
   <script>document.documentElement.classList.replace('no-js','js');</script>
   <script src="resources/javascript/main.js" defer></script>
-
-  <!-- PayPal hosted buttons SDK (Part 1) -->
-  <script src="https://www.paypal.com/sdk/js?client-id=BAAJvgh8OL2GYJUcnAKjpBQ8IOydmYRPCJPSy3sbcHZ4uZO20EmdveRhRwecqTgoXmDUe0MJ9uxM7gGYcs&components=hosted-buttons&disable-funding=venmo&currency=GBP"></script>
 
   <style>
     /* ── Banner fix ── */
@@ -88,7 +85,7 @@
       border-radius: 16px;
       padding: 36px 28px 32px;
       box-shadow: 0 2px 12px rgba(0,0,0,.07);
-      border-top: 4px solid var(--brand);
+      border-top: 4px solid var(--brand-2-dark);
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -98,7 +95,7 @@
       transform: translateY(-4px);
       box-shadow: 0 8px 28px rgba(0,0,0,.11);
     }
-    .give-card:nth-child(2) { border-top-color: var(--brand-2); }
+    .give-card:nth-child(2) { border-top-color: var(--brand-2-dark); }
     .give-card:nth-child(3) { border-top-color: var(--accent); }
 
     .give-icon {
@@ -166,7 +163,7 @@
 
     .give-anchor-btn {
       display: inline-block;
-      background: var(--brand);
+      background: var(--brand-2-dark);
       color: #fff;
       padding: 13px 28px;
       border-radius: 50px;
@@ -182,8 +179,8 @@
       transform: scale(1.04);
       text-decoration: none;
     }
-    .give-card:nth-child(2) .give-anchor-btn { background: var(--brand-2); }
-    .give-card:nth-child(2) .give-anchor-btn:hover { background: var(--brand-2-dark); }
+    .give-card:nth-child(2) .give-anchor-btn { background: var(--brand-2-dark); }
+    .give-card:nth-child(2) .give-anchor-btn:hover { background: var(--brand-dark); }
     .give-card:nth-child(3) .give-anchor-btn { background: var(--brand); }
 
     /* ── Bank details ── */
@@ -335,7 +332,7 @@
   <section class="page-intro">
     <div class="container">
       <p class="intro-text">
-        If you enjoy visiting JSP please donate to help us improve the park and keep it beautiful
+        If you enjoy visiting JSP please donate to help us<br class="intro-break"> improve the park and keep it beautiful
       </p>
     </div>
   </section>
@@ -346,8 +343,8 @@
   <section class="donate-intro">
     <div class="container">
       <h2>Help us keep Jacob Smith Park beautiful</h2>
-      <p>North Yorkshire Council cover the costs of maintaining the park, but enhancements are mainly organised and funded by the Friends of JSP (FoJSP).</p>
-      <p>We aim to achieve the best possible results on a very tight budget. All the committee and volunteers give their time for free, and we have achieved some amazing results — see <a href="get-involved.html">Get involved</a> for examples of our recent projects.</p>
+      <p>North Yorkshire Council cover the costs of maintaining the park, such as grass cutting and repairing the walls, but enhancements are mainly organised and funded by the Friends of JSP (FoJSP).</p>
+      <p>We aim to achieve the best possible results on a very tight budget. All the committee and volunteers give their time for free, and we have achieved some amazing results — see <a href="get-involved.html#recent-projects">Get involved</a> for examples of our recent projects.</p>
       <p>We need your help to fund future enhancement projects and meet our ongoing running costs, including public liability insurance (without which we could not run volunteering events) and website hosting.</p>
       <p>If you enjoy visiting JSP, please help us maintain and improve it for your future visits. Please donate as much as you are able; we'd love you to set up a monthly standing order. Regular payments of £3, £5 or £10 a month would really help us. Or if you prefer, set up an annual standing order or make a one-off donation for whatever you like.</p>
     </div>
@@ -357,6 +354,7 @@
   <section class="ways-to-give" id="ways-to-give">
     <div class="container">
       <h2>Ways to give</h2>
+      <p>Jacob Smith Park is free to use but not to run; a monthly donation helps us to plan new projects and continue to improve the park for your future visits.</p>
 
       <div class="give-grid two-up">
 
@@ -398,12 +396,12 @@
               <span class="bank-value">Friends of Jacob Smith Park</span>
             </div>
             <div class="bank-row">
-              <span class="bank-label">Account number</span>
-              <span class="bank-value">65364707</span>
-            </div>
-            <div class="bank-row">
               <span class="bank-label">Sort code</span>
               <span class="bank-value">08-92-99</span>
+            </div>
+            <div class="bank-row">
+              <span class="bank-label">Account number</span>
+              <span class="bank-value">65364707</span>
             </div>
           </div>
           <p class="bank-note"><strong>Standing order reference suggestion:</strong> JSP donation</p>
@@ -412,12 +410,11 @@
         <!-- PayPal column -->
         <div class="paypal-col" id="paypal">
           <p>Prefer to give online? Donate quickly and securely via PayPal:</p>
-          <div id="paypal-container-NY4UD4KRDNF7U"></div>
-          <script>
-            paypal.HostedButtons({
-              hostedButtonId: "NY4UD4KRDNF7U",
-            }).render("#paypal-container-NY4UD4KRDNF7U");
-          </script>
+          <form action="https://www.paypal.com/donate" method="post" target="_top">
+            <input type="hidden" name="hosted_button_id" value="DUQ4JJQR4RSDJ" />
+            <input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+            <img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
+          </form>
         </div>
 
       </div>
@@ -437,7 +434,7 @@
   <div class="container">
     <div class="cta-grid">
       <a href="donate.html" class="cta-button">Donate</a>
-      <a href="contact.html#form-title" class="cta-button">Get involved</a>
+      <a href="get-involved.html" class="cta-button">Get involved</a>
       <a href="contact.html#form-title" class="cta-button">Add me to the mailing list</a>
     </div>
   </div>

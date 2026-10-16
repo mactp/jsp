@@ -10,7 +10,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="resources/css/styles.css?v=20">
+  <link rel="stylesheet" href="resources/css/styles.css?v=21">
+  <style>
+    /* Committee + key documents side by side (stacks on narrow screens) */
+    .committee-docs { display: grid; grid-template-columns: 1fr; gap: 40px; }
+    @media (min-width: 900px) {
+      .committee-docs { grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    }
+    .committee-docs h2 { color: var(--brand-dark); margin-bottom: 12px; }
+    .committee-docs .committee-list { gap: 0; }
+    .committee-docs .committee-list li { padding: 6px 0; }
+    .committee-docs .documents-grid { grid-template-columns: 1fr; margin-top: 0; }
+  </style>
   <link rel="icon" type="image/svg+xml" href="resources/images/favicon.svg">
   <!-- Social preview -->
   <meta property="og:site_name" content="Friends of Jacob Smith Park">
@@ -78,7 +89,7 @@
   <section class="page-intro">
     <div class="intro-content">
       <p class="intro-text">
-        The Friends of Jacob Smith Park are passionate about enhancing and protecting this precious green space for future generations
+        The Friends of Jacob Smith Park are passionate about<br class="intro-break"> enhancing and protecting this precious green space<br class="intro-break"> for future generations
       </p>
     </div>
   </section>
@@ -94,22 +105,22 @@
             <img src="resources/images/about_us/chipping-crew.jpg" alt="Volunteers with rakes and a wheelbarrow after spreading wood chippings in Jacob Smith Park" width="1800" height="1350" loading="lazy" decoding="async">
           </figure>
           <div class="what-copy">
-        <p>The Friends of Jacob Smith Park (FoJSP) are a community interest group formed in 2008, shortly after JSP opened to the public. We are run by a volunteer committee who provide the link between the local community and North Yorkshire Council (NYC), which owns and maintains the park.</p>
+        <p>The Friends of Jacob Smith Park (FoJSP) is a community interest group formed in 2008, shortly after JSP opened to the public. We are run by a volunteer committee who provide the link between the local community and North Yorkshire Council (NYC), who owns and maintains the park.</p>
         <div class="responsibilities-clean">
           <div class="resp-item">
-            <p>Represent the interests of the local community and park users in relation to the park</p>
+            <p>Represent the interests of the local community and park users in relation to the park.</p>
           </div>
           <div class="resp-item">
-            <p>Agree priorities with NYC and help to deliver the yearly plan for the park</p>
+            <p>Agree priorities with NYC and help to deliver the yearly plan for the park.</p>
           </div>
           <div class="resp-item">
-            <p>Fundraising for agreed improvements to the park outside the council's responsibility</p>
+            <p>Fundraising for agreed improvements to the park outside the council's responsibility.</p>
           </div>
           <div class="resp-item">
-            <p>Arrange volunteering events to carry out agreed enhancements</p>
+            <p>Arrange volunteering events to carry out agreed enhancements.</p>
           </div>
           <div class="resp-item">
-            <p>Hold public meetings twice a year to share progress and gather views on upcoming priorities</p>
+            <p>Hold public meetings twice a year to share progress and gather views on upcoming priorities.</p>
           </div>
         </div>
           </div>
@@ -118,7 +129,7 @@
     </section>
 
     <!-- Recent projects -->
-    <section class="recent-projects" id="recent-projects">
+    <section class="recent-projects section-anchor" id="projects">
       <div class="container">
         <h2>Recent projects</h2>
         <p>A selection of the projects we've delivered in the park over the years.</p>
@@ -183,7 +194,7 @@
 
           <div class="project-card">
             <h4>Talks</h4>
-            <p>Arranged expert talks on wildflower meadows, bees, astronomy, dog training, and the benefits of green spaces.</p>
+            <p>Arranged expert talks on wildflower meadows, bees, astronomy, dog training and the benefits of green spaces.</p>
           </div>
 
           <div class="project-card">
@@ -200,70 +211,77 @@
       </div>
     </section>
 
-    <!-- Committee -->
+    <!-- Committee and key documents -->
     <section class="committee-section">
       <div class="container">
-        <h2>FoJSP committee</h2>
-        <p>The FoJSP committee is a relaxed and friendly group which meets a few times a year to agree priorities and manage the enhancements to the park.</p>
-        <ul class="committee-list">
-          <li><strong>Phil Millward</strong> — Chair</li>
-          <li><strong>Karen Millward</strong> — Secretary</li>
-          <li><strong>Carole Dobson</strong> — Treasurer</li>
-          <li><strong>Julia Hatch</strong> — Committee member</li>
-          <li><strong>Shirelle Hawkins</strong> — Committee member (NYC)</li>
-          <li><strong>Hilary Hopkinson</strong> — Committee member</li>
-          <li><strong>Ian Brown</strong> — Committee member</li>
-          <li><strong>Phil Oldfield</strong> — Committee member</li>
-        </ul>
+        <div class="committee-docs">
+          <div class="committee-col">
+            <h2>FoJSP committee</h2>
+            <p>The FoJSP committee is a relaxed and friendly group which meets a few times a year to agree priorities and manage the enhancements to the park.</p>
+            <ul class="committee-list">
+              <li><strong>Phil Millward</strong> — Chair</li>
+              <li><strong>Karen Millward</strong> — Secretary</li>
+              <li><strong>Carole Dobson</strong> — Treasurer</li>
+              <li><strong>Julia Hatch</strong> — Committee member</li>
+              <li><strong>Shirelle Hawkins</strong> — Committee member (NYC)</li>
+              <li><strong>Hilary Hopkinson</strong> — Committee member</li>
+              <li><strong>Ian Brown</strong> — Committee member</li>
+              <li><strong>Phil Oldfield</strong> — Committee member</li>
+            </ul>
+          </div>
+          <div class="key-docs-col">
+            <h2>Key documents</h2>
+            <div class="documents-grid">
+              <a href="resources/docs/FoJSP_public_meeting_minutes.pdf" target="_blank" class="doc-card">
+                <span class="doc-icon-clean">
+                  <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </span>
+                <span class="doc-name">Public meeting minutes</span>
+                <span class="doc-action">Download PDF →</span>
+              </a>
+              <a href="resources/docs/FoJSP_AGM_minutes.pdf" target="_blank" class="doc-card">
+                <span class="doc-icon-clean">
+                  <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </span>
+                <span class="doc-name">AGM minutes</span>
+                <span class="doc-action">Download PDF →</span>
+              </a>
+              <a href="resources/docs/JSP_management_plan.pdf" target="_blank" class="doc-card">
+                <span class="doc-icon-clean">
+                  <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </span>
+                <span class="doc-name">Management plan</span>
+                <span class="doc-action">Download PDF →</span>
+              </a>
+              <a href="resources/docs/FoJSP_constitution.pdf" target="_blank" class="doc-card">
+                <span class="doc-icon-clean">
+                  <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </span>
+                <span class="doc-name">FoJSP constitution</span>
+                <span class="doc-action">Download PDF →</span>
+              </a>
+              <a href="resources/docs/FoJSP_next_public_meeting_agenda.pdf" target="_blank" class="doc-card">
+                <span class="doc-icon-clean">
+                  <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </span>
+                <span class="doc-name">Next public meeting agenda</span>
+                <span class="doc-action">Download PDF →</span>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- How you can help -->
     <section class="how-to-help">
-      <div class="container" style="text-align: center;">
+      <div class="container">
         <h2>How can you help?</h2>
         <p>There are several ways to get involved and support the park — every contribution makes a difference.</p>
         <div class="help-links">
           <a href="get-involved.html" class="help-link-btn primary">Volunteer with us</a>
-          <a href="contact.html" class="help-link-btn secondary">Join the committee</a>
-          <a href="donate.html" class="help-link-btn secondary">Donate</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Key documents -->
-    <section class="key-docs">
-      <div class="container">
-        <h2>Key documents</h2>
-        <div class="documents-grid">
-          <a href="resources/docs/FoJSP_public_meeting_minutes.pdf" target="_blank" class="doc-card">
-            <span class="doc-icon-clean">
-              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            </span>
-            <span class="doc-name">Public meeting minutes</span>
-            <span class="doc-action">Download PDF →</span>
-          </a>
-          <a href="resources/docs/FoJSP_AGM_minutes.pdf" target="_blank" class="doc-card">
-            <span class="doc-icon-clean">
-              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            </span>
-            <span class="doc-name">AGM minutes</span>
-            <span class="doc-action">Download PDF →</span>
-          </a>
-          <a href="resources/docs/JSP_management_plan.pdf" target="_blank" class="doc-card">
-            <span class="doc-icon-clean">
-              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            </span>
-            <span class="doc-name">Management plan</span>
-            <span class="doc-action">Download PDF →</span>
-          </a>
-          <a href="resources/docs/FoJSP_constitution.pdf" target="_blank" class="doc-card">
-            <span class="doc-icon-clean">
-              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            </span>
-            <span class="doc-name">FoJSP constitution</span>
-            <span class="doc-action">Download PDF →</span>
-          </a>
+          <a href="contact.html" class="help-link-btn primary">Join the committee</a>
+          <a href="donate.html" class="help-link-btn primary">Donate</a>
         </div>
       </div>
     </section>
@@ -275,7 +293,7 @@
   <div class="container">
     <div class="cta-grid">
       <a href="donate.html" class="cta-button">Donate</a>
-      <a href="contact.html#form-title" class="cta-button">Get involved</a>
+      <a href="get-involved.html" class="cta-button">Get involved</a>
       <a href="contact.html#form-title" class="cta-button">Add me to the mailing list</a>
     </div>
   </div>

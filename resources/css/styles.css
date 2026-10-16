@@ -2680,11 +2680,6 @@ main.container section > .key-list {
   margin-inline: auto;
 }
 
-.family-page .alt-image .image-caption {
-  max-width: 460px;
-  margin-inline: auto;
-}
-
 /* ============================================
    QoL additions (Sep 2026)
    ============================================ */
@@ -2755,3 +2750,100 @@ main.container section > .key-list {
 .not-found-actions .button--secondary { background: var(--cream); color: var(--brand-dark); }
 .not-found-actions .button--secondary:hover,
 .not-found-actions .button--secondary:focus { background: #fff; color: var(--brand-dark); }
+
+/* ============================================
+   User testing feedback (Oct 2026)
+   ============================================ */
+
+/* Cream strap line: left-aligned and lined up with the page content
+   on every page (was centred). Line breaks are set per page with
+   <br class="intro-break"> and dropped on phones so text reflows. */
+.page-intro .intro-content {
+  width: var(--wrap);
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: var(--wrap-pad);
+}
+.page-intro .intro-text {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+  color: var(--brand-dark);
+}
+@media (max-width: 700px) {
+  .intro-break { display: none; }
+}
+
+/* Section headings: one size, one colour (bark brown), left-aligned
+   on every page. Some pages centred them or used body-text brown. */
+main h2:not(.visually-hidden) {
+  text-align: left !important;
+  color: var(--brand-dark) !important;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+/* Narrower gaps between sections (testers thought the page had ended).
+   One knob: --section-gap. */
+:root { --section-gap: clamp(32px, 4vw, 48px); }
+main > .content-section.alt-layout,
+main > .visit-info,
+main > .map-section,
+main > .what-we-do,
+main > .recent-projects,
+main > .committee-section,
+main > .how-to-help,
+main > .key-docs,
+main > .donate-intro,
+main > .ways-to-give,
+main > .bank-details {
+  padding-block: var(--section-gap);
+}
+
+/* Drop the short green line at the end of each section — the alternating
+   shading already separates them. */
+.content-section:not(:last-child)::after,
+.visit-info::after,
+.alt-layout:not(:last-child)::after {
+  content: none;
+}
+
+/* Captions: left-aligned, sitting directly under the bottom-left corner
+   of their photo. The wrapper shrinks to the photo's width, and the
+   caption (width 0, min-width 100%) wraps to that width instead of
+   stretching the wrapper, so it always starts where the photo starts. */
+.image-caption,
+figcaption {
+  text-align: left !important;
+}
+.alt-image:has(> .image-caption) {
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+}
+.alt-image:has(> .image-caption) > img {
+  margin-inline: 0;
+}
+.alt-image > .image-caption {
+  width: 0;
+  min-width: 100%;
+  max-width: none;
+  margin-top: 8px;
+  font-style: normal;
+}
+
+/* Caption laid over a banner photo, bottom-left (Wildlife banner). */
+.banner-caption {
+  position: absolute;
+  left: var(--wrap-pad);
+  bottom: 14px;
+  z-index: 2;
+  margin: 0;
+  font-size: 0.875rem;
+  color: #fff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, .7);
+}
+
+/* About "How can you help?" block: left-aligned to match the heading
+   (was centred). */
+.how-to-help .container > p { margin-inline: 0; }
+.how-to-help .help-links { justify-content: flex-start; }

@@ -11,7 +11,30 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="resources/css/styles.css?v=20">
+  <link rel="stylesheet" href="resources/css/styles.css?v=21">
+  <style>
+    /* May-green pill buttons inside the alternating copy blocks (matches .page-crosslink .button) */
+    .alt-text .button {
+      margin-block-start: 0;
+      padding: 14px 32px;
+      background: var(--brand);
+      color: #fff;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+    .alt-text .button:hover,
+    .alt-text .button:focus {
+      background: var(--brand-2-dark);
+      transform: scale(1.05);
+    }
+    .donate-prompt {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px 20px;
+    }
+  </style>
   <link rel="icon" type="image/svg+xml" href="resources/images/favicon.svg">
   <!-- Social preview -->
   <meta property="og:site_name" content="Friends of Jacob Smith Park">
@@ -81,7 +104,7 @@
   <section class="page-intro">
     <div class="intro-content">
       <p class="intro-text">
-        Help us protect and enhance this local haven for wildlife and people
+        Help us protect and enhance this local haven<br class="intro-break"> for wildlife and people
       </p>
     </div>
   </section>
@@ -96,6 +119,7 @@
             <p class="lead-sub">The Friends of Jacob Smith Park (FoJSP) are all volunteers, dedicated to maintaining and enhancing the park for everyone's enjoyment and to support a rich, diverse variety of wildlife.</p>
             <p>Part of our work includes regular and ongoing maintenance, such as annual oiling of the oak benches, hand-pulling balsam in early summer and general tidying in the park.</p>
             <p>We also undertake one-off projects such as tree planting, sowing of wildflowers and the addition of new benches — see the full list of recent projects at the bottom of this page.</p>
+            <p><a href="contact.html#form-title" class="button">Ready to get involved</a></p>
           </div>
           <div class="alt-image">
             <img src="resources/images/get_involved/gi-1.jpg" alt="1st Scriven Cubs helping to plant wildflower plugs in the park" width="1800" height="1350" loading="lazy" decoding="async">
@@ -115,6 +139,7 @@
           </div>
           <div class="alt-text">
             <p>Of course, keeping the park beautiful takes time, so we really appreciate it when people who enjoy visiting the park can also help with maintenance jobs or one-off projects. Giving your time to volunteer with us, no matter how much or little, or whether it is regular or a one-off, is very precious and really does make a huge difference.</p>
+            <p class="donate-prompt">Unable to volunteer? <a href="donate.html" class="button">Make a donation</a></p>
           </div>
         </div>
       </div>
@@ -174,7 +199,7 @@
     </section>
 
     <!-- Recent projects: image + text -->
-    <section class="content-section alt-layout alt-reverse">
+    <section class="content-section alt-layout alt-reverse section-anchor" id="recent-projects">
       <div class="container">
         <div class="alt-grid">
           <div class="alt-image">
@@ -218,7 +243,7 @@
   <div class="container">
     <div class="cta-grid">
       <a href="donate.html" class="cta-button">Donate</a>
-      <a href="contact.html#form-title" class="cta-button">Get involved</a>
+      <a href="get-involved.html" class="cta-button">Get involved</a>
       <a href="contact.html#form-title" class="cta-button">Add me to the mailing list</a>
     </div>
   </div>

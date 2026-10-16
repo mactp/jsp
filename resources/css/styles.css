@@ -2847,3 +2847,12 @@ figcaption {
    (was centred). */
 .how-to-help .container > p { margin-inline: 0; }
 .how-to-help .help-links { justify-content: flex-start; }
+
+/* Wildlife "On this page" pills: even breathing room above and below
+   (they sat flush on the next section) and left-aligned with the page
+   content like everything else. */
+.jump-links {
+  margin: 0 auto;
+  padding-block: 24px;
+}
+.jump-links ul { justify-content: flex-start; }

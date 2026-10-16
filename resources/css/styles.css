@@ -507,10 +507,11 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 .button {
   display: inline-block;
   margin-block-start: 10px;
-  background: var(--brand-2);
+  background: var(--brand);   /* May green pill, matching every other button (was pale summer green: white text hard to read) */
   color: #fff;
-  padding: 10px 15px;
-  border-radius: 6px;
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-weight: 600;
   text-decoration: none;
 }
 .button:hover,
@@ -642,7 +643,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   font-size: 0.95rem;
   line-height: 1.5;
   margin-bottom: 8px;
-  color: #666;
+  color: var(--muted);
 }
 
 /* Accent lines between visiting sections */
@@ -767,7 +768,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 }
 
 .doc-icon { font-size: 2rem; flex-shrink: 0; }
-.doc-name { flex-grow: 1; font-weight: 500; color: #333; }
+.doc-name { flex-grow: 1; font-weight: 500; color: var(--fg); }
 .doc-action { font-size: 0.875rem; color: var(--brand); font-weight: 500; }
 
 /* Projects – expandable cards */
@@ -817,7 +818,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 .project-summary::after {
   content: '\25BC';
   font-size: 0.875rem;
-  color: #666;
+  color: var(--muted);
   transition: transform 0.2s ease;
 }
 
@@ -896,7 +897,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 
 .committee-card .role {
   font-size: 0.95rem;
-  color: #666;
+  color: var(--muted);
   font-style: italic;
   margin: 0;
 }
@@ -1327,14 +1328,14 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   align-items: center;
   max-width: 100%;
   margin: 0 auto;
-  padding: 0 2%;
+  padding: 0;
 }
 
 @media (min-width: 768px) {
   .alt-grid {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    padding: 0 3%;
+    padding: 0;
   }
 }
 
@@ -1342,7 +1343,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   .alt-grid {
     grid-template-columns: 1fr 1fr;
     gap: 50px;
-    padding: 0 4%;
+    padding: 0;
     max-width: 1600px;
   }
 }
@@ -1375,7 +1376,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   border-left: 4px solid var(--brand);
   padding-left: 20px;
   font-style: italic;
-  color: #5a5a5a;
+  color: var(--muted);
   margin: 30px 0;
 }
 
@@ -1610,7 +1611,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 .project-summary-toggle::after {
   content: '\25BC';
   font-size: 0.875rem;
-  color: #666;
+  color: var(--muted);
   margin-left: 16px;
   flex-shrink: 0;
   transition: transform 0.3s ease;
@@ -1647,7 +1648,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 }
 .balsam-map figcaption {
   font-size: 0.95rem;
-  color: #555;
+  color: var(--muted);
   margin-top: 8px;
 }
 @media (min-width: 800px) {
@@ -2245,7 +2246,7 @@ main.container section > .key-list {
 /* Image caption styling */
 .image-caption {
   font-size: 0.875rem;
-  color: #777;
+  color: var(--muted);
   font-style: italic;
   text-align: center;
   margin-top: 12px;
@@ -2496,43 +2497,42 @@ main.container section > .key-list {
 }
 .photo-row figcaption {
   font-size: 0.95rem;
-  color: #555;
+  color: var(--muted);
   margin-top: 8px;
 }
 
 /* ============================================
-   CENTRED LAYOUT (readable paragraphs)
-   body.center-page = whole page; .center-block = single section
+   READABLE LAYOUT (was centred; left-aligned after user testing, Oct 2026)
+   body.center-page = whole page; .center-block = single section.
+   Everything starts on the page's left edge, under its heading; prose keeps
+   a readable 780px measure instead of being centred in it.
    ============================================ */
 
-/* Headings & sub-headings truly centred: fill the column and centre the text */
 .center-page main :is(h2, h3, h4, h5),
 .center-block :is(h2, h3) {
-  text-align: center;
+  text-align: left;
   max-width: none;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
 }
 
-/* Prose: readable 780px column, centred on the page, text left-aligned to read well */
 .center-page main p,
 .center-page main .lead-sub,
 .center-block p {
   max-width: 780px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
   text-align: left;
 }
 
-/* Standalone list blocks centred */
 .center-page main ul,
 .center-page main ol,
 .center-page .key-list {
   max-width: 780px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
 }
-.center-page .committee-list { max-width: 480px; margin-left: auto; margin-right: auto; }
+.center-page .committee-list { max-width: 480px; margin-left: 0; margin-right: 0; }
 
 /* Inside cards / accent bars, content stays left-aligned and fills the box */
 .center-page :is(.project-card, .give-card, .resp-item, .info-card, .doc-card, .bank-table, .archive) :is(h2, h3, h4, h5, p, ul, li, summary) {
@@ -2542,40 +2542,37 @@ main.container section > .key-list {
   text-align: left;
 }
 
-/* Grids sit centred as a block, keeping their internal layout */
+/* Grids start on the left edge, keeping their internal layout */
 .center-page :is(.responsibilities-clean, .projects-grid, .photo-row, .documents-grid) {
   max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
 }
 
-/* Button rows / CTAs / cross-links centred */
+/* Button rows / CTAs / cross-links on the left edge */
 .center-page .help-links,
-.center-page .cta-buttons { justify-content: center; }
+.center-page .cta-buttons { justify-content: flex-start; }
 .center-page .page-crosslink,
-.center-block.page-crosslink { text-align: center; }
+.center-block.page-crosslink { text-align: left; }
 
 /* Responsibility accent bars: an odd final bar spans full width (no orphan) */
 .center-page .responsibilities-clean > .resp-item:last-child:nth-child(odd) {
   grid-column: 1 / -1;
   max-width: none;
 }
-/* Orphaned last project card centred in its row */
-.projects-grid > .project-card:last-child:nth-child(3n+1) { grid-column: 2 / 3; }
-
-/* Contact: constrain & centre the form column, and the Council box */
-.center-page .contact-form-wrap { max-width: 720px; margin-left: auto; margin-right: auto; }
+/* Contact: constrain the form column, and the Council box */
+.center-page .contact-form-wrap { max-width: 720px; margin-left: 0; margin-right: 0; }
 .contact-info-card.center-block {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
 }
 
-/* Donate: two "ways to give" cards side by side, centred */
+/* Donate: two "ways to give" cards side by side */
 .ways-to-give .give-grid.two-up {
   max-width: 760px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
   grid-template-columns: 1fr 1fr;
 }
 @media (max-width: 620px) {
@@ -2856,3 +2853,31 @@ figcaption {
   padding-block: 24px;
 }
 .jump-links ul { justify-content: flex-start; }
+
+/* ---------- Design consistency pass (Oct 2026) ---------- */
+
+/* Donate: "Ways to give" had extra side padding of its own, and the green
+   bank-details band centred a 980px column, so their headings started at
+   two different places. Line both up with the page edge. */
+main > .ways-to-give { padding-inline: 0; }
+main > .bank-details { padding-inline: 0; }
+main > .bank-details > .bank-details-inner {
+  width: var(--wrap);
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: var(--wrap-pad);
+}
+main > .bank-details > .bank-details-inner > * { max-width: 980px; }
+
+/* Headings: bark brown at every level, including section and card titles
+   that were near-black or May green. */
+main :is(h3, h4, h5) { color: var(--brand-dark) !important; }
+
+/* ...except on panels with a coloured background, which keep white. */
+main section.bank-details :is(h2, h3, h4, h5),
+main section.get-involved-cta :is(h2, h3, h4, h5) { color: #fff !important; }
+
+/* Links in running text: brand green, not the browser's default blue. */
+main a:not([class]) { color: var(--brand); }
+main a:not([class]):hover,
+main a:not([class]):focus { color: var(--brand-2-dark); }

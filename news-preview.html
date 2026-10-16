@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>MOCK-UP: News &amp; Events | Friends of Jacob Smith Park</title>
+  <meta name="description" content="A tranquil wildlife haven in Knaresborough with rich history. Plan a visit, discover local wildlife, and get involved.">
+
+  <!-- CSS (cache-busted once to ensure new banner rules load) -->
+  <!-- Google Fonts: Nunito -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="resources/css/styles.css?v=21">
+
+  <!-- MOCK-UP ONLY: News & Events styles. Move into styles.css if approved. -->
+  <style>
+    .mockup-ribbon { background: var(--brand-dark); color: var(--cream); text-align: center; font-size: .9rem; padding: 8px 16px; }
+    .mockup-ribbon a { color: #fff; }
+    .news-events { padding-block: var(--section-gap); }
+    .news-events--events { background: #fafaf8; }
+    .news-events--news { background: #fff; }
+    .ne-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; margin-bottom: 24px; }
+    .ne-head h2 { margin: 0; }
+    .ne-head p { margin: 0; color: var(--muted); max-width: none; }
+    .ne-grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+    #events .ne-grid { align-items: start; }
+
+    /* Event tiles: click to open the details in place */
+    .event-tile { background: #fff; border: 1px solid #e8e2cf; border-top: 4px solid var(--brand); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .event-tile summary { list-style: none; cursor: pointer; padding: 18px 20px 16px; display: grid; gap: 6px; }
+    .event-tile summary::-webkit-details-marker { display: none; }
+    .event-when { justify-self: start; font-size: .8rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--brand-dark); background: var(--cream); border-radius: 999px; padding: 3px 12px; }
+    .event-type { font-size: .85rem; color: var(--muted); }
+    .event-tile h3 { margin: 0; font-size: 1.2rem; color: var(--brand-dark); }
+    .event-more { font-size: .9rem; font-weight: 600; color: var(--brand); }
+    .event-more::after { content: " +"; }
+    .event-tile[open] .event-more::after { content: " \2212"; }
+    .event-body { padding: 0 20px 18px; border-top: 1px solid #efe9d6; }
+    .event-facts { list-style: none; padding: 12px 0 0; margin: 0 0 10px; display: grid; gap: 4px; font-size: .95rem; }
+    .event-facts strong { color: var(--brand-dark); }
+    .event-body p { margin: 0; font-size: .95rem; }
+
+    /* News tiles: image on top, whole tile is a link */
+    .news-tile { display: flex; flex-direction: column; background: #fff; border: 1px solid #e8e2cf; border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; color: inherit; text-decoration: none; transition: transform .15s ease, box-shadow .15s ease; }
+    .news-tile:hover, .news-tile:focus-visible { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,.12); }
+    .news-tile img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+    .news-tile-body { padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .news-date { font-size: .85rem; color: var(--muted); }
+    .news-tile h3 { margin: 0; font-size: 1.2rem; color: var(--brand-dark); }
+    .news-tile p { margin: 0; font-size: .95rem; }
+    .news-read { margin-top: auto; padding-top: 4px; font-size: .95rem; font-weight: 700; color: var(--brand); }
+    .ne-all { margin-top: 28px; }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="resources/images/favicon.svg">
+  <!-- Social preview -->
+  <meta property="og:site_name" content="Friends of Jacob Smith Park">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:url" content="https://friendsofjsp.org.uk/">
+  <meta property="og:title" content="Friends of Jacob Smith Park | Community green space in Knaresborough">
+  <meta property="og:description" content="A tranquil wildlife haven in Knaresborough with rich history. Plan a visit, discover local wildlife, and get involved.">
+  <meta property="og:image" content="https://friendsofjsp.org.uk/resources/images/banners/banner-home.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#818027">
+
+  <!-- Optional: preload hero image for faster first paint -->
+  <link rel="preload" as="image"
+        href="resources/images/banners/banner-home.jpg"
+        imagesrcset=""
+        imagesizes="100vw">
+
+  <!-- no-js → js helper -->
+  <script>document.documentElement.classList.replace('no-js','js');</script>
+
+  <!-- Your main JavaScript -->
+  <script src="resources/javascript/main.js" defer></script>
+</head>
+<body>
+  <div class="mockup-ribbon">Mock-up for discussion &mdash; this page is not linked from the live site. <a href="news.html">See the &ldquo;All news&rdquo; page</a></div>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="nav-logo-link" aria-label="Jacob Smith Park – Home">
+        <img
+          src="resources/images/logo-tree-inline.svg"
+          alt="Friends of Jacob Smith Park"
+          class="nav-logo nav-logo--tree"
+        />
+        <img
+          src="resources/images/logo-reverse.svg"
+          alt="Friends of Jacob Smith Park"
+          class="nav-logo nav-logo--type"
+        />
+      </a>
+
+      <nav class="site-nav" aria-label="Main navigation">
+        <button class="nav-toggle"
+                aria-expanded="false"
+                aria-controls="primary-nav"
+                aria-label="Toggle navigation">☰</button>
+
+        <ul id="primary-nav" class="nav-list" hidden>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="visiting.html">Visiting</a></li>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="wildlife.html">Wildlife</a></li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">History</a>
+            <ul class="dropdown-menu">
+              <li><a href="park-history.html">Park history</a></li>
+              <li><a href="jacob-smith-family.html">Jacob Smith family</a></li>
+            </ul>
+          </li>
+          <li><a href="get-involved.html">Get involved</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="donate.html">Donate</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<!-- Full-width Banner -->
+<section class="banner banner--image banner--plain">
+  <img src="resources/images/banners/banner-home.jpg" alt="Summer meadow and mature trees at Jacob Smith Park" class="banner-image">
+  <div class="container">
+    <h2 class="visually-hidden">Welcome to the Friends of Jacob Smith Park</h2>
+  </div>
+</section>
+
+  <main id="main">
+   <!-- Cream strip intro -->
+  <section class="page-intro">
+  <div class="intro-content">
+    <p class="intro-text">
+      The Friends of Jacob Smith Park are dedicated to the<br class="intro-break"> protection, conservation, and enhancement<br class="intro-break"> of this historic parkland
+    </p>
+  </div>
+</section>
+
+<!-- Section 1: Text LEFT, Image RIGHT -->
+<section class="content-section alt-layout">
+  <div class="container">
+    <div class="alt-grid">
+      <div class="alt-text">
+        <p><strong>Jacob Smith Park (JSP)</strong> is a 30-acre green space in Scriven, close to the centre of Knaresborough. It is a managed wild space with a wide variety of habitats and wildlife to enjoy as you walk around.</p>
+        <p>It is a tranquil space to spend time with friends or to simply relax on a bench and enjoy the peaceful surroundings. There is also an open space where children can enjoy playing football, flying a kite or just running around.</p>
+      </div>
+      <div class="alt-image">
+        <img src="resources/images/index/JSP_summer.JPG" alt="Summer scene at Jacob Smith Park" width="1800" height="1012" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 2: Image LEFT, Text RIGHT (reversed) -->
+<section class="content-section alt-layout alt-reverse">
+  <div class="container">
+    <div class="alt-grid">
+      <div class="alt-image">
+        <img src="resources/images/index/JSP_autumn.JPG" alt="Autumn gold across the parkland fence line" width="1800" height="1350" loading="lazy" decoding="async">
+      </div>
+      <div class="alt-text">
+        <p>JSP was generously bequeathed to Harrogate Borough Council by Winifred Jacob Smith MBE, following her death in 2003. It was Miss Jacob Smith's wish that the park should be opened to the community for all generations to enjoy:</p>
+        <p class="heritage-quote">"the freedom and beauty that public parks bring"</p>
+        <p>The Friends of Jacob Smith Park (FoJSP) are a community interest group providing the link between the community and the council. We are committed to encouraging all ages to value and enjoy their park whilst sharing it with respect for one another and nature.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 3: Text LEFT, Image RIGHT -->
+<section class="content-section alt-layout">
+  <div class="container">
+    <div class="alt-grid">
+      <div class="alt-text">
+        <p>The Friends of JSP are passionate about enhancing biodiversity and bringing people together to enjoy this special recreational green space, important wildlife habitat and historical landscape.</p>
+        <p>Whatever the reason for your visit, we hope you enjoy this lovely green space as Miss Jacob Smith wished.</p>
+      </div>
+      <div class="alt-image">
+        <img src="resources/images/index/JSP_winter.JPG" alt="Winter oak covered in snow at Jacob Smith Park" width="1800" height="1350" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ MOCK-UP: News & Events (Home page, after the snowy tree) ============ -->
+<section class="news-events news-events--events" id="events" aria-labelledby="events-title">
+  <div class="container">
+    <div class="ne-head">
+      <h2 id="events-title">Upcoming events</h2>
+      <p>Everyone is welcome &mdash; no experience needed. Tap an event for details.</p>
+    </div>
+    <div class="ne-grid">
+      <details class="event-tile">
+        <summary>
+          <span class="event-when">Autumn 2026 &middot; date TBC</span>
+          <span class="event-type">Volunteer event</span>
+          <h3>New wood maintenance</h3>
+          <span class="event-more">Details</span>
+        </summary>
+        <div class="event-body">
+          <ul class="event-facts">
+            <li><strong>Meet:</strong> inside the gate</li>
+            <li><strong>Time:</strong> to be confirmed</li>
+          </ul>
+          <p>Help to clear away overgrown grass from the recently planted trees and reinstate tree supports that have become damaged.</p>
+        </div>
+      </details>
+      <details class="event-tile">
+        <summary>
+          <span class="event-when">Winter 2026 &middot; date TBC</span>
+          <span class="event-type">Volunteer event</span>
+          <h3>Bramble management</h3>
+          <span class="event-more">Details</span>
+        </summary>
+        <div class="event-body">
+          <ul class="event-facts">
+            <li><strong>Meet:</strong> inside the gate</li>
+            <li><strong>Duration:</strong> 2 hours &mdash; but any time you can give is appreciated</li>
+          </ul>
+          <p>Bramble to be cut back to control its spread in areas where it can overwhelm other valuable shrubs and plants. Bramble encroaching on benches and paths also needs cutting back.</p>
+        </div>
+      </details>
+      <details class="event-tile">
+        <summary>
+          <span class="event-when">Spring 2027 &middot; date TBC</span>
+          <span class="event-type">Volunteer event</span>
+          <h3>New wood maintenance</h3>
+          <span class="event-more">Details</span>
+        </summary>
+        <div class="event-body">
+          <ul class="event-facts">
+            <li><strong>Meet:</strong> inside the gate</li>
+            <li><strong>Time:</strong> to be confirmed</li>
+          </ul>
+          <p>Help to clear away overgrown grass from the recently planted trees and reinstate tree supports that have become damaged.</p>
+        </div>
+      </details>
+      <details class="event-tile">
+        <summary>
+          <span class="event-when">Date TBC</span>
+          <span class="event-type">Public meeting &middot; open to all</span>
+          <h3>Public meeting</h3>
+          <span class="event-more">Details</span>
+        </summary>
+        <div class="event-body">
+          <ul class="event-facts">
+            <li><strong>Venue:</strong> to be confirmed</li>
+          </ul>
+          <p>Come along and hear what has been going on with the park and plans for the future. This is also a good opportunity to meet the committee and ask any questions you may have.</p>
+        </div>
+      </details>
+      <details class="event-tile">
+        <summary>
+          <span class="event-when">Early summer 2027 &middot; date TBC</span>
+          <span class="event-type">Volunteer event</span>
+          <h3>Dock management</h3>
+          <span class="event-more">Details</span>
+        </summary>
+        <div class="event-body">
+          <ul class="event-facts">
+            <li><strong>Meet:</strong> inside the gate</li>
+          </ul>
+          <p>No chemical controls are used in the park. Dock management is therefore done by hand. By cutting off the flowering shoots as the seeds form, but before they are viable, the plant is prevented from seeding. Also digging will remove some of the tap root and weaken the plants further.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="news-events news-events--news" id="news" aria-labelledby="news-title">
+  <div class="container">
+    <div class="ne-head">
+      <h2 id="news-title">Latest news</h2>
+    </div>
+    <div class="ne-grid">
+      <a class="news-tile" href="news.html#butterflies-2026">
+        <img src="resources/images/visiting/butterfly-thistle.jpg" alt="" loading="lazy" decoding="async">
+        <div class="news-tile-body">
+          <span class="news-date">25 September 2026</span>
+          <h3>Butterflies 2026</h3>
+          <p>What a year it&rsquo;s been, with even more butterflies than in the hot summer of 2025&hellip;</p>
+          <span class="news-read">Read more &rarr;</span>
+        </div>
+      </a>
+      <a class="news-tile" href="news.html#himalayan-balsam">
+        <img src="resources/images/about_us/balsam-survey-2024.jpg" alt="" loading="lazy" decoding="async">
+        <div class="news-tile-body">
+          <span class="news-date">1 September 2026</span>
+          <h3>Update on Himalayan balsam</h3>
+          <p>Huge strides have been made this year. We targeted the remaining two problem areas&hellip;</p>
+          <span class="news-read">Read more &rarr;</span>
+        </div>
+      </a>
+      <a class="news-tile" href="news.html#one-man-went-to-mow">
+        <img src="resources/images/get_involved/gi-2.jpg" alt="" loading="lazy" decoding="async">
+        <div class="news-tile-body">
+          <span class="news-date">21, 22 &amp; 29 August 2026</span>
+          <h3>One man went to mow</h3>
+          <p>THANK YOU to everyone who helped rake the meadow over three sessions&hellip;</p>
+          <span class="news-read">Read more &rarr;</span>
+        </div>
+      </a>
+      <a class="news-tile" href="news.html#wild-space">
+        <img src="resources/images/wildlife/butterfly.JPG" alt="" loading="lazy" decoding="async">
+        <div class="news-tile-body">
+          <span class="news-date">10 July 2026</span>
+          <h3>Butterfly Conservation Wild Space registration</h3>
+          <p>Jacob Smith Park is now registered as part of the Butterfly Conservation Wild Space scheme&hellip;</p>
+          <span class="news-read">Read more &rarr;</span>
+        </div>
+      </a>
+    </div>
+    <p class="ne-all"><a class="button" href="news.html">All news &rarr;</a></p>
+  </div>
+</section>
+<!-- ============ /MOCK-UP ============ -->
+
+  </main>
+
+<!-- Call-to-action buttons -->
+<section class="footer-cta" aria-label="Quick actions">
+  <div class="container">
+    <div class="cta-grid">
+      <a href="donate.html" class="cta-button">Donate</a>
+      <a href="get-involved.html" class="cta-button">Get involved</a>
+      <a href="contact.html#form-title" class="cta-button">Add me to the mailing list</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-grid">
+    <section class="footer-col">
+      <h3 class="footer-title">Friends of Jacob Smith Park</h3>
+        <p class="footer-blurb">A community group dedicated to protecting, conserving, and enhancing this historic 30-acre parkland in Knaresborough.</p>
+    </section>
+
+    <nav class="footer-col" aria-label="Quick links">
+      <h3 class="footer-title">Quick links</h3>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="visiting.html">Visiting</a></li>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="wildlife.html">Wildlife</a></li>
+        <li><a href="park-history.html">History</a></li>
+        <li><a href="get-involved.html">Get involved</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="donate.html">Donate</a></li>
+      </ul>
+    </nav>
+
+    <section class="footer-col" aria-label="Contact">
+      <h3 class="footer-title">Contact</h3>
+      <ul class="footer-links">
+        <li><a href="mailto:contact@friendsofjsp.org.uk">contact@friendsofjsp.org.uk</a></li>
+      </ul>
+      <p><a class="button" href="contact.html#form-title">Add me to the mailing list</a></p>
+    </section>
+  </div>
+
+  <div class="legal-bar">
+    <div class="container legal-inner">
+      <p>&copy; <span id="year"></span> Friends of Jacob Smith Park</p>
+    </div>
+  </div>
+</footer>
+  <div class="scrim" aria-hidden="true"></div>
+</body>
+</html>

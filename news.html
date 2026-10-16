@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>MOCK-UP: All news | Friends of Jacob Smith Park</title>
+  <meta name="description" content="A tranquil wildlife haven in Knaresborough with rich history. Plan a visit, discover local wildlife, and get involved.">
+
+  <!-- CSS (cache-busted once to ensure new banner rules load) -->
+  <!-- Google Fonts: Nunito -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="resources/css/styles.css?v=21">
+  <!-- MOCK-UP ONLY: archive styles. Move into styles.css if approved. -->
+  <style>
+    .mockup-ribbon { background: var(--brand-dark); color: var(--cream); text-align: center; font-size: .9rem; padding: 8px 16px; }
+    .mockup-ribbon a { color: #fff; }
+    .news-archive { padding-block: var(--section-gap); }
+    .news-year { margin: 0 0 20px; }
+    .news-article { display: grid; gap: 20px 40px; padding-block: 28px; border-top: 1px solid #e8e2cf; scroll-margin-top: 150px; }
+    .news-article:first-of-type { border-top: 0; padding-top: 0; }
+    @media (min-width: 800px) { .news-article { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); align-items: start; } }
+    .news-article img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .news-article h3 { margin: 4px 0 12px; font-size: 1.4rem; color: var(--brand-dark); }
+    .news-date { font-size: .9rem; color: var(--muted); }
+    .news-article p { max-width: 70ch; }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="resources/images/favicon.svg">
+  <!-- Social preview -->
+  <meta property="og:site_name" content="Friends of Jacob Smith Park">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:url" content="https://friendsofjsp.org.uk/">
+  <meta property="og:title" content="Friends of Jacob Smith Park | Community green space in Knaresborough">
+  <meta property="og:description" content="A tranquil wildlife haven in Knaresborough with rich history. Plan a visit, discover local wildlife, and get involved.">
+  <meta property="og:image" content="https://friendsofjsp.org.uk/resources/images/banners/banner-home.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#818027">
+
+  <!-- Optional: preload hero image for faster first paint -->
+  <link rel="preload" as="image"
+        href="resources/images/banners/banner-home.jpg"
+        imagesrcset=""
+        imagesizes="100vw">
+
+  <!-- no-js → js helper -->
+  <script>document.documentElement.classList.replace('no-js','js');</script>
+
+  <!-- Your main JavaScript -->
+  <script src="resources/javascript/main.js" defer></script>
+</head>
+<body>
+  <div class="mockup-ribbon">Mock-up for discussion &mdash; not linked from the live site. <a href="news-preview.html">Back to the Home page mock-up</a></div>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="nav-logo-link" aria-label="Jacob Smith Park – Home">
+        <img
+          src="resources/images/logo-tree-inline.svg"
+          alt="Friends of Jacob Smith Park"
+          class="nav-logo nav-logo--tree"
+        />
+        <img
+          src="resources/images/logo-reverse.svg"
+          alt="Friends of Jacob Smith Park"
+          class="nav-logo nav-logo--type"
+        />
+      </a>
+
+      <nav class="site-nav" aria-label="Main navigation">
+        <button class="nav-toggle"
+                aria-expanded="false"
+                aria-controls="primary-nav"
+                aria-label="Toggle navigation">☰</button>
+
+        <ul id="primary-nav" class="nav-list" hidden>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="visiting.html">Visiting</a></li>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="wildlife.html">Wildlife</a></li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">History</a>
+            <ul class="dropdown-menu">
+              <li><a href="park-history.html">Park history</a></li>
+              <li><a href="jacob-smith-family.html">Jacob Smith family</a></li>
+            </ul>
+          </li>
+          <li><a href="get-involved.html">Get involved</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="donate.html">Donate</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<!-- Full-width Banner -->
+<section class="banner banner--image banner--plain">
+  <img src="resources/images/banners/banner-home.jpg" alt="Summer meadow and mature trees at Jacob Smith Park" class="banner-image">
+  <div class="container">
+    <h2 class="visually-hidden">Welcome to the Friends of Jacob Smith Park</h2>
+  </div>
+</section>
+
+  <main id="main">
+  <section class="page-intro">
+    <div class="intro-content">
+      <p class="intro-text">News from the Friends of<br class="intro-break"> Jacob Smith Park</p>
+    </div>
+  </section>
+
+  <section class="news-archive">
+    <div class="container">
+      <h2 class="news-year">2026</h2>
+
+      <article class="news-article" id="butterflies-2026">
+        <img src="resources/images/visiting/butterfly-thistle.jpg" alt="A small tortoiseshell butterfly feeding on a thistle flower" loading="lazy" decoding="async">
+        <div>
+          <span class="news-date">25 September 2026</span>
+          <h3>Butterflies 2026</h3>
+          <p>What a year it&rsquo;s been, with even more butterflies than in the hot summer of 2025. The tendency for the park to be damp really helped plants to keep growing and support our resident species, even those not keen on the heat.</p>
+          <p>Anyone taking part in the Big Butterfly Count in July may have seen up to 16 different species in the park in good numbers, particularly grassland butterflies: Ringlet, Meadow brown, Gatekeeper, Small Skipper, Small copper and Speckled wood. Now the last butterflies of autumn: Red admiral, Comma, Speckled wood and Painted Lady are feeding on ivy flowers.</p>
+        </div>
+      </article>
+
+      <article class="news-article" id="himalayan-balsam">
+        <img src="resources/images/about_us/balsam-survey-2024.jpg" alt="Volunteers surveying Himalayan balsam in the park" loading="lazy" decoding="async">
+        <div>
+          <span class="news-date">1 September 2026</span>
+          <h3>Update on Himalayan balsam</h3>
+          <p>Huge strides have been made this year. We targeted the remaining 2 problem areas: the pond area and under the fallen tree. Around the rest of the park there were small groups of plants that were also sought out and removed.</p>
+          <p>It is wonderful to see native plants starting to fill spaces previously occupied by balsam. It will be back next year, but we will be ready!</p>
+        </div>
+      </article>
+
+      <article class="news-article" id="one-man-went-to-mow">
+        <img src="resources/images/get_involved/gi-2.jpg" alt="Volunteers raking and bagging cut grass in the meadow" loading="lazy" decoding="async">
+        <div>
+          <span class="news-date">21, 22 &amp; 29 August 2026</span>
+          <h3>One man went to mow</h3>
+          <p>THANK YOU to everyone who helped rake the meadow over 3 sessions. After the contractor cut down the meadow area, volunteers spent over 32 man hours raking and moving grass, targeting the areas most associated with orchids and wildflowers.</p>
+          <p>It was an AMAZING effort by everyone and will really benefit the meadow when it starts growing again in the spring.</p>
+        </div>
+      </article>
+
+      <article class="news-article" id="wild-space">
+        <img src="resources/images/wildlife/butterfly.JPG" alt="A small copper butterfly nectaring on thistle" loading="lazy" decoding="async">
+        <div>
+          <span class="news-date">10 July 2026</span>
+          <h3>Butterfly Conservation Wild Space registration</h3>
+          <p>Jacob Smith Park is now registered as part of the Butterfly Conservation Wild Space Scheme. This encourages areas of land, big and small, to be maintained in a way that helps butterfly populations recover and aims to eventually provide a network of wild spaces, allowing populations to move between areas.</p>
+          <p><a href="https://wild-spaces.co.uk/wild-space/?wildSpace=32369403&amp;wildSpaceType=community-space" target="_blank" rel="noopener">See Jacob Smith Park on the Wild Spaces map &rarr;</a></p>
+        </div>
+      </article>
+    </div>
+  </section>
+  </main>
+
+<!-- Call-to-action buttons -->
+<section class="footer-cta" aria-label="Quick actions">
+  <div class="container">
+    <div class="cta-grid">
+      <a href="donate.html" class="cta-button">Donate</a>
+      <a href="get-involved.html" class="cta-button">Get involved</a>
+      <a href="contact.html#form-title" class="cta-button">Add me to the mailing list</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-grid">
+    <section class="footer-col">
+      <h3 class="footer-title">Friends of Jacob Smith Park</h3>
+        <p class="footer-blurb">A community group dedicated to protecting, conserving, and enhancing this historic 30-acre parkland in Knaresborough.</p>
+    </section>
+
+    <nav class="footer-col" aria-label="Quick links">
+      <h3 class="footer-title">Quick links</h3>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="visiting.html">Visiting</a></li>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="wildlife.html">Wildlife</a></li>
+        <li><a href="park-history.html">History</a></li>
+        <li><a href="get-involved.html">Get involved</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="donate.html">Donate</a></li>
+      </ul>
+    </nav>
+
+    <section class="footer-col" aria-label="Contact">
+      <h3 class="footer-title">Contact</h3>
+      <ul class="footer-links">
+        <li><a href="mailto:contact@friendsofjsp.org.uk">contact@friendsofjsp.org.uk</a></li>
+      </ul>
+      <p><a class="button" href="contact.html#form-title">Add me to the mailing list</a></p>
+    </section>
+  </div>
+
+  <div class="legal-bar">
+    <div class="container legal-inner">
+      <p>&copy; <span id="year"></span> Friends of Jacob Smith Park</p>
+    </div>
+  </div>
+</footer>
+  <div class="scrim" aria-hidden="true"></div>
+</body>
+</html>

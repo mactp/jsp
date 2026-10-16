@@ -27,6 +27,7 @@
   --gap: 20px;
   --wrap: 100%;                   /* full-width layout */
   --wrap-pad: clamp(16px, 5vw, 72px); /* responsive side breathing room */
+  --measure: 70ch;                /* one readable line length for running text, site-wide */
 
   /* banner sizing */
   --banner-pad: clamp(48px, 6vw, 72px);
@@ -265,11 +266,11 @@ a { font-weight: 500; }
     color: #fff;
     overflow-y: auto;
     transform: translateX(100%);
-    transition: transform .28s ease;
-    box-shadow: -8px 0 24px rgba(0,0,0,0.35);
+    transition: transform .28s ease, box-shadow .28s ease;
+    box-shadow: none;   /* shadow only while open, so the closed panel doesn't leave a grey edge on screen */
   }
 
-  body.nav-open .nav-list { transform: translateX(0); }
+  body.nav-open .nav-list { transform: translateX(0); box-shadow: -8px 0 24px rgba(0,0,0,0.35); }
 
   .nav-list li { margin: 0; padding: 0; }
 
@@ -448,13 +449,13 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 /* cream strip below banner */
 .page-intro {
   background: var(--cream);
-  padding-block: clamp(32px, 5vw, 60px);
+  padding-block: clamp(20px, 3vw, 36px);
 }
 .page-intro .intro-text {
   font-size: clamp(1.5rem, 3vw, 2.25rem); /* matches h2, per Ian */
   font-weight: 300;
   line-height: 1.35;
-  max-width: 1000px;
+  max-width: 900px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -523,8 +524,8 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 .site-footer {
   background-color: #502e20;
   color: #fff;
-  padding: 32px 5% 14px;
-  font-size: 14px;
+  padding: 32px 0 14px;
+  font-size: 1rem;
 }
 .site-footer h3 { font-size: 1.15rem; font-weight: 600; }
 .site-footer a { color: #ffffff; }
@@ -533,8 +534,6 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   display: grid;
   grid-template-columns: 1fr;
   gap: 22px;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 @media (min-width: 768px) {
@@ -552,7 +551,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 }
 
 .footer-blurb {
-  font-size: 0.82rem;
+  font-size: 1rem;
   line-height: 1.5;
   color: #d4d4d4;
 }
@@ -568,7 +567,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 .footer-links a {
   color: #d4d4d4;
   text-decoration: none;
-  font-size: 0.82rem;
+  font-size: 1rem;
   transition: color 0.2s ease;
 }
 
@@ -578,13 +577,11 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   text-decoration: underline;
 }
 
-.legal-bar {
-  border-top: 1px solid rgba(255,255,255,.2);
-  margin-top: 22px;
-  padding-top: 12px;
-}
+.legal-bar { margin-top: 22px; }
 
 .legal-inner {
+  position: relative;
+  padding-top: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -592,6 +589,16 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   gap: 16px;
   font-size: 0.875rem;
   color: #b4b4b4;
+}
+
+/* Divider spans the content width only, so it lines up with everything above */
+.legal-inner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--wrap-pad);
+  right: var(--wrap-pad);
+  border-top: 1px solid rgba(255,255,255,.2);
 }
 
 .legal-links {
@@ -640,10 +647,10 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 }
 
 .info-card p {
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 1rem;
+  line-height: 1.55;
   margin-bottom: 8px;
-  color: var(--muted);
+  color: var(--fg);
 }
 
 /* Accent lines between visiting sections */
@@ -769,7 +776,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 
 .doc-icon { font-size: 2rem; flex-shrink: 0; }
 .doc-name { flex-grow: 1; font-weight: 500; color: var(--fg); }
-.doc-action { font-size: 0.875rem; color: var(--brand); font-weight: 500; }
+.doc-action { font-size: 0.875rem; color: var(--brand); font-weight: 500; white-space: nowrap; }
 
 /* Projects – expandable cards */
 .projects-list {
@@ -1358,10 +1365,27 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 .alt-image img {
   width: 100%;
   height: auto;
+  aspect-ratio: 4 / 3;      /* same shape for every block, so text never floats beside a tall portrait */
+  object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,.1);
   display: block;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Images that must not be cropped (archive photos, maps): natural shape. */
+.alt-image--contain img {
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+/* Family archive photos: one shared size cap, on the column's left edge
+   (small originals stay at their own size rather than being blown up). */
+.family-page .alt-image--contain { max-width: min(100%, 440px); }
+.family-page .alt-image--contain img {
+  width: auto;
+  max-width: 100%;
+  max-height: 460px;
+  margin-inline: 0;
 }
 
 .alt-image img:hover {
@@ -1401,7 +1425,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   background-size: 100% auto;                     /* illustration spans the full page width */
   /* bottom padding = the illustration's own height (1920 x 451.63 = 23.52%)
      so the buttons always sit clear of the treeline and the logo */
-  padding: 48px 5% calc(17% + 28px);
+  padding: 48px 0 calc(17% + 28px);
   text-align: center;
 }
 
@@ -1411,8 +1435,6 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   justify-content: center;
   align-items: stretch;
   gap: 16px;
-  max-width: 1100px;
-  margin: 0 auto;
 }
 
 /* Plain pill buttons — no card, no strapline (client feedback, Aug 2026) */
@@ -1904,7 +1926,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   color: white;
   padding: 50px 5%;
   margin: 60px 0;
-  border-radius: 12px;
+  border-radius: 0;
 }
 
 .bank-details h2 {
@@ -1989,7 +2011,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   text-align: center;
   padding: 40px;
   background: #fafaf8;
-  border-radius: 12px;
+  border-radius: 0;
   margin: 60px 0;
 }
 
@@ -2069,7 +2091,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 .container > section > h2,
 .container > section > h3,
 .container > section > ul {
-  max-width: 780px;
+  max-width: var(--measure);
 }
 
 /* For pages where the whole <main> is a container,
@@ -2082,7 +2104,7 @@ main.container section > ul,
 main.container section > ol,
 main.container section > .callout,
 main.container section > .key-list {
-  max-width: 780px;
+  max-width: var(--measure);
 }
 
 /* Wildlife page and other pages that put text directly
@@ -2092,7 +2114,7 @@ main.container section > .key-list {
 .wildlife-page .container > h3,
 .wildlife-page .container > h4,
 .wildlife-page .container > ul {
-  max-width: 780px;
+  max-width: var(--measure);
 }
 
 /* Exceptions — grids and cards should still be full-width */
@@ -2126,11 +2148,6 @@ main.container section > .key-list {
   background-color: #fafaf8;
 }
 
-.visit-info .container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 5%;
-}
 
 .visit-info h2 {
   text-align: center;
@@ -2198,11 +2215,6 @@ main.container section > .key-list {
   background: white;
 }
 
-.map-section .container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 5%;
-}
 
 .map-section h2 {
   text-align: center;
@@ -2216,8 +2228,6 @@ main.container section > .key-list {
   width: 100%;
   padding-bottom: 40%;        /* This controls the height - MUCH smaller now */
   height: 0;
-  max-width: 1200px;
-  margin: 0 auto;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -2377,7 +2387,7 @@ main.container section > .key-list {
   background: #fafaf8;
 }
 .recent-projects h2 { color: var(--brand-dark); margin-bottom: 8px; }
-.recent-projects > .container > p { max-width: 680px; margin-bottom: 32px; }
+.recent-projects > .container > p { max-width: var(--measure); margin-bottom: 32px; }
 
 .projects-grid {
   display: grid;
@@ -2402,18 +2412,18 @@ main.container section > .key-list {
 }
 .project-card p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.6;
-  color: var(--muted);
+  color: var(--fg);
 }
 .project-card ul {
   margin: 6px 0 0 16px;
   padding: 0;
 }
 .project-card li {
-  font-size: 0.875rem;
+  font-size: 1rem;
   line-height: 1.55;
-  color: var(--muted);
+  color: var(--fg);
   margin-bottom: 4px;
 }
 
@@ -2423,7 +2433,7 @@ main.container section > .key-list {
   background: #fff;
 }
 .committee-section h2 { color: var(--brand-dark); margin-bottom: 12px; }
-.committee-section > .container > p { max-width: 680px; margin-bottom: 24px; }
+.committee-section > .container > p { max-width: var(--measure); margin-bottom: 24px; }
 
 .committee-list {
   list-style: none;
@@ -2505,7 +2515,7 @@ main.container section > .key-list {
    READABLE LAYOUT (was centred; left-aligned after user testing, Oct 2026)
    body.center-page = whole page; .center-block = single section.
    Everything starts on the page's left edge, under its heading; prose keeps
-   a readable 780px measure instead of being centred in it.
+   the shared reading measure (--measure) instead of being centred in it.
    ============================================ */
 
 .center-page main :is(h2, h3, h4, h5),
@@ -2519,7 +2529,7 @@ main.container section > .key-list {
 .center-page main p,
 .center-page main .lead-sub,
 .center-block p {
-  max-width: 780px;
+  max-width: var(--measure);
   margin-left: 0;
   margin-right: 0;
   text-align: left;
@@ -2528,7 +2538,7 @@ main.container section > .key-list {
 .center-page main ul,
 .center-page main ol,
 .center-page .key-list {
-  max-width: 780px;
+  max-width: var(--measure);
   margin-left: 0;
   margin-right: 0;
 }
@@ -2544,7 +2554,7 @@ main.container section > .key-list {
 
 /* Grids start on the left edge, keeping their internal layout */
 .center-page :is(.responsibilities-clean, .projects-grid, .photo-row, .documents-grid) {
-  max-width: 1000px;
+  max-width: none;
   margin-left: 0;
   margin-right: 0;
 }
@@ -2570,7 +2580,7 @@ main.container section > .key-list {
 
 /* Donate: two "ways to give" cards side by side */
 .ways-to-give .give-grid.two-up {
-  max-width: 760px;
+  max-width: none;
   margin-left: 0;
   margin-right: 0;
   grid-template-columns: 1fr 1fr;
@@ -2669,13 +2679,7 @@ main.container section > .key-list {
    Archive photos are a mix of portrait and landscape — cap the height so a
    tall scan doesn't stretch its block out of proportion (client feedback, Aug 2026)
    ============================================ */
-.family-page .alt-image img {
-  max-height: 460px;
-  width: auto;
-  max-width: 100%;
-  display: block;
-  margin-inline: auto;
-}
+
 
 /* ============================================
    QoL additions (Sep 2026)
@@ -2817,6 +2821,7 @@ figcaption {
   max-width: 100%;
   margin-inline: auto;
 }
+.alt-image--contain:has(> .image-caption) { margin-inline: 0 auto; }
 .alt-image:has(> .image-caption) > img {
   margin-inline: 0;
 }
@@ -2828,16 +2833,13 @@ figcaption {
   font-style: normal;
 }
 
-/* Caption laid over a banner photo, bottom-left (Wildlife banner). */
+/* Banner photo caption: sits under the banner on the content edge,
+   styled like every other caption (Wildlife). */
 .banner-caption {
-  position: absolute;
-  left: var(--wrap-pad);
-  bottom: 14px;
-  z-index: 2;
-  margin: 0;
+  margin: 8px 0;
   font-size: 0.875rem;
-  color: #fff !important;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, .7);
+  color: var(--muted);
+  max-width: none;
 }
 
 /* About "How can you help?" block: left-aligned to match the heading
@@ -2878,6 +2880,52 @@ main section.bank-details :is(h2, h3, h4, h5),
 main section.get-involved-cta :is(h2, h3, h4, h5) { color: #fff !important; }
 
 /* Links in running text: brand green, not the browser's default blue. */
-main a:not([class]) { color: var(--brand); }
-main a:not([class]):hover,
-main a:not([class]):focus { color: var(--brand-2-dark); }
+main :is(p, li, figcaption, small, td) a:not([class]) { color: var(--brand); }
+main :is(p, li, figcaption, small, td) a:not([class]):hover,
+main :is(p, li, figcaption, small, td) a:not([class]):focus { color: var(--brand-2-dark); }
+main :is(h2, h3, h4) a:not([class]) { color: inherit; text-decoration: none; }
+
+/* ---------- Layout consolidation (Oct 2026) ---------- */
+
+/* Section titles coded one level down (h3 opening a block, e.g. Wildlife
+   seasons, "A brief history of the park") get the same size as section h2s. */
+main :is(.alt-text, .history-intro, .history-grid > div, .history-grid > section) > h3:first-child,
+main.container > section > h3:first-child {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+/* Supporting text in cards and side panels: 16px, body colour. */
+:is(.info-card, .project-card, .give-card, .contact-info-card, .doc-card) :is(p, li) {
+  font-size: 1rem;
+  color: var(--fg);
+}
+
+/* About: "Recent projects" photos in one row of five, cards five across.
+   Tablet: photos 3 + 2 and cards two-up; phone: single column. No orphans. */
+.recent-projects .photo-row {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+.projects-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+@media (max-width: 1099px) {
+  .recent-projects .photo-row { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .recent-projects .photo-row > :nth-child(-n+3) { grid-column: span 2; }
+  .recent-projects .photo-row > :nth-child(n+4) { grid-column: span 3; }
+  .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 599px) {
+  .recent-projects .photo-row { grid-template-columns: 1fr; }
+  .recent-projects .photo-row > * { grid-column: auto !important; }
+  .projects-grid { grid-template-columns: 1fr; }
+}
+
+/* Buttons on the green bank-details band: same pill, inverted so it shows
+   against the green (the May green primary disappears on it). */
+.bank-details .button {
+  background: #fff;
+  color: var(--brand-dark);
+}
+.bank-details .button:hover,
+.bank-details .button:focus { background: var(--cream); color: var(--brand-dark); }
+/* A real <button> using the pill style needs the browser's own button look reset */
+button.button { border: 0; font: inherit; font-weight: 600; cursor: pointer; }

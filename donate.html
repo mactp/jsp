@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;700;800&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="resources/css/styles.css?v=22">
+  <link rel="stylesheet" href="resources/css/styles.css?v=23">
   <link rel="icon" type="image/svg+xml" href="resources/images/favicon.svg">
   <!-- Social preview -->
   <meta property="og:site_name" content="Friends of Jacob Smith Park">
@@ -24,7 +24,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#818027">
   <script>document.documentElement.classList.replace('no-js','js');</script>
-  <script src="resources/javascript/main.js" defer></script>
+  <script src="resources/javascript/main.js?v=23" defer></script>
 
   <style>
     /* ── Banner fix ── */
@@ -53,9 +53,6 @@
       color: var(--brand-dark);
       margin-bottom: 1rem;
     }
-    .donate-intro p,
-    .donate-intro ul { max-width: 720px; }
-
     /* ── Ways to give — 3-column card grid ── */
     .ways-to-give {
       padding: clamp(40px, 5vw, 60px) 0;
@@ -108,9 +105,7 @@
       margin: 0;
     }
     .give-card p {
-      font-size: 0.975rem;
       line-height: 1.65;
-      color: var(--muted);
       margin: 0;
       flex-grow: 1;
     }
@@ -268,7 +263,7 @@
     .thank-you {
       background: var(--cream);
       text-align: center;
-      padding: 48px 5%;
+      padding: 48px 0;
     }
     .thank-you p {
       font-size: 1.2rem;
@@ -412,8 +407,7 @@
           <p>Prefer to give online? Donate quickly and securely via PayPal:</p>
           <form action="https://www.paypal.com/donate" method="post" target="_top">
             <input type="hidden" name="hosted_button_id" value="DUQ4JJQR4RSDJ" />
-            <input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-            <img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
+            <button type="submit" class="button">Donate with PayPal</button>
           </form>
         </div>
 
@@ -424,7 +418,9 @@
 
   <!-- Thank you -->
   <section class="thank-you">
-    <p>Thank you to all our supporters who help us make Jacob Smith Park even more special.</p>
+    <div class="container">
+      <p>Thank you to all our supporters who help us make Jacob Smith Park even more special.</p>
+    </div>
   </section>
 
   </main>
@@ -456,8 +452,6 @@
           <li><a href="wildlife.html">Wildlife</a></li>
           <li><a href="park-history.html">History</a></li>
           <li><a href="get-involved.html">Get involved</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="donate.html">Donate</a></li>
         </ul>
       </nav>
       <section class="footer-col" aria-label="Contact">
@@ -465,7 +459,6 @@
         <ul class="footer-links">
           <li><a href="mailto:contact@friendsofjsp.org.uk">contact@friendsofjsp.org.uk</a></li>
         </ul>
-        <p><a class="button" href="contact.html#form-title">Add me to the mailing list</a></p>
       </section>
     </div>
     <div class="legal-bar">

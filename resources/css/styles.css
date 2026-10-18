@@ -428,8 +428,8 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   color: var(--brand-dark);
 }
 
-@media (max-width: 640px) {
-  .banner { height: 55vh; min-height: 280px; max-height: 480px; }
+@media (max-width: 767px) {
+  .banner { height: 300px; min-height: 0; max-height: none; }   /* more of each wide photo shows on phones */
   .banner--slim { height: auto; min-height: calc(var(--banner-minh-sm) - 40px); max-height: none; }
   .banner--tall { height: 65vh; min-height: 320px; max-height: 540px; }
 }
@@ -936,6 +936,11 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 .history-collage img {
   height: 320px;          /* same height for all three, so top and bottom edges line up */
   object-fit: cover;
+}
+/* Maps are never cropped: whole map shown in the same box, on paper-white */
+.history-collage img.img-contain {
+  object-fit: contain;
+  background: #fff;
 }
 .history-row {
   display: grid;
@@ -2947,3 +2952,7 @@ button.button { border: 0; font: inherit; font-weight: 600; cursor: pointer; }
   margin: 0 auto 24px;
   text-align: center;
 }
+
+/* Focal point for cropped photos (object-fit: cover), set on the <img> */
+.focus-top   { object-position: 50% 0%; }
+.focus-upper { object-position: 50% 25%; }

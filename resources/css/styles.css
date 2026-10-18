@@ -449,13 +449,14 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 /* cream strip below banner */
 .page-intro {
   background: var(--cream);
-  padding-block: clamp(20px, 3vw, 36px);
+  padding-block: clamp(28px, 4vw, 56px);
 }
 .page-intro .intro-text {
   font-size: clamp(1.5rem, 3vw, 2.25rem); /* matches h2, per Ian */
   font-weight: 300;
   line-height: 1.35;
-  max-width: 900px;
+  max-width: 1000px;
+  margin-block: 0;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -776,7 +777,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 
 .doc-icon { font-size: 2rem; flex-shrink: 0; }
 .doc-name { flex-grow: 1; font-weight: 500; color: var(--fg); }
-.doc-action { font-size: 0.875rem; color: var(--brand); font-weight: 500; white-space: nowrap; }
+.doc-action { font-size: 1rem; color: var(--brand); font-weight: 500; white-space: nowrap; }
 
 /* Projects – expandable cards */
 .projects-list {
@@ -928,8 +929,13 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 .history-collage {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
-  gap: 14px;
+  gap: 16px;
+  align-items: start;
   margin-block: 16px 10px;
+}
+.history-collage img {
+  height: 320px;          /* same height for all three, so top and bottom edges line up */
+  object-fit: cover;
 }
 .history-row {
   display: grid;
@@ -951,7 +957,8 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 .history-grid img,
 .history-row img { width: 100%; border-radius: 8px; box-shadow: var(--shadow); }
 .history-collage figcaption,
-.history-grid figcaption { font-size: .9rem; color: var(--muted); margin-top: 6px; }
+.history-grid figcaption,
+.history-row figcaption { font-size: 0.875rem; color: var(--muted); margin-top: 8px; font-style: normal; }
 
 .timeline { list-style: none; padding: 0; margin: 10px 0 24px; border-left: 3px solid var(--brand-3); }
 .timeline li { position: relative; padding: 0 0 14px 16px; }
@@ -1003,9 +1010,19 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 .archives time { color: var(--brand); }
 
 @media (max-width: 900px) {
+  /* tablet: wide meadow photo across the top, the other two beneath */
   .history-collage { grid-template-columns: 1fr 1fr; }
+  .history-collage > :first-child { grid-column: 1 / -1; }
+  .history-collage img { height: auto; aspect-ratio: 4 / 3; }
+  .history-collage > :first-child img { aspect-ratio: 2 / 1; }
   .history-row { grid-template-columns: 1fr; }
   .history-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 599px) {
+  /* phone: one column, wide meadow photo first */
+  .history-collage { grid-template-columns: 1fr; }
+  .history-collage img,
+  .history-collage > :first-child img { aspect-ratio: 4 / 3; }
 }
 
 /* -------------------- wildlife -------------------- */
@@ -1574,8 +1591,9 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   margin-top: 60px;
   padding-top: 40px;
   border-top: 2px solid #e0e0e0;
-  text-align: center;
+  text-align: left;
 }
+.page-crosslink p { max-width: var(--measure); }
 
 .page-crosslink .button {
   display: inline-block;
@@ -1669,7 +1687,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
   box-shadow: var(--shadow);
 }
 .balsam-map figcaption {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   color: var(--muted);
   margin-top: 8px;
 }
@@ -2007,20 +2025,7 @@ body.no-scroll { overflow: hidden; touch-action: none; }
 }
 
 /* Thank you message */
-.thank-you {
-  text-align: center;
-  padding: 40px;
-  background: #fafaf8;
-  border-radius: 0;
-  margin: 60px 0;
-}
 
-.thank-you p {
-  font-size: 1.25rem;
-  font-style: italic;
-  color: #818027;
-  margin: 0;
-}
 
 /* Donate CTA */
 .donate-cta {
@@ -2195,9 +2200,10 @@ main.container section > .key-list {
 }
 
 .what3words {
-  font-size: 0.875rem;
+  font-size: 1rem;
   margin-top: 8px;
 }
+.what3words small { font-size: inherit; }
 
 .what3words a {
   color: #818027;
@@ -2322,7 +2328,7 @@ main.container section > .key-list {
 }
 .resp-item p {
   margin: 0;
-  font-size: 0.975rem;
+  font-size: 1rem;
   line-height: 1.6;
   color: var(--fg);
 }
@@ -2471,7 +2477,7 @@ main.container section > .key-list {
   border-radius: 50px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.975rem;
+  font-size: 1rem;
   transition: all 0.2s ease;
 }
 .help-link-btn.primary {
@@ -2562,8 +2568,7 @@ main.container section > .key-list {
 /* Button rows / CTAs / cross-links on the left edge */
 .center-page .help-links,
 .center-page .cta-buttons { justify-content: flex-start; }
-.center-page .page-crosslink,
-.center-block.page-crosslink { text-align: left; }
+
 
 /* Responsibility accent bars: an odd final bar spans full width (no orphan) */
 .center-page .responsibilities-clean > .resp-item:last-child:nth-child(odd) {
@@ -2757,8 +2762,8 @@ main.container section > .key-list {
    ============================================ */
 
 /* Cream strap line: left-aligned and lined up with the page content
-   on every page (was centred). Line breaks are set per page with
-   <br class="intro-break"> and dropped on phones so text reflows. */
+   on every page (was centred). The per-page <br class="intro-break">
+   tags are hidden so the line runs to the full 1000px measure. */
 .page-intro .intro-content {
   width: var(--wrap);
   max-width: 1400px;
@@ -2771,9 +2776,7 @@ main.container section > .key-list {
   margin-right: 0;
   color: var(--brand-dark);
 }
-@media (max-width: 700px) {
-  .intro-break { display: none; }
-}
+.intro-break { display: none; }   /* breaks kept in the HTML but no longer forced */
 
 /* Section headings: one size, one colour (bark brown), left-aligned
    on every page. Some pages centred them or used body-text brown. */
@@ -2816,15 +2819,12 @@ main > .bank-details {
 figcaption {
   text-align: left !important;
 }
-.alt-image:has(> .image-caption) {
+.alt-image--contain:has(> .image-caption) {
   width: fit-content;
   max-width: 100%;
-  margin-inline: auto;
+  margin-inline: 0 auto;
 }
-.alt-image--contain:has(> .image-caption) { margin-inline: 0 auto; }
-.alt-image:has(> .image-caption) > img {
-  margin-inline: 0;
-}
+.alt-image > img { margin-inline: 0; }
 .alt-image > .image-caption {
   width: 0;
   min-width: 100%;
@@ -2833,10 +2833,10 @@ figcaption {
   font-style: normal;
 }
 
-/* Banner photo caption: sits under the banner on the content edge,
-   styled like every other caption (Wildlife). */
+/* Banner photo caption: first line of the cream intro strip, styled like
+   every other caption (Wildlife). */
 .banner-caption {
-  margin: 8px 0;
+  margin: 0 0 8px;
   font-size: 0.875rem;
   color: var(--muted);
   max-width: none;
@@ -2929,3 +2929,21 @@ main.container > section > h3:first-child {
 .bank-details .button:focus { background: var(--cream); color: var(--brand-dark); }
 /* A real <button> using the pill style needs the browser's own button look reset */
 button.button { border: 0; font: inherit; font-weight: 600; cursor: pointer; }
+
+/* Key documents on phones: the name gets the full width, link underneath it */
+@media (max-width: 599px) {
+  .doc-card { display: grid; grid-template-columns: auto 1fr; column-gap: 16px; row-gap: 4px; align-items: center; }
+  .doc-card > :first-child { grid-row: 1 / span 2; }
+  .doc-card .doc-name,
+  .doc-card .doc-action { grid-column: 2; }
+}
+
+/* Donate: the thank-you line now opens the footer CTA band (replaces the separate strip) */
+.footer-cta .cta-thanks {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--brand-dark);
+  max-width: var(--measure);
+  margin: 0 auto 24px;
+  text-align: center;
+}

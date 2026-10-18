@@ -2781,7 +2781,9 @@ main.container section > .key-list {
   margin-right: 0;
   color: var(--brand-dark);
 }
-.intro-break { display: none; }   /* breaks kept in the HTML but no longer forced */
+@media (max-width: 700px) {
+  .intro-break { display: none; }   /* agreed breaks on desktop, dropped on phones */
+}
 
 /* Section headings: one size, one colour (bark brown), left-aligned
    on every page. Some pages centred them or used body-text brown. */
@@ -2841,10 +2843,14 @@ figcaption {
 /* Banner photo caption: first line of the cream intro strip, styled like
    every other caption (Wildlife). */
 .banner-caption {
-  margin: 0 0 8px;
+  position: absolute;
+  left: var(--wrap-pad);
+  bottom: 14px;
+  z-index: 2;
+  margin: 0;
   font-size: 0.875rem;
-  color: var(--muted);
-  max-width: none;
+  color: #fff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, .7);
 }
 
 /* About "How can you help?" block: left-aligned to match the heading

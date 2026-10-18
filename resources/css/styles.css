@@ -2956,3 +2956,15 @@ button.button { border: 0; font: inherit; font-weight: 600; cursor: pointer; }
 /* Focal point for cropped photos (object-fit: cover), set on the <img> */
 .focus-top   { object-position: 50% 0%; }
 .focus-upper { object-position: 50% 25%; }
+
+/* Portrait variant of the alternating blocks: tall photos at 4:5 instead of
+   being cropped to 4:3, in a narrower image column. Add to the .alt-grid. */
+.alt-grid--portrait .alt-image img { aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 50%; }
+@media (min-width: 768px) {
+  .alt-grid.alt-grid--portrait { grid-template-columns: 7fr 5fr; }                 /* text | image */
+  .alt-reverse .alt-grid.alt-grid--portrait { grid-template-columns: 5fr 7fr; }   /* image | text */
+  /* The caption hangs just below the photo without adding to the block's height,
+     so the text is centred against the photo itself, not photo + caption. */
+  .alt-grid--portrait > .alt-image { position: relative; }
+  .alt-grid--portrait > .alt-image > .image-caption { position: absolute; top: 100%; left: 0; right: 0; }
+}

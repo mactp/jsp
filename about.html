@@ -1,82 +1,12 @@
-<!doctype html>
-<html lang="en" class="no-js">
-<head>
-  <meta name="robots" content="noindex, nofollow">
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>About us | Friends of Jacob Smith Park</title>
-  <meta name="description" content="Learn about the Friends of Jacob Smith Park: who we are, what we do, and how we care for this beautiful green space." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="resources/css/styles.css?v=27">
-  <style>
-    /* Committee + key documents side by side (stacks on narrow screens) */
-    .committee-docs { display: grid; grid-template-columns: 1fr; gap: 40px; }
-    @media (min-width: 900px) {
-      .committee-docs { grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
-    }
-    .committee-docs h2 { color: var(--brand-dark); margin-bottom: 12px; }
-    .committee-docs .committee-list { gap: 0; }
-    .committee-docs .committee-list li { padding: 6px 0; }
-    .committee-docs .documents-grid { grid-template-columns: 1fr; margin-top: 0; }
-  </style>
-  <link rel="icon" type="image/svg+xml" href="resources/images/favicon.svg">
-  <!-- Social preview -->
-  <meta property="og:site_name" content="Friends of Jacob Smith Park">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="en_GB">
-  <meta property="og:url" content="https://friendsofjsp.org.uk/about.html">
-  <meta property="og:title" content="About us | Friends of Jacob Smith Park">
-  <meta property="og:description" content="Learn about the Friends of Jacob Smith Park: who we are, what we do, and how we care for this beautiful green space.">
-  <meta property="og:image" content="https://friendsofjsp.org.uk/resources/images/banners/banner-about.jpeg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#818027">
-  <script>document.documentElement.classList.replace('no-js','js');</script>
-  <script src="resources/javascript/main.js?v=27" defer></script>
-
-</head>
-
-<body class="center-page">
-  <a class="skip-link" href="#main">Skip to main content</a>
-
-  <header class="site-header" role="banner">
-    <div class="container header-inner">
-      <a href="index.html" class="nav-logo-link" aria-label="Jacob Smith Park – Home">
-        <img
-          src="resources/images/logo-tree-inline.svg"
-          alt="Friends of Jacob Smith Park"
-          class="nav-logo nav-logo--tree"
-        />
-        <img
-          src="resources/images/logo-reverse.svg"
-          alt="Friends of Jacob Smith Park"
-          class="nav-logo nav-logo--type"
-        />
-      </a>
-      <nav class="site-nav" aria-label="Main navigation">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">☰</button>
-        <ul id="primary-nav" class="nav-list" hidden>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="visiting.html">Visiting</a></li>
-          <li><a href="about.html" aria-current="page">About us</a></li>
-          <li><a href="wildlife.html">Wildlife</a></li>
-          <li class="has-dropdown">
-            <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">History</a>
-            <ul class="dropdown-menu">
-              <li><a href="park-history.html">Park history</a></li>
-              <li><a href="jacob-smith-family.html">Jacob Smith family</a></li>
-            </ul>
-          </li>
-          <li><a href="get-involved.html">Get involved</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="donate.html">Donate</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
+---
+layout: "default"
+title: "About us | Friends of Jacob Smith Park"
+description: "Learn about the Friends of Jacob Smith Park: who we are, what we do, and how we care for this beautiful green space."
+og_image: "resources/images/banners/banner-about.jpeg"
+nav: "about"
+body_class: "center-page"
+head_include: "page/about-head.html"
+---
   <!-- Banner -->
   <section class="banner banner--image banner--plain">
     <img src="resources/images/banners/banner-about.jpeg" alt="About Jacob Smith Park" class="banner-image">
@@ -283,49 +213,4 @@
 
   </main>
 
-  <!-- Footer CTA -->
-  <section class="footer-cta" aria-label="Quick actions">
-  <div class="container">
-    <div class="cta-grid">
-      <a href="donate.html" class="cta-button">Donate</a>
-      <a href="get-involved.html" class="cta-button">Get involved</a>
-      <a href="contact.html#form-title" class="cta-button">Add me to the mailing list</a>
-    </div>
-  </div>
-</section>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="container footer-grid">
-      <section class="footer-col">
-        <h3 class="footer-title">Friends of Jacob Smith Park</h3>
-        <p class="footer-blurb">A community group dedicated to protecting, conserving, and enhancing this historic 30-acre parkland in Knaresborough.</p>
-      </section>
-      <nav class="footer-col" aria-label="Quick links">
-        <h3 class="footer-title">Quick links</h3>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="visiting.html">Visiting</a></li>
-          <li><a href="about.html">About us</a></li>
-          <li><a href="wildlife.html">Wildlife</a></li>
-          <li><a href="park-history.html">History</a></li>
-          <li><a href="get-involved.html">Get involved</a></li>
-        </ul>
-      </nav>
-      <section class="footer-col" aria-label="Contact">
-        <h3 class="footer-title">Contact</h3>
-        <ul class="footer-links">
-          <li><a href="mailto:contact@friendsofjsp.org.uk">contact@friendsofjsp.org.uk</a></li>
-        </ul>
-      </section>
-    </div>
-    <div class="legal-bar">
-      <div class="container legal-inner">
-        <p>&copy; <span id="year"></span> Friends of Jacob Smith Park</p>
-      </div>
-    </div>
-  </footer>
-
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <div class="scrim" aria-hidden="true"></div>
-</body>
-</html>
+  

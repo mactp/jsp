@@ -1,0 +1,11 @@
+  <style>
+    /* Committee + key documents side by side (stacks on narrow screens) */
+    .committee-docs { display: grid; grid-template-columns: 1fr; gap: 40px; }
+    @media (min-width: 900px) {
+      .committee-docs { grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    }
+    .committee-docs h2 { color: var(--brand-dark); margin-bottom: 12px; }
+    .committee-docs .committee-list { gap: 0; }
+    .committee-docs .committee-list li { padding: 6px 0; }
+    .committee-docs .documents-grid { grid-template-columns: 1fr; margin-top: 0; }
+  </style>

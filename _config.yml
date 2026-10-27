@@ -1,6 +1,7 @@
 title: "Friends of Jacob Smith Park"
 url: "https://friendsofjsp.org.uk"
 baseurl: ""
+timezone: Europe/London   # "past events" are judged in UK time
 
 # Cache-busters: bump when styles.css / main.js change
 css_version: 27
@@ -20,8 +21,10 @@ exclude:
   # Dated content backup and design source files
   - "JSP Website 13 Sep 2025/"
   - "03_Digital documnet assets/"
-  # Notes and drafts
-  - "*.md"
+  # Notes and drafts (root only: a bare "*.md" would also exclude _posts/)
+  - "Reply to *.md"
+  - "Note to *.md"
+  - web-business-starter.md
   # Unused code
   - main.js
   - resources/css/styles-a.css
@@ -41,3 +44,14 @@ exclude:
   - node_modules/
   - vendor/
   - README*
+
+# News posts: /news/<slug>.html, one folder down, so relative links
+# in the shared includes are prefixed with page.base ("../").
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      permalink: /news/:title.html
+      base: "../"

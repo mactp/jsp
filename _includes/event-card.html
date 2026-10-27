@@ -9,9 +9,9 @@
       <details class="event-tile"{% if event.date %} data-date="{{ event_date }}"{% endif %}>
         <summary>
 {%- if event.date %}
-          <time class="event-when" datetime="{{ event_date }}">{% if event.date_label %}{{ event.date_label | escape }}{% else %}{{ event.date | date: "%a %-d %B %Y" }}{% endif %}</time>
+          <time class="event-when" datetime="{{ event_date }}">{% if event.when %}{{ event.when | escape }}{% else %}{{ event.date | date: "%a %-d %B %Y" }}{% endif %}</time>
 {%- else %}
-          <span class="event-when">{{ event.date_label | escape }}</span>
+          <span class="event-when">{{ event.when | escape }}</span>
 {%- endif %}
 {%- if event.type %}
           <span class="event-type">{{ event.type | escape }}</span>

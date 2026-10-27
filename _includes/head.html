@@ -1,0 +1,33 @@
+  <meta name="robots" content="noindex, nofollow">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description }}">
+
+  <!-- CSS (cache-busted once to ensure new banner rules load) -->
+  <!-- Google Fonts: Nunito -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="resources/css/styles.css?v={{ site.css_version }}">
+{% if page.head_include %}{% include {{ page.head_include }} %}{% endif %}
+  <link rel="icon" type="image/svg+xml" href="resources/images/favicon.svg">
+  <!-- Social preview -->
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="{{ page.description }}">
+  <meta property="og:image" content="{{ site.url }}/{{ page.og_image }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#818027">
+{% if page.preload_image %}
+  <!-- Optional: preload hero image for faster first paint -->
+  <link rel="preload" as="image"
+        href="{{ page.preload_image }}"
+        imagesrcset=""
+        imagesizes="100vw">
+{% endif %}
+  <!-- no-js → js helper -->
+  <script>document.documentElement.classList.replace('no-js','js');</script>

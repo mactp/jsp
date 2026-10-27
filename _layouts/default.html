@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en-GB" class="no-js">
+<head>
+{% include head.html %}
+  <!-- Your main JavaScript -->
+  <script src="resources/javascript/main.js?v={{ site.js_version }}" defer></script>
+{% if page.head_end_include %}{% include {{ page.head_end_include }} %}{% endif %}
+</head>
+<body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
+{% include header.html %}
+{{ content }}
+{% include footer.html %}
+{% if page.foot_include %}{% include {{ page.foot_include }} %}{% endif %}
+  <div class="scrim" aria-hidden="true"></div>
+</body>
+</html>

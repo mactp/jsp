@@ -1,0 +1,25 @@
+---
+layout: default
+---
+  <!-- Banner -->
+  <section class="banner banner--image banner--plain">
+    <img src="{{ page.base }}resources/images/banners/banner-home.jpg" alt="Summer meadow and mature trees at Jacob Smith Park" class="banner-image">
+    <div class="container">
+      <h2 class="visually-hidden">News</h2>
+    </div>
+  </section>
+
+  <main id="main" class="container" style="padding-block: clamp(32px,6vw,64px);">
+    <p class="news-back"><a href="{{ page.base }}news.html" class="inline-link">&larr; Back to all news</a></p>
+
+    <article class="news-article">
+{%- if page.image %}
+      <img src="{{ page.base }}{{ page.image }}" alt="{{ page.image_alt | escape }}" decoding="async">
+{%- endif %}
+      <div>
+        <time class="news-date" datetime="{{ page.date | date: '%Y-%m-%d' }}">{% if page.date_label %}{{ page.date_label | escape }}{% else %}{{ page.date | date: "%-d %B %Y" }}{% endif %}</time>
+        <h3>{{ page.title | escape }}</h3>
+{{ content }}
+      </div>
+    </article>
+  </main>

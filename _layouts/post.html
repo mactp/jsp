@@ -18,7 +18,7 @@ layout: default
 {%- endif %}
       <div>
         <time class="news-date" datetime="{{ page.date | date: '%Y-%m-%d' }}">{% if page.date_label %}{{ page.date_label | escape }}{% else %}{{ page.date | date: "%-d %B %Y" }}{% endif %}</time>
-        <h3>{{ page.title | escape }}</h3>
+        <h2>{{ page.title | escape }}</h2>
 {{ content }}
       </div>
     </article>

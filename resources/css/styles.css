@@ -3024,5 +3024,6 @@ a.news-tile:hover, a.news-tile:focus-visible { transform: translateY(-3px); box-
 .news-article { display: grid; gap: 20px 40px; }
 @media (min-width: 800px) { .news-article { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); align-items: start; } }
 .news-article img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow); }
-.news-article h3 { margin: 4px 0 12px; font-size: 1.4rem; color: var(--brand-dark); }
+/* "main" in the selector so it outranks the site-wide main h2 size */
+main .news-article h2 { margin: 4px 0 12px; font-size: 1.4rem; color: var(--brand-dark); }
 .news-article p { max-width: 70ch; }

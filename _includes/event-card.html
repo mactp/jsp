@@ -1,0 +1,44 @@
+{%- comment -%}
+  One event tile, from _data/events.yml: {% include event-card.html event=event %}
+  Dated events carry data-date so main.js can hide them once they've passed.
+{%- endcomment -%}
+{%- assign event = include.event -%}
+{%- if event.date -%}
+  {%- assign event_date = event.date | date: "%Y-%m-%d" -%}
+{%- endif %}
+      <details class="event-tile"{% if event.date %} data-date="{{ event_date }}"{% endif %}>
+        <summary>
+{%- if event.date %}
+          <time class="event-when" datetime="{{ event_date }}">{% if event.date_label %}{{ event.date_label | escape }}{% else %}{{ event.date | date: "%a %-d %B %Y" }}{% endif %}</time>
+{%- else %}
+          <span class="event-when">{{ event.date_label | escape }}</span>
+{%- endif %}
+{%- if event.type %}
+          <span class="event-type">{{ event.type | escape }}</span>
+{%- endif %}
+          <h3>{{ event.title | escape }}</h3>
+          <span class="event-more">Details</span>
+        </summary>
+        <div class="event-body">
+{%- if event.image %}
+          <img src="{{ page.base }}{{ event.image }}" alt="{{ event.image_alt | escape }}" loading="lazy" decoding="async">
+{%- endif %}
+          <ul class="event-facts">
+{%- if event.location %}
+            <li><strong>{{ event.location_label | default: "Meet" | escape }}:</strong> {{ event.location | escape }}</li>
+{%- endif %}
+{%- if event.start_time %}
+            <li><strong>Time:</strong> {{ event.start_time | escape }}{% if event.end_time %} to {{ event.end_time | escape }}{% endif %}</li>
+{%- elsif event.time_note %}
+            <li><strong>Time:</strong> {{ event.time_note | escape }}</li>
+{%- endif %}
+{%- if event.duration %}
+            <li><strong>Duration:</strong> {{ event.duration | escape }}</li>
+{%- endif %}
+          </ul>
+          <p>{{ event.description | escape }}</p>
+{%- if event.link %}
+          <p><a href="{{ event.link }}">More details<span class="visually-hidden"> about {{ event.title | escape }}</span> &rarr;</a></p>
+{%- endif %}
+        </div>
+      </details>

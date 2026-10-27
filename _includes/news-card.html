@@ -1,0 +1,25 @@
+{%- comment -%}
+  One news tile. Pass the post: {% include news-card.html post=post %}
+  A post with a story links to it; one with only a summary is a plain tile.
+{%- endcomment -%}
+{%- assign post = include.post -%}
+{%- assign story = post.content | strip_html | strip -%}
+{%- capture date_text %}{% if post.date_label %}{{ post.date_label | escape }}{% else %}{{ post.date | date: "%-d %B %Y" }}{% endif %}{% endcapture -%}
+{%- if story != "" %}
+      <a class="news-tile" href="{{ page.base }}{{ post.url | remove_first: '/' }}">
+{%- else %}
+      <div class="news-tile">
+{%- endif %}
+        <img src="{{ page.base }}{{ post.image }}" alt="" loading="lazy" decoding="async">
+        <div class="news-tile-body">
+          <time class="news-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ date_text }}</time>
+          <h3>{{ post.title | escape }}</h3>
+          <p>{{ post.summary | escape }}</p>
+{%- if story != "" %}
+          <span class="news-read">Read more &rarr;</span>
+        </div>
+      </a>
+{%- else %}
+        </div>
+      </div>
+{%- endif %}

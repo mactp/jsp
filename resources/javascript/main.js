@@ -303,3 +303,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { passive: true });
   onScroll();
 })();
+/* 8) Upcoming events: hide tiles whose date has passed since the site was
+      last built, and show the "No upcoming events" note if none are left. */
+(function () {
+  const dated = document.querySelectorAll('.event-tile[data-date]');
+  if (!dated.length) return;
+  const now = new Date();
+  const today = now.getFullYear() + '-' +
+    String(now.getMonth() + 1).padStart(2, '0') + '-' +
+    String(now.getDate()).padStart(2, '0');
+  dated.forEach(tile => { if (tile.dataset.date < today) tile.hidden = true; });
+  const none = document.querySelector('.events-none');
+  if (none && !document.querySelector('.event-tile:not([hidden])')) none.hidden = false;
+})();

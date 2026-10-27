@@ -5,7 +5,7 @@ timezone: Europe/London   # "past events" are judged in UK time
 
 # Cache-busters: bump when styles.css / main.js change
 css_version: 28
-js_version: 27
+js_version: 28
 
 # Everything below is in the repo but not part of the live site.
 # Folder patterns end in "/" because Jekyll matches excludes as path prefixes

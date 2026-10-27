@@ -1,0 +1,21 @@
+name: Nightly Pages rebuild
+
+# Rebuilds the site each night so past events drop off the home page.
+# The site still deploys via "Deploy from a branch" (master); this only
+# asks GitHub to run that build again.
+on:
+  schedule:
+    - cron: "0 2 * * *"   # 02:00 UTC = 02:00 UK in winter, 03:00 in summer
+  workflow_dispatch:       # "Run workflow" button for a manual rebuild
+
+permissions:
+  pages: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request a GitHub Pages build
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh api --method POST "repos/${{ github.repository }}/pages/builds"

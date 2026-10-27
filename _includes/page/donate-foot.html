@@ -1,0 +1,24 @@
+  <script>
+    // Amount button toggle
+    document.querySelectorAll('.amount-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const custom = document.getElementById('custom-amount');
+        if (this.dataset.amount === 'other') {
+          custom.style.display = 'block';
+          document.getElementById('amount-input').focus();
+        } else {
+          custom.style.display = 'none';
+        }
+      });
+    });
+
+    // Smooth scroll for anchor buttons
+    document.querySelectorAll('a[href="#bank-details"]').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.getElementById('bank-details').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>

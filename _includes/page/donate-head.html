@@ -1,0 +1,225 @@
+  <style>
+    /* ── Banner fix ── */
+
+    /* ── Donate intro section ── */
+    .donate-intro {
+      padding: clamp(40px, 5vw, 60px) 0;
+      background: #fff;
+    }
+    .donate-intro h2 {
+      color: var(--brand-dark);
+      margin-bottom: 1rem;
+    }
+    /* ── Ways to give — 3-column card grid ── */
+    .ways-to-give {
+      padding: clamp(40px, 5vw, 60px) 0;
+      background: #fafaf8;
+    }
+
+    /* ── Ways to give — 3-column card grid ── */
+    .ways-to-give {
+      padding: clamp(40px, 5vw, 60px) clamp(32px, 6vw, 80px);
+      background: #fafaf8;
+    }
+    .ways-to-give h2 {
+      color: var(--brand-dark);
+      margin-bottom: 40px;
+    }
+    .give-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    @media (min-width: 768px) {
+      .give-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .give-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 36px 28px 32px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+      border-top: 4px solid var(--brand-2-dark);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .give-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(0,0,0,.11);
+    }
+    .give-card:nth-child(2) { border-top-color: var(--brand-2-dark); }
+    .give-card:nth-child(3) { border-top-color: var(--accent); }
+
+    .give-icon {
+      font-size: 2.75rem;
+      line-height: 1;
+    }
+    .give-card h3 {
+      color: var(--brand-dark);
+      font-size: 1.35rem;
+      margin: 0;
+    }
+    .give-card p {
+      line-height: 1.65;
+      margin: 0;
+      flex-grow: 1;
+    }
+    .give-card .amounts {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .amount-btn {
+      background: white;
+      border: 2px solid var(--brand);
+      color: var(--brand);
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Nunito', sans-serif;
+    }
+    .amount-btn:hover,
+    .amount-btn.active {
+      background: var(--brand);
+      color: #fff;
+    }
+    .custom-amount {
+      margin-top: 12px;
+      display: none;
+    }
+    .custom-amount label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--brand);
+      margin-bottom: 6px;
+    }
+    .custom-amount input {
+      padding: 10px 14px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: 'Nunito', sans-serif;
+      width: 160px;
+    }
+    .custom-amount input:focus {
+      outline: none;
+      border-color: var(--brand);
+    }
+
+    .give-anchor-btn {
+      display: inline-block;
+      background: var(--brand-2-dark);
+      color: #fff;
+      padding: 13px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-top: 4px;
+      transition: background 0.2s ease, transform 0.2s ease;
+      align-self: flex-start;
+    }
+    .give-anchor-btn:hover {
+      background: var(--brand-dark);
+      transform: scale(1.04);
+      text-decoration: none;
+    }
+    .give-card:nth-child(2) .give-anchor-btn { background: var(--brand-2-dark); }
+    .give-card:nth-child(2) .give-anchor-btn:hover { background: var(--brand-dark); }
+    .give-card:nth-child(3) .give-anchor-btn { background: var(--brand); }
+
+    /* ── Bank details ── */
+    .bank-details {
+      background: linear-gradient(135deg, #818027, #a4a23f);
+      color: white;
+      padding: clamp(48px, 6vw, 72px) 5%;
+      margin: 0;
+    }
+    .bank-details-inner {
+      max-width: 680px;
+    }
+    .bank-details h2 {
+      color: white;
+      margin-bottom: 8px;
+    }
+    .bank-details > .bank-details-inner > p {
+      opacity: 0.9;
+      margin-bottom: 32px;
+      font-size: 1.05rem;
+    }
+    .bank-table {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .bank-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      gap: 16px;
+    }
+    .bank-row:last-child { border-bottom: none; }
+    .bank-label {
+      font-weight: 500;
+      opacity: 0.85;
+      font-size: 1rem;
+    }
+    .bank-value {
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-align: right;
+    }
+    .bank-note {
+      font-size: 1rem;
+      opacity: 0.85;
+      margin-bottom: 32px;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      border-left: 3px solid rgba(255,255,255,0.4);
+    }
+    .paypal-donate {
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    .paypal-donate p {
+      margin-bottom: 16px;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    .paypal-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      color: var(--brand-dark);
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+    }
+    .paypal-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(255,255,255,0.25);
+      text-decoration: none;
+    }
+
+    /* ── Thank you strip ── */
+
+    @media (max-width: 600px) {
+      .bank-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+      .bank-value { text-align: left; }
+    }
+  </style>

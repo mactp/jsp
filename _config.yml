@@ -1,0 +1,43 @@
+title: "Friends of Jacob Smith Park"
+url: "https://friendsofjsp.org.uk"
+baseurl: ""
+
+# Cache-busters: bump when styles.css / main.js change
+css_version: 27
+js_version: 27
+
+# Everything below is in the repo but not part of the live site.
+# Folder patterns end in "/" because Jekyll matches excludes as path prefixes
+# (e.g. "resources/img" would also exclude "resources/images").
+exclude:
+  # Old page copies
+  - Index2test.html
+  - gallery.html
+  - history-facts.html
+  - history-family.html
+  - history-park.html
+  - test-nav.html
+  # Dated content backup and design source files
+  - "JSP Website 13 Sep 2025/"
+  - "03_Digital documnet assets/"
+  # Notes and drafts
+  - "*.md"
+  # Unused code
+  - main.js
+  - resources/css/styles-a.css
+  - resources/css/styles-b.css
+  - resources/javascript/wildlife.js
+  # Unused image folders
+  - resources/img/
+  - "resources/images/Hi-res images/"
+  # Source documents and phone originals inside resources/images/
+  - "resources/images/*.docx"
+  - "resources/images/*.pdf"
+  - "resources/images/*.HEIC"
+  - "resources/images/*.heic"
+  # Tooling
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - README*

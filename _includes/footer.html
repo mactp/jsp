@@ -3,9 +3,9 @@
   <div class="container">
 {% if page.cta_thanks %}    <p class="cta-thanks">{{ page.cta_thanks }}</p>
 {% endif %}    <div class="cta-grid">
-      <a href="donate.html" class="cta-button">Donate</a>
-      <a href="get-involved.html" class="cta-button">Get involved</a>
-      <a href="contact.html#form-title" class="cta-button">Add me to the mailing list</a>
+      <a href="{{ page.base }}donate.html" class="cta-button">Donate</a>
+      <a href="{{ page.base }}get-involved.html" class="cta-button">Get involved</a>
+      <a href="{{ page.base }}contact.html#form-title" class="cta-button">Add me to the mailing list</a>
     </div>
   </div>
 </section>
@@ -20,12 +20,12 @@
     <nav class="footer-col" aria-label="Quick links">
       <h3 class="footer-title">Quick links</h3>
       <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="visiting.html">Visiting</a></li>
-        <li><a href="about.html">About us</a></li>
-        <li><a href="wildlife.html">Wildlife</a></li>
-        <li><a href="park-history.html">History</a></li>
-        <li><a href="get-involved.html">Get involved</a></li>
+        <li><a href="{{ page.base }}index.html">Home</a></li>
+        <li><a href="{{ page.base }}visiting.html">Visiting</a></li>
+        <li><a href="{{ page.base }}about.html">About us</a></li>
+        <li><a href="{{ page.base }}wildlife.html">Wildlife</a></li>
+        <li><a href="{{ page.base }}park-history.html">History</a></li>
+        <li><a href="{{ page.base }}get-involved.html">Get involved</a></li>
       </ul>
     </nav>
 

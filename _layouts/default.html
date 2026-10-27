@@ -3,7 +3,7 @@
 <head>
 {% include head.html %}
   <!-- Your main JavaScript -->
-  <script src="resources/javascript/main.js?v={{ site.js_version }}" defer></script>
+  <script src="{{ page.base }}resources/javascript/main.js?v={{ site.js_version }}" defer></script>
 {% if page.head_end_include %}{% include {{ page.head_end_include }} %}{% endif %}
 </head>
 <body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>

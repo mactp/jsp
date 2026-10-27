@@ -2,14 +2,14 @@
 
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <a href="index.html" class="nav-logo-link" aria-label="Jacob Smith Park – Home">
+      <a href="{{ page.base }}index.html" class="nav-logo-link" aria-label="Jacob Smith Park – Home">
         <img
-          src="resources/images/logo-tree-inline.svg"
+          src="{{ page.base }}resources/images/logo-tree-inline.svg"
           alt="Friends of Jacob Smith Park"
           class="nav-logo nav-logo--tree"
         />
         <img
-          src="resources/images/logo-reverse.svg"
+          src="{{ page.base }}resources/images/logo-reverse.svg"
           alt="Friends of Jacob Smith Park"
           class="nav-logo nav-logo--type"
         />
@@ -22,20 +22,20 @@
                 aria-label="Toggle navigation">☰</button>
 
         <ul id="primary-nav" class="nav-list" hidden>
-          <li><a href="index.html"{% if page.nav == "home" %} aria-current="page"{% endif %}>Home</a></li>
-          <li><a href="visiting.html"{% if page.nav == "visiting" %} aria-current="page"{% endif %}>Visiting</a></li>
-          <li><a href="about.html"{% if page.nav == "about" %} aria-current="page"{% endif %}>About us</a></li>
-          <li><a href="wildlife.html"{% if page.nav == "wildlife" %} aria-current="page"{% endif %}>Wildlife</a></li>
+          <li><a href="{{ page.base }}index.html"{% if page.nav == "home" %} aria-current="page"{% endif %}>Home</a></li>
+          <li><a href="{{ page.base }}visiting.html"{% if page.nav == "visiting" %} aria-current="page"{% endif %}>Visiting</a></li>
+          <li><a href="{{ page.base }}about.html"{% if page.nav == "about" %} aria-current="page"{% endif %}>About us</a></li>
+          <li><a href="{{ page.base }}wildlife.html"{% if page.nav == "wildlife" %} aria-current="page"{% endif %}>Wildlife</a></li>
           <li class="has-dropdown">
             <a href="#"{% if page.nav == "park-history" or page.nav == "jacob-smith-family" %} aria-current="page"{% endif %} class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">History</a>
             <ul class="dropdown-menu">
-              <li><a href="park-history.html"{% if page.nav == "park-history" %} aria-current="page"{% endif %}>Park history</a></li>
-              <li><a href="jacob-smith-family.html"{% if page.nav == "jacob-smith-family" %} aria-current="page"{% endif %}>Jacob Smith family</a></li>
+              <li><a href="{{ page.base }}park-history.html"{% if page.nav == "park-history" %} aria-current="page"{% endif %}>Park history</a></li>
+              <li><a href="{{ page.base }}jacob-smith-family.html"{% if page.nav == "jacob-smith-family" %} aria-current="page"{% endif %}>Jacob Smith family</a></li>
             </ul>
           </li>
-          <li><a href="get-involved.html"{% if page.nav == "get-involved" %} aria-current="page"{% endif %}>Get involved</a></li>
-          <li><a href="contact.html"{% if page.nav == "contact" %} aria-current="page"{% endif %}>Contact</a></li>
-          <li><a href="donate.html"{% if page.nav == "donate" %} aria-current="page"{% endif %}>Donate</a></li>
+          <li><a href="{{ page.base }}get-involved.html"{% if page.nav == "get-involved" %} aria-current="page"{% endif %}>Get involved</a></li>
+          <li><a href="{{ page.base }}contact.html"{% if page.nav == "contact" %} aria-current="page"{% endif %}>Contact</a></li>
+          <li><a href="{{ page.base }}donate.html"{% if page.nav == "donate" %} aria-current="page"{% endif %}>Donate</a></li>
         </ul>
       </nav>
     </div>

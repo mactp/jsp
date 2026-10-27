@@ -70,5 +70,46 @@ preload_image: "resources/images/banners/banner-home.jpg"
   </div>
 </section>
 
+
+<!-- Upcoming events: dated ones soonest first (past ones left out), then undated -->
+{%- assign today = site.time | date: "%Y-%m-%d" -%}
+{%- assign upcoming = "" | split: "" -%}
+{%- assign dated = site.data.events | where_exp: "e", "e.date" | sort: "date" -%}
+{%- for e in dated -%}
+  {%- assign d = e.date | date: "%Y-%m-%d" -%}
+  {%- if d >= today -%}{%- assign upcoming = upcoming | push: e -%}{%- endif -%}
+{%- endfor -%}
+{%- assign undated = site.data.events | where_exp: "e", "e.date == nil" -%}
+{%- assign upcoming = upcoming | concat: undated %}
+<section class="news-events news-events--events" id="events" aria-labelledby="events-title">
+  <div class="container">
+    <div class="ne-head">
+      <h2 id="events-title">Upcoming events</h2>
+      <p>Everyone is welcome and no experience is needed. Tap an event for details.</p>
+    </div>
+    <div class="ne-grid">
+{%- for event in upcoming %}
+{% include event-card.html event=event %}
+{%- endfor %}
+    </div>
+    <p class="events-none"{% if upcoming.size > 0 %} hidden{% endif %}>No upcoming events at the moment. Please check back soon.</p>
+  </div>
+</section>
+
+<!-- Latest news: the four most recent posts -->
+<section class="news-events news-events--news" id="news" aria-labelledby="news-title">
+  <div class="container">
+    <div class="ne-head">
+      <h2 id="news-title">Latest news</h2>
+    </div>
+    <div class="ne-grid">
+{%- for post in site.posts limit: 4 %}
+{% include news-card.html post=post %}
+{%- endfor %}
+    </div>
+    <p class="ne-all"><a class="button" href="news.html">All news &rarr;</a></p>
+  </div>
+</section>
+
   </main>
 

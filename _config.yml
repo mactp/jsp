@@ -25,6 +25,7 @@ exclude:
   - "Reply to *.md"
   - "Note to *.md"
   - web-business-starter.md
+  - news-events-summary.md
   # Unused code
   - main.js
   - resources/css/styles-a.css

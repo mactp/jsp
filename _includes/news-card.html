@@ -12,7 +12,9 @@
 {%- else %}
       <div class="news-tile">
 {%- endif %}
+{%- unless post_image == nil or post_image == "" %}
         <img src="{{ page.base }}{{ post_image }}" alt="" loading="lazy" decoding="async">
+{%- endunless %}
         <div class="news-tile-body">
           <time class="news-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ date_text }}</time>
           <h3>{{ post.title | escape }}</h3>

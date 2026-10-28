@@ -1,52 +1,40 @@
-# Upcoming events, shown on the home page.
-#
-# Every event needs:
-#   title, when, description
-#   when:  free text for the date pill, e.g. "Autumn 2026 · date TBC"
-#          or "Sat 14 November 2026"
-#
-# Optional:
-#   date:  YYYY-MM-DD. Set it once the date is fixed: dated events are
-#          listed soonest first and drop off the site after that day.
-#          Events without a date always show, after the dated ones, in
-#          the order listed here.
-#   start_time / end_time  e.g. "10:00" and "12:00"
-#   time_note              shown as "Time:" when there are no times,
-#                          e.g. "to be confirmed"
-#   location               e.g. "inside the gate"
-#   location_label         "Meet" (default) or e.g. "Venue"
-#   type, duration, image + image_alt, link
-
-- title: "New wood maintenance"
-  when: "Autumn 2026 · date TBC"
-  type: "Volunteer event"
-  location: "inside the gate"
-  time_note: "to be confirmed"
-  description: "Help to clear away overgrown grass from the recently planted trees and reinstate tree supports that have become damaged."
-
-- title: "Bramble management"
-  when: "Winter 2026 · date TBC"
-  type: "Volunteer event"
-  location: "inside the gate"
-  duration: "2 hours, but any time you can give is appreciated"
-  description: "Bramble to be cut back to control its spread in areas where it can overwhelm other valuable shrubs and plants. Bramble encroaching on benches and paths also needs cutting back."
-
-- title: "New wood maintenance"
-  when: "Spring 2027 · date TBC"
-  type: "Volunteer event"
-  location: "inside the gate"
-  time_note: "to be confirmed"
-  description: "Help to clear away overgrown grass from the recently planted trees and reinstate tree supports that have become damaged."
-
-- title: "Public meeting"
-  when: "Date TBC"
-  type: "Public meeting · open to all"
-  location_label: "Venue"
-  location: "to be confirmed"
-  description: "Come along and hear what has been going on with the park and plans for the future. This is also a good opportunity to meet the committee and ask any questions you may have."
-
-- title: "Dock management"
-  when: "Early summer 2027 · date TBC"
-  type: "Volunteer event"
-  location: "inside the gate"
-  description: "No chemical controls are used in the park. Dock management is therefore done by hand. By cutting off the flowering shoots as the seeds form, but before they are viable, the plant is prevented from seeding. Also digging will remove some of the tap root and weaken the plants further."
+- title: New wood maintenance
+  when: Autumn 2026 · date TBC
+  type: Volunteer event
+  location: inside the gate
+  time_note: to be confirmed
+  description: Help to clear away overgrown grass from the recently planted trees
+    and reinstate tree supports that have become damaged.
+- title: Bramble management
+  when: Winter 2026 · date TBC
+  type: Volunteer event
+  location: inside the gate
+  description: Bramble to be cut back to control its spread in areas where it can
+    overwhelm other valuable shrubs and plants. Bramble encroaching on benches
+    and paths also needs cutting back.
+  duration: 2 hours, but any time you can give is appreciated
+- title: New wood maintenance
+  when: Spring 2027 · date TBC
+  type: Volunteer event
+  location: inside the gate
+  time_note: to be confirmed
+  description: Help to clear away overgrown grass from the recently planted trees
+    and reinstate tree supports that have become damaged.
+- title: Public meeting
+  when: Date TBC
+  type: Public meeting · open to all
+  location: to be confirmed
+  description: Come along and hear what has been going on with the park and plans
+    for the future. This is also a good opportunity to meet the committee and
+    ask any questions you may have.
+  location_label: Venue
+- title: Dock management
+  when: Early summer 2027 · date TBC
+  type: Volunteer event
+  location: inside the gate
+  description: No chemical controls are used in the park. Dock management is
+    therefore done by hand. By cutting off the flowering shoots as the seeds
+    form, but before they are viable, the plant is prevented from seeding. Also
+    digging will remove some of the tap root and weaken the plants further.
+- title: Test event please ignore
+  when: Date TBC

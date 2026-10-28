@@ -72,14 +72,31 @@ preload_image: "resources/images/banners/banner-home.jpg"
 
 
 <!-- Upcoming events: dated ones soonest first (past ones left out), then undated -->
+{%- comment %}
+  Dates are compared as "YYYY-MM-DD" text, so plain (2026-11-14) and quoted
+  ("2026-11-14") dates sort together. An empty date ("") counts as no date.
+  Each sort key is "date|position", so events on the same day keep file order.
+{% endcomment -%}
 {%- assign today = site.time | date: "%Y-%m-%d" -%}
-{%- assign upcoming = "" | split: "" -%}
-{%- assign dated = site.data.events | where_exp: "e", "e.date" | sort: "date" -%}
-{%- for e in dated -%}
-  {%- assign d = e.date | date: "%Y-%m-%d" -%}
-  {%- if d >= today -%}{%- assign upcoming = upcoming | push: e -%}{%- endif -%}
+{%- assign keys = "" | split: "" -%}
+{%- assign undated = "" | split: "" -%}
+{%- for e in site.data.events -%}
+  {%- if e.date == nil or e.date == "" -%}
+    {%- assign undated = undated | push: e -%}
+  {%- else -%}
+    {%- assign d = e.date | date: "%Y-%m-%d" -%}
+    {%- if d >= today -%}
+      {%- capture key %}{{ d }}|{{ forloop.index0 | prepend: "000" | slice: -4, 4 }}{% endcapture -%}
+      {%- assign keys = keys | push: key -%}
+    {%- endif -%}
+  {%- endif -%}
 {%- endfor -%}
-{%- assign undated = site.data.events | where_exp: "e", "e.date == nil" -%}
+{%- assign keys = keys | sort -%}
+{%- assign upcoming = "" | split: "" -%}
+{%- for key in keys -%}
+  {%- assign i = key | split: "|" | last | plus: 0 -%}
+  {%- assign upcoming = upcoming | push: site.data.events[i] -%}
+{%- endfor -%}
 {%- assign upcoming = upcoming | concat: undated %}
 <section class="news-events news-events--events" id="events" aria-labelledby="events-title">
   <div class="container">

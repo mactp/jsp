@@ -14,7 +14,8 @@ layout: default
 
     <article class="news-article">
 {%- if page.image %}
-      <img src="{{ page.base }}{{ page.image }}" alt="{{ page.image_alt | escape }}" decoding="async">
+{%- assign post_image = page.image -%}{%- assign first_char = post_image | slice: 0 -%}{%- if first_char == "/" %}{%- assign post_image = post_image | slice: 1, 999 -%}{%- endif %}
+      <img src="{{ page.base }}{{ post_image }}" alt="{{ page.image_alt | escape }}" decoding="async">
 {%- endif %}
       <div>
         <time class="news-date" datetime="{{ page.date | date: '%Y-%m-%d' }}">{% if page.date_label %}{{ page.date_label | escape }}{% else %}{{ page.date | date: "%-d %B %Y" }}{% endif %}</time>

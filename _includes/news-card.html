@@ -4,13 +4,15 @@
 {%- endcomment -%}
 {%- assign post = include.post -%}
 {%- assign story = post.content | strip_html | strip -%}
+{%- comment %} Image paths may be "resources/..." or "/resources/..." (Pages CMS uploads) {% endcomment -%}
+{%- assign post_image = post.image -%}{%- assign first_char = post_image | slice: 0 -%}{%- if first_char == "/" %}{%- assign post_image = post_image | slice: 1, 999 -%}{%- endif -%}
 {%- capture date_text %}{% if post.date_label %}{{ post.date_label | escape }}{% else %}{{ post.date | date: "%-d %B %Y" }}{% endif %}{% endcapture -%}
 {%- if story != "" %}
       <a class="news-tile" href="{{ page.base }}{{ post.url | remove_first: '/' }}">
 {%- else %}
       <div class="news-tile">
 {%- endif %}
-        <img src="{{ page.base }}{{ post.image }}" alt="" loading="lazy" decoding="async">
+        <img src="{{ page.base }}{{ post_image }}" alt="" loading="lazy" decoding="async">
         <div class="news-tile-body">
           <time class="news-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ date_text }}</time>
           <h3>{{ post.title | escape }}</h3>

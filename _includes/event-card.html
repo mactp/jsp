@@ -3,12 +3,14 @@
   Dated events carry data-date so main.js can hide them once they've passed.
 {%- endcomment -%}
 {%- assign event = include.event -%}
-{%- if event.date -%}
+{%- comment %} An empty date ("") counts as no date {% endcomment -%}
+{%- assign event_date = "" -%}
+{%- unless event.date == nil or event.date == "" -%}
   {%- assign event_date = event.date | date: "%Y-%m-%d" -%}
-{%- endif %}
-      <details class="event-tile"{% if event.date %} data-date="{{ event_date }}"{% endif %}>
+{%- endunless %}
+      <details class="event-tile"{% if event_date != "" %} data-date="{{ event_date }}"{% endif %}>
         <summary>
-{%- if event.date %}
+{%- if event_date != "" %}
           <time class="event-when" datetime="{{ event_date }}">{% if event.when %}{{ event.when | escape }}{% else %}{{ event.date | date: "%a %-d %B %Y" }}{% endif %}</time>
 {%- else %}
           <span class="event-when">{{ event.when | escape }}</span>
@@ -21,7 +23,8 @@
         </summary>
         <div class="event-body">
 {%- if event.image %}
-          <img src="{{ page.base }}{{ event.image }}" alt="{{ event.image_alt | escape }}" loading="lazy" decoding="async">
+{%- assign event_image = event.image -%}{%- assign first_char = event_image | slice: 0 -%}{%- if first_char == "/" %}{%- assign event_image = event_image | slice: 1, 999 -%}{%- endif -%}
+          <img src="{{ page.base }}{{ event_image }}" alt="{{ event.image_alt | escape }}" loading="lazy" decoding="async">
 {%- endif %}
           <ul class="event-facts">
 {%- if event.location %}

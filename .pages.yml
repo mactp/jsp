@@ -40,7 +40,7 @@ content:
         label: Date
         type: date
         required: true
-        description: "The story's date, used to list stories newest first. To show something different on the card, e.g. '21, 22 & 29 August 2026', use the Date label field below."
+        description: "The story's date, used to list stories newest first. To show something different on the card, e.g. '21, 22 & 29 August 2026', use the Date as shown field below."
         options:
           format: yyyy-MM-dd
       - name: date_label

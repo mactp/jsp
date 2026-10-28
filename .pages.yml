@@ -1,0 +1,141 @@
+# Pages CMS configuration for friendsofjsp.org.uk
+# Docs: https://pagescms.org/docs/configuration/
+# Phase 3: news and events only. Page copy gets added later, page by page.
+
+settings:
+  # Put the editor's name and email on each commit, so the history shows who changed what
+  commit:
+    identity: user
+  # Keep any fields in a file that this config doesn't list, instead of deleting them on save
+  content:
+    merge: true
+
+media:
+  input: resources/images/news
+  output: /resources/images/news
+  categories: [image]
+  rename: safe
+
+content:
+  - name: news
+    label: News stories
+    type: collection
+    path: _posts
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [title, date]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Headline
+        type: string
+        required: true
+        description: "Short and clear, e.g. 'Butterflies 2026'. This also becomes part of the story's web address, so avoid changing it once published."
+      - name: date
+        label: Date
+        type: date
+        required: true
+        description: "The story's date, used to list stories newest first. To show something different on the card, e.g. '21, 22 & 29 August 2026', use the Date label field below."
+        options:
+          format: yyyy-MM-dd
+      - name: date_label
+        label: Date as shown (optional)
+        type: string
+        description: "Only if the plain date isn't right, e.g. '21, 22 & 29 August 2026'. Replaces the date shown on the story; the Date above still decides the order. Leave blank to show the Date."
+      - name: summary
+        label: Summary for the news card
+        type: text
+        required: true
+        description: "One or two sentences shown on the homepage and the news page. End with … if the story continues."
+      - name: image
+        label: Photo
+        type: image
+        description: "Landscape photos work best. JPG or PNG."
+      - name: image_alt
+        label: Photo description (for screen readers)
+        type: string
+        description: "Describe what's in the photo in a few words, e.g. 'Volunteers raking the meadow'. Needed whenever you add a photo."
+      - name: body
+        label: Full story
+        type: rich-text
+        description: "The full story, shown when someone clicks 'Read more'. Leave empty if the summary says it all."
+
+  # Upcoming events, shown on the home page (from _data/events.yml).
+  # - Every event needs a title, when and description.
+  # - Dated events are listed soonest first and drop off the site the day after.
+  #   Events without a date always show, after the dated ones, in the order listed.
+  # - Start/end time, if set, is shown as "Time:" instead of time_note.
+  # - location_label defaults to "Meet" (e.g. "Venue" for a hall).
+  - name: events
+    label: Upcoming events
+    type: file
+    path: _data/events.yml
+    format: yaml
+    list: true
+    fields:
+      - name: title
+        label: Event name
+        type: string
+        required: true
+        description: "e.g. 'New wood maintenance'"
+      - name: when
+        label: When (as shown on the tile)
+        type: string
+        required: true
+        description: "Free text, e.g. 'Saturday 14 March 2027' or 'Spring 2027 · date TBC'."
+      - name: date
+        label: Actual date (optional)
+        type: date
+        default: ""
+        description: "Fill this in once the date is fixed. The event then disappears from the site automatically the day after. Leave blank if TBC, and the event stays up until you delete it."
+        options:
+          format: yyyy-MM-dd
+      - name: type
+        label: Type of event
+        type: string
+        description: "e.g. 'Volunteer event' or 'Public meeting · open to all'"
+      - name: location
+        label: Where to meet
+        type: string
+        description: "e.g. 'inside the gate'"
+      - name: time_note
+        label: Time
+        type: string
+        description: "e.g. '10am to 12 noon' or 'to be confirmed'"
+      - name: description
+        label: Details
+        type: text
+        description: "What the event involves and anything people should bring."
+      - name: start_time
+        label: Start time (optional)
+        type: string
+        description: "e.g. '10:00'. If set, this is shown as the time instead of the Time box above."
+      - name: end_time
+        label: End time (optional)
+        type: string
+        description: "e.g. '12:00'. Only shown alongside a start time."
+      - name: duration
+        label: How long (optional)
+        type: string
+        description: "e.g. '2 hours, but any time you can give is appreciated'"
+      - name: location_label
+        label: Label for the location (optional)
+        type: string
+        description: "Shown before the location. Leave blank for 'Meet', or use e.g. 'Venue'."
+      - name: image
+        label: Photo (optional)
+        type: image
+        description: "Shown inside the event details. Landscape photos work best. JPG or PNG."
+      - name: image_alt
+        label: Photo description (for screen readers)
+        type: string
+        description: "Describe what's in the photo in a few words. Needed whenever you add a photo."
+      - name: link
+        label: Link for more details (optional)
+        type: string
+        description: "A full web address, e.g. 'https://…'. Adds a 'More details →' link to the event."
